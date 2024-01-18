@@ -1,0 +1,11 @@
+.navbar{
+    height: 70px !important;
+    background-color: white !important;
+}
+.nav-link{
+    color: black !important;
+}
+.nav-link:hover{
+    color: #ff4500 !important;
+    transition:.5s !important;
+}
