@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import homeCover from '../images/home_cover.jpg';
 import aboutUser from '../images/aboutUs.jpg';
 import styles from '../styles/Home.css';
+import EyeCheckUp from '../images/EyeCheckUp.jpg';
+import EyeTest from '../images/EyeTest.jpg';
+import EarCheckUp from '../images/earCheckup.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -74,6 +77,30 @@ const HomeScreen = () => {
                         ensuring you always look and see your best
                     </p>
                     <button className='btn3'>Learn More</button>
+                </div>
+            </div>
+            <div className='row mt-5 justify-content-center table_3'>
+                <div className='col-md-7 mt-5'>
+                    <center><p style={{color:"#ff4500"}}>Our Service</p>
+                    <h1 data-aos="fade-up"><strong>What Can We Do</strong></h1>
+                    <p data-aos="fade-up">Our optical services encompass comprehensive eye exams, precise prescriptions,
+                        and a curated selection of fashionable frames and lenses. Whether you seek vision correction,
+                        style enhancement, or emergency eye care, our dedicated team is committed to providing personalized solutions,
+                        ensuring your eye health and satisfaction are our top priorities.</p></center>
+                </div>
+            </div>
+            <div className='row justify-content-center table_4'>
+                <div className='col-md-3 mt-5'>
+                    <img src={EyeTest} alt="Visual Acuity Test" className='t4img' />
+                    <h2 style={{marginTop:"30px"}}><strong>Visual Acuity Test</strong></h2>
+                </div>
+                <div className='col-md-3 mt-5'>
+                    <img src={EyeCheckUp} alt="Visual Acuity Test" className='t4img' />
+                    <h2 style={{marginTop:"30px"}}><strong>Eye Check Up</strong></h2>
+                </div>
+                <div className='col-md-3 mt-5'>
+                    <img src={EarCheckUp} alt="Visual Acuity Test" className='t4img' />
+                    <h2 style={{marginTop:"30px"}}><strong>Ear Check Up</strong></h2>
                 </div>
             </div>
         </div>

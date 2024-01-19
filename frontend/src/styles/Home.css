@@ -69,3 +69,19 @@
     background-color: #c7a683 !important;
     transition:.5s !important;
 }
+.table_3{
+    position: relative !important;
+    bottom: 370px !important;
+    background-color: rgb(245, 245, 245) !important;
+}
+.t4img{
+    height: 230px !important;
+    width: 100% !important;
+    border: 5px solid white !important;
+}
+.table_4{
+    position: relative !important;
+    bottom: 370px !important;
+    background-color: rgb(245, 245, 245) !important;
+    height: 500px;
+}
