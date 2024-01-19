@@ -1,4 +1,38 @@
-.pp{
-    color: rgb(254, 0, 0) !important;
-    font-size: 12px;
+.homepic{
+    width: 1550px !important;
+}
+.welcome{
+    position: relative !important;
+    bottom: 530px !important;
+    font-size: 70px !important;
+    margin-left: 150px !important;
+    color: black !important;
+}
+.welcome_2{
+    position: relative !important;
+    bottom: 530px !important;
+    margin-left: 150px !important;
+    color: black !important;
+}
+.btn1{
+    background-color: #ff4500 !important;
+    border: none !important;
+    color: white !important;
+    width: 150px !important;
+    height: 40px !important;
+}
+.btn1:hover{
+    background-color: #8b2703 !important;
+    transition:.5s !important;
+}
+.btn2{
+    background-color: white !important;
+    border: none !important;
+    color: black !important;
+    width: 200px !important;
+    height: 40px !important;
+}
+.btn2:hover{
+    background-color: #ffd9d9 !important;
+    transition:.5s !important;
 }
