@@ -150,6 +150,18 @@ const HomeScreen = () => {
                     <button className='btn1' >SHOP NOW !</button>
                 </div>
             </div>
+            <div className='row mt-3 justify-content-center table_6'>
+                <div className='col-md-5 table_6col_3' data-aos="fade-up-right">
+                    <h1><strong>Ophthalmologists</strong></h1>
+                    <p>You can book an eye specialist for<br />your eye examination</p>
+                    <button className='btn2' >ASK OPTOMETRIST</button>
+                </div>
+                <div className='col-md-5 table_6col_4' data-aos="fade-up-left">
+                    <h1 style={{color:"white"}}><strong>Ear Specialists</strong></h1>
+                    <p style={{color:"white"}}>You can book an ear specialist for<br />your ear examination</p>
+                    <button className='btn2' >ASK OPTOMETRIST</button>
+                </div>
+            </div>
         </div>
     );
 }

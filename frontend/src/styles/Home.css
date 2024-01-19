@@ -124,3 +124,18 @@
     position: relative !important;
     bottom: 780px !important;
 }
+.table_6col_3{
+    background-image: url("https://img.freepik.com/free-photo/optical-doctor-store_23-2148920061.jpg?w=996&t=st=1705673793~exp=1705674393~hmac=dab76df8e2af62eb7f300a236b3465a7bb01290a132e9d7de8b9d48a9e466f33") !important;
+    background-size: cover!important;
+    height: 300px !important;
+    margin-right: 20px !important;
+    padding-left: 50px !important;
+    padding-top: 50px !important;
+}
+.table_6col_4{
+    background-image: url("https://img.freepik.com/free-photo/clinic-otology-specialist-consulting-senior-patient-using-otoscope-check-ear-infection-hospital-otologist-examining-sick-retired-man-internal-ear-condition-while-doctor-cabinet_482257-44402.jpg?w=996&t=st=1705674067~exp=1705674667~hmac=a4553a4cb74731be4bad79d6b9a3ad1a0849279e2ed5af54888bfbdc9cf12232") !important;
+    background-size: cover!important;
+    height: 300px !important;
+    padding-left: 50px !important;
+    padding-top: 50px !important;
+}
