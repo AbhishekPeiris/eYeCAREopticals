@@ -105,3 +105,22 @@
     position: relative !important;
     bottom: 370px !important;
 }
+.table_6col_1{
+    background-image: url("https://img.freepik.com/free-photo/portrait-handsome-young-smiling-afro-man-wearing-glasses-smiling-standing-with-open-hand-gesture-isolated-beige-wall_158595-7632.jpg?w=996&t=st=1705671684~exp=1705672284~hmac=56d7620ed12c4b9b193f54c63dc01780017917121f2a400040b76a7c649208a6") !important;
+    background-size: cover!important;
+    height: 300px !important;
+    margin-right: 20px !important;
+    padding-left: 50px !important;
+    padding-top: 50px !important;
+}
+.table_6col_2{
+    background-image: url("https://img.freepik.com/free-photo/shocked-young-brunette-caucasian-girl-holds-hand-close-ear-isolated-purple-wall_141793-70399.jpg?w=900&t=st=1705672107~exp=1705672707~hmac=13d01b3f9f1e1b2f0ebe8a62192d374d50764192b85c59450bcc5af2fe406759") !important;
+    background-size: cover!important;
+    height: 300px !important;
+    padding-left: 50px !important;
+    padding-top: 50px !important;
+}
+.table_6{
+    position: relative !important;
+    bottom: 780px !important;
+}
