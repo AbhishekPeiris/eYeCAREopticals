@@ -138,6 +138,18 @@ const HomeScreen = () => {
                     </div><br/>
                 </div>
             </div>
+            <div className='row justify-content-center table_6'>
+                <div className='col-md-5 table_6col_1' data-aos="fade-right">
+                    <h1><strong>Eyeglasses</strong></h1>
+                    <p>You can get any model of<br />Eyeglasses from us</p>
+                    <button className='btn1' >SHOP NOW !</button>
+                </div>
+                <div className='col-md-5 table_6col_2' data-aos="fade-left">
+                    <h1><strong>Deaf Aids</strong></h1>
+                    <p>You can get any model of<br />Deaf Aids from us</p>
+                    <button className='btn1' >SHOP NOW !</button>
+                </div>
+            </div>
         </div>
     );
 }
