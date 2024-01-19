@@ -145,8 +145,8 @@ const HomeScreen = () => {
                     <button className='btn1' >SHOP NOW !</button>
                 </div>
                 <div className='col-md-5 table_6col_2' data-aos="fade-left">
-                    <h1><strong>Deaf Aids</strong></h1>
-                    <p>You can get any model of<br />Deaf Aids from us</p>
+                    <h1 style={{color:"white"}}><strong>Deaf Aids</strong></h1>
+                    <p style={{color:"white"}}>You can get any model of<br />Deaf Aids from us</p>
                     <button className='btn1' >SHOP NOW !</button>
                 </div>
             </div>
