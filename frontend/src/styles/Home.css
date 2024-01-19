@@ -5,13 +5,13 @@
     position: relative !important;
     bottom: 530px !important;
     font-size: 70px !important;
-    margin-left: 150px !important;
+    margin-left: 200px !important;
     color: black !important;
 }
 .welcome_2{
     position: relative !important;
     bottom: 530px !important;
-    margin-left: 150px !important;
+    margin-left: 200px!important;
     color: black !important;
 }
 .btn1{
@@ -33,6 +33,39 @@
     height: 40px !important;
 }
 .btn2:hover{
+    background-color: #c7a683 !important;
+    transition:.5s !important;
+}
+.hQ1_1{
+    font-size: 26px !important;
+}
+.icon_1{
+    font-size: 25px;
+    color: #ff4500;
+}
+.table_1{
+    background-color: rgb(252, 245, 236);
+    position: relative !important;
+    bottom: 440px !important;
+    height: 200px !important;    
+}
+.aboutusImg{
+    height: 400px !important;
+    width: 600px !important;  
+}
+.table_2{
+    position: relative !important;
+    bottom: 380px !important;
+    margin-left: 200px !important;
+}
+.btn3{
+    background-color: #f2e1cf !important;
+    border: none !important;
+    color: black !important;
+    width: 200px !important;
+    height: 40px !important;
+}
+.btn3:hover{
     background-color: #c7a683 !important;
     transition:.5s !important;
 }
