@@ -162,6 +162,19 @@ const HomeScreen = () => {
                     <button className='btn2' >ASK OPTOMETRIST</button>
                 </div>
             </div>
+            <div className='row table_7'>
+                <div className='col mt-4 table_7col_1'>
+                    <i class="fa fa-volume-control-phone icon_2" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                    <span style={{fontSize:"30px", color:"white"}}><strong>Get your Eyes Checked At Our Clinic</strong></span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style={{fontSize:"25px", color:"white"}}>and get a discount on your new glasses</span>
+                </div>
+                <div className='col mt-5 table_7col_1'>
+                    <button className='btn2' >ASK OPTOMETRIST</button>
+                </div>
+            </div>
+            <div className='row table_8'>
+
+            </div>
         </div>
     );
 }
