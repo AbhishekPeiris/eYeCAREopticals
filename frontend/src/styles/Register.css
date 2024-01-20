@@ -16,3 +16,14 @@ input {
     background-color: #8b2703 !important;
     transition:.5s !important;
 }
+.regpic{
+    width: 50% !important;
+    margin-left: 40% !important;
+}
+.frame{
+    position: relative !important;
+    bottom: 500px !important;
+}
+.Rtable_1{
+    margin-top: -450px !important;
+}

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from '../styles/Register.css';
-import registerimg from '../images/register.jpg';
+import registerimg from '../images/register.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -12,8 +12,8 @@ const RegisterScreen = () => {
     return (
         <div>
             <br /><br /><br />
-            <section className="bg-image" style={{ backgroundImage: `url(${registerimg})` }} data-aos="fade-left">
-                <div className="mask d-flex align-items-center h-100" data-aos="fade-right">
+                <img src={registerimg} alt="Home cover" className='regpic' data-aos="fade-left" />
+                <div className="mask d-flex align-items-center h-100 frame">
                     <div className="container h-100">
                         <div className="row d-flex justify-content-left align-items-left h-100 mt-5 mb-5">
                             <div className="col-12 col-md-8 col-lg-6">
@@ -93,7 +93,10 @@ const RegisterScreen = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+                <div className='row Rtable_1'>
+
+                </div>
+            
         </div>
     );
 }
