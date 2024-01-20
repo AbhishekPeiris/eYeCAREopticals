@@ -1,5 +1,3 @@
-// NavBar.js
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/navbar_logo.png';
@@ -16,13 +14,12 @@ const NavBar = () => {
             setIsNavbarFixed(isFixed);
         };
 
-        // Attach the event listener to the scroll event
         window.addEventListener('scroll', handleScroll);
 
-        // Clean up the event listener when the component is unmounted
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
+        
     }, []);
 
     return (
