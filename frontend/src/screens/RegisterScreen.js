@@ -6,6 +6,8 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 
+AOS.init({ duration: 1000 });
+
 const RegisterScreen = () => {
 
     const [loading, setLoading] = useState(true);
@@ -13,7 +15,6 @@ const RegisterScreen = () => {
     useEffect(() => {
         setLoading(true);
         setLoading(false);
-        AOS.init({ duration: 1000 });
     }, []);
 
     return (
