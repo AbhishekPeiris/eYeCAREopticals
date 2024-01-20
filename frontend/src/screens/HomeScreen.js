@@ -10,14 +10,15 @@ import 'aos/dist/aos.css';
 import ourvalue from '../images/ourvalue.jpg';
 import Loader from '../components/Loader';
 
+AOS.init({ duration: 1000 });
+
 const HomeScreen = () => {
 
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true);
-        setLoading(false);
-        AOS.init({ duration: 1000 });
+        setLoading(false);      
     }, []);
 
     return (

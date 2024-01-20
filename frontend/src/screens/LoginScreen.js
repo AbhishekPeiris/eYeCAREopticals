@@ -5,6 +5,8 @@ import 'aos/dist/aos.css';
 import loginImg from '../images/login.jpg';
 import Loader from '../components/Loader';
 
+AOS.init({ duration: 1000 });
+
 const LoginScreen = () => {
 
     const [loading, setLoading] = useState(true);
@@ -12,7 +14,6 @@ const LoginScreen = () => {
     useEffect(() => {
         setLoading(true);
         setLoading(false);
-        AOS.init({ duration: 1000 });
     }, []);
 
     return (
