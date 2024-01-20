@@ -3,6 +3,7 @@ import styles from '../styles/Register.css';
 import registerimg from '../images/register.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 const RegisterScreen = () => {
     useEffect(() => {
@@ -17,7 +18,7 @@ const RegisterScreen = () => {
                     <div className="container h-100">
                         <div className="row d-flex justify-content-left align-items-left h-100 mt-5 mb-5">
                             <div className="col-12 col-md-8 col-lg-6">
-                                <div className="card" style={{ borderRadius: "15px", border: "3px solid #f5e9db" }}>
+                                <div className="card" style={{ borderRadius: "15px", border: "3px solid #f5e9db"}}>
                                     <div className="card-body p-4">
                                         <h2 className="text-center mb-4"><strong>Register</strong></h2>
                                         <form>
@@ -85,7 +86,7 @@ const RegisterScreen = () => {
                                                 <button type="submit" className="btn btn-success btn-block btn-lg text-body">Register</button>
                                             </div>
 
-                                            <p className="text-center text-muted mt-3 mb-0">Already have an account? <a href="#!" className="fw-bold text-body"><u>Login here</u></a></p>
+                                            <p className="text-center text-muted mt-3 mb-0">Already have an account? <Link to="/login" className="fw-bold text-body"><u>Login here</u></Link></p>
                                         </form>
                                     </div>
                                 </div>
