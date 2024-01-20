@@ -26,7 +26,7 @@ const Footer = () => {
                         <div class="col-lg-2 col-md-6">
                             <h5 class="mb-3" style={{ color: "#ff4500" }}>Further Information</h5>
                             <ul class="list-unstyled text-muted">
-                                <li><a href="#">Terams & Condition</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
                             </ul>
                         </div>
