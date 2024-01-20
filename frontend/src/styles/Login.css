@@ -1,10 +1,16 @@
-.card{
+.card2{
     background-color: white !important;
     color: black !important;
+    position:  relative !important;
+    bottom: 500px !important;
+    left: 200px !important;
 }
 .form-label{
    margin-right: 300px !important;
 }
 .logpic{
     width: 50% !important;
+}
+.Ltable_1{
+    margin-top: -450px !important;
 }
