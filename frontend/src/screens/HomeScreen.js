@@ -17,6 +17,7 @@ const HomeScreen = () => {
 
     return (
         <div>
+            <br /><br /><br />
             <div className='row'>
                 <div className='col'>
                     <img src={homeCover} alt="Home cover" className='homepic' />
@@ -140,13 +141,13 @@ const HomeScreen = () => {
             </div>
             <div className='row justify-content-center table_6'>
                 <div className='col-md-5 table_6col_1' data-aos="fade-right">
-                    <h1><strong>Eyeglasses</strong></h1>
-                    <p>You can get any model of<br />Eyeglasses from us</p>
+                    <h1><strong>Spectacles</strong></h1>
+                    <p>You can get any model of<br />Spectacles from us</p>
                     <button className='btn1' >SHOP NOW !</button>
                 </div>
                 <div className='col-md-5 table_6col_2' data-aos="fade-left">
-                    <h1 style={{color:"white"}}><strong>Deaf Aids</strong></h1>
-                    <p style={{color:"white"}}>You can get any model of<br />Deaf Aids from us</p>
+                    <h1 style={{color:"white"}}><strong>Hearing Aids</strong></h1>
+                    <p style={{color:"white"}}>You can get any model of<br />Hearing Aids from us</p>
                     <button className='btn1' >SHOP NOW !</button>
                 </div>
             </div>

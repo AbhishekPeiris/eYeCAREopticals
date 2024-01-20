@@ -1,0 +1,18 @@
+.bg-image{
+    background-size: cover!important;
+}
+.card{
+    border: 3px solid #f5e9db !important;
+}
+input {
+    background-color: white !important;
+}
+.btn {
+    background-color: #ff4500 !important;
+    border: none !important;
+    color: white !important;
+}
+.btn:hover{
+    background-color: #8b2703 !important;
+    transition:.5s !important;
+}
