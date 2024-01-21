@@ -20,9 +20,12 @@ app.listen(PORT, () => {
 mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-})
+});
 
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB connection successfully');
-})
+});
+
+const userRouter = require('./routes/UserRoute');
+app.use('/user', userRouter);
