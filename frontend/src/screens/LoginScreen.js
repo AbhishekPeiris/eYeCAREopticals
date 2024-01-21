@@ -64,7 +64,7 @@ const LoginScreen = () => {
                                             </div>
 
                                             <div>
-                                                <p style={{ marginTop: "-50px" }}>Don't have an account? <a href="#!" class="fw-bold">Sign Up</a>
+                                                <p style={{ marginTop: "-50px" }}>Don't have an account? <a href="/register" class="fw-bold">Sign Up</a>
                                                 </p>
                                             </div>
 

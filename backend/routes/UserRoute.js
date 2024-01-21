@@ -29,11 +29,11 @@ router.route('/register').post(async (req, res) => {
     try {
         
         await newUser.save();
-        return res.status(200).json({status: "User is added successfully"});
+        return res.status(200).json({status: "User is registered successfully"});
 
     } catch (error) {
         
-        return res.status(500).json({status: "Error with adding user", messsage: error.message});
+        return res.status(500).json({status: "Error with register user", messsage: error});
     }
 });
 

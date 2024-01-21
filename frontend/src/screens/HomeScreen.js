@@ -16,9 +16,9 @@ const HomeScreen = () => {
 
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+    useEffect(() => {    
         setLoading(true);
-        setLoading(false);      
+        setLoading(false);     
     }, []);
 
     return (
