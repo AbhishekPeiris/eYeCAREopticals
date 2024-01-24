@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
+import Profile from './screens/Profile';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
           <Route path='/register' element={<RegisterScreen />} />
           <Route path='/login' element={<LoginScreen />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/' element={<HomeScreen />} />  
 
         </Routes>

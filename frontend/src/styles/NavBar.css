@@ -14,9 +14,31 @@
     transition:.5s !important;
 }
 .dropdown-menu{
-    background-color: white !important;;
+    background-color: white !important;
+    border: none !important;
+    width: 120%;
+}
+.dropdownIcon{
+    color: #ff4500 !important;
+    margin-left: 10px !important;
+    position: relative !important;
+    top: 20px !important;
+    z-index: 1;
+}
+.dropdown-item{
+    margin-left: 15px !important;
+    position: relative !important;
+    bottom: 10px !important;
+}
+.dropdown-menu{
+    width: 100% !important;
 }
 .dropdown-item:hover{
+    background-color: rgb(252, 245, 236) !important;
+    width: 0px !important;
+    transition:.5s !important;
+}
+.ddline:hover{
     background-color: rgb(252, 245, 236) !important;
     transition:.5s !important;
 }
