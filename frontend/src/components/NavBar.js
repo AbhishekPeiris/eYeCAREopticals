@@ -6,7 +6,10 @@ import styles from '../styles/NavBar.css';
 const NavBar = () => {
     const [isNavbarFixed, setIsNavbarFixed] = useState(false);
 
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    
     useEffect(() => {
+        
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
             const isFixed = scrollPosition > 0;
@@ -19,8 +22,15 @@ const NavBar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-        
+
     }, []);
+
+    function logout() {
+
+        localStorage.removeItem('currentUser')
+        window.location.href = '/login';
+
+    }
 
     return (
         <div>
@@ -39,12 +49,38 @@ const NavBar = () => {
                             <li className="nav-item">
                                 <Link to="/services" className="nav-link mx-2">Services</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link to="/register" className="nav-link mx-2">Register</Link>
+                            <li>
+                                <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
+                                <ul class="navbar-nav">
+
+                                    {user ? (<>
+
+                                        <div className="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i className='fa fa-user'></i>&nbsp;&nbsp;{user.firstname}&nbsp;&nbsp;{user.lastname}
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                                <li><Link to="/profile" className="dropdown-item">Profile</Link></li>
+                                                <li><Link to="/bookings" className="dropdown-item">Bookings</Link></li>
+                                                <li><Link class="dropdown-item" onClick={logout}>Logout</Link></li>
+
+                                            </ul>
+
+                                        </div>
+                                    </>) : (<>
+
+                                        <li className="nav-item">
+                                            <Link to="/register" className="nav-link mx-2">Register</Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link to="/login" className="nav-link mx-2">Login</Link>
+                                        </li>
+
+                                    </>)}
+                                </ul>
                             </li>
-                            <li className="nav-item">
-                                <Link to="/login" className="nav-link mx-2">Login</Link>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
