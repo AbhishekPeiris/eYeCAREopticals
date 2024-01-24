@@ -27,7 +27,9 @@ const RegisterScreen = () => {
 
     useEffect(() => {
         setLoading(true);
-        setLoading(false);
+        setTimeout(() => {
+            setLoading(false);
+          }, 700);
     }, []);
 
     async function UserRegister(e) {

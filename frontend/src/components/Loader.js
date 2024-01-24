@@ -6,7 +6,7 @@ const Loader = () => {
     const [loading, setLoading] = useState(true);
 
     return (
-        <div style={{marginTop:'150px'}}>
+        <div style={{marginTop:'200px',marginBottom:"210px"}}>
            <center><div className="sweet-loading">
 
                 <PulseLoader

@@ -18,7 +18,9 @@ const HomeScreen = () => {
 
     useEffect(() => {    
         setLoading(true);
-        setLoading(false);     
+        setTimeout(() => {
+            setLoading(false);
+          }, 700);    
     }, []);
 
     return (
