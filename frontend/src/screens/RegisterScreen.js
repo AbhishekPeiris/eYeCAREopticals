@@ -24,6 +24,8 @@ const RegisterScreen = () => {
     const [password, setPassword] = useState();
 
     const [passwordConfirmation, setPasswordConfirmation] = useState();
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmPasswordVisible, setconfirmPasswordVisible] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -108,7 +110,7 @@ const RegisterScreen = () => {
                                             <form onSubmit={UserRegister}>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label" htmlFor="firstName">First Name</label>
+                                                    <label htmlFor="firstName">First Name</label>
                                                     <input type="text" id="firstName" className="form-control" placeholder='Enter first name' value={firstname} required 
                                                         onChange={(e) => {
                                                             setFirstname(e.target.value);
@@ -117,7 +119,7 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label" htmlFor="lastName">Last Name</label>
+                                                    <label htmlFor="lastName">Last Name</label>
                                                     <input type="text" id="lastName" className="form-control" placeholder='Enter last name' value={lastname} required 
                                                         onChange={(e) => {
                                                             setLastname(e.target.value);
@@ -126,7 +128,7 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label" htmlFor="dob">Date of Birth</label>
+                                                    <label htmlFor="dob">Date of Birth</label>
                                                     <input type="date" id="dob" className="form-control" value={dob} required 
                                                         onChange={(e) => {
                                                             setDob(e.target.value);
@@ -135,7 +137,7 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label" htmlFor="address">Address</label>
+                                                    <label htmlFor="address">Address</label>
                                                     <textarea id="address" className="form-control" style={{ width: '100%', minHeight: '50px', maxHeight: "100px", backgroundColor: "white" }} placeholder="Enter address" value={address} required
                                                         onChange={(e) => {
                                                             setAddress(e.target.value);
@@ -144,7 +146,7 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label">Gender</label><br />
+                                                    <label>Gender</label><br />
                                                     <div className="form-check form-check-inline">
                                                         <input type="radio" id="maleRadio" name="gender" className="form-check-input" value="male" required checked={gender === "male"} 
                                                             onChange={(e) => {
@@ -164,7 +166,7 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label" htmlFor="contact">Contact</label>
+                                                    <label htmlFor="contact">Contact</label>
                                                     <input type='tel' maxLength={10} id="contact" className="form-control" placeholder='Enter contact' value={contact} required 
                                                         onChange={(e) => {
                                                             setContact(e.target.value);
@@ -173,7 +175,7 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label" htmlFor="email">Email</label>
+                                                    <label htmlFor="email">Email</label>
                                                     <input type="email" id="email" className="form-control" placeholder='Enter email' value={email} required 
                                                         onChange={(e) => {
                                                             setEmail(e.target.value);
@@ -182,24 +184,34 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label className="form-label" htmlFor="password">Password</label>
-                                                    <input type="password" id="password" className="form-control" placeholder='Enter password' value={password} required 
+                                                    <label htmlFor="password">Password</label>
+                                                    <input type={passwordVisible ? 'text' : 'password'} id="password" className="form-control" placeholder='Enter password' value={password} required 
                                                         onChange={(e) => {
                                                             setPassword(e.target.value);
                                                         }}
                                                     />
+                                                    <i
+                                                        className={`bi ${passwordVisible ? 'bi-eye' : 'bi-eye-slash'} Showpassword2`}
+                                                        id="togglePassword"
+                                                        onClick={() => setPasswordVisible(!passwordVisible)}
+                                                    ></i>
                                                 </div>
 
-                                                <div className="mb-3">
-                                                    <label className="form-label" htmlFor="confirmPassword">Confirm password</label>
-                                                    <input type="password" id="confirmPassword" className="form-control" placeholder='Enter confirm' value={passwordConfirmation} required 
+                                                <div className="mb-3 cp">
+                                                    <label htmlFor="confirmPassword">Confirm password</label>
+                                                    <input type={confirmPasswordVisible ? 'text' : 'password'} id="confirmPassword" className="form-control" placeholder='Enter confirm' value={passwordConfirmation} required 
                                                         onChange={(e) => {
                                                             setPasswordConfirmation(e.target.value);
                                                         }}
                                                     />
+                                                    <i
+                                                        className={`bi ${confirmPasswordVisible ? 'bi-eye' : 'bi-eye-slash'} Showpassword2`}
+                                                        id="togglePassword"
+                                                        onClick={() => setconfirmPasswordVisible(!confirmPasswordVisible)}
+                                                    ></i>
                                                 </div>
 
-                                                <div className="form-check mb-3">
+                                                <div className="form-check mb-3 tos">
                                                     <input className="form-check-input" type="checkbox" value="" id="termsCheckbox" required />
                                                     <label className="form-check-label" htmlFor="termsCheckbox">
                                                         I agree to the <a href="#!" className="text-body"><u>Terms of service</u></a>

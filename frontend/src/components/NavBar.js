@@ -61,8 +61,8 @@ const NavBar = () => {
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                                                <li><Link to="/profile" className="dropdown-item">Profile</Link></li>
-                                                <li><Link to="/bookings" className="dropdown-item">Bookings</Link></li>
+                                                <li><Link to="/profile" className="dropdown-item">Your Profile</Link></li>
+                                                <li><Link to="/bookings" className="dropdown-item">Your Bookings</Link></li>
                                                 <li><Link class="dropdown-item" onClick={logout}>Logout</Link></li>
 
                                             </ul>
