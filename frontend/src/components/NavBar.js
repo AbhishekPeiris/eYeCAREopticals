@@ -57,7 +57,7 @@ const NavBar = () => {
 
                                         <div className="dropdown">
                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i className='fa fa-user'></i>&nbsp;&nbsp;{user.firstname}&nbsp;&nbsp;{user.lastname}
+                                                <i className='fa fa-user'></i>&nbsp;&nbsp;{user.firstname}&nbsp;{user.lastname}
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 

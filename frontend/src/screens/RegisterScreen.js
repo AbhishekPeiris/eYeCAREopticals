@@ -148,19 +148,19 @@ const RegisterScreen = () => {
                                                 <div className="mb-3">
                                                     <label>Gender</label><br />
                                                     <div className="form-check form-check-inline">
-                                                        <input type="radio" id="maleRadio" name="gender" className="form-check-input" value="male" required checked={gender === "male"} 
+                                                        <input type="radio" id="maleRadio" name="gender" value="male" required checked={gender === "male"} 
                                                             onChange={(e) => {
                                                                 setGender("male");
                                                             }}
-                                                        />
+                                                        />&nbsp;&nbsp;
                                                         <label className="form-check-label" htmlFor="maleRadio"> Male</label>
-                                                    </div>
+                                                    </div>&nbsp;&nbsp;
                                                     <div className="form-check form-check-inline">
-                                                        <input type="radio" id="femaleRadio" name="gender" className="form-check-input" value="female" required checked={gender === "female"}
+                                                        <input type="radio" id="femaleRadio" name="gender" value="female" required checked={gender === "female"}
                                                             onChange={(e) => {
                                                                 setGender("female");
                                                             }}
-                                                        />
+                                                        />&nbsp;&nbsp;
                                                         <label className="form-check-label" htmlFor="femaleRadio">Female</label>
                                                     </div>
                                                 </div>
@@ -212,7 +212,7 @@ const RegisterScreen = () => {
                                                 </div>
 
                                                 <div className="form-check mb-3 tos">
-                                                    <input className="form-check-input" type="checkbox" value="" id="termsCheckbox" required />
+                                                    <input type="checkbox" value="" id="termsCheckbox" required />&nbsp;&nbsp;
                                                     <label className="form-check-label" htmlFor="termsCheckbox">
                                                         I agree to the <a href="#!" className="text-body"><u>Terms of service</u></a>
                                                     </label>
