@@ -4,6 +4,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import loginImg from '../images/login.jpg';
 import Loader from '../components/Loader';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 AOS.init({ duration: 1000 });
 
@@ -11,10 +13,45 @@ const LoginScreen = () => {
 
     const [loading, setLoading] = useState(true);
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     useEffect(() => {
         setLoading(true);
         setLoading(false);
     }, []);
+
+    async function UserLogin(e){
+        e.preventDefault();
+
+        const newUser = {
+
+            email,
+            password
+        }
+
+        try {
+            
+            setLoading(true);
+            const data = (await axios.post('http://localhost:5000/api/user/login', newUser)).data;
+            console.log(data);
+
+            if("Login Success"){
+                window.location.href = '/';
+            }
+            else{
+                Swal.fire('Oops', "Your email or password is incorrect", "error");
+            }
+            setLoading(false);
+
+        } catch (error) {
+
+            console.error(error);
+            Swal.fire('Oops', "Your email or password is incorrect", "error");
+            setLoading(false);
+
+        }
+    }
 
     return (
 
@@ -31,7 +68,7 @@ const LoginScreen = () => {
                             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                                 <div class="card bg-dark text-white card2" style={{ borderRadius: "1rem" }}>
 
-                                    <form>
+                                    <form onSubmit={UserLogin}>
                                         <div class="card-body p-5 text-center">
 
                                             <div class="mb-md-5 mt pb-5">
@@ -41,13 +78,21 @@ const LoginScreen = () => {
 
                                                 <div class="form-outline form-white mb-4">
                                                     <label class="form-label" for="typeEmailX">Email</label>
-                                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder='Enter email' required />
+                                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder='Enter email' required 
+                                                        onChange={(e) => {
+                                                            setEmail(e.target.value);
+                                                        }}
+                                                    />
 
                                                 </div>
 
                                                 <div class="form-outline form-white mb-4">
                                                     <label class="form-label" for="typePasswordX">Password</label>
-                                                    <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder='Enter password' required />
+                                                    <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder='Enter password' required 
+                                                        onChange={(e) => {
+                                                            setPassword(e.target.value);
+                                                        }}
+                                                    />
 
                                                 </div>
 

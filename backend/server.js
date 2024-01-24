@@ -28,4 +28,4 @@ connection.once('open', () => {
 });
 
 const userRouter = require('./routes/UserRoute');
-app.use('/user', userRouter);
+app.use('/api/user', userRouter);
