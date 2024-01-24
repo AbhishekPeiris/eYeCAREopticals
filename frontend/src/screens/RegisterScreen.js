@@ -50,7 +50,7 @@ const RegisterScreen = () => {
             try {
                 
                 setLoading(true);
-                const data = (await axios.post('http://localhost:5000/user/register', newUser)).data;
+                const data = (await axios.post('http://localhost:5000/api/user/register', newUser)).data;
                 console.log(data);
                 Swal.fire('Thank you!', "Registration Successfully", "success").then(result => {
 
