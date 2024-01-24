@@ -81,7 +81,7 @@ const LoginScreen = () => {
                                                 <p class="mb-5">Please enter your login and password!</p>
 
                                                 <div class="form-outline form-white mb-4">
-                                                    <label class="form-label" for="typeEmailX">Email</label>
+                                                    <label className="form-label" for="typeEmailX">Email</label>
                                                     <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder='Enter email' required 
                                                         onChange={(e) => {
                                                             setEmail(e.target.value);
@@ -91,7 +91,7 @@ const LoginScreen = () => {
                                                 </div>
 
                                                 <div class="form-outline form-white mb-4">
-                                                    <label class="form-label" for="typePasswordX">Password</label>
+                                                    <label className="form-label" for="typePasswordX">Password</label>
                                                     <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder='Enter password' required 
                                                         onChange={(e) => {
                                                             setPassword(e.target.value);
