@@ -39,12 +39,13 @@ const LoginScreen = () => {
             console.log(data);
 
             if("Login Success"){
+                localStorage.setItem('currentUser', JSON.stringify(data));
                 window.location.href = '/';
             }
             else{
                 Swal.fire('Oops', "Your email or password is incorrect", "error");
             }
-            setLoading(false);
+            setLoading(false);    
 
         } catch (error) {
 
