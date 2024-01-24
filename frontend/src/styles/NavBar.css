@@ -13,4 +13,11 @@
     color: #ff4500 !important;
     transition:.5s !important;
 }
+.dropdown-menu{
+    background-color: white !important;;
+}
+.dropdown-item:hover{
+    background-color: rgb(252, 245, 236) !important;
+    transition:.5s !important;
+}
 
