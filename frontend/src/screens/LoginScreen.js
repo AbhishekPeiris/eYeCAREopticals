@@ -16,14 +16,16 @@ const LoginScreen = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-          }, 700);
+        }, 700);
     }, []);
 
-    async function UserLogin(e){
+    async function UserLogin(e) {
         e.preventDefault();
 
         const newUser = {
@@ -33,20 +35,20 @@ const LoginScreen = () => {
         }
 
         try {
-            
+
             setLoading(true);
             const data = (await axios.post('http://localhost:5000/api/user/login', newUser)).data;
             console.log(data.loginUser);
 
-            if(data.status === "Login Success"){
+            if (data.status === "Login Success") {
                 localStorage.setItem('currentUser', JSON.stringify(data.loginUser));
                 console.log('User data stored in localStorage:', data.loginUser);
                 window.location.href = '/';
             }
-            else{
+            else {
                 Swal.fire('Oops', "Your email or password is incorrect", "error");
             }
-            setLoading(false);    
+            setLoading(false);
 
         } catch (error) {
 
@@ -82,7 +84,7 @@ const LoginScreen = () => {
 
                                                 <div class="form-outline form-white mb-4">
                                                     <label className="form-label" for="typeEmailX">Email</label>
-                                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder='Enter email' required 
+                                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder='Enter email' required
                                                         onChange={(e) => {
                                                             setEmail(e.target.value);
                                                         }}
@@ -92,11 +94,21 @@ const LoginScreen = () => {
 
                                                 <div class="form-outline form-white mb-4">
                                                     <label className="form-label" for="typePasswordX">Password</label>
-                                                    <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder='Enter password' required 
+                                                    <input
+                                                        type={passwordVisible ? 'text' : 'password'}
+                                                        id="typePasswordX"
+                                                        className="form-control form-control-lg"
+                                                        placeholder="Enter password"
+                                                        required
                                                         onChange={(e) => {
                                                             setPassword(e.target.value);
                                                         }}
                                                     />
+                                                    <i
+                                                        className={`bi ${passwordVisible ? 'bi-eye' : 'bi-eye-slash'} Showpassword`}
+                                                        id="togglePassword"
+                                                        onClick={() => setPasswordVisible(!passwordVisible)}
+                                                    ></i>
 
                                                 </div>
 

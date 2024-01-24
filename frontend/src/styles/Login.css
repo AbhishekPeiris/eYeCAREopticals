@@ -14,3 +14,9 @@
 .Ltable_1{
     margin-top: -450px !important;
 }
+.Showpassword{
+    position: relative !important;
+    bottom: 40px !important;
+    left: 150px !important;
+    cursor: pointer !important;
+}

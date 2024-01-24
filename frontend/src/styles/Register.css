@@ -27,3 +27,16 @@ input {
 .Rtable_1{
     margin-top: -450px !important;
 }
+.cp{
+   position: relative !important;
+   bottom: 20px !important;
+}
+.tos{
+    position: relative !important;
+    bottom: 20px !important;
+}
+.Showpassword2{
+    position: relative !important;
+    bottom: 33px !important;
+    left: 460px !important;
+}
