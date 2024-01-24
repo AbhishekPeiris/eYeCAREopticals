@@ -45,16 +45,26 @@ router.route('/login').post(async (req, res) => {
     } = req.body;
 
     try {
-        const user = await User.findOne({ email: email });
+        const user = await User.findOne({ email: email, password: password });
 
-        if (!user) {
-            return res.status(500).json({ status: "The email is incorrect" });
-        }
+        if (user) {
 
-        if (user.password === password) {
-            return res.status(200).json({ status: "Login Success" });
-        } else {
-            return res.status(500).json({ status: "The password is incorrect" });
+            const loginUser = {
+
+                _id: user._id,
+                firstname: user.firstname,
+                lastname: user.lastname,
+                dob: user.dob,
+                address: user.address,
+                gender: user.gender,
+                contact: user.contact,
+                email: user.email
+            }
+
+            return res.status(200).json({ status: "Login Success", loginUser});        
+        } 
+        else {
+            return res.status(500).json({ status: "The email or password is incorrect" });
         }
 
     } catch (error) {

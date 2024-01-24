@@ -36,10 +36,11 @@ const LoginScreen = () => {
             
             setLoading(true);
             const data = (await axios.post('http://localhost:5000/api/user/login', newUser)).data;
-            console.log(data);
+            console.log(data.loginUser);
 
-            if("Login Success"){
-                localStorage.setItem('currentUser', JSON.stringify(data));
+            if(data.status === "Login Success"){
+                localStorage.setItem('currentUser', JSON.stringify(data.loginUser));
+                console.log('User data stored in localStorage:', data.loginUser);
                 window.location.href = '/';
             }
             else{
