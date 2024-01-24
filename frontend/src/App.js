@@ -5,7 +5,8 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
-import Profile from './screens/Profile';
+import ProfileScreen from './screens/ProfileScreen';
+import BookingScreen from './screens/BookingScreen';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
 
           <Route path='/register' element={<RegisterScreen />} />
           <Route path='/login' element={<LoginScreen />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile' element={<ProfileScreen />} />
+          <Route path='/bookings' element={<BookingScreen />} />
           <Route path='/' element={<HomeScreen />} />  
 
         </Routes>
