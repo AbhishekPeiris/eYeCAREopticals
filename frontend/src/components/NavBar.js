@@ -60,10 +60,10 @@ const NavBar = () => {
                                                 <i className='fa fa-user'></i>&nbsp;&nbsp;{user.firstname}&nbsp;{user.lastname}
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-                                                <li><Link to="/profile" className="dropdown-item">Your Profile</Link></li>
-                                                <li><Link to="/bookings" className="dropdown-item">Your Bookings</Link></li>
-                                                <li><Link class="dropdown-item" onClick={logout}>Logout</Link></li>
+                                            
+                                                <li className='ddline'><i class="fa fa-user-circle dropdownIcon" aria-hidden="true"></i><Link to="/profile" className="dropdown-item">Your Profile</Link></li>
+                                                <li className='ddline'><i class="fa fa-shopping-cart dropdownIcon" aria-hidden="true"></i><Link to="/bookings" className="dropdown-item">Your Bookings</Link></li>
+                                                <li className='ddline'><i class="fa fa-sign-out dropdownIcon" aria-hidden="true"></i><Link class="dropdown-item" onClick={logout}>Logout</Link></li>
 
                                             </ul>
 
