@@ -7,6 +7,8 @@ import BookingScreen from './BookingScreen';
 import Modal from 'react-bootstrap/Modal';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const { TabPane } = Tabs;
 
@@ -27,6 +29,29 @@ const ProfileScreen = () => {
             setLoading(false);
         }, 700);
     }, []);
+
+    async function deleteUser(id){
+
+        try {
+            
+            setLoading(false);
+            const data = (await axios.delete(`http://localhost:5000/api/user/deleteuser/${id}`)).data;
+            console.log(data);
+            localStorage.removeItem('currentUser');
+            Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+
+                window.location.href = '/register';
+
+            });
+
+        } catch (error) {
+            
+            console.log(error);
+            Swal.fire('Error', "Error with deleting user", 'error');
+            setLoading(false);
+
+        }
+    }
 
     return (
         <div className='ml-3 mt-3'>
@@ -85,10 +110,10 @@ const ProfileScreen = () => {
                                 <Modal.Title style={{ marginTop: "30px", marginLeft: "50px" }}><strong>Deleting account</strong></Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <p style={{ marginLeft: "50px" }}>Deleting your account will remove all of your<br />information from our database. This cannot be<br />undone</p>
+                                <p style={{ marginLeft: "50px" }}>Deleting your account will remove all of your<br />information from our database. This cannot be<br />undone.</p>
                             </Modal.Body>
                             <Modal.Footer>
-                                <Link to='/profile'><button className="editUserbtn1">Delete my account</button></Link>
+                                <button className="editUserbtn1" onClick={(e) => deleteUser(user._id)}>Delete my account</button>
                                 <Button variant="secondary" onClick={handleClose}>
                                     Never mind, keep my account
                                 </Button>
