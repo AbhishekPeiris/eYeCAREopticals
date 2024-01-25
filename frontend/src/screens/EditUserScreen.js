@@ -54,7 +54,7 @@ const EditUserScreen = () => {
         if(password == passwordConfirmation){
 
             const updateUser = {
-
+                _id: userId,
                 firstname,
                 lastname,
                 dob,
@@ -72,9 +72,10 @@ const EditUserScreen = () => {
                 console.log(data);
                 localStorage.removeItem('currentUser');
                 localStorage.setItem('currentUser', JSON.stringify(updateUser));
+                console.log('User data stored in localStorage:', updateUser);
                 Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
 
-                    window.location.href = '/profile';
+                     window.location.href = '/profile';
 
                 });
                 setLoading(false);
