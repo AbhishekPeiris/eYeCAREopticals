@@ -13,6 +13,10 @@
     position: relative !important;
     left: 140px !important;
 }
+.Pdeletebtn{
+    background-color: white !important;
+    border: none !important;
+}
 .Pdeletebtn:hover{
     color: red !important;
 }

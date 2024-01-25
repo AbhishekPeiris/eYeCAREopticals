@@ -111,5 +111,21 @@ router.route('/edituser/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deleteuser/:id').delete(async (req, res) => {
+
+    const userId = req.params.id;
+
+    try {
+        
+        await User.findByIdAndDelete(userId);
+        return res.status(200).json({status : "User is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete user", message : error});
+
+    }
+});
+
 
 module.exports = router;

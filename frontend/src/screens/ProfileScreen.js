@@ -4,6 +4,9 @@ import styles from '../styles/Profile.css';
 import Link from 'antd/es/typography/Link';
 import Loader from '../components/Loader';
 import BookingScreen from './BookingScreen';
+import Modal from 'react-bootstrap/Modal';
+import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
 
 const { TabPane } = Tabs;
 
@@ -12,6 +15,11 @@ const ProfileScreen = () => {
     const [loading, setLoading] = useState(true);
 
     const user = JSON.parse(localStorage.getItem('currentUser'));
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         setLoading(true);
@@ -40,7 +48,7 @@ const ProfileScreen = () => {
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <h4 class="text-right">Profile</h4>
                                                 <a href={`/editprofile/${user._id}`} className='Peditbtn'><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                <a href='#' className='Pdeletebtn'><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                <button className='Pdeletebtn' onClick={handleShow}><i class="fa fa-trash" aria-hidden="true"></i></button>
                                             </div>
 
                                             <div class="row mt-2">
@@ -72,13 +80,28 @@ const ProfileScreen = () => {
 
                         )}
 
+                        <Modal show={show} onHide={handleClose} size='lg'>
+                            <Modal.Header closeButton>
+                                <Modal.Title style={{ marginTop: "30px", marginLeft: "50px" }}><strong>Deleting account</strong></Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <p style={{ marginLeft: "50px" }}>Deleting your account will remove all of your<br />information from our database. This cannot be<br />undone</p>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Link to='/profile'><button className="editUserbtn1">Delete my account</button></Link>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Never mind, keep my account
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
+
 
 
                     </div>
                 </TabPane>
                 <TabPane tab="Bookings" key="2">
                     <div>
-                        
+
                         <BookingScreen />
 
                     </div>
