@@ -54,7 +54,7 @@ const EditUserScreen = () => {
                                 <div className="col-12 col-md-8 col-lg-6">
                                     <div className="card" style={{ borderRadius: "15px", border: "3px solid #f5e9db" }}>
                                         <div className="card-body p-4">
-                                            <h2 className="text-center mb-4"><strong>Edit Profile</strong></h2>
+                                            <h2 className="text-center mb-4"><strong>Edit my profile</strong></h2>
 
                                             <form onSubmit={EditUser}>
 
