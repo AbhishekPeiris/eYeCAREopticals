@@ -23,7 +23,7 @@ function App() {
           <Route path='/login' element={<LoginScreen />} />
           <Route path='/profile' element={<ProfileScreen />} />
           <Route path='/bookings' element={<BookingScreen />} />
-          <Route path='/editprofile' element={<EditUserScreen />} />
+          <Route path='/editprofile/:userId' element={<EditUserScreen />} />
           <Route path='/' element={<HomeScreen />} />  
 
         </Routes>

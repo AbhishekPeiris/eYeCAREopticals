@@ -7,10 +7,12 @@ import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useParams } from "react-router-dom";
 
 AOS.init({ duration: 1000 });
 
 const EditUserScreen = () => {
+
     const [loading, setLoading] = useState(true);
 
     const [firstname, setFirstname] = useState();
@@ -26,15 +28,67 @@ const EditUserScreen = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setconfirmPasswordVisible] = useState(false);
 
+    const { userId } = useParams();
+
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-          }, 700);
+        }, 700);
+
+        setFirstname(user.firstname);
+        setLastname(user.lastname);
+        setDob(user.dob);
+        setAddress(user.address);
+        setGender(user.gender);
+        setContact(user.contact);
+        setEmail(user.email);
+    
     }, []);
 
     async function EditUser(e) {
         e.preventDefault();
+
+        if(password == passwordConfirmation){
+
+            const updateUser = {
+
+                firstname,
+                lastname,
+                dob,
+                address,
+                gender,
+                contact,
+                email,
+                password
+            }
+
+            try {
+                
+                setLoading(true);
+                const data = (await axios.put(`http://localhost:5000/api/user/edituser/${userId}`, updateUser)).data;
+                console.log(data);
+                localStorage.setItem('currentUser', JSON.stringify(data.updateUser));
+                Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
+
+                    window.location.href = '/profile';
+
+                });
+                setLoading(false);
+
+            } catch (error) {
+                
+                console.log(error);
+                Swal.fire('Error', "Error with updating user", "error");
+                setLoading(false);
+
+            }
+        }
+        else{
+            Swal.fire('Oops', "Password is not matched", "error");
+        }
 
     }
 

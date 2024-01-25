@@ -39,7 +39,7 @@ const ProfileScreen = () => {
                                         <div class="p-3 py-5">
                                             <div class="d-flex justify-content-between align-items-center mb-3">
                                                 <h4 class="text-right">Profile</h4>
-                                                <a href='/editprofile' className='Peditbtn'><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a href={`/editprofile/${user._id}`} className='Peditbtn'><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                 <a href='#' className='Pdeletebtn'><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </div>
 
