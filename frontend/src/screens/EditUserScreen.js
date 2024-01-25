@@ -70,7 +70,8 @@ const EditUserScreen = () => {
                 setLoading(true);
                 const data = (await axios.put(`http://localhost:5000/api/user/edituser/${userId}`, updateUser)).data;
                 console.log(data);
-                localStorage.setItem('currentUser', JSON.stringify(data.updateUser));
+                localStorage.removeItem('currentUser');
+                localStorage.setItem('currentUser', JSON.stringify(updateUser));
                 Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
 
                     window.location.href = '/profile';

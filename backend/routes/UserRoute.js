@@ -102,7 +102,7 @@ router.route('/edituser/:id').put(async (req, res) =>{
     try {
         
         await User.findByIdAndUpdate(userId, updateUser);
-        return res.status(200).json({status: "User updated", updateUser});
+        return res.status(200).json({status: "User updated"});
 
     } catch (error) {
         
