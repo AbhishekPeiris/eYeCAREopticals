@@ -40,11 +40,3 @@
 .section-title {
     padding-bottom: 45px;
 }
-.section-title h2 {
-    font-weight: 700;
-    color: black;
-    font-size: 45px;
-    margin: 0 0 15px;
-    border-left: 5px solid #fc5356;
-    padding-left: 15px;
-}
