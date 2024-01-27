@@ -78,7 +78,7 @@ const ProfileScreen = () => {
 
                                             <div class="row mt-2">
                                                 <div class="col-md-6"><label class="labels">First name</label><input type="text" class="form-control" placeholder="First name" value={user.firstname} readOnly /></div>
-                                                <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value={user.lastname} placeholder="Last name" readOnly /></div>
+                                                <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value={user.lastname} placeholder="Last name" readOnly /></div>
                                             </div>
                                             <div class="row mt-3">
                                                 <div class="col-md-12"><label class="labels">Date of birth</label><input type="date" class="form-control" placeholder="Date of Birth" value={user.dob} readOnly /></div>
