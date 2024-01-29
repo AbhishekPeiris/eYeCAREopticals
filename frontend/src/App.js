@@ -11,6 +11,10 @@ import EditUserScreen from './screens/EditUserScreen';
 import AboutUsScreen from './screens/AboutUsScreen';
 import ServicesScreen from './screens/ServicesScreen';
 import EyeGlassesScreens from './screens/EyeGlassesScreens';
+import RayBan from './components/RayBan';
+import Che from './components/Che';
+import Chanel from './components/Chanel';
+import Tens from './components/Tens';
 
 function App() {
   return (
@@ -30,6 +34,10 @@ function App() {
           <Route path='/aboutus' element={<AboutUsScreen />} />
           <Route path='/services' element={<ServicesScreen />} />
           <Route path='/eyeglasses' element={<EyeGlassesScreens />} />
+          <Route path='/rayban' element={<RayBan />} />
+          <Route path='/che' element={<Che />} />
+          <Route path='/chanel' element={<Chanel />} />
+          <Route path='/tens' element={<Tens />} />
           <Route path='/' element={<HomeScreen />} />  
 
         </Routes>
