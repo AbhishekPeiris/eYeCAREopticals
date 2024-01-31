@@ -34,10 +34,10 @@ function App() {
           <Route path='/aboutus' element={<AboutUsScreen />} />
           <Route path='/services' element={<ServicesScreen />} />
           <Route path='/eyeglasses' element={<EyeGlassesScreens />} />
-          <Route path='/rayban' element={<RayBan />} />
-          <Route path='/che' element={<Che />} />
-          <Route path='/chanel' element={<Chanel />} />
-          <Route path='/tens' element={<Tens />} />
+          <Route path='/rayban/:brand' element={<RayBan />} />
+          <Route path='/che/:brand' element={<Che />} />
+          <Route path='/chanel/:brand' element={<Chanel />} />
+          <Route path='/tens/:brand' element={<Tens />} />
           <Route path='/' element={<HomeScreen />} />  
 
         </Routes>
