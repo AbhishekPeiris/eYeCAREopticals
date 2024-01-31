@@ -13,20 +13,34 @@ router.route('/addeyeglass').post(async(req, res) => {
         frametype,
         hingetype,
         discription,
-        imageurl
+        framesize1,
+        framesize2,
+        framesize3,
+        price,
+        rating,
+        imageurlcolor1,
+        imageurlcolor2,
+        imageurlcolor3
     } = req.body;
 
     const newEyeGlass = new EyeGlass({
-        model,
-        type,
-        brand,
-        gender,
-        frameshape,
-        framematerial,
-        frametype,
-        hingetype,
-        discription,
-        imageurl
+       model,
+       type,
+       brand,
+       gender,
+       frameshape,
+       framematerial,
+       frametype,
+       hingetype,
+       discription,
+       framesize1,
+       framesize2,
+       framesize3,
+       price,
+       rating,
+       imageurlcolor1,
+       imageurlcolor2,
+       imageurlcolor3
     });
 
     try {
@@ -37,7 +51,7 @@ router.route('/addeyeglass').post(async(req, res) => {
     } catch (error) {
         
         return res.status(500).json({status: "Error with add eyeglass", message: error});
-        
+
     }
 });
 module.exports = router;
