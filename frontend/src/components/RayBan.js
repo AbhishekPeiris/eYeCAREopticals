@@ -26,7 +26,6 @@ const RayBan = () => {
             }
 
         }
-
         getRayBan();
 
 
@@ -45,7 +44,16 @@ const RayBan = () => {
                     <img src={RaybanEyeGlass} alt="" class="img-fluid" />
                 </div>
             </div>
+
+            <div class="container py-5">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6 order-2 order-lg-1">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
+
     );
 }
 
