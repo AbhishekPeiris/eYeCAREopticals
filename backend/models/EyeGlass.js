@@ -39,7 +39,29 @@ const eyeGlassSchema = new Schema({
         type: String,
         required: true
     },
-    imageurl : []
+    framesize1 : {
+        type: String,
+        required: true
+    },
+    framesize2 : {
+        type: String,
+        required: true
+    },
+    framesize3 : {
+        type: String,
+        required: true
+    },
+    price : {
+        type: Number,
+        required: true
+    },
+    rating : {
+        type: Number,
+        required: true
+    },
+    imageurlcolor1 : [],
+    imageurlcolor2 : [], 
+    imageurlcolor3 : [],
 });
 
 const EyeGlass = mongoose.model('eyeglasses', eyeGlassSchema);
