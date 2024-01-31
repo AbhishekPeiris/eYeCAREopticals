@@ -18,6 +18,8 @@ const RayBan = () => {
                 setRayBan(data.eyeGlass);
                 
             } catch (error) {
+
+                console.log(error);
                 
             }
 
