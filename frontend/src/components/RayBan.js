@@ -14,6 +14,8 @@ const RayBan = () => {
 
     const [searchkey, setSearchkey] = useState('');
 
+    const [type, setType] = useState('all');
+
     useEffect(() => {
         async function getRayBan() {
             try {
@@ -62,9 +64,16 @@ const RayBan = () => {
                         />
 
                     </div>
+
                     <div className='col md-3'>
-                        <h1>col</h1>
+                        <select className="form-control RayBanTypeSelect" value={type}>
+                        
+                            <option value="all">All</option>
+                            <option value="prescriptionEyeglasses">Prescription Eyeglasses</option>
+                            <option value="sunglasses">Sunglasses</option>
+                        </select>
                     </div>
+
                     <div className='col md-3'>
                         <h1>col</h1>
                     </div>
