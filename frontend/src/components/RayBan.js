@@ -8,19 +8,31 @@ import { Link } from 'react-router-dom';
 
 const RayBan = () => {
     const { brand } = useParams();
+
     const [rayBan, setRayBan] = useState([]);
+    const [duplicateRayBan, setDuplicateRayBan] = useState([]);
+
+    const [searchkey, setSearchkey] = useState('');
 
     useEffect(() => {
         async function getRayBan() {
             try {
                 const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}`);
                 setRayBan(response.data.eyeGlass);
+                setDuplicateRayBan(response.data.eyeGlass);
             } catch (error) {
                 console.log(error);
             }
         }
         getRayBan();
     }, [brand]);
+
+    function filterBySearch() {
+
+        const tempRayBan = duplicateRayBan.filter(rayBan => rayBan.model.toLowerCase().includes(searchkey.toLowerCase()));
+        setRayBan(tempRayBan);
+
+    }
 
     return (
         <div>
@@ -36,9 +48,35 @@ const RayBan = () => {
                 </div>
             </div>
 
+            
+                <div className='row mt-5'>
+
+                    <div className='col md-3'>
+
+                        <input class="form-control mr-sm-2" type="search" placeholder="If you know the model number, Search here" aria-label="Search" 
+                            onChange={(e) => {
+                                setSearchkey(e.target.value);
+                            }}
+                            onKeyUp={filterBySearch}
+                        />
+
+                    </div>
+                    <div className='col md-3'>
+                        <h1>col</h1>
+                    </div>
+                    <div className='col md-3'>
+                        <h1>col</h1>
+                    </div>
+                    <div className='col md-3'>
+                        <h1>col</h1>
+                    </div>
+
+                </div>
+            
+
             <div className="row mb-5 mt-5 RBtable_2">
                 {rayBan.map((eyeglass) => (
-                    <div className="col-lg-3 RBtable_2col_1" key={eyeglass._id}>
+                    <div className="col-lg-3 RBtable_2col_1" key={eyeglass._id} data-aos="zoom-in">
                         <img src={eyeglass.imageurlcolor1[0]} alt="" width={250} />
                         <p>
                             {eyeglass.brand} | <strong style={{ color: "#0a5a70" }}>{eyeglass.model}</strong><br />
@@ -49,7 +87,7 @@ const RayBan = () => {
                                 size={24}
                                 edit={false}
                             />
-                            <hr style={{backgroundColor: "black"}}/>
+                            <hr style={{ backgroundColor: "black" }} />
                             Frame : <strong>LKR {eyeglass.price}</strong>
                             <Link to="#!"><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
                         </p>
