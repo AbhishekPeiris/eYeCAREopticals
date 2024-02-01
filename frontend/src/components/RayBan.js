@@ -48,12 +48,13 @@ const RayBan = () => {
                 </div>
             </div>
 
-            
-                <div className='row mt-5'>
+            <div className='container'>
+
+                <div className='row mt-5 RBtable_3'>
 
                     <div className='col md-3'>
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="If you know the model number, Search here" aria-label="Search" 
+                        <input class="form-control mr-sm-2 RayBanSearch" type="search" placeholder="Search model No." aria-label="Search"
                             onChange={(e) => {
                                 setSearchkey(e.target.value);
                             }}
@@ -72,7 +73,7 @@ const RayBan = () => {
                     </div>
 
                 </div>
-            
+            </div>
 
             <div className="row mb-5 mt-5 RBtable_2">
                 {rayBan.map((eyeglass) => (
