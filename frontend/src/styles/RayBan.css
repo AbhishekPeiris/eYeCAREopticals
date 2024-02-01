@@ -11,3 +11,16 @@
 .RBtable_2{
     margin-left: 200px !important;
 }
+.Reyeglassesbtn{
+    background-color: #ff4500 !important;
+    border: none !important;
+    color: white !important;
+    width: 90px !important;
+    height: 25px !important;
+    font-size: 10px !important;
+    margin-left: 86px !important;
+}
+.Reyeglassesbtn:hover{
+    background-color: #8b2703 !important;
+    transition:.5s !important;
+}

@@ -93,7 +93,7 @@ const HomeScreen = () => {
                                 With a passion for eyecare and fashion, we strive to elevate your visual experience,
                                 ensuring you always look and see your best
                             </p>
-                            <button className='btn3'>Learn More</button>
+                            <Link to = "/aboutus"><button className='btn3'>Learn More</button></Link>
                         </div>
                     </div>
                     <div className='row mt-5 justify-content-center table_3'>
