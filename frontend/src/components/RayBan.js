@@ -45,13 +45,22 @@ const RayBan = () => {
                 </div>
             </div>
 
-            <div class="container py-5">
-                <div class="row align-items-center mb-5">
-                    <div class="col-lg-6 order-2 order-lg-1">
+            <div class="row mb-5 mt-5 RBtable_2">
+                {RayBan.map((eyeglass) => (
+                    <div class="col-lg-3 RBtable_2col_1">
+
+                        <img src={eyeglass.imageurlcolor1[0]} alt="" width={250} />
+                        <p>
+                            {eyeglass.brand} | <strong style={{color:"#0a5a70"}}>{eyeglass.model}</strong><br />
+                            <small>{eyeglass.type}</small>
+                        </p>
                         
+
+
                     </div>
-                </div>
+                ))}
             </div>
+
         </div>
 
     );
