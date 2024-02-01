@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from '../styles/RayBan.css';
 import RaybanEyeGlass from '../images/raybanglass.gif';
 import Rating from 'react-rating-stars-component';
+import { Link } from 'react-router-dom';
 
 const RayBan = () => {
     const { brand } = useParams();
@@ -48,6 +49,9 @@ const RayBan = () => {
                                 size={24}
                                 edit={false}
                             />
+                            <hr style={{backgroundColor: "black"}}/>
+                            Frame : <strong>LKR {eyeglass.price}</strong>
+                            <Link to="#!"><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
                         </p>
                     </div>
                 ))}
