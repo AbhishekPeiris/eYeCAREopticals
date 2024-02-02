@@ -15,6 +15,7 @@ import RayBan from './components/RayBan';
 import Che from './components/Che';
 import Chanel from './components/Chanel';
 import Tens from './components/Tens';
+import RayBanModel from './components/RayBanModel';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path='/che/:brand' element={<Che />} />
           <Route path='/chanel/:brand' element={<Chanel />} />
           <Route path='/tens/:brand' element={<Tens />} />
+          <Route path='/Ray-Ban/:model' element={<RayBanModel />} />
           <Route path='/' element={<HomeScreen />} />  
 
         </Routes>
