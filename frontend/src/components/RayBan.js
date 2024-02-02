@@ -15,7 +15,7 @@ const RayBan = () => {
     const [searchkey, setSearchkey] = useState('');
     const [type, setType] = useState('all');
     const [gender, setGender] = useState('all');
-    const [selectedPriceRange, setSelectedPriceRange] = useState('');
+    const [selectedPriceRange, setSelectedPriceRange] = useState('all');
 
     useEffect(() => {
         async function getRayBan() {
@@ -57,7 +57,7 @@ const RayBan = () => {
         return duplicateRayBan.filter((rayBan) => {
             const typeCondition = selectedType === 'all' || rayBan.type.toLowerCase() === selectedType.toLowerCase();
             const genderCondition = selectedGender === 'all' || rayBan.gender.toLowerCase() === selectedGender.toLowerCase();
-            const priceCondition = selectedPrice === 'all' || rayBan.price <= parseInt(selectedPrice);
+            const priceCondition = selectedPrice === 'all' || (rayBan.price <= parseInt(selectedPrice) && rayBan.price >= parseInt(selectedPrice)-9999);
             return typeCondition && genderCondition && priceCondition;
         });
     }
@@ -112,7 +112,7 @@ const RayBan = () => {
                     <div className='col md-3 RBtable_3col_1'>
                         <small className='barname'>Select Price</small>
                         <select className="RayBanTypeSelect" value={selectedPriceRange} onChange={(e) => { filterByPrice(e.target.value) }}>
-                            <option value="">All</option>
+                            <option value="all">All</option>
                             <option value="9999">LKR 0 - LKR 9 999</option>
                             <option value="19999">LKR 10 000 - LKR 19 999</option>                          
                             <option value="29999">LKR 20 000 - LKR 29 999</option>
