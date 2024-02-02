@@ -170,7 +170,7 @@ const RayBan = () => {
                                         />
                                         <hr style={{ backgroundColor: "black" }} />
                                         Frame : <strong>LKR {eyeglass.price}</strong>
-                                        <Link to="#!"><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
+                                        <Link to={`/Ray-Ban/${eyeglass.model}`}><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
                                     </p>
                                 </div>
                             ))}
