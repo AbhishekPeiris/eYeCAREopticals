@@ -36,6 +36,19 @@ const RayBan = () => {
 
     }
 
+    function filterByType(e) {
+
+        setType(e);
+
+        if(e !== 'all') {
+            const tempRayBan = duplicateRayBan.filter(rayBan => rayBan.type.toLowerCase() === e.toLowerCase());
+            setRayBan(tempRayBan);
+        }
+        else{
+            setRayBan(duplicateRayBan);
+        }
+    }
+
     return (
         <div>
             <br /><br /><br />
@@ -66,10 +79,9 @@ const RayBan = () => {
                     </div>
 
                     <div className='col md-3'>
-                        <select className="form-control RayBanTypeSelect" value={type}>
-                        
+                        <select className="RayBanTypeSelect" value={type} onChange={(e) => { filterByType(e.target.value) }}>                      
                             <option value="all">All</option>
-                            <option value="prescriptionEyeglasses">Prescription Eyeglasses</option>
+                            <option value="prescription eyeglasses">Prescription Eyeglasses</option>
                             <option value="sunglasses">Sunglasses</option>
                         </select>
                     </div>
