@@ -15,6 +15,7 @@ const RayBan = () => {
     const [searchkey, setSearchkey] = useState('');
     const [type, setType] = useState('all');
     const [gender, setGender] = useState('all');
+    const [selectedPriceRange, setSelectedPriceRange] = useState('');
 
     useEffect(() => {
         async function getRayBan() {
@@ -36,21 +37,28 @@ const RayBan = () => {
 
     function filterByType(e) {
         setType(e);
-        const filteredRayBan = applyFilters(e, gender);
+        const filteredRayBan = applyFilters(e, gender, selectedPriceRange);
         setRayBan(filteredRayBan);
     }
 
     function filterByGender(e) {
         setGender(e);
-        const filteredRayBan = applyFilters(type, e);
+        const filteredRayBan = applyFilters(type, e, selectedPriceRange);
         setRayBan(filteredRayBan);
     }
 
-    function applyFilters(selectedType, selectedGender) {
+    function filterByPrice(e) {
+        setSelectedPriceRange(e.target.value);
+        const filteredRayBan = applyFilters(type, gender, e.target.value);
+        setRayBan(filteredRayBan);
+    }
+
+    function applyFilters(selectedType, selectedGender, selectedPrice) {
         return duplicateRayBan.filter((rayBan) => {
             const typeCondition = selectedType === 'all' || rayBan.type.toLowerCase() === selectedType.toLowerCase();
             const genderCondition = selectedGender === 'all' || rayBan.gender.toLowerCase() === selectedGender.toLowerCase();
-            return typeCondition && genderCondition;
+            const priceCondition = !selectedPrice || rayBan.price <= parseInt(selectedPrice);
+            return typeCondition && genderCondition && priceCondition;
         });
     }
 
@@ -80,7 +88,6 @@ const RayBan = () => {
                             }}
                             onKeyUp={filterBySearch}
                         />
-
                     </div>
 
                     <div className='col md-3 RBtable_3col_1'>
@@ -104,17 +111,17 @@ const RayBan = () => {
 
                     <div className='col md-3 RBtable_3col_1'>
                         <small className='barname'>Select Price</small>
-                        <select className="RayBanTypeSelect" value="">
+                        <select className="RayBanTypeSelect" value={selectedPriceRange} onChange={(e) => { filterByPrice(e) }}>
                             <option value="">All</option>
-                            <option value="">LKR 0 - LKR 9 999</option>
-                            <option value="">LKR 10 000 - LKR 19 999</option>
-                            <option value="">LKR 20 000 - LKR 29 999</option>
-                            <option value="">LKR 30 000 - LKR 39 999</option>
-                            <option value="">LKR 40 000 - LKR 49 999</option>
-                            <option value="">LKR 50 000 - LKR 59 999</option>
-                            <option value="">LKR 60 000 - LKR 69 999</option>
-                            <option value="">LKR 70 000 - LKR 79 999</option>
-                            <option value="">LKR 80 000 - LKR 89 999</option>
+                            <option value="9999">LKR 0 - LKR 9 999</option>
+                            <option value="19999">LKR 10 000 - LKR 19 999</option>                          
+                            <option value="29999">LKR 20 000 - LKR 29 999</option>
+                            <option value="39999">LKR 30 000 - LKR 39 999</option>
+                            <option value="49999">LKR 40 000 - LKR 49 999</option>
+                            <option value="59999">LKR 50 000 - LKR 59 999</option>
+                            <option value="69999">LKR 60 000 - LKR 69 999</option>
+                            <option value="79999">LKR 70 000 - LKR 79 999</option>
+                            <option value="89999">LKR 80 000 - LKR 89 999</option>
                         </select>
                     </div>
 
