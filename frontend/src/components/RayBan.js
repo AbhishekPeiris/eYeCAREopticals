@@ -15,6 +15,7 @@ const RayBan = () => {
     const [searchkey, setSearchkey] = useState('');
 
     const [type, setType] = useState('all');
+    const [gender, setGender] = useState('all');
 
     useEffect(() => {
         async function getRayBan() {
@@ -47,6 +48,20 @@ const RayBan = () => {
         else{
             setRayBan(duplicateRayBan);
         }
+    }
+
+    function filterByGender(e) {
+
+        setGender(e);
+
+        if(e !== 'all') {
+            const tempRayBan = duplicateRayBan.filter(rayBan => rayBan.gender.toLowerCase() === e.toLowerCase());
+            setRayBan(tempRayBan);
+        }
+        else{
+            setRayBan(duplicateRayBan);
+        }
+
     }
 
     return (
@@ -87,8 +102,14 @@ const RayBan = () => {
                     </div>
 
                     <div className='col md-3'>
-                        <h1>col</h1>
+                    <select className="RayBanTypeSelect" value={gender} onChange={(e) => { filterByGender(e.target.value) }}>                      
+                            <option value="all">All</option>
+                            <option value="unisex">Unisex</option>
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                        </select>
                     </div>
+
                     <div className='col md-3'>
                         <h1>col</h1>
                     </div>
