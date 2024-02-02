@@ -13,7 +13,6 @@ const RayBan = () => {
     const [duplicateRayBan, setDuplicateRayBan] = useState([]);
 
     const [searchkey, setSearchkey] = useState('');
-
     const [type, setType] = useState('all');
     const [gender, setGender] = useState('all');
 
@@ -31,37 +30,28 @@ const RayBan = () => {
     }, [brand]);
 
     function filterBySearch() {
-
-        const tempRayBan = duplicateRayBan.filter(rayBan => rayBan.model.toLowerCase().includes(searchkey.toLowerCase()));
+        const tempRayBan = duplicateRayBan.filter((rayBan) => rayBan.model.toLowerCase().includes(searchkey.toLowerCase()));
         setRayBan(tempRayBan);
-
     }
 
     function filterByType(e) {
-
         setType(e);
-
-        if(e !== 'all') {
-            const tempRayBan = duplicateRayBan.filter(rayBan => rayBan.type.toLowerCase() === e.toLowerCase());
-            setRayBan(tempRayBan);
-        }
-        else{
-            setRayBan(duplicateRayBan);
-        }
+        const filteredRayBan = applyFilters(e, gender);
+        setRayBan(filteredRayBan);
     }
 
     function filterByGender(e) {
-
         setGender(e);
+        const filteredRayBan = applyFilters(type, e);
+        setRayBan(filteredRayBan);
+    }
 
-        if(e !== 'all') {
-            const tempRayBan = duplicateRayBan.filter(rayBan => rayBan.gender.toLowerCase() === e.toLowerCase());
-            setRayBan(tempRayBan);
-        }
-        else{
-            setRayBan(duplicateRayBan);
-        }
-
+    function applyFilters(selectedType, selectedGender) {
+        return duplicateRayBan.filter((rayBan) => {
+            const typeCondition = selectedType === 'all' || rayBan.type.toLowerCase() === selectedType.toLowerCase();
+            const genderCondition = selectedGender === 'all' || rayBan.gender.toLowerCase() === selectedGender.toLowerCase();
+            return typeCondition && genderCondition;
+        });
     }
 
     return (
@@ -95,7 +85,7 @@ const RayBan = () => {
 
                     <div className='col md-3'>
                         <small className='barname'>Select Type</small>
-                        <select className="RayBanTypeSelect" value={type} onChange={(e) => { filterByType(e.target.value) }}>                      
+                        <select className="RayBanTypeSelect" value={type} onChange={(e) => { filterByType(e.target.value) }}>
                             <option value="all">All</option>
                             <option value="prescription eyeglasses">Prescription Eyeglasses</option>
                             <option value="sunglasses">Sunglasses</option>
@@ -103,8 +93,8 @@ const RayBan = () => {
                     </div>
 
                     <div className='col md-3'>
-                    <small className='barname'>Select Gender</small>
-                    <select className="RayBanTypeSelect" value={gender} onChange={(e) => { filterByGender(e.target.value) }}>                      
+                        <small className='barname'>Select Gender</small>
+                        <select className="RayBanTypeSelect" value={gender} onChange={(e) => { filterByGender(e.target.value) }}>
                             <option value="all">All</option>
                             <option value="unisex">Unisex</option>
                             <option value="men">Men</option>
@@ -113,7 +103,8 @@ const RayBan = () => {
                     </div>
 
                     <div className='col md-3'>
-                        <h1>col</h1>
+                        <small className='barname'>Select Price</small>
+                        <input type="range" class="form-range" id="customRange1" />
                     </div>
 
                 </div>
