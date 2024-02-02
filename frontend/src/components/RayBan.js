@@ -83,7 +83,7 @@ const RayBan = () => {
                 <div className='row mt-5 RBtable_3'>
 
                     <div className='col md-3'>
-
+                        <small className='barname2'>Search here</small>
                         <input class="form-control mr-sm-2 RayBanSearch" type="search" placeholder="Search model No." aria-label="Search"
                             onChange={(e) => {
                                 setSearchkey(e.target.value);
@@ -94,6 +94,7 @@ const RayBan = () => {
                     </div>
 
                     <div className='col md-3'>
+                        <small className='barname'>Select Type</small>
                         <select className="RayBanTypeSelect" value={type} onChange={(e) => { filterByType(e.target.value) }}>                      
                             <option value="all">All</option>
                             <option value="prescription eyeglasses">Prescription Eyeglasses</option>
@@ -102,6 +103,7 @@ const RayBan = () => {
                     </div>
 
                     <div className='col md-3'>
+                    <small className='barname'>Select Gender</small>
                     <select className="RayBanTypeSelect" value={gender} onChange={(e) => { filterByGender(e.target.value) }}>                      
                             <option value="all">All</option>
                             <option value="unisex">Unisex</option>

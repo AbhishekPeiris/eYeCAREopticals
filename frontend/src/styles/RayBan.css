@@ -26,7 +26,7 @@
 }
 .RBtable_3{
     background-color: #fcfcfc!important;
-    height: 100px !important;
+    height: 150px !important;
     width: 1040px !important;
     margin-left: 7px !important;
     padding-left: 50px !important;
@@ -43,6 +43,15 @@
     padding-left: 10px !important;
     border-radius: 5px !important;
     width: 200px !important;
+    margin-left: 20px !important;
+}
+.barname{
+    margin-left: 20px !important;
+    color: #ff4500!important;
+}
+.barname2{
+    margin-left: 2px !important;
+    color: #ff4500!important;
 }
 
 
