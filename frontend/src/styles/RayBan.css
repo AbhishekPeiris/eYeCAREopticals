@@ -35,6 +35,7 @@
 }
 .RayBanSearch{
     border: 1px solid rgb(206, 206, 206) !important;
+    width: 165px !important;
 }
 .RayBanTypeSelect{
     background-color: white !important;
@@ -43,7 +44,7 @@
     padding-left: 10px !important;
     border-radius: 5px !important;
     width: 200px !important;
-    margin-left: 20px !important;
+    margin-left: -20px !important;
 }
 .barname{
     margin-left: 20px !important;
@@ -52,6 +53,9 @@
 .barname2{
     margin-left: 2px !important;
     color: #ff4500!important;
+}
+.RBtable_3col_1{
+    margin-right: 30px !important;
 }
 
 
