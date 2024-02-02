@@ -72,7 +72,7 @@ const RayBan = () => {
 
                 <div className='row mt-5 RBtable_3'>
 
-                    <div className='col md-3'>
+                    <div className='col md-3 RBtable_3col_1'>
                         <small className='barname2'>Search here</small>
                         <input class="form-control mr-sm-2 RayBanSearch" type="search" placeholder="Search model No." aria-label="Search"
                             onChange={(e) => {
@@ -83,7 +83,7 @@ const RayBan = () => {
 
                     </div>
 
-                    <div className='col md-3'>
+                    <div className='col md-3 RBtable_3col_1'>
                         <small className='barname'>Select Type</small>
                         <select className="RayBanTypeSelect" value={type} onChange={(e) => { filterByType(e.target.value) }}>
                             <option value="all">All</option>
@@ -92,7 +92,7 @@ const RayBan = () => {
                         </select>
                     </div>
 
-                    <div className='col md-3'>
+                    <div className='col md-3 RBtable_3col_1'>
                         <small className='barname'>Select Gender</small>
                         <select className="RayBanTypeSelect" value={gender} onChange={(e) => { filterByGender(e.target.value) }}>
                             <option value="all">All</option>
@@ -102,9 +102,20 @@ const RayBan = () => {
                         </select>
                     </div>
 
-                    <div className='col md-3'>
+                    <div className='col md-3 RBtable_3col_1'>
                         <small className='barname'>Select Price</small>
-                        <input type="range" class="form-range" id="customRange1" />
+                        <select className="RayBanTypeSelect" value="">
+                            <option value="">All</option>
+                            <option value="">LKR 0 - LKR 9 999</option>
+                            <option value="">LKR 10 000 - LKR 19 999</option>
+                            <option value="">LKR 20 000 - LKR 29 999</option>
+                            <option value="">LKR 30 000 - LKR 39 999</option>
+                            <option value="">LKR 40 000 - LKR 49 999</option>
+                            <option value="">LKR 50 000 - LKR 59 999</option>
+                            <option value="">LKR 60 000 - LKR 69 999</option>
+                            <option value="">LKR 70 000 - LKR 79 999</option>
+                            <option value="">LKR 80 000 - LKR 89 999</option>
+                        </select>
                     </div>
 
                 </div>
