@@ -48,8 +48,8 @@ const RayBan = () => {
     }
 
     function filterByPrice(e) {
-        setSelectedPriceRange(e.target.value);
-        const filteredRayBan = applyFilters(type, gender, e.target.value);
+        setSelectedPriceRange(e);
+        const filteredRayBan = applyFilters(type, gender, e);
         setRayBan(filteredRayBan);
     }
 
@@ -57,7 +57,7 @@ const RayBan = () => {
         return duplicateRayBan.filter((rayBan) => {
             const typeCondition = selectedType === 'all' || rayBan.type.toLowerCase() === selectedType.toLowerCase();
             const genderCondition = selectedGender === 'all' || rayBan.gender.toLowerCase() === selectedGender.toLowerCase();
-            const priceCondition = !selectedPrice || rayBan.price <= parseInt(selectedPrice);
+            const priceCondition = selectedPrice === 'all' || rayBan.price <= parseInt(selectedPrice);
             return typeCondition && genderCondition && priceCondition;
         });
     }
@@ -111,7 +111,7 @@ const RayBan = () => {
 
                     <div className='col md-3 RBtable_3col_1'>
                         <small className='barname'>Select Price</small>
-                        <select className="RayBanTypeSelect" value={selectedPriceRange} onChange={(e) => { filterByPrice(e) }}>
+                        <select className="RayBanTypeSelect" value={selectedPriceRange} onChange={(e) => { filterByPrice(e.target.value) }}>
                             <option value="">All</option>
                             <option value="9999">LKR 0 - LKR 9 999</option>
                             <option value="19999">LKR 10 000 - LKR 19 999</option>                          
