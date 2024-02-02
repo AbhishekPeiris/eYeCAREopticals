@@ -17,6 +17,8 @@ const RayBan = () => {
     const [gender, setGender] = useState('all');
     const [selectedPriceRange, setSelectedPriceRange] = useState('all');
 
+    const [hasResults, setHasResults] = useState(true);
+
     useEffect(() => {
         async function getRayBan() {
             try {
@@ -32,24 +34,28 @@ const RayBan = () => {
 
     function filterBySearch() {
         const tempRayBan = duplicateRayBan.filter((rayBan) => rayBan.model.toLowerCase().includes(searchkey.toLowerCase()));
+        setHasResults(tempRayBan.length > 0);
         setRayBan(tempRayBan);
     }
 
     function filterByType(e) {
         setType(e);
         const filteredRayBan = applyFilters(e, gender, selectedPriceRange);
+        setHasResults(filteredRayBan.length > 0);
         setRayBan(filteredRayBan);
     }
 
     function filterByGender(e) {
         setGender(e);
         const filteredRayBan = applyFilters(type, e, selectedPriceRange);
+        setHasResults(filteredRayBan.length > 0);
         setRayBan(filteredRayBan);
     }
 
     function filterByPrice(e) {
         setSelectedPriceRange(e);
         const filteredRayBan = applyFilters(type, gender, e);
+        setHasResults(filteredRayBan.length > 0);
         setRayBan(filteredRayBan);
     }
 
@@ -57,13 +63,14 @@ const RayBan = () => {
         return duplicateRayBan.filter((rayBan) => {
             const typeCondition = selectedType === 'all' || rayBan.type.toLowerCase() === selectedType.toLowerCase();
             const genderCondition = selectedGender === 'all' || rayBan.gender.toLowerCase() === selectedGender.toLowerCase();
-            const priceCondition = selectedPrice === 'all' || (rayBan.price <= parseInt(selectedPrice) && rayBan.price >= parseInt(selectedPrice)-9999);
+            const priceCondition = selectedPrice === 'all' || (rayBan.price <= parseInt(selectedPrice) && rayBan.price >= parseInt(selectedPrice) - 9999);
             return typeCondition && genderCondition && priceCondition;
         });
     }
 
     return (
         <div>
+
             <br /><br /><br />
 
             <div className='row'>
@@ -114,7 +121,7 @@ const RayBan = () => {
                         <select className="RayBanTypeSelect" value={selectedPriceRange} onChange={(e) => { filterByPrice(e.target.value) }}>
                             <option value="all">All</option>
                             <option value="9999">LKR 0 - LKR 9 999</option>
-                            <option value="19999">LKR 10 000 - LKR 19 999</option>                          
+                            <option value="19999">LKR 10 000 - LKR 19 999</option>
                             <option value="29999">LKR 20 000 - LKR 29 999</option>
                             <option value="39999">LKR 30 000 - LKR 39 999</option>
                             <option value="49999">LKR 40 000 - LKR 49 999</option>
@@ -128,26 +135,33 @@ const RayBan = () => {
                 </div>
             </div>
 
-            <div className="row mb-5 mt-5 RBtable_2">
-                {rayBan.map((eyeglass) => (
-                    <div className="col-lg-3 RBtable_2col_1" key={eyeglass._id} data-aos="zoom-in">
-                        <img src={eyeglass.imageurlcolor1[0]} alt="" width={250} />
-                        <p>
-                            {eyeglass.brand} | <strong style={{ color: "#0a5a70" }}>{eyeglass.model}</strong><br />
-                            <small>{eyeglass.type}</small><br />
-                            <Rating
-                                count={5}
-                                value={eyeglass.rating}
-                                size={24}
-                                edit={false}
-                            />
-                            <hr style={{ backgroundColor: "black" }} />
-                            Frame : <strong>LKR {eyeglass.price}</strong>
-                            <Link to="#!"><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
-                        </p>
-                    </div>
-                ))}
-            </div>
+            {hasResults ? (
+                <div className="row mb-5 mt-5 RBtable_2">
+                    {rayBan.map((eyeglass) => (
+                        <div className="col-lg-3 RBtable_2col_1" key={eyeglass._id} data-aos="zoom-in">
+                            <img src={eyeglass.imageurlcolor1[0]} alt="" width={250} />
+                            <p>
+                                {eyeglass.brand} | <strong style={{ color: "#0a5a70" }}>{eyeglass.model}</strong><br />
+                                <small>{eyeglass.type}</small><br />
+                                <Rating
+                                    count={5}
+                                    value={eyeglass.rating}
+                                    size={24}
+                                    edit={false}
+                                />
+                                <hr style={{ backgroundColor: "black" }} />
+                                Frame : <strong>LKR {eyeglass.price}</strong>
+                                <Link to="#!"><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="text-center mt-5">
+                    <img src="https://cdn.dribbble.com/users/1982249/screenshots/13673321/media/245af641dcd3f72ec8301750900169b9.png?resize=400x300&vertical=center" alt="" />
+                </div>
+            )}
+
         </div>
     );
 };
