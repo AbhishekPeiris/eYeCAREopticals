@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../styles/RayBan.css';
-import RaybanEyeGlass from '../images/raybanglass.gif';
+import CheEyeGlass from '../images/cheglass.gif';
 import Rating from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
@@ -94,11 +94,11 @@ const Che = () => {
 
                     <div className='row'>
                         <div className='col md-3 RBtable_1col_1'>
-                            <img src="https://1000logos.net/wp-content/uploads/2021/06/Ray-Ban-logo.png" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br />
-                            <p data-aos="fade-right"><small>Ray-Ban eyeglasses and sunglasses epitomize timeless style and cutting-edge optics.<br /> Renowned for iconic designs like the Aviator and Wayfarer, they seamlessly merge fashion and function.<br /> Crafted with precision, Ray-Ban lenses provide unparalleled clarity and UV protection.<br /> Elevate your look with the brand that has defined cool since 1936.</small></p>
+                            <img src="https://cheeyewear.com.au/cdn/shop/files/Screen_Shot_2023-09-16_at_12.36.42_pm_1200x1200.png?v=1694845852" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br />
+                            <p data-aos="fade-right"><small>CHE eyeglasses and sunglasses redefine contemporary<br/> eyewear with innovative designs and premium craftsmanship.<br/> Combining style and sustainability, each pair is meticulously<br/> crafted using eco-friendly materials. With a focus on comfort and<br/> durability, CHE eyewear offers both fashion-forward aesthetics and<br/> conscientious ethics, making a statement that's as eco-conscious as it is chic.</small></p>
                         </div>
                         <div className='col md-3'>
-                            <img src={RaybanEyeGlass} alt="" className="img-fluid" />
+                            <img src={CheEyeGlass} alt="" className="img-fluid" />
                         </div>
                     </div>
 
