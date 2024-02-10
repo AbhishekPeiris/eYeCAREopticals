@@ -11,6 +11,8 @@ import EditUserScreen from './screens/EditUserScreen';
 import AboutUsScreen from './screens/AboutUsScreen';
 import ServicesScreen from './screens/ServicesScreen';
 import EyeGlassesScreens from './screens/EyeGlassesScreens';
+import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
+
 import RayBan from './components/RayBan';
 import Che from './components/Che';
 import Chanel from './components/Chanel';
@@ -33,6 +35,7 @@ function App() {
           <Route path='/bookings' element={<BookingScreen />} />
           <Route path='/editprofile/:userId' element={<EditUserScreen />} />
           <Route path='/aboutus' element={<AboutUsScreen />} />
+          <Route path='/ophthalmologists' element={<OphthalmologistsScreen />} />
           <Route path='/services' element={<ServicesScreen />} />
           <Route path='/eyeglasses' element={<EyeGlassesScreens />} />
           <Route path='/rayban/:brand' element={<RayBan />} />

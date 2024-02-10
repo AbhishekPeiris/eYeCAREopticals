@@ -1,0 +1,16 @@
+.eyefont{
+    position: relative;
+    bottom: 380px !important;
+    font-size: 30px !important;
+    margin-left: 250px !important;
+    color: rgb(8, 8, 8) !important;
+    font-weight: bold !important;
+}
+.mainfont{
+    position: relative;
+    bottom: 450px!important;
+    font-size: 70px!important;
+    margin-left: 200px!important;
+    color: rgb(237, 233, 233)!important;
+    font-weight: bold!important;
+}

@@ -49,7 +49,7 @@ const HomeScreen = () => {
                             <div className='row' style={{ position: "relative", bottom: "530px", marginLeft: "185px" }}>
                                 <div className='col'>
                                     <Link to = '/eyeglasses'><button className='btn1' >SHOP NOW !</button></Link>&nbsp;&nbsp;&nbsp;
-                                    <button className='btn2' >ASK OPTOMETRIST</button>
+                                    <Link to = '/ophthalmologists'><button className='btn2' >ASK OPTOMETRIST</button></Link>
                                 </div>
 
                             </div>
