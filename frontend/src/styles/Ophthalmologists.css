@@ -11,6 +11,32 @@
     bottom: 450px!important;
     font-size: 70px!important;
     margin-left: 200px!important;
-    color: rgb(237, 233, 233)!important;
+    color: rgba(255, 255, 255, 0.919)!important;
     font-weight: bold!important;
+}
+.eye1{
+    position: relative;
+    bottom: 80px !important;
+    margin-left:350px !important;
+    width: 700px !important;
+
+}
+.background{
+    background-color:white !important;
+}
+.OpthTable_1{
+    position: relative;
+    bottom: 200px;
+}
+.Opthtable_3{
+    background-color: #fcfcfc!important;
+    height: 150px !important;
+    width: 1040px !important;
+    margin-left: 7px !important;
+    padding-left: 50px !important;
+    padding-top: 30px !important;
+    border: 1px solid rgb(206, 206, 206) !important;
+
+    position: relative;
+    bottom: 250px;
 }
