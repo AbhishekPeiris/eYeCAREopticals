@@ -11,6 +11,67 @@
     bottom: 450px!important;
     font-size: 70px!important;
     margin-left: 200px!important;
-    color: rgb(237, 233, 233)!important;
+    color: rgba(255, 255, 255, 0.919)!important;
     font-weight: bold!important;
 }
+.eye1{
+    position: relative;
+    bottom: 80px !important;
+    margin-left:350px !important;
+    width: 700px !important;
+
+}
+.background{
+    background-color:white !important;
+}
+.OpthTable_1{
+    position: relative;
+    bottom: 200px;
+}
+.Opthtable_3{
+    background-color: #fcfcfc!important;
+    height: 150px !important;
+    width: 1040px !important;
+    margin-left: 7px !important;
+    padding-left: 50px !important;
+    padding-top: 30px !important;
+    border: 1px solid rgb(206, 206, 206) !important;
+
+    position: relative;
+    bottom: 250px;
+}
+.doctsearch{
+    position: relative;
+    margin-left: 100px !important;
+}
+.rating{
+    position: relative !important;
+    margin-right: 100px !important;
+    bottom: -25px !important;
+}
+.type{
+    position: relative !important;
+    bottom: 33px !important;
+    margin-left: 10px !important;
+    color: #ff4500!important;
+}
+.TypeSelect{
+    background-color: white !important;
+    border: 1px solid rgb(206, 206, 206) !important;
+    height: 39px !important;
+    padding-left: 10px !important;
+    border-radius: 5px !important;
+    width: 200px !important;
+    margin-left: -45px !important;
+}
+.doctorSearch{
+    background-color: white !important;
+    border: 1px solid rgb(206, 206, 206) !important;
+    height: 39px !important;
+    padding-left: 10px !important;
+    border-radius: 5px !important;
+    width: 200px !important;
+    margin-left: -5px !important;
+
+}
+
