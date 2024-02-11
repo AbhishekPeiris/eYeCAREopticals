@@ -12,6 +12,7 @@ import AboutUsScreen from './screens/AboutUsScreen';
 import ServicesScreen from './screens/ServicesScreen';
 import EyeGlassesScreens from './screens/EyeGlassesScreens';
 import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
+import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
 
 import RayBan from './components/RayBan';
 import Che from './components/Che';
@@ -36,6 +37,7 @@ function App() {
           <Route path='/editprofile/:userId' element={<EditUserScreen />} />
           <Route path='/aboutus' element={<AboutUsScreen />} />
           <Route path='/ophthalmologists' element={<OphthalmologistsScreen />} />
+          <Route path='/EarSpecialistsScreen' element={<EarSpecialistsScreen />} />
           <Route path='/services' element={<ServicesScreen />} />
           <Route path='/eyeglasses' element={<EyeGlassesScreens />} />
           <Route path='/rayban/:brand' element={<RayBan />} />
