@@ -1,0 +1,27 @@
+.earsmall{
+    position: relative;
+    bottom: 380px !important;
+    font-size: 30px !important;
+    margin-left: 250px !important;
+    color: rgb(8, 8, 8) !important;
+    font-weight: bold !important;
+}
+.mainsmall{
+    position: relative;
+    bottom: 450px!important;
+    font-size: 70px!important;
+    margin-left: 200px!important;
+    color: rgb(237, 233, 233)!important;
+    font-weight: bold!important;
+}
+.era{
+    position: relative;
+    width: 1000px !important;
+    height: 1000px !important;
+}
+.EarSptable_1col_1{
+    background-color: #f4d34e;
+    margin-right: -50px;
+}
+    
+    
