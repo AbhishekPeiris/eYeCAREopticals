@@ -40,3 +40,38 @@
     position: relative;
     bottom: 250px;
 }
+.doctsearch{
+    position: relative;
+    margin-left: 100px !important;
+}
+.rating{
+    position: relative !important;
+    margin-right: 100px !important;
+    bottom: -25px !important;
+}
+.type{
+    position: relative !important;
+    bottom: 33px !important;
+    margin-left: 10px !important;
+    color: #ff4500!important;
+}
+.TypeSelect{
+    background-color: white !important;
+    border: 1px solid rgb(206, 206, 206) !important;
+    height: 39px !important;
+    padding-left: 10px !important;
+    border-radius: 5px !important;
+    width: 200px !important;
+    margin-left: -45px !important;
+}
+.doctorSearch{
+    background-color: white !important;
+    border: 1px solid rgb(206, 206, 206) !important;
+    height: 39px !important;
+    padding-left: 10px !important;
+    border-radius: 5px !important;
+    width: 200px !important;
+    margin-left: -5px !important;
+
+}
+
