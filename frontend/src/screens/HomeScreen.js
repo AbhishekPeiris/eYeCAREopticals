@@ -170,7 +170,7 @@ const HomeScreen = () => {
                         <div className='col-md-5 table_6col_3' data-aos="fade-up-right">
                             <h1><strong>Ophthalmologists</strong></h1>
                             <p>You can book an eye specialist for<br />your eye examination</p>
-                            <button className='btn2' >ASK OPTOMETRIST</button>
+                            <Link to = '/ophthalmologists'><button className='btn2' >ASK OPTOMETRIST</button></Link>
                         </div>
                         <div className='col-md-5 table_6col_4' data-aos="fade-up-left">
                             <h1 style={{ color: "white" }}><strong>Ear Specialists</strong></h1>
