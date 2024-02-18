@@ -81,7 +81,7 @@ const EyeGlassesScreens = () => {
                                 <img src={Chanel} alt="" class="img-fluid" />
                             </div>
                             <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2" data-aos="zoom-in">
-                                <img src="https://i.pinimg.com/736x/2e/66/2c/2e662cc292f54417fed29c630580344e.jpg" alt="" width="200" class="img-fluid mb-4 mb-lg-0" />
+                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Chanel_logo_interlocking_cs.svg/2560px-Chanel_logo_interlocking_cs.svg.png" alt="" width="170" class="img-fluid mb-4 mb-lg-0" /><br/><br/>
                                 <p class="text-muted mb-4">CHANEL is dedicated to ultimate luxury and to the highest level of craftsmanship. It is a brand whose core values remain historically grounded on exceptional creation. As such, CHANEL promotes culture, art, creativity and “savoir-faire” throughout the world, and invests significantly in people, R&D and innovation.</p>
                                 <Link to={`/chanel/${"Chanel"}`}><button className='btn1' >SHOP NOW !</button></Link>
                             </div>
@@ -90,7 +90,7 @@ const EyeGlassesScreens = () => {
                     <div class="container py-5">
                         <div class="row align-items-center mb-5">
                             <div class="col-lg-4 order-2 order-lg-1" data-aos="zoom-in">
-                                <img src="https://iconape.com/wp-content/png_logo_vector/tens.png" alt="" width="200" class="img-fluid mb-4 mb-lg-0" />
+                                <img src="https://iconape.com/wp-content/png_logo_vector/tens.png" alt="" width="150" class="img-fluid mb-4 mb-lg-0" />
                                 <p class="text-muted mb-4">While typical sunglasses block light with dark and lifeless shade, our "Original" lens filter was designed to warm and enrich your view. Utilising warm amber and red undertones with a gradient designed to illuminate specific colour elements within the lens, "Original" delivers a unique, uplifting view of the world.</p>
                                 <Link to={`/tens/${"Tens"}`}><button className='btn1' >SHOP NOW !</button></Link>
                             </div>
