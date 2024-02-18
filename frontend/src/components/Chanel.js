@@ -61,16 +61,16 @@ const Chanel = () => {
 
     function filterByGender(e) {
         setGender(e);
-        const filteredRayBan = applyFilters(type, e, selectedPriceRange);
-        setHasResults(filteredRayBan.length > 0);
-        setChanel(filteredRayBan);
+        const filteredChanel = applyFilters(type, e, selectedPriceRange);
+        setHasResults(filteredChanel.length > 0);
+        setChanel(filteredChanel);
     }
 
     function filterByPrice(e) {
         setSelectedPriceRange(e);
-        const filteredRayBan = applyFilters(type, gender, e);
-        setHasResults(filteredRayBan.length > 0);
-        setChanel(filteredRayBan);
+        const filteredChanel = applyFilters(type, gender, e);
+        setHasResults(filteredChanel.length > 0);
+        setChanel(filteredChanel);
     }
 
     function applyFilters(selectedType, selectedGender, selectedPrice) {
