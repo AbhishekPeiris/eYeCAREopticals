@@ -47,9 +47,9 @@ const Chanel = () => {
     }, [brand]);
 
     function filterBySearch() {
-        const tempRayBan = duplicateChanel.filter((chanel) => chanel.model.toLowerCase().includes(searchkey.toLowerCase()));
-        setHasResults(tempRayBan.length > 0);
-        setChanel(tempRayBan);
+        const tempChanel = duplicateChanel.filter((chanel) => chanel.model.toLowerCase().includes(searchkey.toLowerCase()));
+        setHasResults(tempChanel.length > 0);
+        setChanel(tempChanel);
     }
 
     function filterByType(e) {
