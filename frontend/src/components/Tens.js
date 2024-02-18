@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../styles/RayBan.css';
-import ChanelEyeGlass from '../images/chanelglass.gif';
+import TensEyeGlass from '../images/tensglass.gif';
 import Rating from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
@@ -97,7 +97,7 @@ const Tens = () => {
                             <p data-aos="fade-right"><small>Tens eyeglasses and sunglasses offer a unique<br/> perspective, blending vintage aesthetics with<br/> modern flair. Through their innovative lenses,<br/> colors come alive with vivid saturation, enhancing the world<br/> around you. Designed for the adventurous spirit, Tens eyewear<br/> invites you to see life through a vibrant, unforgettable lens,<br/> turning every moment into a visual masterpiece.</small></p>
                         </div>
                         <div className='col md-3'>
-                            <img src={ChanelEyeGlass} alt="" className="img-fluid" />
+                            <img src={TensEyeGlass} alt="" className="img-fluid" />
                         </div>
                     </div>
 
