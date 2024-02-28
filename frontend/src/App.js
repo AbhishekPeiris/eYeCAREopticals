@@ -44,7 +44,7 @@ function App() {
           <Route path='/che/:brand' element={<Che />} />
           <Route path='/chanel/:brand' element={<Chanel />} />
           <Route path='/tens/:brand' element={<Tens />} />
-          <Route path='/Ray-Ban/:model' element={<RayBanModel />} />
+          <Route path='/:brand/:model' element={<RayBanModel />} />
           <Route path='/' element={<HomeScreen />} />  
 
         </Routes>
