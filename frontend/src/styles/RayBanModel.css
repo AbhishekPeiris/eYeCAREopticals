@@ -1,9 +1,19 @@
 #carouselExampleIndicators{
-    width: 500px !important;
+    margin-left: 150px !important;
+    width: 700px !important;
 }
 .carousel-control-prev{
     background-color: #e2e2e2 !important;
 }
 .carousel-control-next{
     background-color: #e2e2e2  !important;
+}
+.carousel-item{
+    padding: 120px !important;
+}
+.smalld-block{
+    margin-right: 50px !important;
+}
+.smalld-blockimg{
+    width: 50px !important;
 }

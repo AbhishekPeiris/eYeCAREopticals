@@ -27,11 +27,11 @@ const RayBanModel = () => {
 
             {eyeglass.map((eyeglass) => (
 
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[0]} alt="First slide" /></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[1]} alt="Second slide" /></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[2]} alt="Third slide"/></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -41,7 +41,7 @@ const RayBanModel = () => {
                             <img class="d-block w-100" src={eyeglass.imageurlcolor1[1]} alt="Second slide" />
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src={eyeglass.imageurlcolor1[2]} alt="Third slide" />
+                            <img class="d-block w-100" src={eyeglass.imageurlcolor1[2]} alt="Third slide"/>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
