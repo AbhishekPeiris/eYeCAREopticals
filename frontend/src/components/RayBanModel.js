@@ -3,6 +3,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../styles/RayBanModel.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
@@ -24,9 +26,9 @@ const RayBanModel = () => {
     return (
         <div>
             <br /><br /><br />
-
+            <img src="https://1000logos.net/wp-content/uploads/2021/06/Ray-Ban-logo.png" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" style={{marginLeft:"150px"}}/><br />
             {eyeglass.map((eyeglass) => (
-
+                
                 <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[0]} alt="First slide" /></li>
