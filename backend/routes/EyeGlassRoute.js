@@ -64,10 +64,10 @@ router.route('/:brand').post(async(req, res) => {
         const eyeGlass = await EyeGlass.find({ brand: brand });
 
         if (!eyeGlass) {
-            return res.status(404).json({ status: "Eye glass model not found" });
+            return res.status(404).json({ status: "Eye glass brand not found" });
         }
 
-        return res.status(200).json({status: "Eye glass model is fatched", eyeGlass});
+        return res.status(200).json({status: "Eye glass brand is fatched", eyeGlass});
 
     } catch (error) {
         
