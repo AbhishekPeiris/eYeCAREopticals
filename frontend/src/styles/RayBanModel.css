@@ -1,0 +1,9 @@
+#carouselExampleIndicators{
+    width: 500px !important;
+}
+.carousel-control-prev{
+    background-color: #e2e2e2 !important;
+}
+.carousel-control-next{
+    background-color: #e2e2e2  !important;
+}
