@@ -26,7 +26,41 @@
 .earspacial{
     position: relative!important;
     bottom: -250px;
-
 }
-    
+.eartable_3{
+    position: relative!important;
+    bottom: -10px!important;
+}
+.eartable_3{
+    background-color: #fcfcfc!important;
+    height: 150px !important;
+    width: 1040px !important;
+    margin-left: 200px !important;
+    padding-left: 50px !important;
+    padding-top: 30px !important;
+    border: 1px solid rgb(206, 206, 206) !important;
+
+    position: relative!important;
+    bottom: 0px!important;
+   
+}
+.background{
+    background-color:white !important;
+}
+
+.mainfonttext{
+   margin-left: 150px !important;
+   margin-top: 50px !important;
+   font-weight: bold;
+   color: white;
+   font-size: 60px !important;
+}
+.eyefonttext{
+    margin-left: 400px !important;
+    font-size: 30px !important;
+    color: rgb(8, 4, 4);
+    font-weight: bold !important;
+    margin-top: 20px !important;
+ }
+
     

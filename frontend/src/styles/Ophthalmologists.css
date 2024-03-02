@@ -1,6 +1,6 @@
 .eyefont{
     position: relative;
-    bottom: 380px !important;
+    bottom: 400px !important;
     font-size: 30px !important;
     margin-left: 250px !important;
     color: rgb(8, 8, 8) !important;
@@ -8,9 +8,9 @@
 }
 .mainfont{
     position: relative;
-    bottom: 450px!important;
-    font-size: 70px!important;
-    margin-left: 200px!important;
+    bottom: 420px!important;
+    font-size: 60px!important;
+    margin-left: 110px!important;
     color: rgba(255, 255, 255, 0.919)!important;
     font-weight: bold!important;
 }
@@ -39,6 +39,7 @@
 
     position: relative;
     bottom: 250px;
+    
 }
 .doctsearch{
     position: relative;
@@ -73,5 +74,11 @@
     width: 200px !important;
     margin-left: -5px !important;
 
+}
+.lap_1{
+    position: relative!important;
+    bottom: 90px!important;
+    margin-left: 10px!important;
+    
 }
 
