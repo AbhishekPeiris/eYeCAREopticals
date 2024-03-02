@@ -47,9 +47,9 @@ const Che = () => {
     }, [brand]);
 
     function filterBySearch() {
-        const tempRayBan = duplicateChe.filter((che) => che.model.toLowerCase().includes(searchkey.toLowerCase()));
-        setHasResults(tempRayBan.length > 0);
-        setChe(tempRayBan);
+        const tempChe = duplicateChe.filter((che) => che.model.toLowerCase().includes(searchkey.toLowerCase()));
+        setHasResults(tempChe.length > 0);
+        setChe(tempChe);
     }
 
     function filterByType(e) {
@@ -61,16 +61,16 @@ const Che = () => {
 
     function filterByGender(e) {
         setGender(e);
-        const filteredRayBan = applyFilters(type, e, selectedPriceRange);
-        setHasResults(filteredRayBan.length > 0);
-        setChe(filteredRayBan);
+        const filteredChe = applyFilters(type, e, selectedPriceRange);
+        setHasResults(filteredChe.length > 0);
+        setChe(filteredChe);
     }
 
     function filterByPrice(e) {
         setSelectedPriceRange(e);
-        const filteredRayBan = applyFilters(type, gender, e);
-        setHasResults(filteredRayBan.length > 0);
-        setChe(filteredRayBan);
+        const filteredChe = applyFilters(type, gender, e);
+        setHasResults(filteredChe.length > 0);
+        setChe(filteredChe);
     }
 
     function applyFilters(selectedType, selectedGender, selectedPrice) {

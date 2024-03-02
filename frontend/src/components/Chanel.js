@@ -47,9 +47,9 @@ const Chanel = () => {
     }, [brand]);
 
     function filterBySearch() {
-        const tempRayBan = duplicateChanel.filter((chanel) => chanel.model.toLowerCase().includes(searchkey.toLowerCase()));
-        setHasResults(tempRayBan.length > 0);
-        setChanel(tempRayBan);
+        const tempChanel = duplicateChanel.filter((chanel) => chanel.model.toLowerCase().includes(searchkey.toLowerCase()));
+        setHasResults(tempChanel.length > 0);
+        setChanel(tempChanel);
     }
 
     function filterByType(e) {
@@ -61,16 +61,16 @@ const Chanel = () => {
 
     function filterByGender(e) {
         setGender(e);
-        const filteredRayBan = applyFilters(type, e, selectedPriceRange);
-        setHasResults(filteredRayBan.length > 0);
-        setChanel(filteredRayBan);
+        const filteredChanel = applyFilters(type, e, selectedPriceRange);
+        setHasResults(filteredChanel.length > 0);
+        setChanel(filteredChanel);
     }
 
     function filterByPrice(e) {
         setSelectedPriceRange(e);
-        const filteredRayBan = applyFilters(type, gender, e);
-        setHasResults(filteredRayBan.length > 0);
-        setChanel(filteredRayBan);
+        const filteredChanel = applyFilters(type, gender, e);
+        setHasResults(filteredChanel.length > 0);
+        setChanel(filteredChanel);
     }
 
     function applyFilters(selectedType, selectedGender, selectedPrice) {
@@ -94,7 +94,7 @@ const Chanel = () => {
 
                     <div className='row'>
                         <div className='col md-3 RBtable_1col_1'>
-                            <img src="https://i.pinimg.com/736x/2e/66/2c/2e662cc292f54417fed29c630580344e.jpg" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br />
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Chanel_logo_interlocking_cs.svg/2560px-Chanel_logo_interlocking_cs.svg.png" alt="" width="170" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br /><br/>
                             <p data-aos="fade-right"><small>CHANEL eyeglasses and sunglasses epitomize timeless elegance and<br/> sophistication. With iconic designs and meticulous attention<br/> to detail, each pair embodies the spirit of luxury<br/> and refinement. From classic shapes to bold statements,<br/> CHANEL eyewear exudes effortless style and glamour,<br/> perfect for those who appreciate the fusion of fashion and artistry.</small></p>
                         </div>
                         <div className='col md-3'>
