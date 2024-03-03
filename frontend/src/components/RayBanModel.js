@@ -102,13 +102,25 @@ const RayBanModel = () => {
 
                         <div className='row'>
                             <div className='col md-5'>
-                            <p><strong>SELECT FRAME SIZE :</strong></p>
-                                <button className='framecolorimg'>{eyeglass.framesize1}</button>
-                                <button className='framecolorimg'>{eyeglass.framesize2}</button>
-                                <button className='framecolorimg'>{eyeglass.framesize3}</button>
+                                <p><strong>SELECT FRAME SIZE :</strong></p>
+                                    <button className='framecolorimg'>{eyeglass.framesize1}</button>
+                                    <button className='framecolorimg'>{eyeglass.framesize2}</button>
+                                    <button className='framecolorimg'>{eyeglass.framesize3}</button>
                             </div>
                         </div><br/>
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
+
+                        <div className='row'>
+                            <div className='col md-5'>
+                                <p style={{fontSize:"23px"}}><strong>TOTAL PRICE :</strong></p>
+                                
+                            </div>
+                            <div className='col md-5'>
+                                <p style={{fontSize:"23px",marginLeft:"50px"}}><strong>LKR <span style={{color:"#ab2317"}}>&nbsp;{eyeglass.price}</span></strong></p>                                
+                            </div>
+                        </div><br/>
+                        <button className='btn btn-primary addtocart'><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
+                        <button className='btn btn-primary eyeglasspaynow'>Pay Now!</button>
                     </div>
                 ))}
             </div>
