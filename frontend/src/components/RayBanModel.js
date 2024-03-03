@@ -66,11 +66,17 @@ const RayBanModel = () => {
                     ))}
 
                 </div>
-                <div className='col md-3'>
+
+                {eyeglass.map((eyeglass) => (
+                <div className='col md-3 mt-3'>
                             
                     <br /><br /><br />
+                    <div className='eyeglassBrandTag'>
+                        <strong><p>{eyeglass.brand} &nbsp;&nbsp;|&nbsp;&nbsp; {eyeglass.model} &nbsp;&nbsp;|&nbsp;&nbsp; {eyeglass.type}</p></strong>
+                    </div>
                     
                 </div>
+                ))}
             
             </div>
         </div>
