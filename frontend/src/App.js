@@ -19,6 +19,7 @@ import Che from './components/Che';
 import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
+import FeedbackScreen from './screens/FeedbackScreen';
 
 function App() {
   return (
@@ -46,7 +47,7 @@ function App() {
           <Route path='/tens/:brand' element={<Tens />} />
           <Route path='/:brand/:model' element={<RayBanModel />} />
           <Route path='/' element={<HomeScreen />} />  
-
+          <Route path='/addfeedback' element={<FeedbackScreen />} />
         </Routes>
 
         <Footer />

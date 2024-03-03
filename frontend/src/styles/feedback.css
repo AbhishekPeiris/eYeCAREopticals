@@ -1,0 +1,31 @@
+.feedback_right {
+    display: flex !important;
+    align-items: center !important;
+    margin-top: 250px;
+    margin-right: 250px !important;
+    margin-bottom: 350px;
+    flex-direction: column;
+}
+
+.feed_background {
+    padding-top: 50px;
+    display: flex !important;
+    align-items: center !important;
+    
+}
+.btn-1{
+    color: black;
+    margin-top: 150px;
+    position: relative!important;
+   
+
+
+}
+
+.btn-1 button{ 
+    color: rgb(242, 233, 233);
+    margin: 10px;
+    background-color: rgb(248, 32, 32);
+    border: none;
+    border-radius: 8PX;
+}
