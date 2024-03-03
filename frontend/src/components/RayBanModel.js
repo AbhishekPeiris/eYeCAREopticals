@@ -40,6 +40,7 @@ const RayBanModel = () => {
                             <p className='eyeglassModelNo'>{eyeglass.model} <span style={{ color: "black", fontWeight: "lighter", fontSize: "16px" }}> / {eyeglass.type}</span></p>
                             <div id="carouselExampleIndicators" className="carousel slide mb-5" data-ride="carousel">
                             <ol class="carousel-indicators">
+                                
                                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[0]} alt="First slide" /></li>
                                     <li data-target="#carouselExampleIndicators" data-slide-to="1" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[1]} alt="Second slide" /></li>
                                     <li data-target="#carouselExampleIndicators" data-slide-to="2" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[2]} alt="Third slide" /></li>
@@ -47,7 +48,7 @@ const RayBanModel = () => {
                                 <div className="carousel-inner">
                                     {eyeglass[`imageurlcolor${selectedColor}`].map((image, index) => (
                                         <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
-                                            <img className="d-block w-100" src={image} alt={`Slide ${index + 1}`} />
+                                            <img className="d-block w-100" src={image} alt="Slide Images" />
                                         </div>
                                     ))}
                                 </div>
@@ -92,7 +93,7 @@ const RayBanModel = () => {
                                 <p><strong>SELECT FRAME COLOR :</strong></p>
                                 {[1, 2, 3].map(colorNumber => (
                                     <button key={colorNumber} className='framecolorimg' onClick={() => selectColor(colorNumber)}>
-                                        <img src={eyeglass[`imageurlcolor${colorNumber}`][0]} alt={`Frame Color ${colorNumber}`} width={100} />
+                                        <img src={eyeglass[`imageurlcolor${colorNumber}`][0]} alt="Frame Color" width={100} />
                                     </button>
                                 ))}
                             </div>
