@@ -94,10 +94,9 @@ const ProfileScreen = () => {
                                     <div class="col-md-4">
                                         <div class="p-3 py-5">
 
-                                            <div class="d-flex justify-content-between align-items-center experience"><span>Share your feedback</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Send</span></div><br />
-                                            <div class="col-md-12"><label class="labels">Subject</label><input type="text" class="form-control" placeholder="Enter subject" value="" /></div> <br />
-                                            <div class="col-md-12"><label class="labels">Message</label><textarea id="address" className="form-control" style={{ width: '100%', minHeight: '50px', maxHeight: "100px", backgroundColor: "white" }} placeholder="Enter message"></textarea></div>
-
+                                            <div class="d-flex justify-content-between align-items-center experience"><span>Share your feedback</span><a href="/addfeedback"><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Add Feedback</span></a></div><br />
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>
