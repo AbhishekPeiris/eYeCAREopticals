@@ -17,3 +17,31 @@
 .smalld-blockimg{
     width: 50px !important;
 }
+.eyeglassModelNo{
+    margin-left: 150px !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #0a5a70 !important;
+}
+.eyeglassBrandTag{
+    background-color: #0a5a70 !important;
+    color: white !important;
+    height: 30px !important;
+    width: 500px !important;
+    text-align: center !important;
+    padding-top: 2px !important;
+    border-radius: 5px !important;
+}
+.eyeGlassPrice_1{
+    font-size: 20px !important;
+    margin-left: 63px !important;
+}
+.framecolorimg{
+    background-color: white !important;
+    border: 2px solid black !important;
+    margin-right: 30px !important;
+}
+.framecolorimg:hover{
+    filter: brightness(95%) !important;
+    transition:.5s !important;
+}
