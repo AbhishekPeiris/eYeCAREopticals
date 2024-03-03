@@ -45,3 +45,10 @@
     filter: brightness(95%) !important;
     transition:.5s !important;
 }
+.addtocart{
+    margin-right: 70px !important;
+}
+.eyeglasspaynow{
+    background-color: #ab2317 !important;
+    width: 300px !important;
+}
