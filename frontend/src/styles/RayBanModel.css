@@ -27,7 +27,12 @@
     background-color: #0a5a70 !important;
     color: white !important;
     height: 30px !important;
+    width: 500px !important;
     text-align: center !important;
     padding-top: 2px !important;
     border-radius: 5px !important;
+}
+.eyeGlassPrice_1{
+    font-size: 20px !important;
+    margin-left: 63px !important;
 }
