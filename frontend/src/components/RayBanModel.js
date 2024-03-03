@@ -28,6 +28,9 @@ const RayBanModel = () => {
             <br /><br /><br />
             <img src="https://1000logos.net/wp-content/uploads/2021/06/Ray-Ban-logo.png" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" style={{marginLeft:"150px"}}/><br />
             {eyeglass.map((eyeglass) => (
+
+                <div>
+                    <p className='eyeglassModelNo'>{eyeglass.model} <span style={{color:"black",fontWeight:"lighter", fontSize:"16px"}}> / {eyeglass.type}</span></p>
                 
                 <div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel">
                     <ol class="carousel-indicators">
@@ -54,6 +57,7 @@ const RayBanModel = () => {
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         
                     </a>
+                </div>
                 </div>
 
             ))}
