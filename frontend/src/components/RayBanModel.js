@@ -5,6 +5,7 @@ import axios from 'axios';
 import styles from '../styles/RayBanModel.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Rating from 'react-rating-stars-component';
 
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
@@ -73,7 +74,28 @@ const RayBanModel = () => {
                     <br /><br /><br />
                     <div className='eyeglassBrandTag'>
                         <strong><p>{eyeglass.brand} &nbsp;&nbsp;|&nbsp;&nbsp; {eyeglass.model} &nbsp;&nbsp;|&nbsp;&nbsp; {eyeglass.type}</p></strong>
+                    </div><br/>
+
+                    <div className='row'>
+                        <div className='col md-3'>
+                            <p>
+                                <strong>{eyeglass.brand} | {eyeglass.model}</strong> <br/>
+                                <p style={{fontSize:"13px"}}>
+                                    {eyeglass.type} | {eyeglass.gender}<br/>
+                                    <Rating
+                                            count={5}
+                                            value={eyeglass.rating}
+                                            size={24}
+                                            edit={false}
+                                        />
+                                </p>
+                            </p>
+                        </div>
+                        <div className='col md-3'>
+                            <p className='eyeGlassPrice_1'><strong>LKR &nbsp;{eyeglass.price}</strong></p>
+                        </div>
                     </div>
+                    <hr style={{ backgroundColor: "black", width:"500px"}} />
                     
                 </div>
                 ))}
