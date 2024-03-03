@@ -39,8 +39,8 @@ const RayBanModel = () => {
                         <div key={eyeglass.model}>
                             <p className='eyeglassModelNo'>{eyeglass.model} <span style={{ color: "black", fontWeight: "lighter", fontSize: "16px" }}> / {eyeglass.type}</span></p>
                             <div id="carouselExampleIndicators" className="carousel slide mb-5" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                
+                                <ol class="carousel-indicators">
+
                                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[0]} alt="First slide" /></li>
                                     <li data-target="#carouselExampleIndicators" data-slide-to="1" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[1]} alt="Second slide" /></li>
                                     <li data-target="#carouselExampleIndicators" data-slide-to="2" class="smalld-block"><img class="d-block w-100 smalld-blockimg" src={eyeglass.imageurlcolor1[2]} alt="Third slide" /></li>
@@ -62,6 +62,7 @@ const RayBanModel = () => {
                         </div>
                     ))}
                 </div>
+
                 {eyeglass.map((eyeglass) => (
                     <div key={eyeglass.model} className='col md-3 mt-3'>
                         <br /><br /><br />
@@ -103,27 +104,48 @@ const RayBanModel = () => {
                         <div className='row'>
                             <div className='col md-5'>
                                 <p><strong>SELECT FRAME SIZE :</strong></p>
-                                    <button className='framecolorimg'>{eyeglass.framesize1}</button>
-                                    <button className='framecolorimg'>{eyeglass.framesize2}</button>
-                                    <button className='framecolorimg'>{eyeglass.framesize3}</button>
+                                <button className='framecolorimg'>{eyeglass.framesize1}</button>
+                                <button className='framecolorimg'>{eyeglass.framesize2}</button>
+                                <button className='framecolorimg'>{eyeglass.framesize3}</button>
                             </div>
-                        </div><br/>
+                        </div><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
 
                         <div className='row'>
                             <div className='col md-5'>
-                                <p style={{fontSize:"23px"}}><strong>TOTAL PRICE :</strong></p>
-                                
+                                <p style={{ fontSize: "23px" }}><strong>TOTAL PRICE :</strong></p>
+
                             </div>
                             <div className='col md-5'>
-                                <p style={{fontSize:"23px",marginLeft:"50px"}}><strong>LKR <span style={{color:"#ab2317"}}>&nbsp;{eyeglass.price}</span></strong></p>                                
+                                <p style={{ fontSize: "23px", marginLeft: "50px" }}><strong>LKR <span style={{ color: "#ab2317" }}>&nbsp;{eyeglass.price}</span></strong></p>
                             </div>
-                        </div><br/>
+                        </div><br />
                         <button className='btn btn-primary addtocart'><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
                         <button className='btn btn-primary eyeglasspaynow'>Pay Now!</button>
+                        <br /><br />
+                        <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>
                 ))}
             </div>
+            <p style={{ fontSize: "23px",marginLeft: "150px" }}><strong>DETAILS :</strong></p>
+
+            <div className='row' style={{ marginLeft: "133px"}}>
+                <div className='col md-5 border'>
+                    <p><strong>Product Details</strong></p>               
+                </div>
+                <div className='col md-5 border'>     
+                    <p><strong>About RayBan Eyeware</strong></p>
+                </div>
+            </div>
+            <div className='row' style={{ marginLeft: "133px"}}>
+                <div className='col md-5 border'>
+                    <p><strong>Product Details</strong></p>               
+                </div>
+                <div className='col md-5 border'>     
+                    <p><strong>About RayBan Eyeware</strong></p>
+                </div>
+            </div>
+            
         </div>
     );
 }
