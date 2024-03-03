@@ -24,6 +24,16 @@ const RayBanModel = () => {
         getEyeglassDetails(brand, model);
     }, [brand, model]);
 
+    async function selectColor1(){
+
+    }
+    async function selectColor2(){
+
+    }
+    async function selectColor3(){
+
+    }
+
     return (
         <div>
             <div className="row">
@@ -95,6 +105,16 @@ const RayBanModel = () => {
                             <p className='eyeGlassPrice_1'><strong>LKR &nbsp;{eyeglass.price}</strong></p>
                         </div>
                     </div>
+                    <hr style={{ backgroundColor: "black", width:"500px"}} />
+
+                    <div className='row'>
+                        <div className='col md-5'>
+                            <p><strong>SELECT FRAME COLOR :</strong></p>
+                            <button className='framecolorimg' onClick={selectColor1}><img src={eyeglass.imageurlcolor1[0]} alt="Frame Color" width={100}/></button>
+                            <button className='framecolorimg' onClick={selectColor2}><img src={eyeglass.imageurlcolor2[0]} alt="Frame Color" width={100}/></button>
+                            <button className='framecolorimg' onClick={selectColor3}><img src={eyeglass.imageurlcolor3[0]} alt="Frame Color" width={100}/></button>
+                        </div>
+                    </div><br/>
                     <hr style={{ backgroundColor: "black", width:"500px"}} />
                     
                 </div>
