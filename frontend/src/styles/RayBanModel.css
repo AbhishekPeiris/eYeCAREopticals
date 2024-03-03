@@ -36,3 +36,12 @@
     font-size: 20px !important;
     margin-left: 63px !important;
 }
+.framecolorimg{
+    background-color: white !important;
+    border: 2px solid black !important;
+    margin-right: 30px !important;
+}
+.framecolorimg:hover{
+    filter: brightness(95%) !important;
+    transition:.5s !important;
+}
