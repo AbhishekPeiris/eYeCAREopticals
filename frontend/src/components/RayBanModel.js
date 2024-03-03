@@ -99,6 +99,16 @@ const RayBanModel = () => {
                             </div>
                         </div><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
+
+                        <div className='row'>
+                            <div className='col md-5'>
+                            <p><strong>SELECT FRAME SIZE :</strong></p>
+                                <button className='framecolorimg'>{eyeglass.framesize1}</button>
+                                <button className='framecolorimg'>{eyeglass.framesize2}</button>
+                                <button className='framecolorimg'>{eyeglass.framesize3}</button>
+                            </div>
+                        </div><br/>
+                        <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>
                 ))}
             </div>
