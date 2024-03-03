@@ -35,7 +35,7 @@ export default function OphthalmologistsScreen() {
                     <div className='row mt-5 Opthtable_3'>
 
                         <div className='col md-3 doctsearch'>
-                            <small className='barname2'>Search here</small>
+                            <small className='barname2'>Doctor Name</small>
                             <input class="form-control mr-sm-2 doctorSearch" type="search" placeholder="Search Doc Name." aria-label="Search"
 
 
@@ -43,13 +43,20 @@ export default function OphthalmologistsScreen() {
                         </div>
 
                         <div className='col md-3 rating'>
-                            <small className='type'>Rating</small>
+                            <small className='type'>Specialty</small>
                             <select className="TypeSelect">
-                                <option value="all">All</option>
-                                <option value="prescription eyeglasses">Prescription Eyeglasses</option>
-                                <option value="sunglasses">Sunglasses</option>
+                                <option value="all">Select Specialty</option>
+                                <option value="prescription eyeglasses">Eye Surgeon</option>
+                                <option value="sunglasses">General Surgeon</option>
                             </select>
                         </div>
+                        
+                        <div>
+                            
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
