@@ -23,3 +23,11 @@
     font-weight: bold !important;
     color: #0a5a70 !important;
 }
+.eyeglassBrandTag{
+    background-color: #0a5a70 !important;
+    color: white !important;
+    height: 30px !important;
+    text-align: center !important;
+    padding-top: 2px !important;
+    border-radius: 5px !important;
+}
