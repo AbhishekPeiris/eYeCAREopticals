@@ -127,24 +127,26 @@ const RayBanModel = () => {
                     </div>
                 ))}
             </div>
-            <p style={{ fontSize: "23px",marginLeft: "150px" }}><strong>DETAILS :</strong></p>
+                                   
+            <div className='row' style={{ marginLeft: "133px",marginRight:"133px"}}>
+                <div className='col md-5 border'>
+                    <p style={{ fontSize: "20px"}}><strong>Product Details</strong></p>               
+                </div>
+                <div className='col md-5 border'>     
+                    <p style={{ fontSize: "20px"}}><strong>About RayBan Eyeware</strong></p>
+                </div>
+            </div>
 
-            <div className='row' style={{ marginLeft: "133px"}}>
+            {eyeglass.map((eyeglass) => (   
+            <div className='row' style={{ marginLeft: "133px",marginRight:"133px"}}>
                 <div className='col md-5 border'>
-                    <p><strong>Product Details</strong></p>               
+                    
                 </div>
                 <div className='col md-5 border'>     
-                    <p><strong>About RayBan Eyeware</strong></p>
+                    <p className="eyeGlassDis">{eyeglass.discription}</p>
                 </div>
             </div>
-            <div className='row' style={{ marginLeft: "133px"}}>
-                <div className='col md-5 border'>
-                    <p><strong>Product Details</strong></p>               
-                </div>
-                <div className='col md-5 border'>     
-                    <p><strong>About RayBan Eyeware</strong></p>
-                </div>
-            </div>
+            ))}
             
         </div>
     );
