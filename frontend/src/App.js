@@ -19,12 +19,12 @@ import Che from './components/Che';
 import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
-<<<<<<< HEAD
+
 import AddDoctor from './screens/AddDoctor';
-=======
+
 import FeedbackScreen from './screens/FeedbackScreen';
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
->>>>>>> main
+
 
 function App() {
   return (
@@ -51,11 +51,10 @@ function App() {
           <Route path='/chanel/:brand' element={<Chanel />} />
           <Route path='/tens/:brand' element={<Tens />} />
           <Route path='/:brand/:model' element={<RayBanModel />} />
-<<<<<<< HEAD
+
           <Route path='/adddoctor' element={<AddDoctor />} />
-=======
           <Route path='/:addrepdetails' element={<AddRepairmentDetails />} />
->>>>>>> main
+
           <Route path='/' element={<HomeScreen />} />  
           <Route path='/addfeedback' element={<FeedbackScreen />} />
         </Routes>
