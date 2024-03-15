@@ -140,6 +140,16 @@ const RayBanModel = () => {
             {eyeglass.map((eyeglass) => (   
             <div className='row' style={{ marginLeft: "133px",marginRight:"133px"}}>
                 <div className='col md-5 border'>
+                    <p className="eyeGlassDetailsList">
+                        <b>Model :</b> {eyeglass.model}<br/>
+                        <b>Type :</b> {eyeglass.type}<br/>
+                        <b>Brand :</b> {eyeglass.brand}<br/>
+                        <b>Frame shape :</b> {eyeglass.frameshape}<br/>
+                        <b>Frame material :</b> {eyeglass.framematerial}<br/>
+                        <b>Frame type :</b> {eyeglass.frametype}<br/>
+                        <b>Hinge type :</b> {eyeglass.hingetype}<br/>
+                    </p>
+                    
                     
                 </div>
                 <div className='col md-5 border'>     
