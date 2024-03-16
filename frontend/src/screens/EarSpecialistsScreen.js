@@ -47,11 +47,12 @@ export default function EarSpecialistsScreen() {
                     </div>
 
                     <div className='col md-3 rating'>
-                        <small className='type'>Rating</small>
+                        <small className='type'>Specialty</small>
                         <select className="TypeSelect">
                             <option value="all">All</option>
-                            <option value="prescription eyeglasses">Prescription Eyeglasses</option>
-                            <option value="sunglasses">Sunglasses</option>
+                            <option value="prescription eyeglasses">Eye Surgeon</option>
+                            <option value="sunglasses">Ear Surgeon</option>
+                                <option value="sunglasses">General Surgeon</option>
                         </select>
                     </div>
                 </div>
