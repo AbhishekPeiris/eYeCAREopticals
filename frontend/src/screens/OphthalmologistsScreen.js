@@ -45,8 +45,9 @@ export default function OphthalmologistsScreen() {
                         <div className='col md-3 rating'>
                             <small className='type'>Specialty</small>
                             <select className="TypeSelect">
-                                <option value="all">Select Specialty</option>
+                                <option value="all">All</option>
                                 <option value="prescription eyeglasses">Eye Surgeon</option>
+                                <option value="sunglasses">Ear Surgeon</option>
                                 <option value="sunglasses">General Surgeon</option>
                             </select>
                         </div>
