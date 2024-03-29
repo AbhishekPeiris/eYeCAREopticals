@@ -61,5 +61,26 @@ router.route('/').post(async(req, res) => {
     }
 });
 
+router.route('/:id').post(async(req, res) => {
+
+    const repairmentID = req.params.id;
+
+    try {
+        
+        const repairment = await Repairment.findById(repairmentID);
+
+        if (!repairment) {
+            return res.status(404).json({ status: "Repairment model not found" });
+        }
+
+        return res.status(200).json({status: "Repairment model is fatched", repairment});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch Repairment", message: error});
+
+    }
+});
+
 
 module.exports = router;
