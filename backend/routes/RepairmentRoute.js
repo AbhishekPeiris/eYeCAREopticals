@@ -83,4 +83,44 @@ router.route('/:id').post(async(req, res) => {
 });
 
 
+router.route('/editrepairment/:id').put(async (req, res) =>{
+
+    const repairmentID = req.params.id;
+
+    const {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        DateofDropoff,
+        PreferredPickupDate,
+        DescriptionofIssue,
+        price
+    } = req.body;
+
+    const updateRepairment = {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        DateofDropoff,
+        PreferredPickupDate,
+        DescriptionofIssue,
+        price
+    }
+    
+    try {
+        
+        await Repairment.findByIdAndUpdate(repairmentID , updateRepairment);
+        return res.status(200).json({status: "repairment updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update repairment", message: error});
+
+    }
+});
+
 module.exports = router;
