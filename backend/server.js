@@ -32,3 +32,6 @@ app.use('/api/user', userRouter);
 
 const eyeglassRoute = require('./routes/EyeGlassRoute');
 app.use('/api/eyeglass',eyeglassRoute);
+
+const DoctorRoute = require('./routes/DoctorRoute');
+app.use('/api/doctor',DoctorRoute);
