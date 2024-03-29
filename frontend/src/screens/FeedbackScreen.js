@@ -23,9 +23,13 @@ function FeedbackScreen() {
         and ensure we meet your eye care needs effectively. Share your thoughts
         with us today!"
         
-        <div className ="btn-1">
-        <button>Back</button>
+        <div className="btn-1">          
+
+            <button>Back</button>
+          
         <button>Add Feedback</button>
+        
+                            
         
         </div>
         </div>
