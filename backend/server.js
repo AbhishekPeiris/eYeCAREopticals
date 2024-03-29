@@ -35,3 +35,9 @@ app.use('/api/eyeglass',eyeglassRoute);
 
 const DoctorRoute = require('./routes/DoctorRoute');
 app.use('/api/doctor',DoctorRoute);
+
+const DeafAidsRoute = require('./routes/DoctorRoute');
+app.use('/api/deafaids',DeafAidsRoute);
+
+const DeafAidsAdminRoute = require('./routes/DeafAidsAdminRoute');
+app.use('/api/deafaidsadmin',DeafAidsAdminRoute);
