@@ -126,4 +126,20 @@ router.route('/editdeafaids/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deletedeafaids/:id').delete(async (req, res) => {
+
+    const deafaidsId = req.params.id;
+
+    try {
+        
+        await DeafAids.findByIdAndDelete(deafaidsId);
+        return res.status(200).json({status : "deafaids is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete deafaids", message : error});
+
+    }
+});
+
 module.exports = router;
