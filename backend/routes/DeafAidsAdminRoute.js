@@ -84,4 +84,46 @@ router.route('/:model').post(async(req, res) => {
     }
 });
 
+router.route('/editdeafaids/:id').put(async (req, res) =>{
+
+    const deafaidsID = req.params.id;
+
+    const {
+        model,
+        gender,
+        material,
+        discription,
+        size1,
+        size2,
+        price,
+        rating,
+        imageurlcolor1,
+        imageurlcolor2 
+    } = req.body;
+
+    const updateDeafAids = {
+        model,
+        gender,
+        material,
+        discription,
+        size1,
+        size2,
+        price,
+        rating,
+        imageurlcolor1,
+        imageurlcolor2
+    }
+    
+    try {
+        
+        await DeafAids.findByIdAndUpdate(deafaidsID , updateDeafAids);
+        return res.status(200).json({status: "Deafaids updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update deafaids", message: error});
+
+    }
+});
+
 module.exports = router;
