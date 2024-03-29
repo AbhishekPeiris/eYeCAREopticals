@@ -7,15 +7,34 @@ function AddDoctor() {
       <br/><br/><br/><br/>
     <div className="content">
     <form class="form mb-5 mt-5">
-       <p class="form-title">Sign in to your account</p>
+       <p class="form-title">Docters Registration Form</p>
+
         <div class="input-container">
-          <input type="email" placeholder="Enter email"/>
-          <span>
-          </span>
-      </div>
-      <div class="input-container">
-          <input type="password" placeholder="Enter password"/>
+          <lable>First Name</lable>
+          <input type="text" placeholder="Enter First Name "/>  
         </div>
+
+         <div class="input-container">
+           <label>Last Name</label>       
+           <input type="text" placeholder="Enter Last Name"/>
+         </div>
+
+          <div class="input-container">
+            <lable>Email</lable>
+            <input type="email" placeholder="Enter email"/>
+          </div>
+
+          <div class="input-container">
+            <lable>Password</lable>
+            <input type="password" placeholder="Enter Password"/>
+          </div>
+
+          <div class ="input-container">
+            <lable>Contact Number</lable>
+            <input type ="mobile" placeholder="Enter Contact Number"/>
+          </div>
+
+
          <button type="submit" class="submit">
         Sign in
       </button>
