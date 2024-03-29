@@ -15,10 +15,6 @@ const deafAidsSchema = new Schema({
         type: String,
         required: true
     },
-    hingetype : {
-        type: String,
-        required: true
-    },
     discription : {
         type: String,
         required: true
