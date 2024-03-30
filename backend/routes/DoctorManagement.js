@@ -90,4 +90,54 @@ router.route('/:id').post(async(req, res) => {
     }
 });
 
+router.route('/editdoctor/:id').put(async (req, res) =>{
+
+    const doctorID = req.params.id;
+
+    const {
+        firstname,
+        lastname,
+        contact,
+        email,
+        experiance,
+        language,
+        type,
+        department,
+        rating,
+        doctorfee,
+        discription,
+        date,
+        specialty,
+        imageurl
+    } = req.body;
+
+    const updateDoctor = {
+        firstname,
+        lastname,
+        contact,
+        email,
+        experiance,
+        language,
+        type,
+        department,
+        rating,
+        doctorfee,
+        discription,
+        date,
+        specialty,
+        imageurl
+    }
+    
+    try {
+        
+        await Doctor.findByIdAndUpdate(doctorID , updateDoctor);
+        return res.status(200).json({status: "doctor updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update doctor", message: error});
+
+    }
+});
+
 module.exports = router;
