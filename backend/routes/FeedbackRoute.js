@@ -76,4 +76,39 @@ router.route('/:id').post(async(req, res) => {
     }
 });
 
+router.route('/editfeedback/:id').put(async (req, res) =>{
+
+    const feedbackID = req.params.id;
+
+    const {
+        cusname,
+        contact,
+        address,
+        email,
+        rating,
+        comment
+    } = req.body;
+
+    const updateFeedback = {
+        cusname,
+        contact,
+        address,
+        email,
+        rating,
+        comment
+    }
+    
+    try {
+        
+        await Feedback.findByIdAndUpdate(feedbackID , updateFeedback);
+        return res.status(200).json({status: "Feedback updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update Feedback", message: error});
+
+    }
+});
+
+
 module.exports = router;
