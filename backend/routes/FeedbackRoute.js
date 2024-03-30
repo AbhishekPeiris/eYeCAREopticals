@@ -1,4 +1,5 @@
 const router = require('express').Router();
-const Repairment = require('../models/Repairment');
+const Feedback = require('../models/Feedback');
+
 
 module.exports = router;
