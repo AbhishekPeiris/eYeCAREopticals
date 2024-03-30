@@ -7,18 +7,18 @@ export default function EarSpecialistsScreen() {
     return (
         <div className='background'>
             <br /><br /><br />
-            
+
             <div className='row'>
-                        <div className='col md-3 EarSptable_1col_1'>
-                            <h1 className="mainfonttext" data-aos="fade-right">Quality Ear Care<br /> Right When You<br /> Need It .</h1>
-                            <br />
-                            <p className="eyefonttext" data-aos="fade-right">Your Ears Deserve the<br />
-                    Best Care...<br /></p>
-                        </div>
-                        <div className='col md-3'>
-                        <img src={earimage} alt="ear pic" className="img-fluid" />
-                        </div>
-                    </div>
+                <div className='col md-3 EarSptable_1col_1'>
+                    <h1 className="mainfonttext" data-aos="fade-right">Quality Ear Care<br /> Right When You<br /> Need It .</h1>
+                    <br />
+                    <p className="eyefonttext" data-aos="fade-right">Your Ears Deserve the<br />
+                        Best Care...<br /></p>
+                </div>
+                <div className='col md-3'>
+                    <img src={earimage} alt="ear pic" className="img-fluid" />
+                </div>
+            </div>
 
             <div class="container py-5 earspacial">
                 <div class="row align-items-center mb-5 OpthTable_1">
@@ -52,7 +52,7 @@ export default function EarSpecialistsScreen() {
                             <option value="all">All</option>
                             <option value="prescription eyeglasses">Eye Surgeon</option>
                             <option value="sunglasses">Ear Surgeon</option>
-                                <option value="sunglasses">General Surgeon</option>
+                            <option value="sunglasses">General Surgeon</option>
                         </select>
                     </div>
                 </div>

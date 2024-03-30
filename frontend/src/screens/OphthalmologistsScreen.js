@@ -6,7 +6,7 @@ export default function OphthalmologistsScreen() {
     return (
 
         <div className='background'>
-            
+
             <div>
                 <img src={eye} alt="eye pic" className='eye pic' />
             </div>
@@ -51,13 +51,6 @@ export default function OphthalmologistsScreen() {
                                 <option value="sunglasses">General Surgeon</option>
                             </select>
                         </div>
-                        
-                        <div>
-                            
-                        </div>
-
-
-
                     </div>
                 </div>
             </div>
