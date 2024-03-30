@@ -109,4 +109,25 @@ router.route('/createdoctorappointment').post(async(req, res) => {
 
 });
 
+router.route('/getalldoctorappointment/:email').post(async(req, res) => {
+
+    const email = req.params.email;
+
+    try {
+        
+        const doctor = await DoctorAppointment.find({ email: email });
+
+        if (!doctor) {
+            return res.status(404).json({ status: "doctorAppointment not found" });
+        }
+
+        return res.status(200).json({status: "doctorAppointment is fatched", doctor});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch doctorAppointment", message: error});
+
+    }
+});
+
 module.exports = router;
