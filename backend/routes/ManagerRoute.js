@@ -168,5 +168,41 @@ router.route('/adduser').post(async (req, res) => {
     }
 });
 
+router.route('/getalluser').post(async (req, res) => {
+    try {
+        const user = await User.find();
+
+        if (!user) {
+            return res.status(404).json({ status: "No doctor appointments found" });
+        }
+
+        return res.status(200).json({ status: "Doctor appointments fetched successfully", user });
+    } catch (error) {
+        console.error("Error with fetching doctor appointments:", error);
+        return res.status(500).json({ status: "Error with fetching doctor appointments", message: message });
+    }
+});
+
+router.route('/getalluser/:id').post(async(req, res) => {
+
+    const userID = req.params.id;
+
+    try {
+        
+        const user = await User.findById(userID);
+
+        if (!user) {
+            return res.status(404).json({ status: "doctorAppointment model not found" });
+        }
+
+        return res.status(200).json({status: "doctorAppointment model is fatched", user});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch doctorAppointment", message: error});
+
+    }
+});
+
 
 module.exports = router;
