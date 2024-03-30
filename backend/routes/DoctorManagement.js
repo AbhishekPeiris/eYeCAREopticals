@@ -140,4 +140,21 @@ router.route('/editdoctor/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deletedoctor/:id').delete(async (req, res) => {
+
+    const doctorID = req.params.id;
+
+    try {
+        
+        await Doctor.findByIdAndDelete(doctorID);
+        return res.status(200).json({status : "doctor is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete doctor", message : error});
+
+    }
+});
+
+
 module.exports = router;
