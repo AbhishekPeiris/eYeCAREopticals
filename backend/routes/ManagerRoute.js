@@ -38,6 +38,24 @@ router.route('/addappointment').post(async(req, res) => {
 
 });
 
+router.route('/').post(async(req, res) => {
+
+    try {
+        
+        const doctorAppointment = await DoctorAppointment.find();
+
+        if (!doctorAppointment) {
+            return res.status(404).json({ status: "doctorAppointment not found" });
+        }
+
+        return res.status(200).json({status: "doctorAppointment is fatched", doctorAppointment});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch doctorAppointment", message: error});
+
+    }
+});
 
 
 module.exports = router;
