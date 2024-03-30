@@ -1,6 +1,7 @@
 import React from "react";
 import feedbackimage from "../images/feedbackimage.jpg";
 import "../styles/feedback.css";
+import { Link } from 'react-router-dom';
 
 function FeedbackScreen() {
   return (
@@ -25,9 +26,13 @@ function FeedbackScreen() {
         
         <div className="btn-1">          
 
-            <button>Back</button>
+            <button>
+            <Link to="/ProfileScreen">Back</Link>
+            </button>
           
-        <button>Add Feedback</button>
+            <button>
+            <Link to="/feedbackformScreen">Add Feedback</Link>
+          </button>
         
                             
         
