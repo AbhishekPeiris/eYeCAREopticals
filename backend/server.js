@@ -47,3 +47,6 @@ app.use('/api/repairment',RepairmentRoute);
 
 const ManagerRoute = require('./routes/ManagerRoute');
 app.use('/api/manager',ManagerRoute);
+
+const FeedbackRoute = require('./routes/FeedbackRoute');
+app.use('/api/feedback',FeedbackRoute);
