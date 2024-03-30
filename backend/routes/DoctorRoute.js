@@ -51,6 +51,27 @@ router.route('/adddoctor').post(async (req, res) => {
 
 });
 
+router.route('/getdoctor/:type').post(async(req, res) => {
+
+    const type = req.params.type;
+
+    try {
+        
+        const doctor = await Doctor.find({ type: type });
+
+        if (!doctor) {
+            return res.status(404).json({ status: "Doctor type not found" });
+        }
+
+        return res.status(200).json({status: "Doctor type is fatched", doctor});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch Doctor", message: error});
+
+    }
+});
+
 router.route('/createdoctorappointment').post(async(req, res) => {
 
     const {
