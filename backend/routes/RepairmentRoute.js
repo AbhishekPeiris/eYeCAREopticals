@@ -123,4 +123,21 @@ router.route('/editrepairment/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deleterepairment/:id').delete(async (req, res) => {
+
+    const repairmentId = req.params.id;
+
+    try {
+        
+        await Repairment.findByIdAndDelete(repairmentId);
+        return res.status(200).json({status : "repairment is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete repairment", message : error});
+
+    }
+});
+
+
 module.exports = router;
