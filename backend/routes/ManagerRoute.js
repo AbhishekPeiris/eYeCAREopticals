@@ -119,5 +119,23 @@ router.route('/editdoctorappointment/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deletedoctorappointment/:id').delete(async (req, res) => {
+
+    const doctorAppointmentID = req.params.id;
+
+    try {
+        
+        await DoctorAppointment.findByIdAndDelete(doctorAppointmentID);
+        return res.status(200).json({status : "DoctorAppointment is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete DoctorAppointment", message : error});
+
+    }
+});
+
+
+
 
 module.exports = router;
