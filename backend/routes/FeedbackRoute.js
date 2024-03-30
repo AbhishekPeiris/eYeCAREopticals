@@ -55,4 +55,25 @@ router.route('/').post(async(req, res) => {
     }
 });
 
+router.route('/:id').post(async(req, res) => {
+
+    const feedbackID = req.params.id;
+
+    try {
+        
+        const feedback = await Feedback.findById(feedbackID);
+
+        if (!feedback) {
+            return res.status(404).json({ status: "Feedback model not found" });
+        }
+
+        return res.status(200).json({status: "Feedback model is fatched", feedback});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch Feedback", message: error});
+
+    }
+});
+
 module.exports = router;
