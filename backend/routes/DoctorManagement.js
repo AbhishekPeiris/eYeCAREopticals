@@ -69,4 +69,25 @@ router.route('/').post(async(req, res) => {
     }
 });
 
+router.route('/:id').post(async(req, res) => {
+
+    const doctorID = req.params.id;
+
+    try {
+        
+        const doctor = await Doctor.findById(doctorID);
+
+        if (!doctor) {
+            return res.status(404).json({ status: "doctor not found" });
+        }
+
+        return res.status(200).json({status: "doctor is fatched", doctor});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch doctor", message: error});
+
+    }
+});
+
 module.exports = router;
