@@ -1,44 +1,47 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const deafAidsSchema = new Schema({
+const RepairmentSchema = new Schema({
 
+    cusname : {
+        type: String,
+        required: true
+    },
+    contact : {
+        type: String,
+        required: true
+    },
+    address : {
+        type: String,
+        required: true
+    },
+    email : {
+        type: String,
+        required: true
+    },
     model : {
         type: String,
         required: true
     },
-    gender : {
+    DateofDropoff : {
         type: String,
         required: true
     },
-    material : {
+    PreferredPickupDate : {
         type: String,
         required: true
     },
-    discription : {
+    DescriptionofIssue: {
         type: String,
         required: true
     },
-    size1 : {
-        type: String,
-        required: true
-    },
-    size2 : {
-        type: String,
-        required: true
-    },
-    price : {
+    price: {
         type: Number,
         required: true
     },
-    rating : {
-        type: Number,
-        required: true
-    },
-    imageurlcolor1 : [],
-    imageurlcolor2 : [], 
+    
 });
 
-const DeafAids = mongoose.model('deafaids', deafAidsSchema);
+const Repairment = mongoose.model('repairments', RepairmentSchema);
 
-module.exports = DeafAids;
+module.exports = Repairment;

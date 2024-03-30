@@ -35,3 +35,19 @@ app.use('/api/eyeglass',eyeglassRoute);
 
 const DoctorRoute = require('./routes/DoctorRoute');
 app.use('/api/doctor',DoctorRoute);
+
+const DeafAidsRoute = require('./routes/DoctorRoute');
+app.use('/api/deafaids',DeafAidsRoute);
+
+const DeafAidsAdminRoute = require('./routes/DeafAidsAdminRoute');
+app.use('/api/deafaidsadmin',DeafAidsAdminRoute);
+
+const RepairmentRoute = require('./routes/RepairmentRoute');
+app.use('/api/repairment',RepairmentRoute);
+
+const ManagerRoute = require('./routes/ManagerRoute');
+app.use('/api/manager',ManagerRoute);
+
+const FeedbackRoute = require('./routes/FeedbackRoute');
+app.use('/api/feedback',FeedbackRoute);
+
