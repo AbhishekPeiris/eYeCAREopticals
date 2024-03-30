@@ -79,4 +79,45 @@ router.route('/:id').post(async(req, res) => {
 });
 
 
+router.route('/editdoctorappointment/:id').put(async (req, res) =>{
+
+    const doctorAppointmentID = req.params.id;
+
+    const {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        DateofDropoff,
+        PreferredPickupDate,
+        DescriptionofIssue,
+        price
+    } = req.body;
+
+    const doctorAppointment = {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        DateofDropoff,
+        PreferredPickupDate,
+        DescriptionofIssue,
+        price
+    }
+    
+    try {
+        
+        await DoctorAppointment.findByIdAndUpdate(doctorAppointmentID , doctorAppointment);
+        return res.status(200).json({status: "DoctorAppointment updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update DoctorAppointment", message: error});
+
+    }
+});
+
+
 module.exports = router;
