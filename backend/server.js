@@ -44,3 +44,6 @@ app.use('/api/deafaidsadmin',DeafAidsAdminRoute);
 
 const RepairmentRoute = require('./routes/RepairmentRoute');
 app.use('/api/repairment',RepairmentRoute);
+
+const ManagerRoute = require('./routes/ManagerRoute');
+app.use('/api/manager',ManagerRoute);
