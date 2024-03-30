@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const DoctorAppointment = require('../models/DoctorAppointment');
+const User = require('../models/User');
 
 router.route('/addappointment').post(async(req, res) => {
 
@@ -38,26 +39,22 @@ router.route('/addappointment').post(async(req, res) => {
 
 });
 
-router.route('/').post(async(req, res) => {
-
+router.route('/getalldoctorappointment').post(async (req, res) => {
     try {
-        
-        const doctorAppointment = await DoctorAppointment.find();
+        const doctorAppointments = await DoctorAppointment.find();
 
-        if (!doctorAppointment) {
-            return res.status(404).json({ status: "doctorAppointment not found" });
+        if (!doctorAppointments) {
+            return res.status(404).json({ status: "No doctor appointments found" });
         }
 
-        return res.status(200).json({status: "doctorAppointment is fatched", doctorAppointment});
-
+        return res.status(200).json({ status: "Doctor appointments fetched successfully", doctorAppointments });
     } catch (error) {
-        
-        return res.status(500).json({status: "Error with fetch doctorAppointment", message: error});
-
+        console.error("Error with fetching doctor appointments:", error);
+        return res.status(500).json({ status: "Error with fetching doctor appointments", message: message });
     }
 });
 
-router.route('/:id').post(async(req, res) => {
+router.route('/getalldoctorappointment/:id').post(async(req, res) => {
 
     const doctorAppointmentID = req.params.id;
 
@@ -135,7 +132,41 @@ router.route('/deletedoctorappointment/:id').delete(async (req, res) => {
     }
 });
 
+router.route('/adduser').post(async (req, res) => {
 
+    const {
+        firstname,
+        lastname,
+        dob,
+        address,
+        gender,
+        contact,
+        email,
+        password
+    } = req.body;
+
+    const newUser = new User({
+
+        firstname,
+        lastname,
+        dob,
+        address,
+        gender,
+        contact,
+        email,
+        password
+    });
+
+    try {
+        
+        await newUser.save();
+        return res.status(200).json({status: "User is added successfully"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with add user", messsage: error});
+    }
+});
 
 
 module.exports = router;
