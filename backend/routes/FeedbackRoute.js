@@ -110,5 +110,20 @@ router.route('/editfeedback/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deletefeedback/:id').delete(async (req, res) => {
+
+    const feedbackID = req.params.id;
+
+    try {
+        
+        await Feedback.findByIdAndDelete(feedbackID);
+        return res.status(200).json({status : "Feedback is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete Feedback", message : error});
+
+    }
+});
 
 module.exports = router;
