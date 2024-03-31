@@ -103,5 +103,21 @@ router.route('/editdeafaidsreservation/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deletedeafaidsreservation/:id').delete(async (req, res) => {
+
+    const deafaidsreservationID = req.params.id;
+
+    try {
+        
+        await DeafAidsReservation.findByIdAndDelete(deafaidsreservationID);
+        return res.status(200).json({status : "DeafAidsReservation is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete DeafAidsReservation", message : error});
+
+    }
+});
+
 
 module.exports = router;
