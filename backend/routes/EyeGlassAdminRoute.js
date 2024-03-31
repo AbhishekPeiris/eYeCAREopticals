@@ -151,5 +151,21 @@ router.route('/editeyeglass/:id').put(async (req, res) =>{
     }
 });
 
+router.route('/deleteeyeglass/:id').delete(async (req, res) => {
+
+    const eyeglassId = req.params.id;
+
+    try {
+        
+        await EyeGlass.findByIdAndDelete(eyeglassId);
+        return res.status(200).json({status : "EyeGlass is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete EyeGlass", message : error});
+
+    }
+});
+
 
 module.exports = router;
