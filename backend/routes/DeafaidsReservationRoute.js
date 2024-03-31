@@ -63,4 +63,45 @@ router.route('/getdeafaidsreservations/:email').post(async(req, res) => {
     }
 });
 
+router.route('/editdeafaidsreservation/:id').put(async (req, res) =>{
+
+    const deafaidsreservationID = req.params.id;
+
+    const {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        gender,
+        size,
+        price,
+        imageurlcolor
+    } = req.body;
+
+    const updateDeafaidsReservation = {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        gender,
+        size,
+        price,
+        imageurlcolor
+    }
+    
+    try {
+        
+        await DeafAidsReservation.findByIdAndUpdate(deafaidsreservationID , updateDeafaidsReservation);
+        return res.status(200).json({status: "DeafAidsReservation updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update DeafAidsReservation", message: error});
+
+    }
+});
+
+
 module.exports = router;
