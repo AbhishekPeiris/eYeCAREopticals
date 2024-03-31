@@ -67,4 +67,49 @@ router.route('/geteyeglassreservations/:email').post(async(req, res) => {
     }
 });
 
+
+router.route('/editeyeglassreservation/:id').put(async (req, res) =>{
+
+    const eyeglassreservationID = req.params.id;
+
+    const {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        type,
+        brand,
+        gender,
+        framesize,
+        price,
+        imageurlcolor
+    } = req.body;
+
+    const updateEyeglassReservation = {
+        cusname,
+        contact,
+        address,
+        email,
+        model,
+        type,
+        brand,
+        gender,
+        framesize,
+        price,
+        imageurlcolor
+    }
+    
+    try {
+        
+        await EyeglassReservation.findByIdAndUpdate(eyeglassreservationID , updateEyeglassReservation);
+        return res.status(200).json({status: "EyeglassReservation updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update EyeglassReservation", message: error});
+
+    }
+});
+
 module.exports = router;
