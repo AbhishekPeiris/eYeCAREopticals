@@ -95,5 +95,61 @@ router.route('/:model').post(async(req, res) => {
     }
 });
 
+router.route('/editeyeglass/:id').put(async (req, res) =>{
+
+    const eyeglassID = req.params.id;
+
+    const {
+        model,
+        type,
+        brand,
+        gender,
+        frameshape,
+        framematerial,
+        frametype,
+        hingetype,
+        discription,
+        framesize1,
+        framesize2,
+        framesize3,
+        price,
+        rating,
+        imageurlcolor1,
+        imageurlcolor2,
+        imageurlcolor3
+    } = req.body;
+
+    const updateEyeglass = {
+        model,
+        type,
+        brand,
+        gender,
+        frameshape,
+        framematerial,
+        frametype,
+        hingetype,
+        discription,
+        framesize1,
+        framesize2,
+        framesize3,
+        price,
+        rating,
+        imageurlcolor1,
+        imageurlcolor2,
+        imageurlcolor3
+    }
+    
+    try {
+        
+        await EyeGlass.findByIdAndUpdate(eyeglassID , updateEyeglass);
+        return res.status(200).json({status: "EyeGlass updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update EyeGlass", message: error});
+
+    }
+});
+
 
 module.exports = router;
