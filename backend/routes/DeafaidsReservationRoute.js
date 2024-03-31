@@ -42,4 +42,25 @@ router.route('/createdeafaidsreservation').post(async(req, res) => {
 
 });
 
+router.route('/getdeafaidsreservations/:email').post(async(req, res) => {
+
+    const email = req.params.email;
+
+    try {
+        
+        const deafaidsreservation = await DeafAidsReservation.find({ email: email });
+
+        if (!deafaidsreservation) {
+            return res.status(404).json({ status: "deafaidsreservation not found" });
+        }
+
+        return res.status(200).json({status: "deafaidsreservation is fatched", deafaidsreservation});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch deafaidsreservation", message: error});
+
+    }
+});
+
 module.exports = router;
