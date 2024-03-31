@@ -54,3 +54,6 @@ app.use('/api/feedback',FeedbackRoute);
 const DoctorManagementRoute = require('./routes/DoctorManagement');
 app.use('/api/doctormanagement',DoctorManagementRoute);
 
+const EyeglassReservationRoute = require('./routes/EyeglassReservationRoute');
+app.use('/api/eyeglassreservation',EyeglassReservationRoute);
+
