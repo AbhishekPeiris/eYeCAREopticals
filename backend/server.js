@@ -57,3 +57,6 @@ app.use('/api/doctormanagement',DoctorManagementRoute);
 const EyeglassReservationRoute = require('./routes/EyeglassReservationRoute');
 app.use('/api/eyeglassreservation',EyeglassReservationRoute);
 
+const DeafaidsReservationRoute = require('./routes/DeafaidsReservationRoute');
+app.use('/api/deafaidsreservation',DeafaidsReservationRoute);
+
