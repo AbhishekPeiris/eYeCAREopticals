@@ -55,7 +55,24 @@ router.route('/addeyeglass').post(async(req, res) => {
     }
 });
 
+router.route('/').post(async(req, res) => {
 
+    try {
+        
+        const eyeglass = await EyeGlass.find();
+
+        if (!eyeglass) {
+            return res.status(404).json({ status: "eyeglass not found" });
+        }
+
+        return res.status(200).json({status: "eyeglass is fatched", eyeglass});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch eyeglass", message: error});
+
+    }
+});
 
 
 module.exports = router;
