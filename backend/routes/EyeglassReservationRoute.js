@@ -46,4 +46,25 @@ router.route('/createeyeglassreservation').post(async(req, res) => {
 
 });
 
+router.route('/geteyeglassreservations/:email').post(async(req, res) => {
+
+    const email = req.params.email;
+
+    try {
+        
+        const eyeglassreservation = await EyeglassReservation.find({ email: email });
+
+        if (!eyeglassreservation) {
+            return res.status(404).json({ status: "eyeglassreservation not found" });
+        }
+
+        return res.status(200).json({status: "eyeglassreservation is fatched", eyeglassreservation});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch eyeglassreservation", message: error});
+
+    }
+});
+
 module.exports = router;
