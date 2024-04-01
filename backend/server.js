@@ -63,4 +63,7 @@ app.use('/api/deafaidsreservation',DeafaidsReservationRoute);
 const EyeglassAdminRoute = require('./routes/EyeGlassAdminRoute');
 app.use('/api/eyeglassadmin',EyeglassAdminRoute);
 
+const CartRoute = require('./routes/CartRoute');
+app.use('/api/cart',CartRoute);
+
 
