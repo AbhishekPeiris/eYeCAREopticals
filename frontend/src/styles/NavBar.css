@@ -42,4 +42,25 @@
     background-color: rgb(252, 245, 236) !important;
     transition:.5s !important;
 }
+.cartitemcount{
+    background-color: #ff4500 !important;
+    color: white !important;
+    border-radius: 50px !important;
+    width: 15px !important;
+    height: 15px !important;
+    text-align: center !important;
+    padding-bottom: 12px !important;
+    font-size: 11px !important;
+    position: relative;
+    left: 20px !important;
+    bottom: 30px !important;
+    
+}
+.dropdownIconcart{
+    margin-top: 13px !important;
+    margin-left: 10px !important;
+}
+.dropdownIconcart:hover{
+    color: black !important;
+}
 
