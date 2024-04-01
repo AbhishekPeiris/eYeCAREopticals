@@ -62,4 +62,20 @@ router.route('/getallcartitems/:email').post(async(req, res) => {
     }
 });
 
+router.route('/removecartitem/:id').delete(async (req, res) => {
+
+    const cartID = req.params.id;
+
+    try {
+        
+        await Cart.findByIdAndDelete(cartID);
+        return res.status(200).json({status : "cart item is deleted"});
+
+    } catch (error) {
+        
+        return res.status(400).json({status : "Error with delete cart item", message : error});
+
+    }
+});
+
 module.exports = router;
