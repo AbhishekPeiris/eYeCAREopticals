@@ -6,6 +6,7 @@ router.route('/addtocart').post(async(req, res) => {
 
     const {
 
+        email,
         model,
         type,
         brand,
@@ -17,6 +18,7 @@ router.route('/addtocart').post(async(req, res) => {
     } = req.body;
 
     const newCart = new Cart({
+        email,
         model,
         type,
         brand,
@@ -37,6 +39,27 @@ router.route('/addtocart').post(async(req, res) => {
  
      }   
 
+});
+
+router.route('/getallcartitems/:email').post(async(req, res) => {
+
+    const email = req.params.email;
+
+    try {
+        
+        const cart = await Cart.find({ email: email });
+
+        if (!cart) {
+            return res.status(404).json({ status: "cart items not found" });
+        }
+
+        return res.status(200).json({status: "cart items is fatched", cart});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch cart items", message: error});
+
+    }
 });
 
 module.exports = router;
