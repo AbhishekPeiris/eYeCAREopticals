@@ -49,6 +49,7 @@ const NavBar = () => {
                             <li className="nav-item">
                                 <Link to="/services" className="nav-link mx-2">Services</Link>
                             </li>
+                           
                             <li>
                                 <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
                                 <ul class="navbar-nav">
@@ -68,6 +69,10 @@ const NavBar = () => {
                                             </ul>
 
                                         </div>
+
+                                        <li className="nav-item">
+                                            <Link to="/register"><i class="fa fa-shopping-cart dropdownIconcart" aria-hidden="true"/></Link><div className='cartitemcount'>0</div>
+                                        </li>
                                     </>) : (<>
 
                                         <li className="nav-item">

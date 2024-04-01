@@ -14,6 +14,9 @@ import EyeGlassesScreens from './screens/EyeGlassesScreens';
 import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
 import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
 
+import FeedbackScreen from './screens/FeedbackScreen';
+
+
 import RayBan from './components/RayBan';
 import Che from './components/Che';
 import Chanel from './components/Chanel';
@@ -22,7 +25,7 @@ import RayBanModel from './components/RayBanModel';
 
 import AddDoctor from './screens/AddDoctor';
 
-import FeedbackScreen from './screens/FeedbackScreen';
+
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
 
 
@@ -57,6 +60,8 @@ function App() {
 
           <Route path='/' element={<HomeScreen />} />  
           <Route path='/addfeedback' element={<FeedbackScreen />} />
+          <Route path='/feedbackformScreen' element={<feedbackformScreen />} />
+          <Route path='/ProfileScreen' element={< ProfileScreen/>} />
         </Routes>
 
         <Footer />
