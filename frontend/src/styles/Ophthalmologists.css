@@ -36,10 +36,8 @@
     padding-left: 50px !important;
     padding-top: 30px !important;
     border: 1px solid rgb(206, 206, 206) !important;
-
-    position: relative;
-    bottom: 250px;
-    
+    position: relative!important;
+    margin-top: -270px !important;
 }
 .doctsearch{
     position: relative;
@@ -81,6 +79,7 @@
     margin-left: 10px!important;
     
 }
+
 
 
 
