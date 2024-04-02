@@ -51,6 +51,13 @@ function App() {
           <Route path='/chanel/:brand' element={<Chanel />} />
           <Route path='/tens/:brand' element={<Tens />} />
           <Route path='/:brand/:model' element={<RayBanModel />} />
+
+
+          <Route path='/adddoctor' element={<AddDoctor />} />
+          <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+
+          <Route path='/' element={<HomeScreen />} />  
+
           <Route path='/addfeedback' element={<FeedbackScreen />} />
           <Route path='/feedbackformScreen' element={<feedbackformScreen />} />
           <Route path='/ProfileScreen' element={< ProfileScreen/>} />
