@@ -13,6 +13,7 @@ import EyeGlassesScreens from './screens/EyeGlassesScreens';
 import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
 import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
 import FeedbackScreen from './screens/FeedbackScreen';
+import FeedbackFormScreen from './screens/feedbackformScreen';
 
 import AddDoctor from './screens/AddDoctor';
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
@@ -66,12 +67,57 @@ function App() {
           <Route path='/feedbackformScreen' element={<DefaultLayout><feedbackformScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
+
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
       </Routes>
     </BrowserRouter>
+
+        <NavBar />
+
+        <Routes>
+
+          <Route path='/register' element={<RegisterScreen />} />
+          <Route path='/login' element={<LoginScreen />} />
+          <Route path='/profile' element={<ProfileScreen />} />
+          <Route path='/bookings' element={<BookingScreen />} />
+          <Route path='/editprofile/:userId' element={<EditUserScreen />} />
+          <Route path='/aboutus' element={<AboutUsScreen />} />
+          <Route path='/ophthalmologists' element={<OphthalmologistsScreen />} />
+          <Route path='/EarSpecialistsScreen' element={<EarSpecialistsScreen />} />
+          <Route path='/services' element={<ServicesScreen />} />
+          <Route path='/eyeglasses' element={<EyeGlassesScreens />} />
+          <Route path='/rayban/:brand' element={<RayBan />} />
+          <Route path='/che/:brand' element={<Che />} />
+          <Route path='/chanel/:brand' element={<Chanel />} />
+          <Route path='/tens/:brand' element={<Tens />} />
+          <Route path='/:brand/:model' element={<RayBanModel />} />
+
+
+          <Route path='/adddoctor' element={<AddDoctor />} />
+          <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+
+
+          <Route path='/' element={<HomeScreen />} />  
+
+
+          <Route path='/addfeedback' element={<FeedbackScreen />} />
+          <Route path='/feedbackformScreen' element={<FeedbackFormScreen />} />
+          <Route path='/ProfileScreen' element={< ProfileScreen/>} />
+
+          <Route path='/' element={<HomeScreen />} />  
+
+          <Route path='/adddoctor' element={<AddDoctor />} />
+          <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+
+        </Routes>
+
+        <Footer />
+        
+      </BrowserRouter>
+
       
     </div>
   );
