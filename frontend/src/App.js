@@ -67,14 +67,13 @@ function App() {
           <Route path='/feedbackformScreen' element={<DefaultLayout><feedbackformScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
-
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
       </Routes>
     </BrowserRouter>
-
+    
     </div>
   );
 }
