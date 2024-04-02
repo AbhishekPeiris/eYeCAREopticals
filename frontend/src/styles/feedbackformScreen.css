@@ -1,0 +1,16 @@
+.fullform{
+    position: relative;
+    margin-left: 600px !important;
+}
+.form-control{
+    width: 300px !important;
+}
+.form-title{
+    margin-left: -700px !important;
+}
+.Additional{
+    position: relative;
+    margin-left: -145px !important;
+    bottom: 100px !important;
+    margin-bottom: -200px !important;
+}

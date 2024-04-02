@@ -13,6 +13,7 @@ import EyeGlassesScreens from './screens/EyeGlassesScreens';
 import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
 import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
 import FeedbackScreen from './screens/FeedbackScreen';
+import FeedbackFormScreen from './screens/feedbackformScreen';
 
 import AddDoctor from './screens/AddDoctor';
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
@@ -66,13 +67,14 @@ function App() {
           <Route path='/feedbackformScreen' element={<DefaultLayout><feedbackformScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
+
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
       </Routes>
     </BrowserRouter>
-      
+
     </div>
   );
 }
