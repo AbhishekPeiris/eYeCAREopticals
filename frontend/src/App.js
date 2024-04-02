@@ -56,7 +56,7 @@ function App() {
           <Route path='/:brand/:model' element={<RayBanModel />} />
 
           <Route path='/adddoctor' element={<AddDoctor />} />
-          <Route path='/:addrepdetails' element={<AddRepairmentDetails />} />
+          <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
 
           <Route path='/' element={<HomeScreen />} />  
           <Route path='/addfeedback' element={<FeedbackScreen />} />
