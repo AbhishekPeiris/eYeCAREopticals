@@ -7,18 +7,18 @@ export default function EarSpecialistsScreen() {
     return (
         <div className='background'>
             <br /><br /><br />
-            
+
             <div className='row'>
-                        <div className='col md-3 EarSptable_1col_1'>
-                            <h1 className="mainfonttext" data-aos="fade-right">Quality Ear Care<br /> Right When You<br /> Need It .</h1>
-                            <br />
-                            <p className="eyefonttext" data-aos="fade-right">Your Ears Deserve the<br />
-                    Best Care...<br /></p>
-                        </div>
-                        <div className='col md-3'>
-                        <img src={earimage} alt="ear pic" className="img-fluid" />
-                        </div>
-                    </div>
+                <div className='col md-3 EarSptable_1col_1'>
+                    <h1 className="mainfonttext" data-aos="fade-right">Quality Ear Care<br /> Right When You<br /> Need It .</h1>
+                    <br />
+                    <p className="eyefonttext" data-aos="fade-right">Your Ears Deserve the<br />
+                        Best Care...<br /></p>
+                </div>
+                <div className='col md-3'>
+                    <img src={earimage} alt="ear pic" className="img-fluid" />
+                </div>
+            </div>
 
             <div class="container py-5 earspacial">
                 <div class="row align-items-center mb-5 OpthTable_1">
@@ -38,7 +38,7 @@ export default function EarSpecialistsScreen() {
 
                 <div className='row mt-5 eartable_3'>
 
-                    <div className='col md-3 doctsearch'>
+                    <div className='col md-3 eardoctsearch'>
                         <small className='barname2'>Search here</small>
                         <input class="form-control mr-sm-2 doctorSearch" type="search" placeholder="Search Doc Name." aria-label="Search"
 
@@ -52,7 +52,7 @@ export default function EarSpecialistsScreen() {
                             <option value="all">All</option>
                             <option value="prescription eyeglasses">Eye Surgeon</option>
                             <option value="sunglasses">Ear Surgeon</option>
-                                <option value="sunglasses">General Surgeon</option>
+                            <option value="sunglasses">General Surgeon</option>
                         </select>
                     </div>
                 </div>
