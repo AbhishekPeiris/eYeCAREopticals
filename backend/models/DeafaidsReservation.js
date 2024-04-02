@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const FeedbackSchema = new Schema({
+const DeafaidsReservationSchema = new Schema({
 
     cusname : {
         type: String,
@@ -19,17 +19,26 @@ const FeedbackSchema = new Schema({
         type: String,
         required: true
     },
-    rating : {
-        type: Number,
-        required: true
-    },
-    comment : {
+    model : {
         type: String,
         required: true
     },
+    gender : {
+        type: String,
+        required: true
+    },
+    size : {
+        type: String,
+        required: true
+    },
+    price : {
+        type: Number,
+        required: true
+    },
+    imageurlcolor : [],
     
 });
 
-const Feedback = mongoose.model('feedbacks ', FeedbackSchema);
+const DeafAidsReservation = mongoose.model('deafaidsreservations', DeafaidsReservationSchema);
 
-module.exports = Feedback;
+module.exports = DeafAidsReservation;
