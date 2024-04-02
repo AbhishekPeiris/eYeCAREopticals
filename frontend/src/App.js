@@ -1,8 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import HomeScreen from './screens/HomeScreen';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -13,20 +12,18 @@ import ServicesScreen from './screens/ServicesScreen';
 import EyeGlassesScreens from './screens/EyeGlassesScreens';
 import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
 import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
-
 import FeedbackScreen from './screens/FeedbackScreen';
 
+import AddDoctor from './screens/AddDoctor';
+import AddRepairmentDetails from './screens/AddRepairmentDetails';
 
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import RayBan from './components/RayBan';
 import Che from './components/Che';
 import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
-
-import AddDoctor from './screens/AddDoctor';
-
-
-import AddRepairmentDetails from './screens/AddRepairmentDetails';
 
 
 function App() {
@@ -55,13 +52,20 @@ function App() {
           <Route path='/tens/:brand' element={<Tens />} />
           <Route path='/:brand/:model' element={<RayBanModel />} />
 
+
           <Route path='/adddoctor' element={<AddDoctor />} />
           <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
 
           <Route path='/' element={<HomeScreen />} />  
+
           <Route path='/addfeedback' element={<FeedbackScreen />} />
           <Route path='/feedbackformScreen' element={<feedbackformScreen />} />
           <Route path='/ProfileScreen' element={< ProfileScreen/>} />
+
+          <Route path='/' element={<HomeScreen />} />  
+          
+          <Route path='/adddoctor' element={<AddDoctor />} />
+          <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
         </Routes>
 
         <Footer />
