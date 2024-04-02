@@ -38,7 +38,7 @@ export default function EarSpecialistsScreen() {
 
                 <div className='row mt-5 eartable_3'>
 
-                    <div className='col md-3 doctsearch'>
+                    <div className='col md-3 eardoctsearch'>
                         <small className='barname2'>Search here</small>
                         <input class="form-control mr-sm-2 doctorSearch" type="search" placeholder="Search Doc Name." aria-label="Search"
 
