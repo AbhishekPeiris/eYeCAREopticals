@@ -14,10 +14,11 @@ import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
 import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
 import FeedbackScreen from './screens/FeedbackScreen';
 import FeedbackFormScreen from './screens/feedbackformScreen';
+import ViewRepairmentDetails from './screens/ViewRepairmentDetails';
 
 import AddDoctor from './screens/AddDoctor';
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
-
+import AddCustomerDetails from './screens/AddCustomerDetails';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import RayBan from './components/RayBan';
@@ -27,6 +28,9 @@ import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
 import AddHearingAidsScreen from './screens/AddHearingAidsScreen';
+
+import AddSpectacles from './screens/AddSpectacles';
+
 
 
 function App() {
@@ -73,7 +77,14 @@ function App() {
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
-        <Route path='/addhearingaidsScreen' element={<DefaultLayout>< AddHearingAidsScreen/></DefaultLayout>} />
+
+        <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
+
+        <Route path='/addcustomerdetails' element={<AddCustomerDetails />} />
+
+        <Route path='/addspectacles' element={<AddSpectacles />} />
+
+
       </Routes>
     </BrowserRouter>
     
