@@ -20,7 +20,7 @@ import UpdateRepairmentDetails from './screens/UpdateRepairmentDetails';
 
 import AddDoctor from './screens/AddDoctor';
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
-
+import AddCustomerDetails from './screens/AddCustomerDetails';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import RayBan from './components/RayBan';
@@ -29,6 +29,7 @@ import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
+import AddSpectacles from './screens/AddSpectacles';
 
 
 function App() {
@@ -67,15 +68,26 @@ function App() {
           <Route path='/tens/:brand' element={<DefaultLayout><Tens /></DefaultLayout>} />
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
-          <Route path='/feedbackformScreen' element={<DefaultLayout><feedbackformScreen /></DefaultLayout>} />
+          <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
+
         <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
         <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
         <Route path='/updaterepairmentdetails' element={<UpdateRepairmentDetails />} />
+
+        <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+
+        <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
+
+        <Route path='/addcustomerdetails' element={<AddCustomerDetails />} />
+
+        <Route path='/addspectacles' element={<AddSpectacles />} />
+
+
 
       </Routes>
     </BrowserRouter>
