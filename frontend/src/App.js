@@ -14,6 +14,7 @@ import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
 import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
 import FeedbackScreen from './screens/FeedbackScreen';
 import FeedbackFormScreen from './screens/feedbackformScreen';
+import ViewRepairmentDetails from './screens/ViewRepairmentDetails';
 
 import AddDoctor from './screens/AddDoctor';
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
@@ -73,9 +74,12 @@ function App() {
         <Route path='/adddoctor' element={<AddDoctor />} />
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
 
+        <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
+
         <Route path='/addcustomerdetails' element={<AddCustomerDetails />} />
 
         <Route path='/addspectacles' element={<AddSpectacles />} />
+
 
       </Routes>
     </BrowserRouter>
