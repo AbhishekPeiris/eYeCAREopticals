@@ -5,6 +5,7 @@ import eye from '../images/eye.png';
 import eye1 from '../images/eye1.jpg';
 import styles from '../styles/Ophthalmologists.css';
 import Loader from '../components/Loader';
+import Rating from 'react-rating-stars-component';
 export default function OphthalmologistsScreen() {
 
     const [doctor, setDoctor] = useState([]);
@@ -92,8 +93,22 @@ export default function OphthalmologistsScreen() {
                         <div className="row mb-5 mt-5 RBtable_2">
                             {doctor.map((doctor) => (
                                 <div className="col-lg-3 RBtable_2col_1" key={doctor._id} data-aos="zoom-in">
-                                    <img src={doctor.imageurl[0]} alt="" width={250} />
+                                    <img src={doctor.imageurl[0]} alt="" width={300} />
+                                    <br/><br/>
                                     <p>
+                                        <strong>{doctor.firstname} {doctor.lastname}</strong><br/>
+                                        <p style={{fontSize:"11px"}}>{doctor.specialty} | {doctor.department}<br/>
+                                        {doctor.type}
+                                        <Rating
+                                            count={5}
+                                            value={doctor.rating}
+                                            size={24}
+                                            edit={false}
+                                        />
+                                        <hr style={{ backgroundColor: "black" }} />
+                                        <button className='docappoibtn' >Make Appointment !</button>
+                                        </p>
+                                        
 
                                     </p>
                                 </div>
