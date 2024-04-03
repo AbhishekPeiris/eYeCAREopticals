@@ -11,6 +11,17 @@ const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
     const [selectedColor, setSelectedColor] = useState(1); // Default to color 1
 
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+
+    const [email, setEmail] = useState();
+    const [modelNo, setModelNo] = useState();
+    const [type, setType] = useState();
+    const [brandname, setBrandName] = useState();
+    const [gender, setGender] = useState();
+    const [price, setPrice] = useState();
+    const [rating, setRating] = useState();
+    const [imageurlcolor, setImageurlColor] = useState();
+
     const { brand, model } = useParams();
 
     useEffect(() => {
@@ -18,6 +29,7 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
                 setEyeglass(response.data.eyeGlass);
+
             } catch (error) {
                 console.log(error);
             }
@@ -27,6 +39,28 @@ const RayBanModel = () => {
 
     const selectColor = (colorNumber) => {
         setSelectedColor(colorNumber);
+    }
+
+    async function AddtoCart() {
+
+        const newCartItem = {
+
+            email,
+            modelNo,
+            type,
+            brandname,
+            gender,
+            price,
+            rating,
+            imageurlcolor
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);;
+        }
     }
 
     return (
@@ -120,44 +154,85 @@ const RayBanModel = () => {
                                 <p style={{ fontSize: "23px", marginLeft: "50px" }}><strong>LKR <span style={{ color: "#ab2317" }}>&nbsp;{eyeglass.price}</span></strong></p>
                             </div>
                         </div><br />
-                        <button className='btn btn-primary addtocart'><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
+                        <button className='btn btn-primary addtocart' onClick={(e) => AddtoCart()}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
                         <button className='btn btn-primary eyeglasspaynow'>Pay Now!</button>
                         <br /><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>
                 ))}
             </div>
-                                   
-            <div className='row' style={{ marginLeft: "133px",marginRight:"133px"}}>
+
+            <div className='row' style={{ marginLeft: "133px", marginRight: "133px" }}>
                 <div className='col md-5 border'>
-                    <p style={{ fontSize: "20px"}}><strong>Product Details</strong></p>               
+                    <p style={{ fontSize: "20px" }}><strong>Product Details</strong></p>
                 </div>
-                <div className='col md-5 border'>     
-                    <p style={{ fontSize: "20px"}}><strong>About RayBan Eyeware</strong></p>
+                <div className='col md-5 border'>
+                    <p style={{ fontSize: "20px" }}><strong>About RayBan Eyeware</strong></p>
                 </div>
             </div>
 
-            {eyeglass.map((eyeglass) => (   
-            <div className='row' style={{ marginLeft: "133px",marginRight:"133px"}}>
-                <div className='col md-5 border'>
-                    <p className="eyeGlassDetailsList">
-                        <b>Model :</b> {eyeglass.model}<br/>
-                        <b>Type :</b> {eyeglass.type}<br/>
-                        <b>Brand :</b> {eyeglass.brand}<br/>
-                        <b>Frame shape :</b> {eyeglass.frameshape}<br/>
-                        <b>Frame material :</b> {eyeglass.framematerial}<br/>
-                        <b>Frame type :</b> {eyeglass.frametype}<br/>
-                        <b>Hinge type :</b> {eyeglass.hingetype}<br/>
-                    </p>
-                    
-                    
+            {eyeglass.map((eyeglass) => (
+                <div className='row' style={{ marginLeft: "133px", marginRight: "133px" }}>
+                    <div className='col md-5 border'>
+                        <p className="eyeGlassDetailsList">
+                            <b>Model :</b> {eyeglass.model}<br />
+                            <b>Type :</b> {eyeglass.type}<br />
+                            <b>Brand :</b> {eyeglass.brand}<br />
+                            <b>Frame shape :</b> {eyeglass.frameshape}<br />
+                            <b>Frame material :</b> {eyeglass.framematerial}<br />
+                            <b>Frame type :</b> {eyeglass.frametype}<br />
+                            <b>Hinge type :</b> {eyeglass.hingetype}<br />
+                        </p>
+                        
+                        <input type='hidden' value={user.firstname}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                            }}
+                        />
+                        <input type='hidden' value={eyeglass.model}
+                            onChange={(e) => {
+                                setModelNo(e.target.value);
+                            }}
+                        />
+                        <input type='hidden' value={eyeglass.type}
+                            onChange={(e) => {
+                                setType(e.target.value);
+                            }}
+                        />
+                        <input type='hidden' value={eyeglass.brand}
+                            onChange={(e) => {
+                                setBrandName(e.target.value);
+                            }}
+                        />
+                        <input type='hidden' value={eyeglass.gender}
+                            onChange={(e) => {
+                                setGender(e.target.value);
+                            }}
+                        />
+                        <input type='hidden' value={eyeglass.price}
+                            onChange={(e) => {
+                                setPrice(e.target.value);
+                            }}
+                        />
+                        <input type='hidden' value={eyeglass.rating}
+                            onChange={(e) => {
+                                setRating(e.target.value);
+                            }}
+                        />
+                        <input type='hidden' value={eyeglass.imageurlcolor1}
+                            onChange={(e) => {
+                                setImageurlColor(e.target.value);
+                            }}
+                        />
+
+
+                    </div>
+                    <div className='col md-5 border'>
+                        <p className="eyeGlassDis">{eyeglass.discription}</p>
+                    </div>
                 </div>
-                <div className='col md-5 border'>     
-                    <p className="eyeGlassDis">{eyeglass.discription}</p>
-                </div>
-            </div>
             ))}
-            
+
         </div>
     );
 }
