@@ -26,6 +26,7 @@ import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
+import AddSpectacles from './screens/AddSpectacles';
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+        <Route path='/addspectacles' element={<AddSpectacles />} />
       </Routes>
     </BrowserRouter>
     
