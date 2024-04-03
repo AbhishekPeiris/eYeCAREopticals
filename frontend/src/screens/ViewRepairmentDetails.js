@@ -2,7 +2,10 @@ import React from 'react'
 
 function ViewRepairmentDetails() {
   return (
-    <div>ViewRepairmentDetails</div>
+    <div>
+
+        <h1>ViewRepairmentDetails</h1>
+    </div>
   )
 }
 
