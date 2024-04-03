@@ -1,3 +1,20 @@
-.repaireviewtable_1_col_1{
-    
+.container {
+    padding: 50px 10%;
+}
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+table tr {
+    border-bottom: 1px solid black;
+    background-color:  #ff4500;
+    color: white;
+}
+
+table tr th, table tr td {
+    padding: 5px;
 }
