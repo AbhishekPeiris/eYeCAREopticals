@@ -17,7 +17,7 @@ import FeedbackFormScreen from './screens/feedbackformScreen';
 
 import AddDoctor from './screens/AddDoctor';
 import AddRepairmentDetails from './screens/AddRepairmentDetails';
-
+import AddCustomerDetails from './screens/AddCustomerDetails';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import RayBan from './components/RayBan';
@@ -71,6 +71,7 @@ function App() {
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+        <Route path='/addcustomerdetails' element={<AddCustomerDetails />} />
       </Routes>
     </BrowserRouter>
     
