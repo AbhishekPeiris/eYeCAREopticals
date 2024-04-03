@@ -30,6 +30,8 @@ import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
 import AddSpectacles from './screens/AddSpectacles';
+import ViewCustomerDetails from './screens/ViewCustomerDetails';
+import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
 
 
 function App() {
@@ -86,6 +88,8 @@ function App() {
         <Route path='/addcustomerdetails' element={<AddCustomerDetails />} />
 
         <Route path='/addspectacles' element={<AddSpectacles />} />
+        <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
+        <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
 
 
 
