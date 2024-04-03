@@ -56,7 +56,7 @@ function App() {
           <Route path='/bookings' element={<DefaultLayout><BookingScreen /></DefaultLayout>} />
           <Route path='/editprofile/:userId' element={<DefaultLayout><EditUserScreen /></DefaultLayout>} />
           <Route path='/aboutus' element={<DefaultLayout><AboutUsScreen /></DefaultLayout>} />
-          <Route path='/ophthalmologists' element={<DefaultLayout><OphthalmologistsScreen /></DefaultLayout>} />
+          <Route path='/ophthalmologists/:type' element={<DefaultLayout><OphthalmologistsScreen /></DefaultLayout>} />
           <Route path='/EarSpecialistsScreen' element={<DefaultLayout><EarSpecialistsScreen /></DefaultLayout>} />
           <Route path='/services' element={<DefaultLayout><ServicesScreen /></DefaultLayout>} />
           <Route path='/eyeglasses' element={<DefaultLayout><EyeGlassesScreens /></DefaultLayout>} />
