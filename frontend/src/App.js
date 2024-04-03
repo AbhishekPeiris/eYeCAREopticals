@@ -64,7 +64,7 @@ function App() {
           <Route path='/tens/:brand' element={<DefaultLayout><Tens /></DefaultLayout>} />
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
-          <Route path='/feedbackformScreen' element={<DefaultLayout><feedbackformScreen /></DefaultLayout>} />
+          <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
         {/* AdminDashboardScreen without NavBar and Footer */}
