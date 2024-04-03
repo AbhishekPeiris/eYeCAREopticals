@@ -1,8 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import HomeScreen from './screens/HomeScreen';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -13,61 +12,68 @@ import ServicesScreen from './screens/ServicesScreen';
 import EyeGlassesScreens from './screens/EyeGlassesScreens';
 import OphthalmologistsScreen from './screens/OphthalmologistsScreen';
 import EarSpecialistsScreen from './screens/EarSpecialistsScreen';
-
 import FeedbackScreen from './screens/FeedbackScreen';
+import FeedbackFormScreen from './screens/feedbackformScreen';
 
+import AddDoctor from './screens/AddDoctor';
+import AddRepairmentDetails from './screens/AddRepairmentDetails';
 
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import RayBan from './components/RayBan';
 import Che from './components/Che';
 import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
-
-import AddDoctor from './screens/AddDoctor';
-
-
-import AddRepairmentDetails from './screens/AddRepairmentDetails';
+import AdminDashboardScreen from './screens/AdminDashboardScreen';
 
 
 function App() {
+
+  const DefaultLayout = ({ children }) => (
+    <div>
+      <NavBar />
+      {children}
+      <Footer />
+    </div>
+  );
+  
   return (
     <div>
 
       <BrowserRouter>
+      <Routes>
+        {/* Routes inside DefaultLayout will have NavBar and Footer */}
+        <Route
+          element={<DefaultLayout><HomeScreen /></DefaultLayout>}
+          path="/"
+        />
+          <Route path='/register' element={<DefaultLayout><RegisterScreen /></DefaultLayout>} />
+          <Route path='/login' element={<DefaultLayout><LoginScreen /></DefaultLayout>} />
+          <Route path='/profile' element={<DefaultLayout><ProfileScreen /></DefaultLayout>} />
+          <Route path='/bookings' element={<DefaultLayout><BookingScreen /></DefaultLayout>} />
+          <Route path='/editprofile/:userId' element={<DefaultLayout><EditUserScreen /></DefaultLayout>} />
+          <Route path='/aboutus' element={<DefaultLayout><AboutUsScreen /></DefaultLayout>} />
+          <Route path='/ophthalmologists' element={<DefaultLayout><OphthalmologistsScreen /></DefaultLayout>} />
+          <Route path='/EarSpecialistsScreen' element={<DefaultLayout><EarSpecialistsScreen /></DefaultLayout>} />
+          <Route path='/services' element={<DefaultLayout><ServicesScreen /></DefaultLayout>} />
+          <Route path='/eyeglasses' element={<DefaultLayout><EyeGlassesScreens /></DefaultLayout>} />
+          <Route path='/rayban/:brand' element={<DefaultLayout><RayBan /></DefaultLayout>} />
+          <Route path='/che/:brand' element={<DefaultLayout><Che /></DefaultLayout>} />
+          <Route path='/chanel/:brand' element={<DefaultLayout><Chanel /></DefaultLayout>} />
+          <Route path='/tens/:brand' element={<DefaultLayout><Tens /></DefaultLayout>} />
+          <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
+          <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
+          <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
+          <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
-        <NavBar />
-
-        <Routes>
-
-          <Route path='/register' element={<RegisterScreen />} />
-          <Route path='/login' element={<LoginScreen />} />
-          <Route path='/profile' element={<ProfileScreen />} />
-          <Route path='/bookings' element={<BookingScreen />} />
-          <Route path='/editprofile/:userId' element={<EditUserScreen />} />
-          <Route path='/aboutus' element={<AboutUsScreen />} />
-          <Route path='/ophthalmologists' element={<OphthalmologistsScreen />} />
-          <Route path='/EarSpecialistsScreen' element={<EarSpecialistsScreen />} />
-          <Route path='/services' element={<ServicesScreen />} />
-          <Route path='/eyeglasses' element={<EyeGlassesScreens />} />
-          <Route path='/rayban/:brand' element={<RayBan />} />
-          <Route path='/che/:brand' element={<Che />} />
-          <Route path='/chanel/:brand' element={<Chanel />} />
-          <Route path='/tens/:brand' element={<Tens />} />
-          <Route path='/:brand/:model' element={<RayBanModel />} />
-
-          <Route path='/adddoctor' element={<AddDoctor />} />
-          <Route path='/:addrepdetails' element={<AddRepairmentDetails />} />
-
-          <Route path='/' element={<HomeScreen />} />  
-          <Route path='/addfeedback' element={<FeedbackScreen />} />
-          <Route path='/feedbackformScreen' element={<feedbackformScreen />} />
-          <Route path='/ProfileScreen' element={< ProfileScreen/>} />
-        </Routes>
-
-        <Footer />
-        
-      </BrowserRouter>
-      
+        {/* AdminDashboardScreen without NavBar and Footer */}
+        <Route path="/admindashboard" element={<AdminDashboardScreen />} />
+        <Route path='/adddoctor' element={<AddDoctor />} />
+        <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+      </Routes>
+    </BrowserRouter>
+    
     </div>
   );
 }
