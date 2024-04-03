@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import eye from '../images/eye.png';
 import eye1 from '../images/eye1.jpg';
@@ -106,7 +106,7 @@ export default function OphthalmologistsScreen() {
                                             edit={false}
                                         />
                                         <hr style={{ backgroundColor: "black" }} />
-                                        <button className='docappoibtn' >Make Appointment !</button>
+                                        <Link><button className='docappoibtn' >Make Appointment !</button></Link>
                                         </p>
                                         
 
