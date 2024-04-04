@@ -35,6 +35,8 @@ import Doctor from './components/Doctor';
 
 import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+
+
 import CartScreen from './screens/CartScreen';
 
 
@@ -78,7 +80,7 @@ function App() {
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
-          <Route path='/:id' element={<DefaultLayout>< Doctor/></DefaultLayout>} />
+          <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
 
