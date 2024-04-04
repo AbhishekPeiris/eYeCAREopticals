@@ -38,37 +38,40 @@ function Doctor() {
           <img src={doctor.imageurl[0]} alt="" className='docimage' />
 
           <div className='fuldetail'>
-            <p className='docfname'>{doctor.firstname}</p>
+            <p className='docfname'><b> {doctor.firstname}&nbsp;&nbsp;{doctor.lastname}</b></p>
+
+            <p className='docemail'><h6><b> Email  :</b>&nbsp;&nbsp;&nbsp; {doctor.email}</h6></p>
             <hr className='hr1'></hr>
-            <p className='doclname'> {doctor.lastname}</p>
+            <p className='doccontact'><h6><b> Contact Number  :</b>&nbsp;&nbsp; {doctor.contact}</h6></p>
             <hr className='hr1'></hr>
-            <p className='docemail'>{doctor.email}</p>
+            <p className='docdate'><h6><b> Date :</b> &nbsp;&nbsp;&nbsp;&nbsp;{doctor.date}</h6></p>
             <hr className='hr1'></hr>
-            <p className='doccontact'>{doctor.contact}</p>
+            <p className='docspecialty'><h6><b> Specialty  :</b>&nbsp;&nbsp;&nbsp;&nbsp; {doctor.specialty}</h6></p>
             <hr className='hr1'></hr>
-            <p className='docdate'>{doctor.date}</p>
+            <p className='docdepartment'><h6><b> Department  :</b>&nbsp;&nbsp;&nbsp;&nbsp;{doctor.department}</h6></p>
             <hr className='hr1'></hr>
-            <p className='docspecialty'>{doctor.specialty}</p>
+            <p className='doctype'><h6><b> Type  :</b>&nbsp;&nbsp;&nbsp;&nbsp; {doctor.type}</h6></p>
             <hr className='hr1'></hr>
-            <p className='docdepartment'>{doctor.department}</p>
+            <p className='docrating'><h6><b> Rating  :</b> &nbsp;&nbsp;&nbsp;&nbsp;{doctor.rating}</h6></p>
             <hr className='hr1'></hr>
-            <p className='doctype'> {doctor.type}</p>
-            <hr className='hr1'></hr>
-            <p className='docrating'> {doctor.rating}</p>
-            <hr className='hr1'></hr>
-            <p className='docdoctorfee'> {doctor.doctorfee}</p>
+            <p className='docdoctorfee'><h6><b> Doctor Fee  :</b>  &nbsp;&nbsp;&nbsp;Rs.&nbsp;{doctor.doctorfee}.00</h6></p>
             <hr className='hr1'></hr>
 
           </div>
 
           <div className='fuldis'>
-          <div className='col md-5 border'>
-            <p style={{ fontSize: "20px" }}><strong>About Doctor</strong></p>
+            <div className='col md-5 border'>
+              <p style={{ fontSize: "20px" }}><strong>About Doctor</strong></p>
+            </div>
+            <div className='col md-5 border'>
+              <p className="docdiscription">{doctor.discription}</p>
+            </div>
           </div>
-          <div className='col md-5 border'>
-            <p className="docdiscription">{doctor.discription}</p>
-          </div>
-          </div>
+
+          <button className='btn btn-primary apponow'>Appointment Now!</button>
+          <div className='row table_81'>
+
+                    </div>
 
 
         </div>
