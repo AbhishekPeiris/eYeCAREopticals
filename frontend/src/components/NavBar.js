@@ -10,7 +10,7 @@ const NavBar = () => {
     const user = JSON.parse(localStorage.getItem('currentUser'));
 
     const [cart, setCart] = useState([]);
-    const [cartSize, setCartSize] = useState(0);
+    const [cartSize, setCartSize] = useState(0); 
     
     useEffect(() => {
         
@@ -90,7 +90,7 @@ const NavBar = () => {
                                         </div>
 
                                         <li className="nav-item">
-                                        <Link to="/register"><i className="fa fa-shopping-cart dropdownIconcart" aria-hidden="true"/></Link>
+                                        <Link to="/cart"><i className="fa fa-shopping-cart dropdownIconcart" aria-hidden="true"/></Link>
                                         <div className='cartitemcount'>{cartSize}</div> {/* Display the cart size */}
                                         </li>
                                     </>) : (<>

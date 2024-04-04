@@ -32,6 +32,7 @@ import AdminDashboardScreen from './screens/AdminDashboardScreen';
 import AddSpectacles from './screens/AddSpectacles';
 import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+import CartScreen from './screens/CartScreen';
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
+          <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
 
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
