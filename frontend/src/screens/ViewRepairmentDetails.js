@@ -67,7 +67,11 @@ function ViewRepairmentDetails() {
             <p>Price</p>
           </strong>
         </div>
-        <div className="col-md-1 border repaireviewtable_1_col_1"></div>
+        <div className="col-md-1 border repaireviewtable_1_col_1">
+        <strong>
+            <p>Action</p>
+          </strong>
+        </div>
       </div>
 
       {repairment.map((repairment) => (
