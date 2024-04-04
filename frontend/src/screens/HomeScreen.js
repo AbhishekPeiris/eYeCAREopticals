@@ -49,7 +49,7 @@ const HomeScreen = () => {
                             <div className='row' style={{ position: "relative", bottom: "530px", marginLeft: "185px" }}>
                                 <div className='col'>
                                     <Link to = '/eyeglasses'><button className='btn1' >SHOP NOW !</button></Link>&nbsp;&nbsp;&nbsp;
-                                    <Link to = '/ophthalmologists'><button className='btn2' >ASK OPTOMETRIST</button></Link>
+                                    <Link to = {`/ophthalmologists/${"Ophthalmologists"}`}><button className='btn2' >ASK OPTOMETRIST</button></Link>
                                 </div>
 
                             </div>
@@ -170,7 +170,7 @@ const HomeScreen = () => {
                         <div className='col-md-5 table_6col_3' data-aos="fade-up-right">
                             <h1><strong>Ophthalmologists</strong></h1>
                             <p>You can book an eye specialist for<br />your eye examination</p>
-                            <Link to = '/ophthalmologists'><button className='btn2' >ASK OPTOMETRIST</button></Link>
+                            <Link to = {`/ophthalmologists/${"Ophthalmologists"}`}><button className='btn2' >ASK OPTOMETRIST</button></Link>
                         </div>
                         <div className='col-md-5 table_6col_4' data-aos="fade-up-left">
                             <h1 style={{ color: "white" }}><strong>Ear Specialists</strong></h1>

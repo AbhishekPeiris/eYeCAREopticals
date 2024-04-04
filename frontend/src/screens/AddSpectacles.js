@@ -8,10 +8,10 @@ function AddSpectacles() {
       <br/><br/><br/><br/>
     <div className="content">
     <form class="form mb-5 mt-5">
-       <p class="form-title">Add AddSpectacles</p>
+       <p class="form-title">Add Spectacles</p>
 
         <div class="input-container">
-          <lable>First Name</lable>
+          <lable>Model</lable>
           <input type="text" placeholder="Enter First Name "/>  
         </div>
 
