@@ -1,54 +1,171 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function AddSpectacles() {
+
+
+  const [name, setName] = useState();
+  const [contact, setContact] = useState();
+  const [address, setAddress] = useState();
+  const [email, setEmail] = useState();
+
+  const [model, setModel] = useState();
+  const [dateofDropoff, setDateofDropoff] = useState();
+  const [preferredPickupDate, setPreferredPickupDate] = useState();
+  const [discription, setDiscription] = useState();
+  const [price, setPrice] = useState();
+
+
+  async function AddSpectacles(e){
+
+    e.preventDefault();
+
+    const newRepairment = {
+
+      cusname : name,
+      contact : contact,
+      address : address,
+      email : email,
+      model : model,
+      DateofDropoff : dateofDropoff,
+      PreferredPickupDate : preferredPickupDate,
+      DescriptionofIssue : discription,
+      price : price,
+    }
+    try {
+      const response = await axios.post(`http://localhost:5000/api/repairment/addrepairment`, newRepairment);
+      console.log(response.data);
+      Swal.fire('Thank you!', "Add Details Successfully", "success").then(result => {
+
+        window.location.href = '/AddSpectacles';
+
+    });
+
+    setName('');
+    setContact('');
+    setAddress('');
+    setEmail('');
+    setModel('');
+    setDateofDropoff('');
+    setPreferredPickupDate('');
+    setDiscription('');
+    setPrice('');
+    
+    } catch (error) {
+      console.log(error);
+      Swal.fire('Error', "Add Details Unsuccessfully", "error");
+    }
+  }
+
+
+
   return (
     <div>
+      <form onSubmit={AddSpectacles}>
+      <div className="row">
+      <div className="col-md-3">
+          <div class="form mb-5 mt-5">
+            <h4><strong>Customer Details</strong></h4><br/>
 
-<div>
-      <br/><br/><br/><br/>
-    <div className="content">
-    <form class="form mb-5 mt-5">
-       <p class="form-title">Add Spectacles</p>
+            <div class="input-container">
+              <lable>Name</lable>
+              <input type="text" placeholder="Enter Name " value={name} required
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
+            </div>
 
-        <div class="input-container">
-          <lable>Model</lable>
-          <input type="text" placeholder="Enter First Name "/>  
+            <div class="input-container">
+              <label>Contact Number</label>
+              <input type="tel" placeholder="Enter Contact Number" value={contact} required
+                onChange={(e) => {
+                  setContact(e.target.value);
+                }}
+              />
+            </div>
+
+            
+
+            <div class="input-container">
+              <label>Address</label>
+              <input type="text" placeholder="Enter Address" value={address} required
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
+              />
+            </div>
+
+            
+            <div class="input-container">
+              <lable>Email</lable>
+              <input type="email" placeholder="Enter email" value={email} required
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </div>
+          </div>
         </div>
 
-         <div class="input-container">
-           <label>Last Name</label>       
-           <input type="text" placeholder="Enter Last Name"/>
-         </div>
+        <div className="col-md-3">
+          <div class="form mb-5 mt-5">
+           
+          <h4><strong>Accessories Details</strong></h4><br />
+            <div class="input-container">
+              <lable>Model No</lable>
+              <input type="text" placeholder="Enter Model No" value={model} required
+                onChange={(e) => {
+                  setModel(e.target.value);
+                }}
+              />
+            </div>
 
-          <div class="input-container">
-            <lable>Email</lable>
-            <input type="email" placeholder="Enter email"/>
+            <div class="input-container">
+              <label>Date of Dropoff</label>
+              <input type="date" placeholder="Enter Date of Dropoff" value={dateofDropoff} required
+                onChange={(e) => {
+                  setDateofDropoff(e.target.value);
+                }}
+              />
+            </div>
+
+            <div class="input-container">
+              <lable>Preferred Pickup Date</lable>
+              <input type="date" placeholder="Enter Preferred Pickup Date" value={preferredPickupDate} required
+                onChange={(e) => {
+                  setPreferredPickupDate(e.target.value);
+                }}
+              />
+            </div>
+
+            <div class="input-container">
+              <label>Description of Issue</label>
+              <input type="text" placeholder="Enter Description of Issue" value={discription} required
+                onChange={(e) => {
+                  setDiscription(e.target.value);
+                }}
+              />
+            </div>
+
+            <div class="input-container">
+              <label>Price</label>
+              <input type="number" placeholder="Enter Price" value={price} required
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+              />
+            </div>
+
+            <button type="submit" class="submit">Submit</button>
+            <button class="submit">Cancel</button>
           </div>
-
-          <div class="input-container">
-            <lable>Password</lable>
-            <input type="password" placeholder="Enter Password"/>
-          </div>
-
-          <div class ="input-container">
-            <lable>Contact Number</lable>
-            <input type ="mobile" placeholder="Enter Contact Number"/>
-          </div>
-
-
-         <button type="submit" class="submit">
-        Sign in
-      </button>
-
-      <p class="signup-link">
-        No account?
-        <a href="">Sign up</a>
-      </p>
-   </form>
-   </div>
+        </div>
+      </div>
+      </form>
     </div>
-    </div>
-  )
+  );
 }
 
-export default AddSpectacles
+export default AddSpectacles;
