@@ -5,17 +5,27 @@ import Swal from 'sweetalert2';
 function AddSpectacles() {
 
 
-  const [name, setName] = useState();
-  const [contact, setContact] = useState();
-  const [address, setAddress] = useState();
-  const [email, setEmail] = useState();
+  const [model, setmodel] = useState();
+  const [type, settype] = useState();
+  const [brand, setbrand] = useState();
+  const [gender, setgender] = useState();
 
-  const [model, setModel] = useState();
-  const [dateofDropoff, setDateofDropoff] = useState();
-  const [preferredPickupDate, setPreferredPickupDate] = useState();
-  const [discription, setDiscription] = useState();
-  const [price, setPrice] = useState();
+  const [frameshape, setframeshape] = useState();  
+  const [framematerial, setframematerial] = useState();
+  const [frametype, setframetype] = useState();
+  const [hingetype, sethingetype] = useState();
 
+  const [discription, setdiscription] = useState();
+  const [framesize1, setframesize1] = useState();
+  const [framesize2, setframesize2] = useState();
+  const [framesize3, setframesize3] = useState();
+
+  const [price, setprice] = useState();
+  const [rating, setrating] = useState();
+  const [imageurlcolor1, setimageurlcolor1] = useState();
+  const [imageurlcolor2, setimageurlcolor2] = useState();
+  const [imageurlcolor3, setimageurlcolor3] = useState();
+  
 
   async function AddSpectacles(e){
 
@@ -23,18 +33,28 @@ function AddSpectacles() {
 
     const newRepairment = {
 
-      cusname : name,
-      contact : contact,
-      address : address,
-      email : email,
       model : model,
-      DateofDropoff : dateofDropoff,
-      PreferredPickupDate : preferredPickupDate,
-      DescriptionofIssue : discription,
+      type : type,
+      brand : brand,
+      gender : gender,
+      frameshape : frameshape,
+      framematerial : framematerial,
+      frametype : frametype,
+      hingetype : hingetype,
+      discription : discription,
+      framesize1 : framesize1,
+      framesize2 : framesize2,
+      framesize3 : framesize3,
       price : price,
+      rating : rating,
+      imageurlcolor1 : imageurlcolor1,
+      imageurlcolor2 : imageurlcolor2,
+      imageurlcolor3 : imageurlcolor3,
+
     }
+
     try {
-      const response = await axios.post(`http://localhost:5000/api/repairment/addrepairment`, newRepairment);
+      const response = await axios.post(`http://localhost:5000/api/eyeglassadmin/addeyeglass`, newRepairment);
       console.log(response.data);
       Swal.fire('Thank you!', "Add Details Successfully", "success").then(result => {
 
@@ -42,15 +62,24 @@ function AddSpectacles() {
 
     });
 
-    setName('');
-    setContact('');
-    setAddress('');
-    setEmail('');
-    setModel('');
-    setDateofDropoff('');
-    setPreferredPickupDate('');
-    setDiscription('');
-    setPrice('');
+    setmodel('');
+    settype('');
+    setbrand('');
+    setgender('');
+    setframeshape('');
+    setframematerial('');
+    setframetype('');
+    sethingetype('');
+    setdiscription('');
+    setframesize1('');
+    setframesize2('');
+    setframesize3('');
+    setprice('');
+    setrating('');
+    setimageurlcolor1('');
+    setimageurlcolor2('');
+    setimageurlcolor3('');
+
     
     } catch (error) {
       console.log(error);
@@ -66,43 +95,43 @@ function AddSpectacles() {
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
-            <h4><strong>Customer Details</strong></h4><br/>
+            {/* <h4><strong>Customer Details</strong></h4><br/> */}
 
             <div class="input-container">
-              <lable>Name</lable>
-              <input type="text" placeholder="Enter Name " value={name} required
+              <lable>Model</lable>
+              <input type="text" placeholder="Enter model " value={model} required
                 onChange={(e) => {
-                  setName(e.target.value);
+                  setmodel(e.target.value);
                 }}
               />
             </div>
 
             <div class="input-container">
-              <label>Contact Number</label>
-              <input type="tel" placeholder="Enter Contact Number" value={contact} required
+              <label>Type</label>
+              <input type="text" placeholder="Enter Type " value={type} required
                 onChange={(e) => {
-                  setContact(e.target.value);
-                }}
-              />
-            </div>
-
-            
-
-            <div class="input-container">
-              <label>Address</label>
-              <input type="text" placeholder="Enter Address" value={address} required
-                onChange={(e) => {
-                  setAddress(e.target.value);
+                  settype(e.target.value);
                 }}
               />
             </div>
 
             
+
             <div class="input-container">
-              <lable>Email</lable>
-              <input type="email" placeholder="Enter email" value={email} required
+              <label>Brand</label>
+              <input type="text" placeholder="Enter Brand" value={brand} required
                 onChange={(e) => {
-                  setEmail(e.target.value);
+                  setbrand(e.target.value);
+                }}
+              />
+            </div>
+
+            
+            <div class="input-container">
+              <lable>Gender</lable>
+              <input type="text" placeholder="Enter Gender" value={gender} required
+                onChange={(e) => {
+                  setgender(e.target.value);
                 }}
               />
             </div>
@@ -112,51 +141,140 @@ function AddSpectacles() {
         <div className="col-md-3">
           <div class="form mb-5 mt-5">
            
-          <h4><strong>Accessories Details</strong></h4><br />
+          {/* <h4><strong>Accessories Details</strong></h4><br /> */}
             <div class="input-container">
-              <lable>Model No</lable>
-              <input type="text" placeholder="Enter Model No" value={model} required
+              <lable>Frame Shape</lable>
+              <input type="text" placeholder="Enter Frame Shape" value={frameshape} required
                 onChange={(e) => {
-                  setModel(e.target.value);
+                  setframeshape(e.target.value);
                 }}
               />
             </div>
 
             <div class="input-container">
-              <label>Date of Dropoff</label>
-              <input type="date" placeholder="Enter Date of Dropoff" value={dateofDropoff} required
+              <label>Frame Material</label>
+              <input type="text" placeholder="Enter Frame Material" value={framematerial} required
                 onChange={(e) => {
-                  setDateofDropoff(e.target.value);
+                  setframematerial(e.target.value);
                 }}
               />
             </div>
 
             <div class="input-container">
-              <lable>Preferred Pickup Date</lable>
-              <input type="date" placeholder="Enter Preferred Pickup Date" value={preferredPickupDate} required
+              <lable>Frame Type</lable>
+              <input type="text" placeholder="Enter Frame Type" value={frametype} required
                 onChange={(e) => {
-                  setPreferredPickupDate(e.target.value);
+                  setframetype(e.target.value);
                 }}
               />
             </div>
 
             <div class="input-container">
-              <label>Description of Issue</label>
-              <input type="text" placeholder="Enter Description of Issue" value={discription} required
+              <label>Hinge Type</label>
+              <input type="text" placeholder="Enter Hinge Type" value={hingetype} required
                 onChange={(e) => {
-                  setDiscription(e.target.value);
+                  sethingetype(e.target.value);
                 }}
               />
             </div>
+
+            <div class="input-container">
+              <label>Discription</label>
+              <input type="text" placeholder="Enter Discription" value={discription} required
+                onChange={(e) => {
+                  setdiscription(e.target.value);
+                }}
+              />
+            </div>
+
+            </div>
+            </div>
+
+            <div className="col-md-3">
+          <div class="form mb-5 mt-5">
+
+            <div class="input-container">
+              <label>Frame Size 01</label>
+              <input type="number" placeholder="Enter Frame Size 01" value={framesize1} required
+                onChange={(e) => {
+                  setframesize1(e.target.value);
+                }}
+              />
+            </div>
+
+
+            <div class="input-container">
+              <label>Frame Size 02</label>
+              <input type="number" placeholder="Enter Frame Size 02" value={framesize2} required
+                onChange={(e) => {
+                  setframesize2(e.target.value);
+                }}
+              />
+            </div>
+
+            <div class="input-container">
+              <label>Frame Size 03</label>
+              <input type="number" placeholder="Enter Frame Size 03" value={framesize3} required
+                onChange={(e) => {
+                  setframesize3(e.target.value);
+                }}
+              />
+            </div>
+
 
             <div class="input-container">
               <label>Price</label>
-              <input type="number" placeholder="Enter Price" value={price} required
+              <input type="text" placeholder="Enter Price" value={price} required
                 onChange={(e) => {
-                  setPrice(e.target.value);
+                  setprice(e.target.value);
                 }}
               />
             </div>
+
+
+            <div class="input-container">
+              <label>Rating</label>
+              <input type="text" placeholder="Enter Rating" value={rating} required
+                onChange={(e) => {
+                  setrating(e.target.value);
+                }}
+              />
+            </div>
+
+            </div>
+            </div>
+
+            <div className="col-md-3">
+            <div class="form mb-5 mt-5">
+            <div class="input-container">
+              <label>Image URL Color 02</label>
+              <input type="text" placeholder="Enter Image URL Color 01" value={imageurlcolor1} required
+                onChange={(e) => {
+                  setimageurlcolor1(e.target.value);
+                }}
+              />
+            </div>
+
+
+            <div class="input-container">
+              <label>Image URL Color 02</label>
+              <input type="text" placeholder="Enter Image URL Color 02" value={imageurlcolor2} required
+                onChange={(e) => {
+                  setimageurlcolor2(e.target.value);
+                }}
+              />
+            </div>
+
+
+            <div class="input-container">
+              <label>Image URL Color 03</label>
+              <input type="text" placeholder="Enter Image URL Color 03" value={imageurlcolor3} required
+                onChange={(e) => {
+                  setimageurlcolor3(e.target.value);
+                }}
+              />
+            </div>
+
 
             <button type="submit" class="submit">Submit</button>
             <button class="submit">Cancel</button>
