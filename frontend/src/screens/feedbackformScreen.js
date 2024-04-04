@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/feedbackformScreen.css";
 
-function feedbackformScreen() {
+function FeedbackFormScreen() { // Changed function name to start with an uppercase letter
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Your form submission logic here
+    setIsSubmitted(true);
+
+    // Reset the form submission status after 3 seconds
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 3000);
+  };
+
   return (
     <div>
       <br />
@@ -9,9 +22,9 @@ function feedbackformScreen() {
       <br />
       <br />
       <div className="fullform">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div class="form-group0">
-          <p class="form-title">Customer Feedback Form</p>
+            <p class="form-title">Customer Feedback Form</p>
 
             <label for="exampleInputName">Name</label>
             <input
@@ -57,19 +70,16 @@ function feedbackformScreen() {
               class="form-control"
               id="exampleInputRating"
               placeholder="Rating for your service "
-              
             ></input>
-
-
           </div>
 
           <div class="form-group4">
-                <label for="exampleInputComment">Additional Comment</label>
-          <textarea
+            <label for="exampleInputComment">Additional Comment</label>
+            <textarea
               class="Additional"
               id="exampleInputComment"
               placeholder="Enter your Additional Comment"
-          ></textarea>
+            ></textarea>
           </div>
 
           <div class="form-check">
@@ -87,8 +97,13 @@ function feedbackformScreen() {
           </button>
         </form>
       </div>
+      {isSubmitted && (
+        <div className="popup">
+          <p>Feedback submitted successfully!</p>
+        </div>
+      )}
     </div>
   );
 }
 
-export default feedbackformScreen;
+export default FeedbackFormScreen;
