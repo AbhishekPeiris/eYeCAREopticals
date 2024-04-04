@@ -3,6 +3,7 @@ import axios from 'axios';
 import Loader from '../components/Loader';
 import { Link, useParams } from 'react-router-dom';
 import Rating from 'react-rating-stars-component';
+import styles from '../styles/Doctor.css';
 
 function Doctor() {
 
@@ -32,24 +33,50 @@ function Doctor() {
       {loading ? (
         <Loader />
       ) : (
-        <div className="col-lg-3 RBtable_2col_1" key={doctor._id} data-aos="zoom-in">
-          <img src={doctor.imageurl[0]} alt="" width={300} />
-          <br /><br />
-          <p>
-            <strong>{doctor.firstname} {doctor.lastname}</strong><br />
-            <p style={{ fontSize: "11px" }}>{doctor.specialty} | {doctor.department}<br />
-              {doctor.type}
-              <Rating
-                count={5}
-                value={doctor.rating}
-                size={24}
-                edit={false}
-              />
-              <hr style={{ backgroundColor: "black" }} />
-              <Link to={`/${doctor._id}`}><button className='docappoibtn'>Make Appointment !</button></Link>
-            </p>
-          </p>
+        <div>
+          <br /><br /><br /><br /><br /><br />
+          <img src={doctor.imageurl[0]} alt="" className='docimage' />
+
+          <div className='fuldetail'>
+            <p className='docfname'><b> {doctor.firstname}&nbsp;&nbsp;{doctor.lastname}</b></p>
+
+            <p className='docemail'><h6><b> Email  :</b>&nbsp;&nbsp;&nbsp; {doctor.email}</h6></p>
+            <hr className='hr1'></hr>
+            <p className='doccontact'><h6><b> Contact Number  :</b>&nbsp;&nbsp; {doctor.contact}</h6></p>
+            <hr className='hr1'></hr>
+            <p className='docdate'><h6><b> Date :</b> &nbsp;&nbsp;&nbsp;&nbsp;{doctor.date}</h6></p>
+            <hr className='hr1'></hr>
+            <p className='docspecialty'><h6><b> Specialty  :</b>&nbsp;&nbsp;&nbsp;&nbsp; {doctor.specialty}</h6></p>
+            <hr className='hr1'></hr>
+            <p className='docdepartment'><h6><b> Department  :</b>&nbsp;&nbsp;&nbsp;&nbsp;{doctor.department}</h6></p>
+            <hr className='hr1'></hr>
+            <p className='doctype'><h6><b> Type  :</b>&nbsp;&nbsp;&nbsp;&nbsp; {doctor.type}</h6></p>
+            <hr className='hr1'></hr>
+            <p className='docrating'><h6><b> Rating  :</b> &nbsp;&nbsp;&nbsp;&nbsp;{doctor.rating}</h6></p>
+            <hr className='hr1'></hr>
+            <p className='docdoctorfee'><h6><b> Doctor Fee  :</b>  &nbsp;&nbsp;&nbsp;Rs.&nbsp;{doctor.doctorfee}.00</h6></p>
+            <hr className='hr1'></hr>
+
+          </div>
+
+          <div className='fuldis'>
+            <div className='col md-5 border'>
+              <p style={{ fontSize: "20px" }}><strong>About Doctor</strong></p>
+            </div>
+            <div className='col md-5 border'>
+              <p className="docdiscription">{doctor.discription}</p>
+            </div>
+          </div>
+
+          <button className='btn btn-primary apponow'>Appointment Now!</button>
+          <div className='row table_81'>
+
+                    </div>
+
+
         </div>
+
+
       )}
 
     </div>
