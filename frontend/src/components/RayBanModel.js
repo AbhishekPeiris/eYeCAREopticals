@@ -70,9 +70,8 @@ const RayBanModel = () => {
         try {
             const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
             console.log(response.data);
+            window.location.reload();
 
-            localStorage.setItem('currentCart', newCartItem);
-            console.log('User data stored in localStorage:', newCartItem);
         } catch (error) {
             console.log(error);;
         }
