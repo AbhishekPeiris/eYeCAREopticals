@@ -65,6 +65,18 @@ export default function OphthalmologistsScreen() {
                             </div>
                         </div>
                     </div>
+
+
+                    <div className='row table_7' style={{position:"relative", top:"-300px"} }>
+                        <div className='col mt-4 table_7col_1'>
+                            
+                            <span style={{ fontSize: "30px", color: "white" }}><strong>Get your Eyes Checked At Our Clinic</strong></span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style={{ fontSize: "25px", color: "white" }}>Sunday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wednesday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Friday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4:00PM</span>
+                        </div>
+                    </div>
+
+
+
                     <div>
                         <div className='container'>
 
@@ -106,7 +118,7 @@ export default function OphthalmologistsScreen() {
                                             edit={false}
                                         />
                                         <hr style={{ backgroundColor: "black" }} />
-                                        <Link><button className='docappoibtn' >Make Appointment !</button></Link>
+                                        <Link to = {`/${doctor._id}`}><button className='docappoibtn' >Make Appointment !</button></Link>
                                         </p>
                                         
 
