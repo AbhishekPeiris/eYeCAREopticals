@@ -44,6 +44,7 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 
 import CartScreen from './screens/CartScreen';
+import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 
 
 
@@ -117,6 +118,7 @@ function App() {
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
 
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
+        <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
 
 
