@@ -41,7 +41,7 @@ function AddHearingAidsScreen() {
       console.log(response.data);
       Swal.fire('Thank you!', "Add Details Successfully", "success").then(result => {
 
-        window.location.href = '/AddHearingAidsScreen';
+        window.location.href = '/viewdeafaidsdetails';
 
     });
 
