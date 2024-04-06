@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import '../styles/AddSpectacles'
 
 function AddSpectacles() {
 
@@ -91,7 +92,7 @@ function AddSpectacles() {
 
   return (
     <div>
-      <form onSubmit={AddSpectacles}>
+      <form onSubmit={AddSpectacles} className='addsec'>
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
