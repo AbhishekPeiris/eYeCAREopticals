@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
-
 import { Link, useParams } from 'react-router-dom';
-
 import axios from 'axios';
 import eye from '../images/eye.png';
 import eye1 from '../images/eye1.jpg';
 import styles from '../styles/Ophthalmologists.css';
 import Loader from '../components/Loader';
-
 import Rating from 'react-rating-stars-component';
-
 export default function OphthalmologistsScreen() {
 
     const [doctor, setDoctor] = useState([]);
@@ -72,9 +67,6 @@ export default function OphthalmologistsScreen() {
                     </div>
 
 
-
-
-
                     <div className='row table_7' style={{position:"relative", top:"-300px"} }>
                         <div className='col mt-4 table_7col_1'>
                             
@@ -95,7 +87,6 @@ export default function OphthalmologistsScreen() {
                                     <input class="form-control mr-sm-2 doctorSearch" type="search" placeholder="Search Doc Name." aria-label="Search"
 
 
-
                                     />
                                 </div>
 
@@ -114,7 +105,6 @@ export default function OphthalmologistsScreen() {
                         <div className="row mb-5 mt-5 RBtable_2">
                             {doctor.map((doctor) => (
                                 <div className="col-lg-3 RBtable_2col_1" key={doctor._id} data-aos="zoom-in">
-
                                     <img src={doctor.imageurl[0]} alt="" width={300} />
                                     <br/><br/>
                                     <p>
@@ -131,7 +121,6 @@ export default function OphthalmologistsScreen() {
                                         <Link to = {`/${doctor._id}`}><button className='docappoibtn' >Make Appointment !</button></Link>
                                         </p>
                                         
-
 
                                     </p>
                                 </div>

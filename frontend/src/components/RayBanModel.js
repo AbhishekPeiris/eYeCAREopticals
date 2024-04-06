@@ -12,7 +12,6 @@ const RayBanModel = () => {
 
     const [cart, setCart] = useState([]);
 
-
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const [email, setEmail] = useState(user.email);
 
@@ -72,8 +71,6 @@ const RayBanModel = () => {
 
         let isAlreadyAdded = false;
 
-
-
         for (const item of cart) {
             if (item.model === modelNo) {
                 isAlreadyAdded = true;
@@ -83,7 +80,6 @@ const RayBanModel = () => {
 
         if (isAlreadyAdded) {
             alert('Item already added to cart');
-
         }
         else{
 

@@ -94,36 +94,12 @@ function App() {
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
-
-
-        {/* AdminDashboardScreen without NavBar and Footer */}
-        <Route path="/admindashboard" element={<AdminDashboardScreen />} />
-        <Route path='/adddoctor' element={<AddDoctor />} />
-
-        <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
-        <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
-        <Route path='/updaterepairmentdetails' element={<UpdateRepairmentDetails />} />
-
-        <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
-
-        <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
-
-        <Route path='/addcustomerdetails' element={<AddCustomerDetails />} />
-
-        <Route path='/addspectacles' element={<AddSpectacles />} />
-        <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
-        <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
-
-
-
-
-          
-
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
 
 
+
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
@@ -141,6 +117,7 @@ function App() {
         <Route path='/addspectacles' element={<AddSpectacles />} />
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
+
 
         <Route path='/addhearingaidsscreen' element={<AddHearingAidsScreen />} />
 
