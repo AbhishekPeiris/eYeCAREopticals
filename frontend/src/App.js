@@ -30,6 +30,7 @@ import AdminDashboardScreen from './screens/AdminDashboardScreen';
 import AddSpectacles from './screens/AddSpectacles';
 import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
 
 
 function App() {
@@ -83,7 +84,7 @@ function App() {
         <Route path='/addspectacles' element={<AddSpectacles />} />
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
-
+        <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
 
       </Routes>
     </BrowserRouter>
