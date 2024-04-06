@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Rating from 'react-rating-stars-component';
+import "../styles/SpecsDetails.css";
 
 function ViewSpectaclesDetails() {
   const [spectacles, setSpectacles] = useState([]);
@@ -22,7 +23,7 @@ function ViewSpectaclesDetails() {
   return (
     <div>
       <div className="row">
-        <div className="col-md-1 border ">
+        <div className="col-md-1 border mdlno">
           <strong><p>Model No.</p></strong>
         </div>
         <div className="col-md-1 border">
