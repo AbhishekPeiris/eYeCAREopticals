@@ -104,7 +104,7 @@ function App() {
         <Route path='/addspectacles' element={<AddSpectacles />} />
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
-
+        <Route path='/addhearingaidsscreen' element={<AddHearingAidsScreen />} />
 
 
       </Routes>
