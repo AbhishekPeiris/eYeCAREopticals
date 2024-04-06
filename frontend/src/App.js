@@ -35,10 +35,14 @@ import Doctor from './components/Doctor';
 
 import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+
+import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
+
 import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 
 import CartScreen from './screens/CartScreen';
+
 
 
 
@@ -103,7 +107,11 @@ function App() {
         <Route path='/addspectacles' element={<AddSpectacles />} />
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
+
+        <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
+
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
+
 
 
 
