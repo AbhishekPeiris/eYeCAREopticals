@@ -1,0 +1,56 @@
+.fuldetail{
+    position: relative!important;
+    margin-left: 800px!important;
+    bottom: 570px!important;
+}
+.docimage{
+    position: relative!important;
+    margin-left: 200px!important;
+   
+}
+.hr1{
+    background-color: black;
+    width: 500px !important;
+
+}
+.row1{
+    position: relative!important;
+    margin-left:133px ;
+    margin-right: 133px;
+   
+
+}
+.prdetails{
+    font-size: 20px;
+}
+.docdiscription{
+    font-size: 15px !important;
+    margin-top: 15px !important;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+    text-align: center !important;;
+}
+.fuldis{
+    position: relative!important;
+    margin-left: 800px!important;
+    bottom: 550px!important;
+    font-size: 50px !   important;
+}
+.docfname{
+    position: relative!important;
+    font-size: 20px !important;
+    bottom:-580px !important;
+   left: -600px !important;
+   
+   
+}
+.apponow{
+    position: relative!important;
+    margin-left: 200px!important;
+    bottom: 500px!important;
+    background-color: #ff4500 !important;
+    width: 300px !important;
+}
+.table_81{
+    margin-top: -250px !important;
+}
