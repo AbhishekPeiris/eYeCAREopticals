@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Rating from 'react-rating-stars-component';
 
 function ViewDeafAidsDetails() {
 
@@ -102,7 +102,12 @@ function ViewDeafAidsDetails() {
             <p style={{fontSize:"11px"}}>{deafaids.price}</p>
           </div>
           <div className="col-md-1 border ">
-            <p style={{fontSize:"11px"}}>{deafaids.rating}</p>
+          <Rating
+                                            count={5}
+                                            value={deafaids.rating}
+                                            size={24}
+                                            edit={false}
+                                        />
           </div>
           <div className="col-md-1 border ">
             
