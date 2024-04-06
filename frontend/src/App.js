@@ -29,6 +29,11 @@ import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
+
+import AddSpectacles from './screens/AddSpectacles';
+import ViewCustomerDetails from './screens/ViewCustomerDetails';
+import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+
 import AddHearingAidsScreen from './screens/AddHearingAidsScreen';
 
 import AddSpectacles from './screens/AddSpectacles';
@@ -46,6 +51,7 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 import CartScreen from './screens/CartScreen';
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewDeafAidsDetails from './screens/ViewDeafAidsDetails';
+
 
 
 
@@ -88,11 +94,14 @@ function App() {
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
+
+
           
 
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
+
 
 
         {/* AdminDashboardScreen without NavBar and Footer */}
@@ -113,6 +122,7 @@ function App() {
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
 
+
         <Route path='/addhearingaidsscreen' element={<AddHearingAidsScreen />} />
 
 
@@ -122,6 +132,7 @@ function App() {
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
         <Route path='/viewdeafaidsdetails' element={<ViewDeafAidsDetails />} />
+
 
 
 
