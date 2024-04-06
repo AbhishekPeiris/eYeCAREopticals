@@ -72,6 +72,29 @@ router.route('/getdoctor/:type').post(async(req, res) => {
     }
 });
 
+router.route('/:id').post(async(req, res) => {
+
+    
+    const id = req.params.id;
+
+    try {
+        
+        const doctor = await Doctor.findById(id);
+
+        if (!doctor) {
+            return res.status(404).json({ status: "Doctor not found" });
+        }
+
+        return res.status(200).json({ status: "Doctor found", doctor });
+
+    } catch (error) {
+        
+        return res.status(500).json({ status: "Error with fetching Doctor", message: error });
+
+    }
+});
+
+
 router.route('/createdoctorappointment').post(async(req, res) => {
 
     const {

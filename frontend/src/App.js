@@ -29,9 +29,31 @@ import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
+
 import AddSpectacles from './screens/AddSpectacles';
 import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+
+import AddHearingAidsScreen from './screens/AddHearingAidsScreen';
+
+import AddSpectacles from './screens/AddSpectacles';
+
+import Doctor from './components/Doctor';
+
+import ViewCustomerDetails from './screens/ViewCustomerDetails';
+import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+
+import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
+
+import ViewDoctorDetails from './screens/ViewDoctorDetails';
+
+
+import CartScreen from './screens/CartScreen';
+import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
+import ViewDeafAidsDetails from './screens/ViewDeafAidsDetails';
+
+
+
 
 
 function App() {
@@ -73,6 +95,7 @@ function App() {
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
 
+
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
@@ -90,6 +113,45 @@ function App() {
         <Route path='/addspectacles' element={<AddSpectacles />} />
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
+
+
+
+
+          
+
+          <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
+
+          <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
+
+
+        {/* AdminDashboardScreen without NavBar and Footer */}
+        <Route path="/admindashboard" element={<AdminDashboardScreen />} />
+        <Route path='/adddoctor' element={<AddDoctor />} />
+
+        <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
+        <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
+        <Route path='/updaterepairmentdetails' element={<UpdateRepairmentDetails />} />
+
+        <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
+
+        <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
+
+        <Route path='/addcustomerdetails' element={<AddCustomerDetails />} />
+
+        <Route path='/addspectacles' element={<AddSpectacles />} />
+        <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
+        <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
+
+        <Route path='/addhearingaidsscreen' element={<AddHearingAidsScreen />} />
+
+
+        <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
+
+        <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
+        <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
+
+        <Route path='/viewdeafaidsdetails' element={<ViewDeafAidsDetails />} />
+
 
 
 

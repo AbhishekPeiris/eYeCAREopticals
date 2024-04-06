@@ -10,6 +10,9 @@ const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
     const [selectedColor, setSelectedColor] = useState(1); // Default to color 1
 
+    const [cart, setCart] = useState([]);
+
+
     const user = JSON.parse(localStorage.getItem('currentUser'));
     const [email, setEmail] = useState(user.email);
 
@@ -45,7 +48,19 @@ const RayBanModel = () => {
             }
         }
         getEyeglassDetails(brand, model);
-    }, [brand, eyeglass, model]);
+
+        async function getCartItems() {
+            try {
+                const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
+                setCart(response.data.cart);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getCartItems();
+
+    }, [brand, eyeglass, model, user.email]);
 
     
 
@@ -55,27 +70,47 @@ const RayBanModel = () => {
 
     async function AddtoCart() {
 
-        const newCartItem = {
+        let isAlreadyAdded = false;
 
-            email : email,
-            model : modelNo,
-            type : type,
-            brand : brandname,
-            gender : gender,
-            price : price,
-            rating : rating,
-            imageurlcolor : imageurlcolor
+
+
+        for (const item of cart) {
+            if (item.model === modelNo) {
+                isAlreadyAdded = true;
+                break;
+            }
         }
 
-        try {
-            const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
-            console.log(response.data);
+        if (isAlreadyAdded) {
+            alert('Item already added to cart');
 
-            localStorage.setItem('currentCart', newCartItem);
-            console.log('User data stored in localStorage:', newCartItem);
-        } catch (error) {
-            console.log(error);;
         }
+        else{
+
+            const newCartItem = {
+
+                email : email,
+                model : modelNo,
+                type : type,
+                brand : brandname,
+                gender : gender,
+                price : price,
+                rating : rating,
+                imageurlcolor : imageurlcolor
+            }
+    
+            try {
+                const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
+                console.log(response.data);
+                window.location.reload();
+    
+            } catch (error) {
+                console.log(error);;
+            }
+
+        }
+
+       
     }
 
     return (

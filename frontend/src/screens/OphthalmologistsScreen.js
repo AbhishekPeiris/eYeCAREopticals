@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+
+
+import { Link, useParams } from 'react-router-dom';
+
 import axios from 'axios';
 import eye from '../images/eye.png';
 import eye1 from '../images/eye1.jpg';
 import styles from '../styles/Ophthalmologists.css';
 import Loader from '../components/Loader';
+
+import Rating from 'react-rating-stars-component';
+
 export default function OphthalmologistsScreen() {
 
     const [doctor, setDoctor] = useState([]);
@@ -64,6 +70,21 @@ export default function OphthalmologistsScreen() {
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+                    <div className='row table_7' style={{position:"relative", top:"-300px"} }>
+                        <div className='col mt-4 table_7col_1'>
+                            
+                            <span style={{ fontSize: "30px", color: "white" }}><strong>Get your Eyes Checked At Our Clinic</strong></span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style={{ fontSize: "25px", color: "white" }}>Sunday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wednesday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Friday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4:00PM</span>
+                        </div>
+                    </div>
+
+
+
                     <div>
                         <div className='container'>
 
@@ -72,6 +93,7 @@ export default function OphthalmologistsScreen() {
                                 <div className='col md-3 doctsearch'>
                                     <small className='barname2'>Doctor Name</small>
                                     <input class="form-control mr-sm-2 doctorSearch" type="search" placeholder="Search Doc Name." aria-label="Search"
+
 
 
                                     />
@@ -92,8 +114,24 @@ export default function OphthalmologistsScreen() {
                         <div className="row mb-5 mt-5 RBtable_2">
                             {doctor.map((doctor) => (
                                 <div className="col-lg-3 RBtable_2col_1" key={doctor._id} data-aos="zoom-in">
-                                    <img src={doctor.imageurl[0]} alt="" width={250} />
+
+                                    <img src={doctor.imageurl[0]} alt="" width={300} />
+                                    <br/><br/>
                                     <p>
+                                        <strong>{doctor.firstname} {doctor.lastname}</strong><br/>
+                                        <p style={{fontSize:"11px"}}>{doctor.specialty} | {doctor.department}<br/>
+                                        {doctor.type}
+                                        <Rating
+                                            count={5}
+                                            value={doctor.rating}
+                                            size={24}
+                                            edit={false}
+                                        />
+                                        <hr style={{ backgroundColor: "black" }} />
+                                        <Link to = {`/${doctor._id}`}><button className='docappoibtn' >Make Appointment !</button></Link>
+                                        </p>
+                                        
+
 
                                     </p>
                                 </div>

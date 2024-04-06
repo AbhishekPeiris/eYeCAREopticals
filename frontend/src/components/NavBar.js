@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/navbar_logo.png';
 import styles from '../styles/NavBar.css';
+import axios from 'axios';
 
 const NavBar = () => {
     const [isNavbarFixed, setIsNavbarFixed] = useState(false);
 
     const user = JSON.parse(localStorage.getItem('currentUser'));
+
+    const [cart, setCart] = useState([]);
+    const [cartSize, setCartSize] = useState(0); 
     
     useEffect(() => {
         
@@ -19,9 +23,24 @@ const NavBar = () => {
 
         window.addEventListener('scroll', handleScroll);
 
+        async function getCartItems() {
+            try {
+                const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
+                setCart(response.data.cart);
+                console.log(cart);
+                setCartSize(response.data.cart.length);
+                console.log(cartSize);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getCartItems();
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
+    
 
     }, []);
 
@@ -71,7 +90,8 @@ const NavBar = () => {
                                         </div>
 
                                         <li className="nav-item">
-                                            <Link to="/register"><i class="fa fa-shopping-cart dropdownIconcart" aria-hidden="true"/></Link><div className='cartitemcount'>0</div>
+                                        <Link to="/cart"><i className="fa fa-shopping-cart dropdownIconcart" aria-hidden="true"/></Link>
+                                        <div className='cartitemcount'>{cartSize}</div> {/* Display the cart size */}
                                         </li>
                                     </>) : (<>
 

@@ -1,115 +1,164 @@
-import React from 'react';
-import '../styles/AddDoctor.css';
+import React, { useState } from 'react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import "../styles/AddDoctor.css";
 
 function AddDoctor() {
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [contact, setContact] = useState('');
+  const [email, setEmail] = useState('');
+  const [experience, setExperience] = useState('');
+  const [language, setLanguage] = useState('Sinhala');
+  const [type, setType] = useState('Ophthalmologists');
+  const [department, setDepartment] = useState('');
+  const [rating, setRating] = useState('');
+  const [doctorFee, setDoctorFee] = useState('');
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('Monday');
+  const [specialty, setSpecialty] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+
+  async function addDoctorDetails(e) {
+    e.preventDefault();
+
+    const newDoctor = {
+      firstname,
+      lastname,
+      contact,
+      email,
+      experience,
+      language,
+      type,
+      department,
+      rating,
+      doctorFee,
+      description,
+      date,
+      specialty,
+      imageUrl
+    };
+
+    try {
+      const response = await axios.post(`http://localhost:5000/api/doctormanagement/adddoctor`, newDoctor);
+      console.log(response.data);
+      Swal.fire('Thank you!', "Add Doctor Successfully", "success").then(result => {
+        window.location.href = '/viewdoctordetails';
+      });
+      // Resetting the form fields after successful submission
+      setFirstname("");
+      setLastname("");
+      setContact("");
+      setEmail("");
+      setExperience("");
+      setLanguage("Sinhala");
+      setType("Ophthalmologists");
+      setDepartment("");
+      setRating("");
+      setDoctorFee("");
+      setDescription("");
+      setDate("Monday");
+      setSpecialty("");
+      setImageUrl("");
+    } catch (error) {
+      console.log(error);
+      Swal.fire('Error', "Add Doctor Unsuccessfully", "error");
+    }
+  }
+
   return (
     <div>
-      <br/><br/><br/><br/>
-    <div className="content">
-    <form class="form mb-5 mt-5">
-       <p class="form-title">Docters Registration Form</p>
-       
-       
-       <div className='flex-container'>
-        <div class="input-container">
-          <lable>First  Name</lable>
-          <input type="text" placeholder="Enter First Name "/>  
-        </div>
-        
-         <div class="input-container">
-           <label>Last Name</label>       
-           <input type="text" placeholder="Enter Last Name"/>
-         </div>
-         </div>
-
-
-         <div className='flex-container'>
-         <div class ="input-container">
-            <lable>Contact Number</lable>
-            <input type ="mobile" placeholder="Enter Contact Number"/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="content">
+        <form className="form mb-5 mt-5" onSubmit={addDoctorDetails}>
+          <p className="form-title">Doctors Registration Form</p>
+          <br />
+          <br />
+          <div className="flex-container">
+            <div className="input-container">
+              <label>First Name</label>
+              <input type="text" value={firstname} placeholder="Enter First Name" required onChange={(e) => setFirstname(e.target.value)} />
+            </div>
+            <div className="input-container">
+              <label>Last Name</label>
+              <input type="text" value={lastname} placeholder="Enter Last Name" required onChange={(e) => setLastname(e.target.value)} />
+            </div>
           </div>
-          
-
-          <div class="input-container">
-            <lable>Email</lable>
-            <input type="email" placeholder="Enter email"/>
+          <div className="flex-container">
+            <div className="input-container">
+              <label>Contact Number</label>
+              <input type="text" value={contact} placeholder="Enter Contact Number" required onChange={(e) => setContact(e.target.value)} />
+            </div>
+            <div className="input-container">
+              <label>Email</label>
+              <input type="email" value={email} placeholder="Enter Email" required onChange={(e) => setEmail(e.target.value)} />
+            </div>
           </div>
+          <div className="flex-container">
+            <div className="input-container">
+              <label>Experience</label>
+              <input type="text" value={experience} placeholder="Enter Experience" required onChange={(e) => setExperience(e.target.value)} />
+            </div>
           </div>
-
-          <div className='flex-container'>
-          <div class="input-container">
-            <lable>Password</lable>
-            <input type="password" placeholder="Enter Password"/>
+          <div className="flex-container">
+            <div className="input-container">
+              <label>Department</label>
+              <input type="text" value={department} placeholder="Enter Department" required onChange={(e) => setDepartment(e.target.value)} />
+            </div>
+            <div className="input-container">
+              <label>Rating</label>
+              <input type="number" value={rating} placeholder="Enter Rating" required onChange={(e) => setRating(e.target.value)} />
+            </div>
           </div>
-
-          <div class="input-container">
-            <lable>Experiance</lable>
-            <input type="text" placeholder="Enter experiance"/>
+          <div className="flex-container">
+            <div className="input-container">
+              <label>Doctor Fee</label>
+              <input type="number" value={doctorFee} placeholder="Enter Doctor Fee" required onChange={(e) => setDoctorFee(e.target.value)} />
+            </div>
+            <div className="input-container">
+              <label>Description</label>
+              <input type="text" value={description} placeholder="Enter Description" required onChange={(e) => setDescription(e.target.value)} />
+            </div>
           </div>
+          <div className="flex-container">
+            <div className="input-container">
+              <label>Specialty</label>
+              <input type="text" value={specialty} placeholder="Enter Specialty" required onChange={(e) => setSpecialty(e.target.value)} />
+            </div>
           </div>
-          <div className='flex-container'>
-          <div class="input-container">
-            <lable>Language</lable>
-            <input type="text" placeholder="Enter language"/>
+          <div className="flex-container">
+            <label>Date</label>
+            <select value={date} onChange={(e) => setDate(e.target.value)}>
+              <option value="Monday">Monday</option>
+              <option value="Wednsday">Wednsday</option>
+              <option value="Friday">Friday</option>
+            </select>
+            <label>Language</label>
+            <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+              <option value="Sinhala">Sinhala</option>
+              <option value="English">English</option>
+              <option value="Tamil">Tamil</option>
+            </select>
+            <label>Type</label>
+            <select value={type} onChange={(e) => setType(e.target.value)}>
+              <option value="Ophthalmologists">Ophthalmologists</option>
+              <option value="Ear Specialists">Ear Specialists</option>
+            </select>
+            <div className="input-container">
+              <label>Image URL</label>
+              <input type="text" value={imageUrl} placeholder="Enter Image URL" required onChange={(e) => setImageUrl(e.target.value)} />
+            </div>
           </div>
-
-          <div class="input-container">
-            <lable>Type</lable>
-            <input type="text" placeholder="Enter Type"/>
+          <div className="submitbutton">
+            <button type="submit" className="submit">Register</button>
           </div>
-          </div>
-
-          <div className='flex-container'>
-
-          <div class="input-container">
-            <lable>Department</lable>
-            <input type="text" placeholder="Enter department"/>
-          </div>
-
-          <div class="input-container">
-            <lable>Rating</lable>
-            <input type="number" placeholder="Enter Rating"/>
-          </div>
-
-          </div>
-
-          <div className='flex-container'>
-
-          <div class="input-container">
-            <lable>Doctorfee</lable>
-            <input type="number" placeholder="Enter doctorfee"/>
-          </div>
-
-          <div class="input-container">
-            <lable>Discription</lable>
-            <input type="text" placeholder="Enter Discription"/>
-          </div>
-          </div>
-
-          <div className='flex-container'>
-
-          <div class="input-container">
-            <lable>Date</lable>
-            <input type="text" placeholder="Enter date"/>
-          </div>
-
-          <div class="input-container">
-            <lable>Specialty</lable>
-            <input type="text" placeholder="Enter Speciality"/>
-          </div>
-          </div>
-          
-          
-         <button type="submit" class="submit">
-        Sign in
-      </button>
-
-      <p class="signup-link">
-        No account?
-        <a href="">Sign up</a>
-      </p>
-   </form>
-   </div>
+        </form>
+      </div>
     </div>
   );
 }
