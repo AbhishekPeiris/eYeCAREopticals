@@ -48,9 +48,6 @@ const RayBanModel = () => {
         }
         getEyeglassDetails(brand, model);
 
-    }, [brand, eyeglass, model]);
-
-
         async function getCartItems() {
             try {
                 const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
@@ -64,7 +61,6 @@ const RayBanModel = () => {
 
     }, [brand, eyeglass, model, user.email]);
 
-
     
 
     const selectColor = (colorNumber) => {
@@ -75,26 +71,6 @@ const RayBanModel = () => {
 
         let isAlreadyAdded = false;
 
-
-            email : email,
-            model : modelNo,
-            type : type,
-            brand : brandname,
-            gender : gender,
-            price : price,
-            rating : rating,
-            imageurlcolor : imageurlcolor
-        }
-
-        try {
-            const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
-            console.log(response.data);
-
-            localStorage.setItem('currentCart', newCartItem);
-            console.log('User data stored in localStorage:', newCartItem);
-        } catch (error) {
-            console.log(error);;
-
         for (const item of cart) {
             if (item.model === modelNo) {
                 isAlreadyAdded = true;
@@ -104,7 +80,6 @@ const RayBanModel = () => {
 
         if (isAlreadyAdded) {
             alert('Item already added to cart');
-
         }
         else{
 

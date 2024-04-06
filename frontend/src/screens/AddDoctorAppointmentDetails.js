@@ -1,12 +1,4 @@
 
-import React from 'react'
-
-function AddDoctorAppointmentDetails() {
-  return (
-    <div>
-      <h1>DoctorAppointment</h1>
-    </div>
-
 import React, { useEffect, useState }  from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
