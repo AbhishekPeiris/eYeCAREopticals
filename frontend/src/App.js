@@ -29,6 +29,8 @@ import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
+import AddHearingAidsScreen from './screens/AddHearingAidsScreen';
+
 import AddSpectacles from './screens/AddSpectacles';
 
 import Doctor from './components/Doctor';
@@ -84,6 +86,7 @@ function App() {
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
           <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
+          
 
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
@@ -108,9 +111,13 @@ function App() {
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
 
+        <Route path='/addhearingaidsscreen' element={<AddHearingAidsScreen />} />
+
+
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
 
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
+
 
 
 
