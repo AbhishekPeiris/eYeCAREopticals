@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../styles/RayBanModel.css';
@@ -11,16 +10,18 @@ const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
     const [selectedColor, setSelectedColor] = useState(1); // Default to color 1
 
-    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const [cart, setCart] = useState([]);
 
-    const [email, setEmail] = useState();
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const [email, setEmail] = useState(user.email);
+
     const [modelNo, setModelNo] = useState();
     const [type, setType] = useState();
     const [brandname, setBrandName] = useState();
     const [gender, setGender] = useState();
     const [price, setPrice] = useState();
     const [rating, setRating] = useState();
-    const [imageurlcolor, setImageurlColor] = useState();
+    const [imageurlcolor, setImageurlColor] = useState([]);
 
     const { brand, model } = useParams();
 
@@ -30,12 +31,37 @@ const RayBanModel = () => {
                 const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
                 setEyeglass(response.data.eyeGlass);
 
+                // eslint-disable-next-line no-lone-blocks
+                {eyeglass.map((eyeglass) => (
+                    setModelNo(eyeglass.model),
+                    setType(eyeglass.type),
+                    setBrandName(eyeglass.brand),
+                    setGender(eyeglass.gender),
+                    setPrice(eyeglass.price),
+                    setRating(eyeglass.rating),
+                    setImageurlColor(eyeglass.imageurlcolor)
+                ))}
+
             } catch (error) {
                 console.log(error);
             }
         }
         getEyeglassDetails(brand, model);
-    }, [brand, model]);
+
+        async function getCartItems() {
+            try {
+                const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
+                setCart(response.data.cart);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getCartItems();
+
+    }, [brand, eyeglass, model, user.email]);
+
+    
 
     const selectColor = (colorNumber) => {
         setSelectedColor(colorNumber);
@@ -43,24 +69,44 @@ const RayBanModel = () => {
 
     async function AddtoCart() {
 
-        const newCartItem = {
+        let isAlreadyAdded = false;
 
-            email,
-            modelNo,
-            type,
-            brandname,
-            gender,
-            price,
-            rating,
-            imageurlcolor
+        for (const item of cart) {
+            if (item.model === modelNo) {
+                isAlreadyAdded = true;
+                break;
+            }
         }
 
-        try {
-            const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);;
+        if (isAlreadyAdded) {
+            alert('Item already added to cart');
         }
+        else{
+
+            const newCartItem = {
+
+                email : email,
+                model : modelNo,
+                type : type,
+                brand : brandname,
+                gender : gender,
+                price : price,
+                rating : rating,
+                imageurlcolor : imageurlcolor
+            }
+    
+            try {
+                const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
+                console.log(response.data);
+                window.location.reload();
+    
+            } catch (error) {
+                console.log(error);;
+            }
+
+        }
+
+       
     }
 
     return (
@@ -154,7 +200,7 @@ const RayBanModel = () => {
                                 <p style={{ fontSize: "23px", marginLeft: "50px" }}><strong>LKR <span style={{ color: "#ab2317" }}>&nbsp;{eyeglass.price}</span></strong></p>
                             </div>
                         </div><br />
-                        <button className='btn btn-primary addtocart' onClick={(e) => AddtoCart()}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
+                        <button className='btn btn-primary addtocart' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
                         <button className='btn btn-primary eyeglasspaynow'>Pay Now!</button>
                         <br /><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
@@ -183,48 +229,6 @@ const RayBanModel = () => {
                             <b>Frame type :</b> {eyeglass.frametype}<br />
                             <b>Hinge type :</b> {eyeglass.hingetype}<br />
                         </p>
-                        
-                        <input type='hidden' value={user.firstname}
-                            onChange={(e) => {
-                                setEmail(e.target.value);
-                            }}
-                        />
-                        <input type='hidden' value={eyeglass.model}
-                            onChange={(e) => {
-                                setModelNo(e.target.value);
-                            }}
-                        />
-                        <input type='hidden' value={eyeglass.type}
-                            onChange={(e) => {
-                                setType(e.target.value);
-                            }}
-                        />
-                        <input type='hidden' value={eyeglass.brand}
-                            onChange={(e) => {
-                                setBrandName(e.target.value);
-                            }}
-                        />
-                        <input type='hidden' value={eyeglass.gender}
-                            onChange={(e) => {
-                                setGender(e.target.value);
-                            }}
-                        />
-                        <input type='hidden' value={eyeglass.price}
-                            onChange={(e) => {
-                                setPrice(e.target.value);
-                            }}
-                        />
-                        <input type='hidden' value={eyeglass.rating}
-                            onChange={(e) => {
-                                setRating(e.target.value);
-                            }}
-                        />
-                        <input type='hidden' value={eyeglass.imageurlcolor1}
-                            onChange={(e) => {
-                                setImageurlColor(e.target.value);
-                            }}
-                        />
-
 
                     </div>
                     <div className='col md-5 border'>
