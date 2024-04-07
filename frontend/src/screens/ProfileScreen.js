@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Tabs } from "antd";
 import styles from "../styles/Profile.css";
-import Link from "antd/es/typography/Link";
 import Loader from "../components/Loader";
 import BookingScreen from "./BookingScreen";
 import Modal from "react-bootstrap/Modal";
@@ -10,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Rating from 'react-rating-stars-component';
+import { Link } from "react-router-dom";
 
 const { TabPane } = Tabs;
 
@@ -63,6 +63,30 @@ const ProfileScreen = () => {
       setLoading(false);
     }
   }
+
+  
+  async function deleteFeedback(id){
+
+    try {
+        
+        
+        const data = (await axios.delete(`http://localhost:5000/api/feedback/deletefeedback/${id}`)).data;
+        console.log(data);
+        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+
+            window.location.reload();
+
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+        Swal.fire('Error', "Error with deleting user", 'error');
+ 
+
+    }
+}
+  
 
   return (
     <div className="ml-3 mt-3">
@@ -200,6 +224,7 @@ const ProfileScreen = () => {
                         </a>
                       </div>
                       <br/><br/><br/>
+                      
 
                       {feedback.map((feedback) => (
                         <div>
@@ -216,8 +241,8 @@ const ProfileScreen = () => {
                                             size={24}
                                             edit={false}
                                         />
-                                <button className="btn feedbacktagDDbackgroyndupdatebtn">Edit</button>
-                                <button className="btn feedbacktagDDbackgroynddeletebtn">Delete</button>
+                                <Link to = {`/updatefeedbackform/${feedback._id}`}><button className="btn feedbacktagDDbackgroyndupdatebtn">Edit</button></Link>
+                                <button className="btn feedbacktagDDbackgroynddeletebtn" onClick={(e) => deleteFeedback(feedback._id)}>Delete</button>
                                 
                             </p>
                             
