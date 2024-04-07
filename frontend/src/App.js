@@ -48,9 +48,6 @@ import CartScreen from './screens/CartScreen';
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
-
-
-import viewfeedback from './screens/viewfeedback';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
 
 
