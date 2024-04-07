@@ -20,9 +20,9 @@ function ViewDoctorDetails() {
   return (
     <div>
       <div className="ttp">
-      <label>
-        <b>*****Personal Details*****</b>
-      </label>
+        <label>
+          <b>Personal Details</b>
+        </label>
       </div>
 
       <div className="row">
@@ -82,8 +82,14 @@ function ViewDoctorDetails() {
         <br />
         <br />
         <br />
-        <br />
-        
+        <div className="ttp">
+        <label>
+          <b>Professional Background</b>
+        </label>
+      </div>
+
+        <br/>
+
 
 
         <div className="col-md-1 border vddtable1">
@@ -129,16 +135,13 @@ function ViewDoctorDetails() {
             <p>Specialty</p>
           </strong>
         </div>
-
-        
       </div>
 
       {doctor.map((doctor) => (
         <div className="row">
-
-<div className="col-md-1 border vddtable1d">
-              <p>{doctor.firstname}</p>
-            </div>
+          <div className="col-md-1 border vddtable1d">
+            <p>{doctor.firstname}</p>
+          </div>
 
           <div className="col-md-1 border vddtable6d">
             <p>{doctor.experiance}</p>
@@ -167,19 +170,26 @@ function ViewDoctorDetails() {
           <div className="col-md-1 border vddtable13d">
             <p>{doctor.specialty}</p>
           </div>
-          </div>
-          ))}
-<br/><br/>
-<br/>
+        </div>
+      ))}
+      <br />
+      <br />
+      <br />
 
-<div className="row">
+      <div className="ttp">
+        <label>
+          <b>Others</b>
+        </label>
+      </div>
+      
 
-<div className="col-md-1 border vddtable1">
+      <div className="row">
+        <div className="col-md-1 border vddtable1">
           <strong>
             <p>First name</p>
           </strong>
         </div>
-<div className="col-md-1 border vddtable16">
+        <div className="col-md-1 border vddtable16">
           <strong>
             <p>Discription</p>
           </strong>
@@ -190,13 +200,12 @@ function ViewDoctorDetails() {
             <p>Image</p>
           </strong>
         </div>
-        </div>
-          {doctor.map((doctor) => (
+      </div>
+      {doctor.map((doctor) => (
         <div className="row">
-
-<div className="col-md-1 border vddtable1dfn">
-              <p>{doctor.firstname}</p>
-            </div>
+          <div className="col-md-1 border vddtable1dfn">
+            <p>{doctor.firstname}</p>
+          </div>
 
           <div className="col-md-1 border vddtable11">
             <p>{doctor.discription}</p>
