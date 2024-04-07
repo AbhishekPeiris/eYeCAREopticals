@@ -39,6 +39,7 @@ import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
 
 import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
+import UpdateCustomerDetails from './screens/UpdateCustomerDetails';
 
 import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
@@ -116,6 +117,8 @@ function App() {
 
 
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
+        
+        <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
 
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
