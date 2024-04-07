@@ -287,10 +287,9 @@ function UpdateDoctorDetails() {
           </div>
           </div>
           </div>
-
-          <div className="submitbutton">
-            <button type="submit" className="submit">
-              Register
+          <div className="submitbutton111" >
+            <button type="submit" className="submit"  style={{width:"200px", textAlign:'center',marginLeft:"250px" }}>
+              Update Details
             </button>
           </div>
         </form>
