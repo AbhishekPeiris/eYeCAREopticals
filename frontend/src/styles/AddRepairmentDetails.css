@@ -1,4 +1,5 @@
 
+
   .fulltable{
     margin-left:50px !important;
     margin-top: 200px !important;
@@ -21,3 +22,8 @@
 .fulltable > .row:first-child p {
     color: white;
   }
+
+.vddtable{
+    width: 70px !important;
+}
+

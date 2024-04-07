@@ -29,9 +29,28 @@ import Chanel from './components/Chanel';
 import Tens from './components/Tens';
 import RayBanModel from './components/RayBanModel';
 import AdminDashboardScreen from './screens/AdminDashboardScreen';
+import AddHearingAidsScreen from './screens/AddHearingAidsScreen';
+
 import AddSpectacles from './screens/AddSpectacles';
+
+import Doctor from './components/Doctor';
+
 import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
+
+import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
+import UpdateCustomerDetails from './screens/UpdateCustomerDetails';
+
+import ViewDoctorDetails from './screens/ViewDoctorDetails';
+
+
+import CartScreen from './screens/CartScreen';
+import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
+import ViewAllFeedback from './screens/ViewAllFeedback';
+import Updatefeedbackform from './screens/Updatefeedbackform';
+import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
+
+
 
 
 function App() {
@@ -60,7 +79,7 @@ function App() {
           <Route path='/bookings' element={<DefaultLayout><BookingScreen /></DefaultLayout>} />
           <Route path='/editprofile/:userId' element={<DefaultLayout><EditUserScreen /></DefaultLayout>} />
           <Route path='/aboutus' element={<DefaultLayout><AboutUsScreen /></DefaultLayout>} />
-          <Route path='/ophthalmologists' element={<DefaultLayout><OphthalmologistsScreen /></DefaultLayout>} />
+          <Route path='/ophthalmologists/:type' element={<DefaultLayout><OphthalmologistsScreen /></DefaultLayout>} />
           <Route path='/EarSpecialistsScreen' element={<DefaultLayout><EarSpecialistsScreen /></DefaultLayout>} />
           <Route path='/services' element={<DefaultLayout><ServicesScreen /></DefaultLayout>} />
           <Route path='/eyeglasses' element={<DefaultLayout><EyeGlassesScreens /></DefaultLayout>} />
@@ -71,7 +90,13 @@ function App() {
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
-          <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
+
+          <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
+
+          <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
+          <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
+          <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
+
 
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindashboard" element={<AdminDashboardScreen />} />
@@ -90,6 +115,22 @@ function App() {
         <Route path='/addspectacles' element={<AddSpectacles />} />
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
+
+        <Route path='/addhearingaidsscreen' element={<AddHearingAidsScreen />} />
+
+
+        <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
+        
+        <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
+
+        <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
+        <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
+
+
+        
+
+        <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+
 
 
 

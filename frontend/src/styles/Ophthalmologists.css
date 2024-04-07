@@ -79,7 +79,27 @@
     margin-left: 10px!important;
     
 }
+.docappoibtn{
+    background-color: #ff4500 !important;
+    border: none !important;
+    color: white !important;
+    height: 30px !important;
+}
 
+.docappoibtn:hover{
+    background-color: #8b2703 !important;
+    transition:.5s !important;
+}
+.table_71{
+    background-color: #ff4500 !important;
+    height: 140px !important;
+    position: relative!important;
+    margin-bottom: 10px !important;
+    
+}
+.doctable_2{
+    margin-left: 110px !important;
+}
 
 
 

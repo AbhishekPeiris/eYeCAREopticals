@@ -26,11 +26,11 @@ function FeedbackScreen() {
         
         <div className="btn-1">          
 
-            <button>
+            <button className="backbutton">
             <Link to="/ProfileScreen">Back</Link>
             </button>
           
-            <button>
+            <button className="addfeedbutton">
             <Link to="/feedbackformScreen">Add Feedback</Link>
           </button>
         
