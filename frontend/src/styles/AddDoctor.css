@@ -3,16 +3,14 @@
   display: block;
   padding:20px;
   max-width: 700px;
-  border-radius: 0.5rem;
+  border-radius:100px;
   box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-
   margin-left: 50px;
 }
 .content{
   margin-left:100px;
-  width:800px; 
-  
-
+  width:2000px; 
+  border-radius:50px;
 
 }
 
@@ -22,11 +20,12 @@
   font-weight: 600;
   color: #000;
   text-align: center;
-  padding-left: 10%;
+  padding-left: 100%;
 }
 
 .input-container {
   position: relative;
+  
 }
 
 .input-container input, .form button {
@@ -71,14 +70,6 @@
   text-decoration: underline;
 }
 
-.flex-container {
-  display: flex;
-  margin-left: auto;
-  text-align:start;
-  
-
-  
-}
 .input-container1{
   position: relative;
   margin-left: 60px;
@@ -88,6 +79,7 @@
 .submitbutton{
   width: 100px;
   margin:auto;
+  border: none;
 }
 
 .select-container {
@@ -99,14 +91,15 @@
   margin-top: 30px;
   justify-content: space-between; 
 }
+
+
 .languagetype{
   background-color: white;
     border: 1px solid rgb(206, 206, 206);
     height: 45px;
-    padding-left: 10px;
     border-radius: 10px;
     width: 300px;
-    margin-left: -75px;
+    margin-top: 10px;
     
     
   
@@ -119,8 +112,17 @@
     padding-left: 10px;
     border-radius: 10px;
     width: 300px;
-    margin-left: -25px;
-    margin-top: 39px;
+    margin-top: 10px;   
   
-
 }
+.displaytp{
+  display: flex;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+.space-between{
+  margin-left: 40px;
+}
+
+

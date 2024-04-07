@@ -1,16 +1,111 @@
-.fullform{
-    position: relative;
-    margin-left: 600px !important;
+.fullform {
+  position: relative;
+  margin-left: 600px !important;
+  border: 100px solid black; /* Set border color to black */
+  padding: 20px;
 }
-.form-control{
-    width: 300px !important;
+
+.form-title {
+  margin-left: -700px !important;
 }
-.form-title{
-    margin-left: -700px !important;
+
+.Additional {
+  position: relative;
+  margin-left: -100px !important;
+  bottom: 100px !important;
+  margin-bottom: -90px !important;
 }
-.Additional{
-    position: relative;
-    margin-left: -100px !important;
-    bottom: 100px !important;
-    margin-bottom: -90px !important;
+
+.fullform {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 600px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.fullform .fd-form-group {
+  margin-bottom: 20px;
+}
+
+.fullform .form-control {
+  width: 300px;
+}
+
+.fullform .form-title {
+  margin-left: -700px;
+}
+
+.fullform .Additional {
+  position: relative;
+  margin-left: -100px;
+  bottom: 100px;
+  margin-bottom: -90px;
+}
+
+.fullform .btn {
+  margin-top: 20px;
+}
+
+.fullform .fd-form-check-input {
+  margin-right: 10px;
+}
+
+.fd-form-title {
+  margin-left: 500px;
+}
+
+.fb_other {
+  margin-bottom: 10px !important;
+}
+
+.fd-form-group {
+  margin-left: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.fd-form-check {
+  margin-left: 10px !important;
+  margin-top: 10px !important;
+  
+}
+
+.btn-primary {
+  margin-left: 30px !important;
+}
+
+.fb_sub_btn {
+  margin-left: 150px !important;
+  margin-bottom: 30px !important;
+  margin-top: 30PX!important;
+}
+
+.fd-form-check-label {
+  margin-left: 10px !important;
+}
+
+.fd-form-control {
+  width: 300px !important;
+  height: 40px !important;
+}
+.form{
+  position:relative !important;
+  border: 1px solid black;
+  border-radius: 10px !important;
+  padding: 20px;
+  margin-left: 400px !important;
+}
+.fd-container{
+  margin-left: -300px !important;
+}
+.png123 {
+  position: absolute;
+  width: 1000px !important;
+  right: -120px !important;
+  margin-top: 200px !important;
+  margin-bottom: 200px !important;
+  
+  filter: blur(0.8px)!important;
+  
 }
