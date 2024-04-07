@@ -31,6 +31,7 @@ import AddSpectacles from './screens/AddSpectacles';
 import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
 import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
+import UpdateCustomerDetails from './screens/UpdateCustomerDetails';
 
 
 function App() {
@@ -85,6 +86,8 @@ function App() {
         <Route path='/viewcustomerdetails' element={<ViewCustomerDetails />} />
         <Route path='/addappointmentdetails' element={<AddDoctorAppointmentDetails />} />
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
+        
+        <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
 
       </Routes>
     </BrowserRouter>
