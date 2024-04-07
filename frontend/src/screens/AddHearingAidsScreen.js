@@ -12,7 +12,7 @@ function AddHearingAidsScreen() {
   const [discription, setDiscription] = useState();
 
   const [size1, setSize1] = useState();
-  const [size2, setSize2] = useState();
+  const [size2, setSize2] = useState();        
   const [price, setPrice] = useState();
   const [rating, setRating] = useState();
   const [imageurlcolor1, setImageurlcolor1] = useState();
