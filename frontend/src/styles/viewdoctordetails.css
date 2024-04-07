@@ -189,4 +189,34 @@
     text-align: center;
 }
 
+.vddtable20{
+    width:280px;
+    height:40px;
+    text-align: center;
+    background-color: moccasin;
+}
+
+.vddtable21{
+    width:280px;
+    height:100px;
+}
+
+.actionbtn{
+    margin-top: 35px;
+    border-radius: 5px;
+    border: none;
+    width:100px;
+    height: 40px;
+    background-color: lightgreen;
+}
+
+
+.actionbtn1{
+    margin-left: 30px;
+    border-radius: 5px;
+    border: none;
+    width:100px;
+    height: 40px;
+    background-color: lightcoral;
+}
 
