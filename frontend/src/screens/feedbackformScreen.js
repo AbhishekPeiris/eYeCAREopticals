@@ -38,7 +38,7 @@ function FeedbackFormScreen() {
         "success"
       ).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "/ProfileScreen.js"; // Navigate to ProfileScreen.js
+          window.location.href = '/profile'; // Navigate to ProfileScreen.js
         }
       });
       // Resetting the form fields after successful submission
@@ -83,6 +83,7 @@ function FeedbackFormScreen() {
         <div className="fd-form-group">
           <label className="fb_other" htmlFor="fd-exampleInputContactNumber">
             <b>Contact Number</b>
+            required
           </label>
           <br />
           <input
