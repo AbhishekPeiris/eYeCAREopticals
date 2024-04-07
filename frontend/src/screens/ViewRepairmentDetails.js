@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import styles from "../styles/AddRepairmentDetails.css";
+import "../styles/AddRepairmentDetails.css";
+
 import axios from "axios";
 
 function ViewRepairmentDetails() {
@@ -32,7 +33,7 @@ function ViewRepairmentDetails() {
 
 
   return (
-    <div>
+    <div className="fulltable">
       <div className="row">
         <div className="col-md-1 border repaireviewtable_1_col_1">
           <strong>
@@ -88,7 +89,8 @@ function ViewRepairmentDetails() {
       </div>
 
       {repairment.map((repairment) => (
-        <div className="row">
+        <div className="detatable">
+          <div className="row">
           <div className="col-md-1 border repaireviewtable_1_col_1">
             <p>{repairment.cusname}</p>
           </div>
@@ -97,7 +99,7 @@ function ViewRepairmentDetails() {
           </div>
 
           <div className="col-md-1 border repaireviewtable_1_col_1">
-            <p>{repairment.adress}</p>
+            <p>{repairment.address}</p>
           </div>
           <div className="col-md-1 border repaireviewtable_1_col_1">
             <p>{repairment.contact}</p>
@@ -118,6 +120,7 @@ function ViewRepairmentDetails() {
             <p>{repairment.price}</p>
           </div>
           <div className="col-md-1 border repaireviewtable_1_col_1"></div>
+        </div>
         </div>
       ))}
     </div>

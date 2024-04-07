@@ -1,3 +1,29 @@
+
+
+  .fulltable{
+    margin-left:50px !important;
+    margin-top: 200px !important;
+    
+    
+  }
+  .detatable{
+    text-align: center;
+  }
+
+ 
+.repaireviewtable_1_col_1 {
+    width: 10%; 
+  }
+  
+  .fulltable > .row:first-child > .col-md-1:nth-child(-n+10) {
+    background-color: #da751c;
+  }
+
+.fulltable > .row:first-child p {
+    color: white;
+  }
+
 .vddtable{
     width: 70px !important;
 }
+
