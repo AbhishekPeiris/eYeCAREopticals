@@ -5,7 +5,13 @@
   max-width: 700px;
   border-radius: 0.5rem;
   box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  margin-left: 500px;
+
+  margin-left: 50px;
+}
+.content{
+  margin-left:100px;
+  width:800px; 
+
 }
 
 .form-title {
@@ -67,7 +73,6 @@
   display: flex;
   margin-left: auto;
   text-align:start;
-  
   
 }
 .input-container1{

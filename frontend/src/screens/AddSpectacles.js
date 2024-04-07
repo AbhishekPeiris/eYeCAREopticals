@@ -1,10 +1,12 @@
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+
 function AddSpectacles() {
 
-
+  
   const [model, setmodel] = useState();
   const [type, settype] = useState();
   const [brand, setbrand] = useState();
@@ -91,7 +93,7 @@ function AddSpectacles() {
 
   return (
     <div>
-      <form onSubmit={AddSpectacles}>
+      <form onSubmit={AddSpectacles} className='addsec'>
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
@@ -287,3 +289,5 @@ function AddSpectacles() {
 }
 
 export default AddSpectacles;
+
+
