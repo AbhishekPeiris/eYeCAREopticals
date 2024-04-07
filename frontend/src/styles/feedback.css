@@ -16,7 +16,8 @@
 .btn-1{
     color: black;
     margin-top: 150px;
-    position: relative!important;
+    position: relative!important; 
+    margin-left: -100px !important;
    
 
 
@@ -24,8 +25,19 @@
 
 .btn-1 button{ 
     color: rgb(242, 233, 233);
-    margin: 10px;
+    margin: -50px;
     background-color: rgb(248, 32, 32);
     border: none;
-    border-radius: 8PX;
+    border-radius: 20PX;
+}
+.backbutton{
+    width: 100px!important;
+    margin-left: 100px!important;
+    height: 50px!important;
+}
+.addfeedbutton{
+    width: 120px!important;
+    margin-left: 100px!important;
+    height: 50px!important;
+    text-align: center!important;
 }

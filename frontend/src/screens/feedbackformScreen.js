@@ -171,7 +171,7 @@ function FeedbackFormScreen() {
           <br />
         </div>
         <div className="fb_sub_btn">
-          <Link to="/viewFeedback">
+          <Link to="/viewallfeedback">
             <button type="button" className="btn btn-primary">
               <b>View Feedback</b>
             </button>

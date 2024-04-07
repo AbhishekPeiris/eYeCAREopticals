@@ -45,7 +45,8 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 import CartScreen from './screens/CartScreen';
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
-import viewfeedback from './screens/viewfeedback';
+import ViewAllFeedback from './screens/ViewAllFeedback';
+
 
 
 
@@ -86,12 +87,11 @@ function App() {
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
-          <Route path='/viewfeedback' element={<DefaultLayout><viewfeedback/></DefaultLayout>} />
-          
 
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
+          <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
 
 
         {/* AdminDashboardScreen without NavBar and Footer */}
@@ -120,8 +120,7 @@ function App() {
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
-
-
+        
 
 
       </Routes>
