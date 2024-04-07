@@ -39,13 +39,14 @@ import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
 
 import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
+import UpdateCustomerDetails from './screens/UpdateCustomerDetails';
 
 import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 
 import CartScreen from './screens/CartScreen';
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
-import ViewAllFeedback from './screens/ViewAllFeedback';
+import UpdateDoctorDetails from './screens/UpdateDoctorDetails';;
 
 
 
@@ -91,7 +92,7 @@ function App() {
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
-          <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
+
 
 
         {/* AdminDashboardScreen without NavBar and Footer */}
@@ -116,11 +117,14 @@ function App() {
 
 
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
+        
+        <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
 
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
-        
+        <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+
 
 
       </Routes>

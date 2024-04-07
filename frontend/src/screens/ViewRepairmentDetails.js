@@ -17,7 +17,20 @@ function ViewRepairmentDetails() {
       }
     }
     ViewRepairmentDetails();
+    
   }, []);
+
+  // const handleUpdate = (id) => {
+  //   // Implement update logic
+  //   console.log("Update clicked for id:", id);
+  // };
+
+  // const handleDelete = (id) => {
+  //   // Implement delete logic
+  //   console.log("Delete clicked for id:", id);
+  // };
+
+
   return (
     <div>
       <div className="row">
