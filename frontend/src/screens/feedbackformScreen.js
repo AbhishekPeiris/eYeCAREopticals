@@ -65,7 +65,7 @@ function FeedbackFormScreen() {
       </div>
 
       <h2 className="fd-form-title">Customer Feedback Form</h2>
-      <form className="form" onSubmit={addFeedback}>
+      <form className="form divfeedbackform" onSubmit={addFeedback}>
         <div className="fd-form-group">
           <label className="fb_other" htmlFor="fd-exampleInputName">
             <b>Name</b>

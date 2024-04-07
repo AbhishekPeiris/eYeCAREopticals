@@ -77,7 +77,7 @@ function AddDoctor() {
     <div>
       
       <div className="content">
-        <form className="form mb-5 mt-5" onSubmit={addDoctorDetails}>
+        <form className="form mb-5 mt-5 snchadddocform" onSubmit={addDoctorDetails}>
           <p className="form-title">Doctors Registration Form</p>
           <div className="displaytp">
             

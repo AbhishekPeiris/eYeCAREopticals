@@ -63,7 +63,7 @@ function AddRepairmentDetails() {
   return (
     <div>
       <form onSubmit={addRepairmentDetails}>
-      <div className="row">
+      <div className="row ">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
             <h4><strong>Customer Details</strong></h4><br/>
