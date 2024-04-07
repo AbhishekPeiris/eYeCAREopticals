@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import StarRatings from "react-star-ratings";
 import pngwing from "../images/pngwing.png";
 
-function feedbackformScreen() {
+function FeedbackFormScreen() {
   const [cusname, setCusname] = useState("");
   const [contact, setContact] = useState("");
   const [address, setAddress] = useState("");
@@ -54,7 +54,6 @@ function feedbackformScreen() {
     }
   }
 
-function feedbackformScreen() {
   return (
     <div className="fd-container">
       <br />
@@ -185,5 +184,4 @@ function feedbackformScreen() {
     </div>
   );
 }
-
-export default feedbackformScreen;
+export default FeedbackFormScreen;
