@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "../styles/viewdoctordetails.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 function ViewDoctorDetails() {
   const [doctor, setDoctor] = useState([]);
 
@@ -17,6 +19,30 @@ function ViewDoctorDetails() {
     }
     ViewDoctorDetails();
   }, []);
+
+  async function deletedoctor(id){
+
+    try {
+        
+        
+        const data = (await axios.delete(`http://localhost:5000/api/doctormanagement/deletedoctor/${id}`)).data;
+        console.log(data);
+        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+
+            window.location.reload();
+
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+        Swal.fire('Error', "Error with deleting user", 'error');
+ 
+
+    }
+}
+
+  
   return (
     <div>
       <div className="ttp">
@@ -200,6 +226,11 @@ function ViewDoctorDetails() {
             <p>Image</p>
           </strong>
         </div>
+        <div className="col-md-1 border vddtable17">
+          <strong>
+            <p>Action</p>
+          </strong>
+        </div>
       </div>
       {doctor.map((doctor) => (
         <div className="row">
@@ -213,6 +244,10 @@ function ViewDoctorDetails() {
 
           <div className="col-md-1 border vddtable14">
             <img src={doctor.imageurl[0]} alt="" style={{ width: "70px" }} />
+          </div>
+          <div className="col-md-1 border vddtable14">
+          <Link to = {`/updatedoctordetails/${doctor._id}`}><button>Update</button></Link>
+          <button onClick={(e) => deletedoctor(doctor._id)}>Delete</button>
           </div>
         </div>
       ))}
