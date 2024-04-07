@@ -46,9 +46,12 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 import CartScreen from './screens/CartScreen';
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
-import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
+
+
+import viewfeedback from './screens/viewfeedback';
+import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
 
 
 
@@ -126,7 +129,11 @@ function App() {
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
+
+        
+
         <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+
 
 
 
