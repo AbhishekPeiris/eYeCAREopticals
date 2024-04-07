@@ -1,31 +1,68 @@
-import React, { useState } from "react";
-import axios from "axios";
-import Swal from "sweetalert2";
-import { useHistory } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import "../styles/AddDoctor.css";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-function AddDoctor() {
-  const [firstname, setFirstname] = useState("");
+function UpdateDoctorDetails() {
+
+    const { docID } = useParams(); 
+
+    const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
   const [experience, setExperience] = useState("");
-  const [language, setLanguage] = useState("Sinhala");
-  const [type, setType] = useState("Ophthalmologists");
+  const [language, setLanguage] = useState("");
+  const [type, setType] = useState("");
   const [department, setDepartment] = useState("");
   const [rating, setRating] = useState("");
-  const [doctorFee, setDoctorFee] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("Monday");
+  const [doctorfee, setDoctorFee] = useState("");
+  const [discription, setDescription] = useState("");
+  const [date, setDate] = useState("");
   const [specialty, setSpecialty] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageurl, setImageUrl] = useState("");
 
-  async function addDoctorDetails(e) {
+  useEffect(() => {
+    async function fetchDoctorDetails() {
+      try {
+        const response = await axios.post(`http://localhost:5000/api/doctormanagement/${docID}`);
+        const DoctorData = response.data.doctor;
+  
+        // Set state after fetching user data
+        setFirstname(DoctorData.firstname);
+        setLastname(DoctorData.lastname);
+        setContact(DoctorData.contact);
+        setEmail(DoctorData.email);
+        setExperience(DoctorData.experiance);
+        setLanguage(DoctorData.language);
+        setType(DoctorData.type);
+        setDepartment(DoctorData.department);
+        setRating(DoctorData.rating);
+        setDoctorFee(DoctorData.doctorfee);
+        setDescription(DoctorData.discription);
+        setDate(DoctorData.date);
+        setSpecialty(DoctorData.specialty);
+        setImageUrl(DoctorData.imageurl)
+  
+      } catch (error) {
+        console.log(error);
+        // Handle error fetching user data
+      }
+    }
+  
+    // Call the function to fetch user details when the component mounts
+    fetchDoctorDetails();
+  
+  }, [docID]); // Include userID in the dependency array to re-run effect when userID changes
+
+  async function EditDoctor(e) {
     e.preventDefault();
 
-    const newDoctor = {
-      firstname,
+ 
+
+        const updatedoctor = {
+            _id: docID,
+            firstname,
       lastname,
       contact,
       email,
@@ -34,50 +71,38 @@ function AddDoctor() {
       type,
       department,
       rating,
-      doctorFee,
-      description,
+      doctorfee,
+      discription,
       date,
       specialty,
-      imageUrl,
-    };
-
-    try {
-      const response = await axios.post(
-        `http://localhost:5000/api/doctormanagement/adddoctor`,
-        newDoctor
-      );
-      console.log(response.data);
-      Swal.fire("Thank you!", "Add Doctor Successfully", "success").then(
-        (result) => {
-          window.location.href = "/viewdoctordetails";
+      imageurl,
         }
-      );
-      // Resetting the form fields after successful submission
-      setFirstname("");
-      setLastname("");
-      setContact("");
-      setEmail("");
-      setExperience("");
-      setLanguage("Sinhala");
-      setType("Ophthalmologists");
-      setDepartment("");
-      setRating("");
-      setDoctorFee("");
-      setDescription("");
-      setDate("Monday");
-      setSpecialty("");
-      setImageUrl("");
-    } catch (error) {
-      console.log(error);
-      Swal.fire("Error", "Add Doctor Unsuccessfully", "error");
-    }
-  }
 
+        try {
+            
+            
+            const data = (await axios.put(`http://localhost:5000/api/doctormanagement/editdoctor/${docID}`, updatedoctor)).data;
+        
+            Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
+
+                 window.location.href = '/viewdoctordetails';
+
+            });
+        
+
+        } catch (error) {
+            
+            console.log(error);
+            Swal.fire('Error', "Error with updating user", "error");
+          
+
+        }
+    }
+  
   return (
     <div>
-      
-      <div className="content">
-        <form className="form mb-5 mt-5" onSubmit={addDoctorDetails}>
+         <div className="content">
+        <form className="form mb-5 mt-5" onSubmit={EditDoctor}>
           <p className="form-title">Doctors Registration Form</p>
           <div className="displaytp">
             
@@ -172,7 +197,7 @@ function AddDoctor() {
             <input
               type="number"
               placeholder="Enter Doctor Fee"
-              value={doctorFee}
+              value={doctorfee}
               onChange={(e) => setDoctorFee(e.target.value)}
             />
           </div>
@@ -186,7 +211,7 @@ function AddDoctor() {
             <input
               type="text"
               placeholder="Enter Description"
-              value={description}
+              value={discription}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
@@ -256,7 +281,7 @@ function AddDoctor() {
             <input
               type="text"
               placeholder="Enter Image URL"
-              value={imageUrl}
+              value={imageurl}
               onChange={(e) => setImageUrl(e.target.value)}
             />
           </div>
@@ -271,7 +296,7 @@ function AddDoctor() {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default AddDoctor;
+export default UpdateDoctorDetails
