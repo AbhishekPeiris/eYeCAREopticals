@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../styles/AddRepairmentDetails.css";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
-
+import Swal from 'sweetalert2';
 function ViewRepairmentDetails() {
   const [repairment, setRepairment] = useState([]);
 
@@ -30,7 +31,27 @@ function ViewRepairmentDetails() {
   //   // Implement delete logic
   //   console.log("Delete clicked for id:", id);
   // };
+  async function deleterepDetails(id){
 
+    try {
+        
+        
+        const data = (await axios.delete(`http://localhost:5000/api/repairment/deleterepairment/${id}`)).data;
+        console.log(data);
+        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+
+            window.location.reload();
+
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+        Swal.fire('Error', "Error with deleting user", 'error');
+ 
+
+    }
+}
 
   return (
     <div className="fulltable">
@@ -119,7 +140,10 @@ function ViewRepairmentDetails() {
           <div className="col-md-1 border repaireviewtable_1_col_1">
             <p>{repairment.price}</p>
           </div>
-          <div className="col-md-1 border repaireviewtable_1_col_1"></div>
+          <div className="col-md-1 border repaireviewtable_1_col_1">
+          <Link to = {`/updaterepairmentdetails/${repairment._id}`}><button>Update</button></Link>
+          <button onClick={(e) => deleterepDetails(repairment._id)}>Delete</button>
+          </div>
         </div>
         </div>
       ))}

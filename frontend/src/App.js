@@ -104,7 +104,7 @@ function App() {
 
         <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
         <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
-        <Route path='/updaterepairmentdetails' element={<UpdateRepairmentDetails />} />
+        <Route path='/updaterepairmentdetails/:repID' element={<UpdateRepairmentDetails />} />
 
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
 
