@@ -34,6 +34,40 @@ export default function OphthalmologistsScreen() {
         }
         getDoctor();
     }, []);
+
+    const [searchKey, setSearchKey] = useState("");
+    const [selectedType, setSelectedType] = useState("all");
+    const [filterdDoctors, setFilterdDoctors] = useState([]);
+
+    useEffect(() => {
+
+        let tempList = doctor;
+
+        if (searchKey && searchKey !== "") {
+            tempList = tempList.filter(
+                (item) =>
+                    item.firstname
+                        .toLowerCase()
+                        .includes(searchKey.toLowerCase()) ||
+                        item.lastname
+                        .toLowerCase()
+                        .includes(searchKey.toLowerCase())
+
+            );
+        }
+
+        if (selectedType !== "all") {
+            tempList = tempList.filter(
+                (item) =>
+                    item.specialty.toLowerCase() === selectedType.toLowerCase()
+            );
+        }
+
+        setFilterdDoctors(tempList);
+    
+    }, [searchKey, selectedType,doctor]);
+
+
     return (
         <div>
             {loading ? (
@@ -85,16 +119,16 @@ export default function OphthalmologistsScreen() {
                                 <div className='col md-3 doctsearch'>
                                     <small className='barname2'>Doctor Name</small>
                                     <input class="form-control mr-sm-2 doctorSearch" type="search" placeholder="Search Doc Name." aria-label="Search"
-
+                                        onChange={(e)=> setSearchKey(e.target.value)}
 
                                     />
                                 </div>
 
                                 <div className='col md-3 rating'>
                                     <small className='type'>Specialty</small>
-                                    <select className="TypeSelect">
+                                    <select className="TypeSelect" onChange={(e) => setSelectedType(e.target.value)}>
                                         <option value="all">All</option>
-                                        <option value="prescription eyeglasses">Eye Surgeon</option>
+                                        <option value="Eye surgeon">Eye Surgeon</option>
                                         <option value="sunglasses">Ear Surgeon</option>
                                         <option value="sunglasses">General Surgeon</option>
                                     </select>
@@ -104,6 +138,10 @@ export default function OphthalmologistsScreen() {
 
                         <div className="row mb-5 mt-5 doctable_2">
                             {doctor.map((doctor) => (
+
+                        <div className="row mb-5 mt-5 RBtable_2">
+                            {filterdDoctors.map((doctor) => (
+
                                 <div className="col-lg-3 RBtable_2col_1" key={doctor._id} data-aos="zoom-in">
                                     <img src={doctor.imageurl[0]} alt="" width={300} />
                                     <br/><br/>
