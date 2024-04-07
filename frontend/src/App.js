@@ -46,8 +46,8 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 import CartScreen from './screens/CartScreen';
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
-
 import ViewAllFeedback from './screens/ViewAllFeedback';
+import Updatefeedbackform from './screens/Updatefeedbackform';
 
 
 import viewfeedback from './screens/viewfeedback';
@@ -98,6 +98,7 @@ function App() {
 
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
           <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
+          <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
 
 
         {/* AdminDashboardScreen without NavBar and Footer */}
