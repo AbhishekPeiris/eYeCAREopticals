@@ -79,7 +79,7 @@
     background-color: moccasin;
 }
 .vddtable9{
-    width:150px;
+    width:100px;
     height:40px;
     text-align: center;
     background-color: moccasin;
@@ -127,7 +127,7 @@
     text-align: center;
 }
 .vddtable9d{
-    width:150px;
+    width:100px;
     height:40px;
     text-align: center;
 }
@@ -186,6 +186,7 @@
 .ttp{
     margin-left: 50px;
     font-size: 20px;
+    text-align: center;
 }
 
 
