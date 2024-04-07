@@ -67,7 +67,7 @@ export default function OphthalmologistsScreen() {
                     </div>
 
 
-                    <div className='row table_7' style={{position:"relative", top:"-300px"} }>
+                    <div className='row table_71' style={{position:"relative", top:"-300px"} }>
                         <div className='col mt-4 table_7col_1'>
                             
                             <span style={{ fontSize: "30px", color: "white" }}><strong>Get your Eyes Checked At Our Clinic</strong></span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -102,7 +102,7 @@ export default function OphthalmologistsScreen() {
                             </div>
                         </div>
 
-                        <div className="row mb-5 mt-5 RBtable_2">
+                        <div className="row mb-5 mt-5 doctable_2">
                             {doctor.map((doctor) => (
                                 <div className="col-lg-3 RBtable_2col_1" key={doctor._id} data-aos="zoom-in">
                                     <img src={doctor.imageurl[0]} alt="" width={300} />
