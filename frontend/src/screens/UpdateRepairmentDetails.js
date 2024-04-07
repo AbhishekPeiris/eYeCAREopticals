@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import "../styles/AddRepairmentDetails.css";
 
 function UpdateRepairmentDetails() {
 
@@ -13,9 +14,9 @@ function UpdateRepairmentDetails() {
   const [email, setEmail] = useState();
 
   const [model, setModel] = useState();
-  const [DateofDropoff, setDateofDropoff] = useState();
-  const [PreferredPickupDate, setPreferredPickupDate] = useState();
-  const [DescriptionofIssue, setDiscription] = useState();
+  const [DateofDropoff, setDateofDropoff] = useState("");
+  const [PreferredPickupDate, setPreferredPickupDate] = useState("");
+  const [DescriptionofIssue, setDiscription] = useState("");
   const [price, setPrice] = useState();
 
   useEffect(() => {
@@ -86,12 +87,13 @@ function UpdateRepairmentDetails() {
     }
   
   return (
-    <div>
+    <div style={{marginLeft:'300px'}}>
       <form onSubmit={UpdateRepairmentDetails}>
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
-            <h4><strong>Customer Details</strong></h4><br/>
+          <div className="addrfulltable">
+            <h4 className="addrhedder"><strong>Customer Details</strong></h4><br/>
 
             <div class="input-container">
               <lable>Name</lable>
@@ -134,11 +136,13 @@ function UpdateRepairmentDetails() {
             </div>
           </div>
         </div>
+        </div>
 
         <div className="col-md-3">
           <div class="form mb-5 mt-5">
+          <div className="addrfulltable11">
            
-          <h4><strong>Accessories Details</strong></h4><br />
+          <h4 className="addrhedder"><strong>Accessories Details</strong></h4><br />
             <div class="input-container">
               <lable>Model No</lable>
               <input type="text" placeholder="Enter Model No" value={model} required
@@ -184,8 +188,9 @@ function UpdateRepairmentDetails() {
               />
             </div>
 
-            <button type="submit" class="submit">Update</button>
-            <button class="submit">Cancel</button>
+            <button type="submit" class="submitaddbtn1">Update</button>
+            <button class="submitaddbtn2">Cancel</button>
+          </div>
           </div>
         </div>
       </div>
