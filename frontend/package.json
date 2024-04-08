@@ -13,9 +13,7 @@
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.3",
     "bootstrap-vue": "^2.23.1",
-
     "chart.js": "^4.4.2",
-
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-calendar": "^4.8.0",
@@ -26,9 +24,7 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
     "react-star-ratings": "^2.3.0",
-
     "react-stripe-checkout": "^2.6.3",
-
     "sweetalert2": "^11.10.3",
     "web-vitals": "^2.1.4"
   },
