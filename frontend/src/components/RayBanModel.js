@@ -6,6 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Rating from 'react-rating-stars-component';
 
+
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
     const [selectedColor, setSelectedColor] = useState(1); // Default to color 1
@@ -205,8 +206,8 @@ const RayBanModel = () => {
                                 <p style={{ fontSize: "23px", marginLeft: "50px" }}><strong>LKR <span style={{ color: "#ab2317" }}>&nbsp;{eyeglass.price}</span></strong></p>
                             </div>
                         </div><br />
-                        <button className='btn btn-primary addtocart' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
-                        <button className='btn btn-primary eyeglasspaynow'>Pay Now!</button>
+                        <button className='btn btn-primary addtocartbtn' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
+                        <button className='btn btn-primary eyeglasspaynowbtn'>Pay Now!</button>
                         <br /><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>
