@@ -28,21 +28,29 @@ function MyAppointmentScreen() {
 
   return (
     <div>
-        <br/><br/><br/>
-        {appointment.map((appointment) => (
-          
-          <div className="fulldetailsapp">
-            {appointment.cusname}<br/>
-            {appointment.contact}<br/>
-            {appointment.address}<br/>
-            {appointment.email}<br/>
-            {appointment.doctorname}<br/>
-            {appointment.date}<br/>
-            {appointment.doctorfee}<br/>
-          </div>
-          
-        ))}
-         <br/><br/><br/> <br/><br/><br/> <br/><br/><br/> <br/><br/><br/> <br/><br/><br/> <br/><br/><br/> <br/><br/><br/>
+      <br /><br /><br />
+      {appointment.map((appointment) => (
+
+        <div className="fulldetailsapp">
+          <p> {appointment.cusname}<br />
+            {appointment.email}<br />
+            <span className="conadd">{appointment.contact} | {appointment.address}<br /></span>
+            <hr style={{marginRight:'30px'}}></hr>
+
+
+            <div className="namedatefee">
+              <span >Name :   <b>{appointment.doctorname}</b></span><br />
+               <span>Date :   <b>{appointment.date}</b></span><br />
+              <span>Doctor Fee :  <b>{appointment.doctorfee}</b></span><br />
+            </div></p>
+            <div className="updatedelectbtn">
+            <button className="appupdate">update </button>
+            <button className="appdelect">delect </button>
+            </div>
+        </div>
+
+      ))}
+      <br /><br /><br /> <br /><br /><br /> <br />
     </div>
   )
 }
