@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/AddDoctor.css";
+import { Link } from "react-router-dom";
 
 function AddDoctor() {
   const [firstname, setFirstname] = useState("");
@@ -75,9 +76,13 @@ function AddDoctor() {
 
   return (
     <div>
+      <Link to='/viewdoctordetails'>
       <button type="submit" className="sanchviewdocbtn">
               View Docter Details
             </button>
+            </Link>
+
+          
       <div className="formcontent111">
         <form className="form mb-5 mt-5 snchadddocform111" onSubmit={addDoctorDetails}>
           <p className="form-title">Doctors Registration Form</p>

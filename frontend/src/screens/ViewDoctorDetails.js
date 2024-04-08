@@ -45,9 +45,11 @@ function ViewDoctorDetails() {
   
   return (
     <div className="aftersidebar">
+      <Link to='/adddoctor' >
       <button type="submit" className="submit112">
               + Add Doctors
             </button>
+            </Link>
       <div className="ttp1">
         <label>
           <b>Personal Details</b>
