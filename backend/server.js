@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
+const User = require("./models/User");
+const Sales = require("./models/Sales");
 require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
@@ -26,6 +28,29 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB connection successfully');
 });
+
+
+app.get("/sales", async (req, res) => {
+    try {
+      const sales = await Sales.find();
+      res.json(sales);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+  
+  app.get("/users", async (req, res) => {
+    try {
+      // Fetch all profiles from the database
+      const user = await User.find();
+      console.log(user);
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching profiles:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+  
 
 const userRouter = require('./routes/UserRoute');
 app.use('/api/user', userRouter);
