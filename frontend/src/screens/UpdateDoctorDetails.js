@@ -1,83 +1,108 @@
-import React, { useState } from "react";
-import axios from "axios";
-import Swal from "sweetalert2";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import "../styles/AddDoctor.css";
+function UpdateDoctorDetails() {
 
-function AddDoctor() {
-  const [firstname, setFirstname] = useState("");
+    const { docID } = useParams(); 
+
+    const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
-  const [experiance, setExperience] = useState("");
-  const [language, setLanguage] = useState("Sinhala");
-  const [type, setType] = useState("Ophthalmologists");
+  const [experience, setExperience] = useState("");
+  const [language, setLanguage] = useState("");
+  const [type, setType] = useState("");
   const [department, setDepartment] = useState("");
   const [rating, setRating] = useState("");
   const [doctorfee, setDoctorFee] = useState("");
   const [discription, setDescription] = useState("");
-  const [date, setDate] = useState("Monday");
-  const [specialty, setSpecialty] = useState("Eye surgeon");
+  const [date, setDate] = useState("");
+  const [specialty, setSpecialty] = useState("");
   const [imageurl, setImageUrl] = useState("");
 
-  async function addDoctorDetails(e) {
+  useEffect(() => {
+    async function fetchDoctorDetails() {
+      try {
+        const response = await axios.post(`http://localhost:5000/api/doctormanagement/${docID}`);
+        const DoctorData = response.data.doctor;
+  
+        // Set state after fetching user data
+        setFirstname(DoctorData.firstname);
+        setLastname(DoctorData.lastname);
+        setContact(DoctorData.contact);
+        setEmail(DoctorData.email);
+        setExperience(DoctorData.experiance);
+        setLanguage(DoctorData.language);
+        setType(DoctorData.type);
+        setDepartment(DoctorData.department);
+        setRating(DoctorData.rating);
+        setDoctorFee(DoctorData.doctorfee);
+        setDescription(DoctorData.discription);
+        setDate(DoctorData.date);
+        setSpecialty(DoctorData.specialty);
+        setImageUrl(DoctorData.imageurl)
+  
+      } catch (error) {
+        console.log(error);
+        // Handle error fetching user data
+      }
+    }
+  
+    // Call the function to fetch user details when the component mounts
+    fetchDoctorDetails();
+  
+  }, [docID]); // Include userID in the dependency array to re-run effect when userID changes
+
+  async function EditDoctor(e) {
     e.preventDefault();
 
-    const newDoctor = {
-      firstname : firstname,
-      lastname : lastname, 
-      contact : contact,
-      email : email,
-      experiance : experiance,
-      language : language,
-      type : type,
-      department : department,
-      rating : rating,
-      doctorfee : doctorfee,
-      discription : discription,
-      date : date,
-      specialty : specialty,
-      imageurl : imageurl
-    };
+ 
 
-    try {
-      const response = await axios.post(
-        `http://localhost:5000/api/doctormanagement/adddoctor`,
-        newDoctor
-      );
-      console.log(response.data);
-      Swal.fire("Thank you!", "Add Doctor Successfully", "success").then(
-        (result) => {
-          window.location.href = "/viewdoctordetails";
+        const updatedoctor = {
+            _id: docID,
+            firstname,
+      lastname,
+      contact,
+      email,
+      experience,
+      language,
+      type,
+      department,
+      rating,
+      doctorfee,
+      discription,
+      date,
+      specialty,
+      imageurl,
         }
-      );
-      // Resetting the form fields after successful submission
-      setFirstname("");
-      setLastname("");
-      setContact("");
-      setEmail("");
-      setExperience("");
-      setLanguage("Sinhala");
-      setType("Ophthalmologists");
-      setDepartment("");
-      setRating("");
-      setDoctorFee("");
-      setDescription("");
-      setDate("Monday");
-      setSpecialty("Eye surgeon");
-      setImageUrl("");
-    } catch (error) {
-      console.log(error);
-      Swal.fire("Error", "Add Doctor Unsuccessfully", "error");
-    }
-  }
 
+        try {
+            
+            
+            const data = (await axios.put(`http://localhost:5000/api/doctormanagement/editdoctor/${docID}`, updatedoctor)).data;
+        
+            Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
+
+                 window.location.href = '/viewdoctordetails';
+
+            });
+        
+
+        } catch (error) {
+            
+            console.log(error);
+            Swal.fire('Error', "Error with updating user", "error");
+          
+
+        }
+    }
+  
   return (
     <div>
-      
-      <div className="content">
-        <form className="form mb-5 mt-5 snchadddocform" onSubmit={addDoctorDetails}>
+         <div className="content">
+        <form className="form mb-5 mt-5" onSubmit={EditDoctor}>
           <p className="form-title">Doctors Registration Form</p>
           <div className="displaytp">
             
@@ -136,7 +161,7 @@ function AddDoctor() {
             <input
               type="text"
               placeholder="Enter Experience"
-              value={experiance}
+              value={experience}
               onChange={(e) => setExperience(e.target.value)}
             />
           </div>
@@ -194,16 +219,13 @@ function AddDoctor() {
           <div className="space-between">
           <div className="input-container">
             <label>Date</label>
-            <br/>
-          <select
-              className="languagetype"
+            <br />
+            <input
+              type="text"
+              placeholder="Enter Date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-            >
-              <option value="Monday">Monday</option>
-              <option value="Wednesday">Wednesday</option>
-              <option value="Friday">fridaty</option>
-            </select>
+            />
           </div>
           </div>
           </div>
@@ -211,16 +233,12 @@ function AddDoctor() {
           <div className="input-container">
             <label>Specialty</label>
             <br />
-           
-            <select
-              className="languagetype"
+            <input
+              type="text"
+              placeholder="Enter Specialty"
               value={specialty}
               onChange={(e) => setSpecialty(e.target.value)}
-            >
-              <option value="Eye surgeon">Eye surgeon</option>
-              <option value="General surgeon">General surgeon</option>
-              <option value="Ear Specialist">Ear Specialist</option>
-            </select>
+            />
           </div>
           <div className="space-between">
           <div className="input-container">
@@ -269,16 +287,15 @@ function AddDoctor() {
           </div>
           </div>
           </div>
-
-          <div className="submitbutton">
-            <button type="submit" className="submit">
-              Register
+          <div className="submitbutton111" >
+            <button type="submit" className="submit"  style={{width:"200px", textAlign:'center',marginLeft:"250px" }}>
+              Update Details
             </button>
           </div>
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default AddDoctor;
+export default UpdateDoctorDetails

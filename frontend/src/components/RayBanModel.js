@@ -6,6 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Rating from 'react-rating-stars-component';
 
+
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
     const [selectedColor, setSelectedColor] = useState(1); // Default to color 1
@@ -30,17 +31,19 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
                 setEyeglass(response.data.eyeGlass);
+                console.log(response.data.eyeGlass);
 
-                // eslint-disable-next-line no-lone-blocks
-                {eyeglass.map((eyeglass) => (
-                    setModelNo(eyeglass.model),
-                    setType(eyeglass.type),
-                    setBrandName(eyeglass.brand),
-                    setGender(eyeglass.gender),
-                    setPrice(eyeglass.price),
-                    setRating(eyeglass.rating),
-                    setImageurlColor(eyeglass.imageurlcolor)
-                ))}
+                // Only set individual states once after fetching data
+                if (response.data.eyeGlass.length > 0) {
+                    const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
+                    setModelNo(eyeglassData.model);
+                    setType(eyeglassData.type);
+                    setBrandName(eyeglassData.brand);
+                    setGender(eyeglassData.gender);
+                    setPrice(eyeglassData.price);
+                    setRating(eyeglassData.rating);
+                    setImageurlColor(eyeglassData.imageurlcolor1);
+                }
 
             } catch (error) {
                 console.log(error);
@@ -52,6 +55,8 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
                 setCart(response.data.cart);
+                console.log(response.data.cart);
+            
             } catch (error) {
                 console.log(error);
             }
@@ -59,7 +64,7 @@ const RayBanModel = () => {
 
         getCartItems();
 
-    }, [brand, eyeglass, model, user.email]);
+    }, [brand, model, user.email]);
 
     
 
@@ -98,6 +103,7 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
                 console.log(response.data);
+                console.log(newCartItem);
                 window.location.reload();
     
             } catch (error) {
@@ -200,8 +206,8 @@ const RayBanModel = () => {
                                 <p style={{ fontSize: "23px", marginLeft: "50px" }}><strong>LKR <span style={{ color: "#ab2317" }}>&nbsp;{eyeglass.price}</span></strong></p>
                             </div>
                         </div><br />
-                        <button className='btn btn-primary addtocart' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
-                        <button className='btn btn-primary eyeglasspaynow'>Pay Now!</button>
+                        <button className='btn btn-primary addtocartbtn' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
+                        <button className='btn btn-primary eyeglasspaynowbtn'>Pay Now!</button>
                         <br /><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>

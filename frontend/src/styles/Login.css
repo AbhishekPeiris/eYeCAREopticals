@@ -1,9 +1,11 @@
-.card2{
+.card2abhi{
     background-color: white !important;
     color: black !important;
     position:  relative !important;
     bottom: 500px !important;
     left: 200px !important;
+    width: 480px !important;
+    
 }
 .form-label{
    margin-right: 450px !important;
@@ -19,4 +21,9 @@
     bottom: 40px !important;
     left: 150px !important;
     cursor: pointer !important;
+}
+.inputlogin{
+    background-color: white !important;
+    color: black !important;;
+    width: 380px !important;
 }

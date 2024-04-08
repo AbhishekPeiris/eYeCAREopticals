@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 function ViewCustomerDetails() {
 
@@ -18,6 +20,30 @@ function ViewCustomerDetails() {
     }
     ViewCustomerDetails();
   }, []);
+
+
+  async function deleteUser(id){
+
+    try {
+        
+        
+        const data = (await axios.delete(`http://localhost:5000/api/manager/deleteuser/${id}`)).data;
+        console.log(data);
+        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+
+            window.location.reload();
+
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+        Swal.fire('Error', "Error with deleting user", 'error');
+ 
+
+    }
+}
+
 
   return (
     <div>
@@ -63,14 +89,10 @@ function ViewCustomerDetails() {
             <p>Password</p>
           </strong>
         </div>
-        <div className="col-md-1 border ">
-          <strong>
-            <p>Price</p>
-          </strong>
-        </div>
-        <div className="col-md-1 border "></div>
+        
+        <div className="col-md-1 border ">Action</div>
       </div>
-
+      <form>
       {user.map((user) => (
         <div className="row">
           <div className="col-md-1 border ">
@@ -98,9 +120,13 @@ function ViewCustomerDetails() {
           <div className="col-md-1 border ">
             <p style={{fontSize:"11px"}}>{user.password}</p>
           </div>
-          <div className="col-md-1 border "></div>
+          <div className="col-md-1 border ">
+          <Link to = {`/editcustomerdetails/${user._id}`}><button>Update</button></Link>
+          <button onClick={(e) => deleteUser(user._id)}>Delete</button>
+          </div>
         </div>
       ))}
+      </form>
     </div>
   )
 }

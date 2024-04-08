@@ -1,0 +1,28 @@
+.caritemscard{
+    background-color: rgb(241, 241, 241) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    width: 400px !important;
+}
+.cartlisttable{
+    margin-left: -130px !important;
+   
+}
+.cartlisttablecol1{
+    margin-left: 160px !important;
+    margin-bottom: 25px !important;
+}
+.myshoppingcart{
+    margin-left: 50px !important;
+    margin-top: 20px !important;
+}
+.cartviewbtn{
+    font-size: 11px !important;
+    margin-right: 10px !important;
+    background-color: green !important;
+
+}
+.cartremovebtn{
+    font-size: 11px !important;
+    background-color: red !important;
+}

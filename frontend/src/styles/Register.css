@@ -1,11 +1,13 @@
 .bg-image{
     background-size: cover!important;
 }
-.card{
-    border: 3px solid #f5e9db !important;
+.cardregister{
+    border: 1px solid #c3c3c3 !important;
+    width: 550px !important;
 }
-input {
+.inputregister {
     background-color: white !important;
+    width: 500px !important;
 }
 .btn {
     background-color: #ff4500 !important;

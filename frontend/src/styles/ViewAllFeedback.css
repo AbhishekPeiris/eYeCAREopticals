@@ -1,0 +1,19 @@
+.chatbox1234 {
+    
+    width: 400px !important;
+    height: 200px !important;
+    position: relative !important;
+    margin-right: -400px !important;
+  
+  }
+  .userfeedimage{
+     width: 80px !important;
+     height: 80px !important;
+     margin-left: 50px !important;
+     margin-top: -100px !important;
+
+  }
+  .chatbox{
+    margin-left: 100px !important;
+    margin-top: 10px !important;
+  }
