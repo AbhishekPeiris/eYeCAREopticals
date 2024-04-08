@@ -24,6 +24,29 @@ const CartScreen = () => {
         ViewCartDetails();
       }, [user.email]);
 
+
+      async function removeCart(id){
+
+        try {
+            
+            
+            const data = (await axios.delete(`http://localhost:5000/api/cart/removecartitem/${id}`)).data;
+            console.log(data);
+            Swal.fire('Removed', "Your cart item is removed", 'success').then(result => {
+    
+                window.location.reload();
+    
+            });
+    
+        } catch (error) {
+            
+            console.log(error);
+            Swal.fire('Error', "Error with removing cart item", 'error');
+     
+    
+        }
+    }
+
       return (
         <div>
           
@@ -52,6 +75,9 @@ const CartScreen = () => {
                                             size={24}
                                             edit={false}
                                         />
+                                        <br/>
+                                        <Link to={`/${cart.brand}/${cart.model}`}><button className="btn cartviewbtn">View</button></Link>
+                                        <button className="btn cartremovebtn" onClick={(e) => removeCart(cart._id)} >Remove</button>
                                     </p>
                                     </div>
                                     <div className="col md-3" >

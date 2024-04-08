@@ -16,3 +16,13 @@
     margin-left: 50px !important;
     margin-top: 20px !important;
 }
+.cartviewbtn{
+    font-size: 11px !important;
+    margin-right: 10px !important;
+    background-color: green !important;
+
+}
+.cartremovebtn{
+    font-size: 11px !important;
+    background-color: red !important;
+}
