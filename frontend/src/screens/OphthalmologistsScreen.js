@@ -74,7 +74,7 @@ export default function OphthalmologistsScreen() {
                         <div class="container py-5">
                             <div class="row align-items-center mb-5 OpthTable_1">
                                 <div class="col-lg-6 order-2 order-lg-1">
-                                    <h2 class="font-weight-light">Experience Expert Eye Care Channelling Online</h2>
+                                    <h2 class="font-weight-light"><b>Experience Expert Eye Care Channelling Online</b></h2>
                                     <br />
                                     <p class="text-muted mb-4">"Welcome to our eye care doctor channelling service! We understand the importance of your vision and are here to help you schedule appointments with our experienced eye care specialists. Take the first step towards clearer vision and better eye health by booking your appointment today."</p>
                                 </div>
