@@ -5,7 +5,7 @@ import styles from '../styles/RayBanModel.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Rating from 'react-rating-stars-component';
-
+import StripeCheckout from "react-stripe-checkout";
 
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
@@ -115,6 +115,12 @@ const RayBanModel = () => {
        
     }
 
+    function onToken(token) {
+
+        console.log(token);
+
+    }
+
     return (
         <div>
             <div className="row">
@@ -208,6 +214,12 @@ const RayBanModel = () => {
                         </div><br />
                         <button className='btn btn-primary addtocartbtn' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
                         <button className='btn btn-primary eyeglasspaynowbtn'>Pay Now!</button>
+                        <StripeCheckout
+                             
+                             token={onToken}
+                             
+                             stripeKey="pk_test_51Nu7smDOmIYodrCji9U41paJjaMrcNBAi0HhO8DB5i0c0fXxABtjqL7GCZJxoSHMvBu8U2uymvDSKsZaAUGsbCpi000BhYzBG5"
+                        />
                         <br /><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>
