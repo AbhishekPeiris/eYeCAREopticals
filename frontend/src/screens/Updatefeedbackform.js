@@ -61,7 +61,7 @@ function Updatefeedbackform() {
             
             const data = (await axios.put(`http://localhost:5000/api/feedback/editfeedback/${feedbackID}`, updatefeedback)).data;
         
-            Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
+            Swal.fire('Updated', "Your Feedback is updated successfully", "success").then(result => {
 
                  window.location.href = '/profile';
 
@@ -71,7 +71,7 @@ function Updatefeedbackform() {
         } catch (error) {
             
             console.log(error);
-            Swal.fire('Error', "Error with updating user", "error");
+            Swal.fire('Error', "Error with updating Feedback", "error");
           
 
         }

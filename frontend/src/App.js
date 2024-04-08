@@ -50,6 +50,7 @@ import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
+import Adminfeedback from './screens/Adminfeedback';
 
 import MyAppointmentScreen from './screens/MyAppointmentScreen';
 
@@ -145,7 +146,11 @@ function App() {
         
 
         <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+
+        <Route path='/adminfeedback' element={<Adminfeedback />} />
+
         <Route path='/updatesepectacledetails/:specId' element={<UpdateSepectacleDetails />} />
+
 
 
 
