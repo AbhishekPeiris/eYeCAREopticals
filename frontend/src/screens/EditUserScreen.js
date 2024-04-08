@@ -9,6 +9,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useParams } from "react-router-dom";
 
+
 AOS.init({ duration: 1000 });
 
 const EditUserScreen = () => {
