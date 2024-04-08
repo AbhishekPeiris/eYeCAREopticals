@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/AddDoctor.css";
 
 function AddDoctor() {
@@ -75,9 +75,11 @@ function AddDoctor() {
 
   return (
     <div>
-      
-      <div className="content">
-        <form className="form mb-5 mt-5 snchadddocform" onSubmit={addDoctorDetails}>
+      <button type="submit" className="sanchviewdocbtn">
+              View Docter Details
+            </button>
+      <div className="formcontent111">
+        <form className="form mb-5 mt-5 snchadddocform111" onSubmit={addDoctorDetails}>
           <p className="form-title">Doctors Registration Form</p>
           <div className="displaytp">
             
@@ -271,7 +273,7 @@ function AddDoctor() {
           </div>
 
           <div className="submitbutton">
-            <button type="submit" className="submit">
+            <button type="submit" className="submit111">
               Register
             </button>
           </div>
