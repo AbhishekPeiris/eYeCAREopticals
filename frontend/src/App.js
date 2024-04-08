@@ -50,6 +50,7 @@ import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
+import MyAppointmentScreen from './screens/MyAppointmentScreen';
 
 
 
@@ -97,6 +98,7 @@ function App() {
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
           <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
           <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
+          <Route path='/myappointment' element={<DefaultLayout>< MyAppointmentScreen/></DefaultLayout>} />
 
 
         {/* AdminDashboardScreen without NavBar and Footer */}
