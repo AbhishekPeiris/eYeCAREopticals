@@ -46,11 +46,12 @@
     transition:.5s !important;
 }
 .addtocartbtn{
-    margin-right: 70px !important;
+    margin-left: 0 !important;
 }
 .eyeglasspaynowbtn{
     background-color: #ff4500 !important;
     width: 300px !important;
+    margin-left: 75px !important;
 }
 .eyeGlassDis{
     font-size: 13px !important;
