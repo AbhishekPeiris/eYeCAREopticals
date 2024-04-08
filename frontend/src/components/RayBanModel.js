@@ -30,17 +30,19 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
                 setEyeglass(response.data.eyeGlass);
+                console.log(response.data.eyeGlass);
 
-                // eslint-disable-next-line no-lone-blocks
-                {eyeglass.map((eyeglass) => (
-                    setModelNo(eyeglass.model),
-                    setType(eyeglass.type),
-                    setBrandName(eyeglass.brand),
-                    setGender(eyeglass.gender),
-                    setPrice(eyeglass.price),
-                    setRating(eyeglass.rating),
-                    setImageurlColor(eyeglass.imageurlcolor)
-                ))}
+                // Only set individual states once after fetching data
+                if (response.data.eyeGlass.length > 0) {
+                    const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
+                    setModelNo(eyeglassData.model);
+                    setType(eyeglassData.type);
+                    setBrandName(eyeglassData.brand);
+                    setGender(eyeglassData.gender);
+                    setPrice(eyeglassData.price);
+                    setRating(eyeglassData.rating);
+                    setImageurlColor(eyeglassData.imageurlcolor1);
+                }
 
             } catch (error) {
                 console.log(error);
@@ -52,6 +54,8 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
                 setCart(response.data.cart);
+                console.log(response.data.cart);
+            
             } catch (error) {
                 console.log(error);
             }
@@ -59,7 +63,7 @@ const RayBanModel = () => {
 
         getCartItems();
 
-    }, [brand, eyeglass, model, user.email]);
+    }, [brand, model, user.email]);
 
     
 
@@ -98,6 +102,7 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
                 console.log(response.data);
+                console.log(newCartItem);
                 window.location.reload();
     
             } catch (error) {
