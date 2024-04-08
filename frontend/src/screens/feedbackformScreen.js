@@ -81,19 +81,25 @@ function FeedbackFormScreen() {
           />
         </div>
         <div className="fd-form-group">
-          <label className="fb_other" htmlFor="fd-exampleInputContactNumber">
-            <b>Contact Number</b>
-            required
-          </label>
-          <br />
-          <input
-            type="tel"
-            className="fd-form-control"
-            id="exampleInputContactNumber"
-            placeholder="Enter Your Contact Number"
-            required
-            onChange={(e) => setContact(e.target.value)}
-          />
+  <label className="fb_other" htmlFor="fd-exampleInputContactNumber">
+    <b>Contact Number</b>
+  </label>
+  <br />
+  <input
+    id="fd-exampleInputContactNumber"
+    type="text"
+    className="fd-form-control"
+    maxLength="10"
+    pattern="[0-9]{10}"
+    placeholder="Enter  contact number"
+    required
+    onChange={(e) => setContact(e.target.value)}
+  />
+  <span className="fd-validation-message"></span>
+
+
+
+         
         </div>
         <div className="fd-form-group">
           <label className="fb_other" htmlFor="exampleInputAddress">
