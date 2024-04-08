@@ -25,6 +25,27 @@ function MyAppointmentScreen() {
     ViewAppointmentDetails();
   }, []);
 
+  async function deleteAppointment(id){
+
+    try {
+        
+        
+        const data = (await axios.delete(`http://localhost:5000/api/doctor/deletedoctorappointment/${id}`)).data;
+        console.log(data);
+        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+
+            window.location.reload();
+
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+        Swal.fire('Error', "Error with deleting user", 'error');
+ 
+
+    }
+}
 
   return (
     <div>
@@ -45,7 +66,7 @@ function MyAppointmentScreen() {
             </div></p>
             <div className="updatedelectbtn">
             <button className="appupdate">update </button>
-            <button className="appdelect">delect </button>
+            <button className="appdelect"  onClick={(e) => deleteAppointment(appointment._id)}>delect </button>
             </div>
         </div>
 
