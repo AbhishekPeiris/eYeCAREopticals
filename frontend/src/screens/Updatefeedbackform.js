@@ -1,59 +1,81 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import "../styles/feedbackformScreen.css";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 import StarRatings from "react-star-ratings";
+import { Link } from "react-router-dom";
 import pngwing from "../images/pngwing.png";
+function Updatefeedbackform() {
 
-function FeedbackFormScreen() {
-  const [cusname, setCusname] = useState("");
+    const { feedbackID } = useParams(); 
+
+    const [cusname, setCusname] = useState("");
   const [contact, setContact] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState();
   const [comment, setComment] = useState("");
 
-  async function addFeedback(event) {
-    event.preventDefault();
+  useEffect(() => {
+    async function fetchFeedbackDetails() {
+      try {
+        const response = await axios.post(`http://localhost:5000/api/feedback/${feedbackID}`);
+        const feedbackData = response.data.feedback;
+  
+        // Set state after fetching user data
+        setCusname(feedbackData.cusname);
+        setContact(feedbackData.contact);
+        setAddress(feedbackData.address);
+        setEmail(feedbackData.email);
+        setRating(feedbackData.rating);
+        setComment(feedbackData.comment);
+  
+      } catch (error) {
+        console.log(error);
+        // Handle error fetching user data
+      }
+    }
+  
+    // Call the function to fetch user details when the component mounts
+    fetchFeedbackDetails();
+  
+  }, [feedbackID]);
 
-    const newFeedback = {
-      cusname,
+  async function editfeedback(e) {
+    e.preventDefault();
+
+ 
+
+        const updatefeedback = {
+            _id: feedbackID,
+            cusname,
       contact,
       address,
       email,
       rating,
       comment,
-    };
-
-    try {
-      const response = await axios.post(
-        `http://localhost:5000/api/feedback/addfeedback`,
-        newFeedback
-      );
-      console.log(response.data);
-      Swal.fire(
-        "Feedback Submitted!",
-        "Thank you for your feedback.",
-        "success"
-      ).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = '/profile'; // Navigate to ProfileScreen.js
         }
-      });
-      // Resetting the form fields after successful submission
-      setCusname("");
-      setContact("");
-      setAddress("");
-      setEmail("");
-      setRating(0); // Reset rating to 0
-      setComment("");
-    } catch (error) {
-      console.log(error);
-      Swal.fire("Error", "Add Feedback Unsuccessfully", "error");
-    }
-  }
 
+        try {
+            
+            
+            const data = (await axios.put(`http://localhost:5000/api/feedback/editfeedback/${feedbackID}`, updatefeedback)).data;
+        
+            Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
+
+                 window.location.href = '/profile';
+
+            });
+        
+
+        } catch (error) {
+            
+            console.log(error);
+            Swal.fire('Error', "Error with updating user", "error");
+          
+
+        }
+    }
   return (
     <div className="fd-container">
       <br />
@@ -65,7 +87,7 @@ function FeedbackFormScreen() {
       </div>
 
       <h2 className="fd-form-title">Customer Feedback Form</h2>
-      <form className="form divfeedbackform" onSubmit={addFeedback}>
+      <form className="form" onSubmit={editfeedback}>
         <div className="fd-form-group">
           <label className="fb_other" htmlFor="fd-exampleInputName">
             <b>Name</b>
@@ -76,6 +98,7 @@ function FeedbackFormScreen() {
             className="fd-form-control"
             id="exampleInputName"
             placeholder="Enter Your Name"
+            value={cusname}
             required
             onChange={(e) => setCusname(e.target.value)}
           />
@@ -91,6 +114,7 @@ function FeedbackFormScreen() {
             className="fd-form-control"
             id="exampleInputContactNumber"
             placeholder="Enter Your Contact Number"
+            value={contact}
             required
             onChange={(e) => setContact(e.target.value)}
           />
@@ -105,6 +129,7 @@ function FeedbackFormScreen() {
             className="fd-form-control"
             id="exampleInputAddress"
             placeholder="Enter Your Address"
+            value={address}
             required
             onChange={(e) => setAddress(e.target.value)}
           />
@@ -119,6 +144,7 @@ function FeedbackFormScreen() {
             className="fd-form-control"
             id="exampleInputEmail"
             placeholder="Enter Your Email"
+            value={email}
             required
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -135,6 +161,7 @@ function FeedbackFormScreen() {
             name="rating"
             starDimension="25px"
             starSpacing="5px"
+            value={rating}
           />
         </div>
         <div className="fd-form-group">
@@ -154,6 +181,7 @@ function FeedbackFormScreen() {
             placeholder="Enter your Additional Comment"
             required
             onChange={(e) => setComment(e.target.value)}
+            value={comment}
           ></textarea>
         </div>
         <div className="fd-form-check">
@@ -182,6 +210,7 @@ function FeedbackFormScreen() {
         </div>
       </form>
     </div>
-  );
+  )
 }
-export default FeedbackFormScreen;
+
+export default Updatefeedbackform

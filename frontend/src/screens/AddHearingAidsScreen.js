@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import styles from '../styles/AddHearingAids.css';
 
 function AddHearingAidsScreen() {
 
@@ -40,7 +41,7 @@ function AddHearingAidsScreen() {
       console.log(response.data);
       Swal.fire('Thank you!', "Add Details Successfully", "success").then(result => {
 
-        window.location.href = '/AddHearingAidsScreen';
+        window.location.href = '/viewdeafaidsdetails';
 
     });
 
@@ -105,7 +106,7 @@ function AddHearingAidsScreen() {
 
             
             <div class="input-container">
-              <lable>Discription</lable>
+              <lable>Description</lable>
               <input type="text" placeholder="Enter Discription" value={discription} required
                 onChange={(e) => {
                   setDiscription(e.target.value);
@@ -113,10 +114,17 @@ function AddHearingAidsScreen() {
               }
               />
             </div>
+          </div>
+        </div>
+
+        <div className="col-md-3">
+          <div class="form mb-5 mt-5">
+              
+
             
             <div class="input-container">
-              <lable>size1</lable>
-              <input type="text" placeholder="Enter Size1" value={size1} required
+              <lable>Size 01</lable>
+              <input type="number" placeholder="Enter Size1" value={size1} required
                 onChange={(e) => {
                   setSize1(e.target.value);
                 }
@@ -125,8 +133,8 @@ function AddHearingAidsScreen() {
             </div>
 
             <div class="input-container">
-              <label>size2</label>
-              <input type="text" placeholder="Enter Size2" value={size2} required
+              <label>Size 02</label>
+              <input type="number" placeholder="Enter Size2" value={size2} required
                 onChange={(e) => {
                   setSize2(e.target.value);
                 }}
@@ -135,7 +143,7 @@ function AddHearingAidsScreen() {
 
             <div class="input-container">
               <lable>Price</lable>
-              <input type="number" placeholder="Enter Price" value={price} required
+              <input type="text" placeholder="Enter Price" value={price} required
                 onChange={(e) => {
                   setPrice(e.target.value);
                 }}
@@ -152,9 +160,14 @@ function AddHearingAidsScreen() {
 
               />
             </div>
+          </div>
+        </div>
+
+            <div className="col-md-3">
+            <div class="form mb-5 mt-5">
 
             <div class="input-container">
-              <label>imageurlcolor1</label>
+              <label>Image URL Color 01</label>
               <input type="text" placeholder="Enter imageurlcolor1" value={imageurlcolor1} required
                 onChange={(e) => {
                   setImageurlcolor1(e.target.value);
@@ -164,8 +177,8 @@ function AddHearingAidsScreen() {
             </div>
 
             <div class="input-container">
-              <label>imageurlcolor2</label>
-              <input type="number" placeholder="Enter imageurlcolor2" value={imageurlcolor2} required
+              <label>Image URL Color 02 </label>
+              <input type="text" placeholder="Enter imageurlcolor2" value={imageurlcolor2} required
                 onChange={(e) => {
                   setImageurlcolor2(e.target.value);
                 }

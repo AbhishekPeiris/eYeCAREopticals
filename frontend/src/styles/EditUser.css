@@ -24,3 +24,8 @@
     background-color: #8b2703 !important;
     transition:.5s !important;
 }
+.edituserinput{
+    background-color: white !important;
+    color: black !important;
+    width: 500px !important;
+}

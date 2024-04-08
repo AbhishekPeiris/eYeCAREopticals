@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import HomeScreen from './screens/HomeScreen';
@@ -39,12 +40,16 @@ import ViewCustomerDetails from './screens/ViewCustomerDetails';
 import AddDoctorAppointmentDetails from './screens/AddDoctorAppointmentDetails';
 
 import ViewDoctorAppointmentDetails from './screens/ViewDoctorAppointmentDetails';
+import UpdateCustomerDetails from './screens/UpdateCustomerDetails';
 
 import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 
 import CartScreen from './screens/CartScreen';
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
+import ViewAllFeedback from './screens/ViewAllFeedback';
+import Updatefeedbackform from './screens/Updatefeedbackform';
+import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
 
 
 
@@ -86,12 +91,12 @@ function App() {
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
-          <Route path='/ProfileScreen' element={<DefaultLayout>< ProfileScreen/></DefaultLayout>} />
-          
 
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
+          <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
+          <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
 
 
         {/* AdminDashboardScreen without NavBar and Footer */}
@@ -100,7 +105,7 @@ function App() {
 
         <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
         <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
-        <Route path='/updaterepairmentdetails' element={<UpdateRepairmentDetails />} />
+        <Route path='/updaterepairmentdetails/:repID' element={<UpdateRepairmentDetails />} />
 
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
 
@@ -116,10 +121,16 @@ function App() {
 
 
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
+        
+        <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
 
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
+
+        
+
+        <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
 
 
 

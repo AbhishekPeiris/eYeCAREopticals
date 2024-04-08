@@ -76,6 +76,28 @@ router.route('/:id').post(async(req, res) => {
     }
 });
 
+
+router.route('/email/:email').post(async (req, res) => {
+
+    const userEmail = req.params.email;
+
+    try {
+        
+        const feedback = await Feedback.find({ email: userEmail });
+
+        if (!feedback) {
+            return res.status(404).json({ status: "Feedback not found" });
+        }
+
+        return res.status(200).json({ status: "Feedback fetched", feedback });
+
+    } catch (error) {
+        
+        return res.status(500).json({ status: "Error with fetching Feedback", message: error });
+
+    }
+});
+
 router.route('/editfeedback/:id').put(async (req, res) =>{
 
     const feedbackID = req.params.id;
