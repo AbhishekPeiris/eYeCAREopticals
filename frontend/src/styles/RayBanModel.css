@@ -66,3 +66,6 @@
     margin-left: 15px !important;
     font-size: 13px !important;
 }
+.selected {
+    color:red !important;
+}
