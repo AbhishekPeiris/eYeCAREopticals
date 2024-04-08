@@ -50,11 +50,11 @@ import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
- Madusha_eyeCAREopticals
+
 import MyAppointmentScreen from './screens/MyAppointmentScreen';
 
 import AdminDashboard from './pages/AdminDashboard';
- main
+
 
 
 import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
@@ -104,14 +104,14 @@ function App() {
           <Route path='/cart' element={<DefaultLayout>< CartScreen/></DefaultLayout>} />
           <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
           <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
- Madusha_eyeCAREopticals
+
           <Route path='/myappointment' element={<DefaultLayout>< MyAppointmentScreen/></DefaultLayout>} />
 
 
 
           
           
- main
+
         {/* AdminDashboardScreen without NavBar and Footer */}
         <Route path="/admindDashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
