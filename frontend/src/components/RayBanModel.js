@@ -5,6 +5,7 @@ import styles from '../styles/RayBanModel.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Rating from 'react-rating-stars-component';
+import StripeCheckout from "react-stripe-checkout";
 
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
@@ -30,17 +31,19 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
                 setEyeglass(response.data.eyeGlass);
+                console.log(response.data.eyeGlass);
 
-                // eslint-disable-next-line no-lone-blocks
-                {eyeglass.map((eyeglass) => (
-                    setModelNo(eyeglass.model),
-                    setType(eyeglass.type),
-                    setBrandName(eyeglass.brand),
-                    setGender(eyeglass.gender),
-                    setPrice(eyeglass.price),
-                    setRating(eyeglass.rating),
-                    setImageurlColor(eyeglass.imageurlcolor)
-                ))}
+                // Only set individual states once after fetching data
+                if (response.data.eyeGlass.length > 0) {
+                    const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
+                    setModelNo(eyeglassData.model);
+                    setType(eyeglassData.type);
+                    setBrandName(eyeglassData.brand);
+                    setGender(eyeglassData.gender);
+                    setPrice(eyeglassData.price);
+                    setRating(eyeglassData.rating);
+                    setImageurlColor(eyeglassData.imageurlcolor1);
+                }
 
             } catch (error) {
                 console.log(error);
@@ -52,6 +55,8 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
                 setCart(response.data.cart);
+                console.log(response.data.cart);
+            
             } catch (error) {
                 console.log(error);
             }
@@ -59,7 +64,7 @@ const RayBanModel = () => {
 
         getCartItems();
 
-    }, [brand, eyeglass, model, user.email]);
+    }, [brand, model, user.email]);
 
     
 
@@ -98,6 +103,7 @@ const RayBanModel = () => {
             try {
                 const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
                 console.log(response.data);
+                console.log(newCartItem);
                 window.location.reload();
     
             } catch (error) {
@@ -107,6 +113,12 @@ const RayBanModel = () => {
         }
 
        
+    }
+
+    function onToken(token) {
+
+        console.log(token);
+
     }
 
     return (
@@ -200,8 +212,14 @@ const RayBanModel = () => {
                                 <p style={{ fontSize: "23px", marginLeft: "50px" }}><strong>LKR <span style={{ color: "#ab2317" }}>&nbsp;{eyeglass.price}</span></strong></p>
                             </div>
                         </div><br />
-                        <button className='btn btn-primary addtocart' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
-                        <button className='btn btn-primary eyeglasspaynow'>Pay Now!</button>
+                        <button className='btn btn-primary addtocartbtn' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
+                        <button className='btn btn-primary eyeglasspaynowbtn'>Pay Now!</button>
+                        <StripeCheckout
+                             
+                             token={onToken}
+                             
+                             stripeKey="pk_test_51Nu7smDOmIYodrCji9U41paJjaMrcNBAi0HhO8DB5i0c0fXxABtjqL7GCZJxoSHMvBu8U2uymvDSKsZaAUGsbCpi000BhYzBG5"
+                        />
                         <br /><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>

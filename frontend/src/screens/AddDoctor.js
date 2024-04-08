@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useHistory } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "../styles/AddDoctor.css";
 
@@ -10,35 +10,35 @@ function AddDoctor() {
   const [lastname, setLastname] = useState("");
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
-  const [experience, setExperience] = useState("");
+  const [experiance, setExperience] = useState("");
   const [language, setLanguage] = useState("Sinhala");
   const [type, setType] = useState("Ophthalmologists");
   const [department, setDepartment] = useState("");
   const [rating, setRating] = useState("");
-  const [doctorFee, setDoctorFee] = useState("");
-  const [description, setDescription] = useState("");
+  const [doctorfee, setDoctorFee] = useState("");
+  const [discription, setDescription] = useState("");
   const [date, setDate] = useState("Monday");
-  const [specialty, setSpecialty] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [specialty, setSpecialty] = useState("Eye surgeon");
+  const [imageurl, setImageUrl] = useState("");
 
   async function addDoctorDetails(e) {
     e.preventDefault();
 
     const newDoctor = {
-      firstname,
-      lastname,
-      contact,
-      email,
-      experience,
-      language,
-      type,
-      department,
-      rating,
-      doctorFee,
-      description,
-      date,
-      specialty,
-      imageUrl,
+      firstname : firstname,
+      lastname : lastname, 
+      contact : contact,
+      email : email,
+      experiance : experiance,
+      language : language,
+      type : type,
+      department : department,
+      rating : rating,
+      doctorfee : doctorfee,
+      discription : discription,
+      date : date,
+      specialty : specialty,
+      imageurl : imageurl
     };
 
     try {
@@ -65,7 +65,7 @@ function AddDoctor() {
       setDoctorFee("");
       setDescription("");
       setDate("Monday");
-      setSpecialty("");
+      setSpecialty("Eye surgeon");
       setImageUrl("");
     } catch (error) {
       console.log(error);
@@ -77,7 +77,7 @@ function AddDoctor() {
     <div>
       
       <div className="content">
-        <form className="form mb-5 mt-5" onSubmit={addDoctorDetails}>
+        <form className="form mb-5 mt-5 snchadddocform" onSubmit={addDoctorDetails}>
           <p className="form-title">Doctors Registration Form</p>
           <div className="displaytp">
             
@@ -136,7 +136,7 @@ function AddDoctor() {
             <input
               type="text"
               placeholder="Enter Experience"
-              value={experience}
+              value={experiance}
               onChange={(e) => setExperience(e.target.value)}
             />
           </div>
@@ -172,7 +172,7 @@ function AddDoctor() {
             <input
               type="number"
               placeholder="Enter Doctor Fee"
-              value={doctorFee}
+              value={doctorfee}
               onChange={(e) => setDoctorFee(e.target.value)}
             />
           </div>
@@ -186,7 +186,7 @@ function AddDoctor() {
             <input
               type="text"
               placeholder="Enter Description"
-              value={description}
+              value={discription}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
@@ -194,13 +194,16 @@ function AddDoctor() {
           <div className="space-between">
           <div className="input-container">
             <label>Date</label>
-            <br />
-            <input
-              type="text"
-              placeholder="Enter Date"
+            <br/>
+          <select
+              className="languagetype"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-            />
+            >
+              <option value="Monday">Monday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Friday">fridaty</option>
+            </select>
           </div>
           </div>
           </div>
@@ -208,12 +211,16 @@ function AddDoctor() {
           <div className="input-container">
             <label>Specialty</label>
             <br />
-            <input
-              type="text"
-              placeholder="Enter Specialty"
+           
+            <select
+              className="languagetype"
               value={specialty}
               onChange={(e) => setSpecialty(e.target.value)}
-            />
+            >
+              <option value="Eye surgeon">Eye surgeon</option>
+              <option value="General surgeon">General surgeon</option>
+              <option value="Ear Specialist">Ear Specialist</option>
+            </select>
           </div>
           <div className="space-between">
           <div className="input-container">
@@ -256,7 +263,7 @@ function AddDoctor() {
             <input
               type="text"
               placeholder="Enter Image URL"
-              value={imageUrl}
+              value={imageurl}
               onChange={(e) => setImageUrl(e.target.value)}
             />
           </div>

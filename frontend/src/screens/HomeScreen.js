@@ -40,12 +40,14 @@ const HomeScreen = () => {
                             <h1 className='welcome' data-aos="fade-right"><strong>We secure your<br />
                                 eye with quality<br />
                                 glasses</strong></h1>
-                            <p className='welcome_2' data-aos="fade-left">As per your wish, you can buy our quality products<br />
-                                at the lowest price. We offer a wide range of products<br />
-                                from the most popular brands to the most expensive brands.<br />
-                                We also offer a wide range of products from the most<br />
-                                popular brands to the most expensive brands.<br />
+                                <div style={{textAlign:"justify",width:"700px",fontSize:"14px"}}>
+                            <p className='welcome_2' data-aos="fade-left">As per your wish, you can buy our quality products
+                                at the lowest price. We offer a wide range of products
+                                from the most popular brands to the most expensive brands.
+                                We also offer a wide range of products from the most
+                                popular brands to the most expensive brands.
                             </p>
+                            </div>
                             <div className='row' style={{ position: "relative", bottom: "530px", marginLeft: "185px" }}>
                                 <div className='col'>
                                     <Link to = '/eyeglasses'><button className='btn1' >SHOP NOW !</button></Link>&nbsp;&nbsp;&nbsp;
@@ -60,24 +62,24 @@ const HomeScreen = () => {
 
                             <i class="fa fa-check-square icon_1" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
                             <span className='hQ1_1'><strong>Qualified Doctors</strong></span><br />
-                            <span>Optical professionals include ophthalmologists, optometrists, and skilled opticians
-                                who provide qualified eye care,vision testing, and corrective lenses.</span>
+                            <div style={{textAlign:"left",width:"300px",fontSize:"14px"}}><span>Optical professionals include ophthalmologists, optometrists, and skilled opticians
+                                who provide qualified eye care,vision testing, and corrective lenses.</span></div>
 
                         </div>
                         <div className='col-md-3 mt-4' data-aos="zoom-in">
 
                             <i class="fa fa-check-square icon_1" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
                             <span className='hQ1_1'><strong>Emergency Care</strong></span><br />
-                            <span>In optical emergencies, prompt attention by qualified professionals is crucial for
-                                issues like eye injuries, sudden vision changes, or infections.</span>
+                            <div style={{textAlign:"left",width:"300px",fontSize:"14px"}}><span>In optical emergencies, prompt attention by qualified professionals is crucial for
+                                issues like eye injuries, sudden vision changes, or infections.</span></div>
 
                         </div>
                         <div className='col-md-3 mt-4' data-aos="zoom-in">
 
                             <i class="fa fa-check-square icon_1" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
                             <span className='hQ1_1'><strong>24 Hours Services</strong></span><br />
-                            <span>Enjoy the convenience of 24-hour optical services, ensuring access to eye care
-                                experts for emergencies, consultations, and urgent assistance</span>
+                            <div style={{textAlign:"left",width:"300px",fontSize:"14px"}}><span>Enjoy the convenience of 24-hour optical services, ensuring access to eye care
+                                experts for emergencies, consultations, and urgent assistance</span></div>
 
                         </div>
                     </div>
@@ -88,11 +90,11 @@ const HomeScreen = () => {
                         <div className='col-md-4' style={{ position: "relative", left: "400px" }} data-aos="fade-up">
                             <p style={{ color: "#ff4500" }}>About Us</p>
                             <h1><strong>Style Yourself<br />With The<br />Best Lens</strong></h1>
-                            <p>At 'Style Yourself With The Best Lens,' we are committed to enhancing your vision and style. Our optical experts
+                            <div style={{textAlign:"justify",width:"400px",fontSize:"14px"}}><p>At 'Style Yourself With The Best Lens,' we are committed to enhancing your vision and style. Our optical experts
                                 curate a collection of premium lenses, providing clarity and comfort.
                                 With a passion for eyecare and fashion, we strive to elevate your visual experience,
                                 ensuring you always look and see your best
-                            </p>
+                            </p></div>
                             <Link to = "/aboutus"><button className='btn3'>Learn More</button></Link>
                         </div>
                     </div>
@@ -100,7 +102,7 @@ const HomeScreen = () => {
                         <div className='col-md-7 mt-5'>
                             <center><p style={{ color: "#ff4500" }}>Our Service</p>
                                 <h1 data-aos="fade-up"><strong>What Can We Do</strong></h1>
-                                <p data-aos="fade-up">Our optical services encompass comprehensive eye exams, precise prescriptions,
+                                <p data-aos="fade-up" style={{fontSize:"14px"}}>Our optical services encompass comprehensive eye exams, precise prescriptions,
                                     and a curated selection of fashionable frames and lenses. Whether you seek vision correction,
                                     style enhancement, or emergency eye care, our dedicated team is committed to providing personalized solutions,
                                     ensuring your eye health and satisfaction are our top priorities.</p></center>
@@ -110,23 +112,23 @@ const HomeScreen = () => {
                         <div className='col-md-3 mt-5' data-aos="zoom-in">
                             <img src={EyeTest} alt="Visual Acuity Test" className='t4img' />
                             <h2 style={{ marginTop: "30px" }}><strong>Visual Acuity Test</strong></h2>
-                            <p>The visual acuity test assesses your ability to see details at various distances.
+                            <div style={{textAlign:"justify",width:"350px",fontSize:"14px"}}><p>The visual acuity test assesses your ability to see details at various distances.
                                 Our skilled optometrists conduct precise examinations to determine your vision
-                                needs and prescribe accurate corrective lenses for optimal clarity.</p>
+                                needs and prescribe accurate corrective lenses for optimal clarity.</p></div>
                         </div>
                         <div className='col-md-3 mt-5' data-aos="zoom-in">
                             <img src={EyeCheckUp} alt="Visual Acuity Test" className='t4img' />
                             <h2 style={{ marginTop: "30px" }}><strong>Eye Check Up</strong></h2>
-                            <p>Experience thorough eye check-ups at our optical clinic. Our comprehensive examinations
+                            <div style={{textAlign:"justify",width:"350px",fontSize:"14px"}}><p>Experience thorough eye check-ups at our optical clinic. Our comprehensive examinations
                                 cover vision assessment, eye health, and personalized consultations to ensure your eyes
-                                receive the care they deserve for optimal well-being.</p>
+                                receive the care they deserve for optimal well-being.</p></div>
                         </div>
                         <div className='col-md-3 mt-5' data-aos="zoom-in">
                             <img src={EarCheckUp} alt="Visual Acuity Test" className='t4img' />
                             <h2 style={{ marginTop: "30px" }}><strong>Ear Check Up</strong></h2>
-                            <p>At our optical clinic, we go beyond vision care, offering comprehensive
+                            <div style={{textAlign:"justify",width:"350px",fontSize:"14px"}}><p>At our optical clinic, we go beyond vision care, offering comprehensive
                                 ear and eye check-ups. Our skilled professionals ensure your auditory health,
-                                providing thorough examinations for complete sensory well-being</p>
+                                providing thorough examinations for complete sensory well-being</p></div>
                         </div>
                     </div>
                     <div className='row table_5'>
@@ -134,12 +136,12 @@ const HomeScreen = () => {
                             <img src={ourvalue} alt="Home cover" className='homepic' />
                             <p style={{ color: "#ff4500" }} className='ourvalue'>Our Value</p>
                             <h2 className='ourvalue'><strong>High End Equipments</strong></h2>
-                            <p className='ourvalue'>At our optical center, we are dedicated to providing unparalleled eyecare<br />
-                                with our commitment to high-end equipment. Our state-of-the-art diagnostic<br />
-                                tools and precision instruments enable us to deliver accurate prescriptions<br />
-                                and thorough eye examinations. Embracing technological advancements, we ensure<br />
-                                your visual health is in capable hands, setting a standard for excellence<br />
-                                in the optical industry</p><br />
+                            <div style={{textAlign:"justify",width:"1330px", fontSize:"14px"}}><p className='ourvalue'>At our optical center, we are dedicated to providing unparalleled eyecare
+                                with our commitment to high-end equipment. Our state-of-the-art diagnostic
+                                tools and precision instruments enable us to deliver accurate prescriptions
+                                and thorough eye examinations. Embracing technological advancements, we ensure
+                                your visual health is in capable hands, setting a standard for excellence
+                                in the optical industry</p></div><br />
                             <span className='ourvalue'><strong>Statim Sterilizers</strong></span>
                             <div class="progress mt-2">
                                 <div class="progress-bar pbar" role="progressbar" style={{ width: "87%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-aos="fade-right">87%</div>
@@ -148,7 +150,7 @@ const HomeScreen = () => {
                             <div class="progress mt-2">
                                 <div class="progress-bar pbar" role="progressbar" style={{ width: "90%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-aos="fade-right">90%</div>
                             </div><br />
-                            <span className='ourvalue'><strong>Ophthalmoscopes</strong>Ophthalmoscopes</span>
+                            <span className='ourvalue'><strong>Ophthalmoscopes</strong></span>
                             <div class="progress mt-2">
                                 <div class="progress-bar pbar" role="progressbar" style={{ width: "94%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-aos="fade-right">94%</div>
                             </div><br />
@@ -182,8 +184,8 @@ const HomeScreen = () => {
                     <div className='row table_7'>
                         <div className='col mt-4 table_7col_1'>
                             <i class="fa fa-volume-control-phone icon_2" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
-                            <span style={{ fontSize: "30px", color: "white" }}><strong>Get your Eyes Checked At Our Clinic</strong></span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span style={{ fontSize: "25px", color: "white" }}>and get a discount on your new glasses</span>
+                            <span style={{ fontSize: "25px", color: "white" }}><strong>Get your Eyes Checked At Our Clinic</strong></span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style={{ fontSize: "15px", color: "white" }}>and get a discount on your new glasses</span>
                         </div>
                         <div className='col mt-5 table_7col_1'>
                             <button className='btn2' >ASK OPTOMETRIST</button>

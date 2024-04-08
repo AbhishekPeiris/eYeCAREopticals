@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import HomeScreen from './screens/HomeScreen';
@@ -104,7 +105,7 @@ function App() {
 
         <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
         <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
-        <Route path='/updaterepairmentdetails' element={<UpdateRepairmentDetails />} />
+        <Route path='/updaterepairmentdetails/:repID' element={<UpdateRepairmentDetails />} />
 
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
 

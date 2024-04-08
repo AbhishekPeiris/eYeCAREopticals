@@ -101,7 +101,7 @@ const Tens = () => {
                         </div>
                     </div>
 
-                    <div className='container'>
+                    <div className='container' style={{marginLeft:"190px"}}>
 
                         <div className='row mt-5 RBtable_3'>
 
