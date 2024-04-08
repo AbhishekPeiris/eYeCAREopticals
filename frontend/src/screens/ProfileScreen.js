@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Tabs } from "antd";
 import styles from "../styles/Profile.css";
 import Loader from "../components/Loader";
 import BookingScreen from "./BookingScreen";
@@ -10,8 +9,6 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Rating from 'react-rating-stars-component';
 import { Link } from "react-router-dom";
-
-const { TabPane } = Tabs;
 
 const ProfileScreen = () => {
   const [loading, setLoading] = useState(true);
@@ -93,8 +90,7 @@ const ProfileScreen = () => {
       <br />
       <br />
       <br />
-      <Tabs defaultActiveKey="1">
-        <TabPane tab="Profile" key="1">
+    
           <div>
             {loading ? (
               <Loader />
@@ -136,7 +132,7 @@ const ProfileScreen = () => {
                           <label class="labels">First name</label>
                           <input
                             type="text"
-                            class="form-control"
+                            class="form-control profileinput"
                             placeholder="First name"
                             value={user.firstname}
                             readOnly
@@ -146,7 +142,7 @@ const ProfileScreen = () => {
                           <label class="labels">Last name</label>
                           <input
                             type="text"
-                            class="form-control"
+                            class="form-control profileinput"
                             value={user.lastname}
                             placeholder="Last name"
                             readOnly
@@ -158,7 +154,7 @@ const ProfileScreen = () => {
                           <label class="labels">Date of birth</label>
                           <input
                             type="date"
-                            class="form-control"
+                            class="form-control profileinput"
                             placeholder="Date of Birth"
                             value={user.dob}
                             readOnly
@@ -168,7 +164,7 @@ const ProfileScreen = () => {
                           <label class="labels">Address</label>
                           <textarea
                             id="address"
-                            className="form-control"
+                            className="form-control profileinput"
                             style={{
                               width: "100%",
                               minHeight: "50px",
@@ -184,7 +180,7 @@ const ProfileScreen = () => {
                           <label class="labels">Gender</label>
                           <input
                             type="text"
-                            class="form-control"
+                            class="form-control profileinput"
                             placeholder="Gender"
                             value={user.gender}
                             readOnly
@@ -194,7 +190,7 @@ const ProfileScreen = () => {
                           <label class="labels">Contact</label>
                           <input
                             type="tel"
-                            class="form-control"
+                            class="form-control profileinput"
                             placeholder="Contact"
                             value={user.contact}
                             readOnly
@@ -204,7 +200,7 @@ const ProfileScreen = () => {
                           <label class="labels">Email</label>
                           <input
                             type="email"
-                            class="form-control"
+                            class="form-control profileinput"
                             placeholder="Email"
                             value={user.email}
                             readOnly
@@ -287,13 +283,7 @@ const ProfileScreen = () => {
               </Modal.Footer>
             </Modal>
           </div>
-        </TabPane>
-        <TabPane tab="Bookings" key="2">
-          <div>
-            <BookingScreen />
-          </div>
-        </TabPane>
-      </Tabs>
+        
     </div>
   );
 };

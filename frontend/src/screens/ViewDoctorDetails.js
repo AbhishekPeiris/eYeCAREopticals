@@ -44,8 +44,11 @@ function ViewDoctorDetails() {
 
   
   return (
-    <div>
-      <div className="ttp">
+    <div className="aftersidebar">
+      <button type="submit" className="submit112">
+              + Add Doctors
+            </button>
+      <div className="ttp1">
         <label>
           <b>Personal Details</b>
         </label>
@@ -108,7 +111,7 @@ function ViewDoctorDetails() {
         <br />
         <br />
         <br />
-        <div className="ttp">
+        <div className="ttp2">
         <label>
           <b>Professional Background</b>
         </label>
@@ -199,10 +202,7 @@ function ViewDoctorDetails() {
         </div>
       ))}
       <br />
-      <br />
-      <br />
-
-      <div className="ttp">
+      <div className="ttp2">
         <label>
           <b>Others</b>
         </label>
@@ -226,7 +226,7 @@ function ViewDoctorDetails() {
             <p>Image</p>
           </strong>
         </div>
-        <div className="col-md-1 border vddtable17">
+        <div className="col-md-1 border vddtable20">
           <strong>
             <p>Action</p>
           </strong>
@@ -245,9 +245,9 @@ function ViewDoctorDetails() {
           <div className="col-md-1 border vddtable14">
             <img src={doctor.imageurl[0]} alt="" style={{ width: "70px" }} />
           </div>
-          <div className="col-md-1 border vddtable14">
-          <Link to = {`/updatedoctordetails/${doctor._id}`}><button>Update</button></Link>
-          <button onClick={(e) => deletedoctor(doctor._id)}>Delete</button>
+          <div className="col-md-1 border vddtable21">
+          <Link to = {`/updatedoctordetails/${doctor._id}`}><button className="actionbtn">Update</button></Link>
+          <button className="actionbtn1" onClick={(e) => deletedoctor(doctor._id)}>Delete</button>
           </div>
         </div>
       ))}

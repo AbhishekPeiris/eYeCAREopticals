@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import "../styles/AddDoctor.css";
 
 function UpdateDoctorDetails() {
 
@@ -101,9 +102,9 @@ function UpdateDoctorDetails() {
   
   return (
     <div>
-         <div className="content">
-        <form className="form mb-5 mt-5" onSubmit={EditDoctor}>
-          <p className="form-title">Doctors Registration Form</p>
+         <div className="formcontent111">
+        <form className="form mb-5 mt-5 snchadddocform111" onSubmit={EditDoctor}>
+          <p className="form-title">Doctor's Details Update Form</p>
           <div className="displaytp">
             
           <div className="input-container">
@@ -287,12 +288,13 @@ function UpdateDoctorDetails() {
           </div>
           </div>
           </div>
-
-          <div className="submitbutton">
-            <button type="submit" className="submit">
-              Register
+          <button type="submit" className="updateformdeltbtn">
+              Cancle Update 
             </button>
-          </div>
+            <button type="submit" className="Updateformbtn">
+              Update Details
+            </button>
+          
         </form>
       </div>
     </div>

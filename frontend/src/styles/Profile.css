@@ -11,7 +11,7 @@
 }
 .Peditbtn{
     position: relative !important;
-    left: 140px !important;
+    left: 180px !important;
 }
 .Pdeletebtn{
     background-color: white !important;
@@ -40,4 +40,8 @@
 .feedbacktagDDbackgroynddeletebtn{
     font-size: 11px !important;
     background-color: red !important;
+}
+.profileinput{
+    background-color: white !important;
+    color: black !important;
 }

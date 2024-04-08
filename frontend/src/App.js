@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import HomeScreen from './screens/HomeScreen';
@@ -51,6 +52,13 @@ import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
 import Adminfeedback from './screens/Adminfeedback';
 
+import MyAppointmentScreen from './screens/MyAppointmentScreen';
+
+import AdminDashboard from './pages/AdminDashboard';
+
+
+
+import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
 
 
 
@@ -98,14 +106,21 @@ function App() {
           <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
           <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
 
+          <Route path='/myappointment' element={<DefaultLayout>< MyAppointmentScreen/></DefaultLayout>} />
+
+
+
+          
+          
 
         {/* AdminDashboardScreen without NavBar and Footer */}
-        <Route path="/admindashboard" element={<AdminDashboardScreen />} />
+        <Route path="/admindDashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
+        <Route path="/admindashboard" element={<AdminDashboard />} />
 
         <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
         <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
-        <Route path='/updaterepairmentdetails' element={<UpdateRepairmentDetails />} />
+        <Route path='/updaterepairmentdetails/:repID' element={<UpdateRepairmentDetails />} />
 
         <Route path='/addrepdetails' element={<AddRepairmentDetails />} />
 
@@ -131,7 +146,11 @@ function App() {
         
 
         <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+
         <Route path='/adminfeedback' element={<Adminfeedback />} />
+
+        <Route path='/updatesepectacledetails/:specId' element={<UpdateSepectacleDetails />} />
+
 
 
 

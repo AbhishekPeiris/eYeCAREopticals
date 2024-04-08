@@ -1,18 +1,14 @@
-.form {
+.snchadddocform111 {
   background-color: #fff;
-  display: block;
-  padding:20px;
-  max-width: 700px;
-  border-radius:100px;
+  padding: 20px;
+  width: 700px;
+  border-radius:20px;
   box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  margin-left: 50px;
+  margin-left: 320px;
+  border:10px;
+  margin-top:0px;
 }
-.content{
-  margin-left:100px;
-  width:2000px; 
-  border-radius:50px;
 
-}
 
 .form-title {
   font-size:25px;
@@ -42,7 +38,7 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.submit {
+.submit111 {
   display: block;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -54,7 +50,7 @@
   line-height: 1.25rem;
   font-weight: 500;
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 15px;
   text-transform: uppercase;
   
 }
@@ -79,6 +75,7 @@
 .submitbutton{
   width: 100px;
   margin:auto;
+  border: none;
 }
 
 .select-container {
@@ -110,7 +107,8 @@
     height: 45px;
     padding-left: 10px;
     border-radius: 10px;
-    width: 300px;   
+    width: 300px;
+    margin-top: 10px;   
   
 }
 .displaytp{
@@ -123,53 +121,64 @@
   margin-left: 40px;
 }
 
-.btn {
-  font-size: 17px;
-  background: transparent;
+.sanchviewdocbtn {
+  display: block;
+  background-color: #E84E2D;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 15px;
+  text-transform: uppercase;
+  width: 180px;
+  height: 50px;
   border: none;
-  padding: 1em 1.5em;
-  color: #ffedd3;
+  margin-left:1200px;
+  margin-top:70px;
+  
+}
+
+.Updateformbtn{
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #da751c;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width:200px;
+  border-radius: 15px;
   text-transform: uppercase;
   position: relative;
-  transition: 0.5s ease;
-  cursor: pointer;
+  left:400px;
+  top: -30px;
+
+
 }
 
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: #ffc506;
-  transition: 0.5s ease;
+.updateformdeltbtn{
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #da751c;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width:200px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  position: relative;
+  left:60px;
+  top: 20px;
+
 }
 
-.btn:hover {
-  color: #1e1e2b;
-  transition-delay: 0.5s;
-}
 
-.btn:hover::before {
-  width: 100%;
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 0;
-  width: 100%;
-  background-color: #ffc506;
-  transition: 0.4s ease;
-  z-index: -1;
-}
-
-.btn:hover::after {
-  height: 100%;
-  transition-delay: 0.4s;
-  color: aliceblue;
-}
 
