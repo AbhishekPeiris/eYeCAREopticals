@@ -10,6 +10,16 @@ function MyAppointmentScreen() {
   const [appointment, setAppointment] = useState([]);
   const user = JSON.parse(localStorage.getItem('currentUser'));
 
+  const [cusname, setCusname] = useState(user.firstname + ' ' + user.lastname);
+  const [contact, setContact] = useState(user.contact);
+  const [address, setAddress] = useState(user.address);
+  const [email, setEmail] = useState(user.email);
+
+
+  const [doctorname, setDoctorname] = useState();
+  const [date, setDate] = useState();
+  const [doctorfee, setDoctorfee] = useState();
+
   useEffect(() => {
     async function ViewAppointmentDetails() {
       try {
@@ -32,7 +42,7 @@ function MyAppointmentScreen() {
         
         const data = (await axios.delete(`http://localhost:5000/api/doctor/deletedoctorappointment/${id}`)).data;
         console.log(data);
-        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+        Swal.fire('Successfull', "You Appointment is deleted", 'success').then(result => {
 
             window.location.reload();
 
@@ -65,7 +75,7 @@ function MyAppointmentScreen() {
               <span>Doctor Fee :  <b>{appointment.doctorfee}</b></span><br />
             </div></p>
             <div className="updatedelectbtn">
-            <button className="appupdate">update </button>
+            <Link to = {`/editdoctorappointment/${appointment._id}`}><button className="appupdate">update </button></Link>
             <button className="appdelect"  onClick={(e) => deleteAppointment(appointment._id)}>delect </button>
             </div>
         </div>
