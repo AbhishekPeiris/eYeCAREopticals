@@ -4,6 +4,7 @@ import Rating from 'react-rating-stars-component';
 import "../styles/SpecsDetails.css";
 import { Link } from "react-router-dom";
 import "../styles/ViewSpectaclesDetails.css";
+import Swal from 'sweetalert2';
 
 function ViewSpectaclesDetails() {
   const [spectacles, setSpectacles] = useState([]);
@@ -22,7 +23,27 @@ function ViewSpectaclesDetails() {
     fetchData();
   }, []);
 
-  function deletespectacles(){}
+  async function deletespectacles(id){
+
+    try {
+        
+        
+        const data = (await axios.delete(`http://localhost:5000/api/eyeglassadmin/deleteeyeglass/${id}`)).data;
+        console.log(data);
+        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+
+            window.location.reload();
+
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+        Swal.fire('Error', "Error with deleting user", 'error');
+ 
+
+    }
+  }
 
 
   return (
