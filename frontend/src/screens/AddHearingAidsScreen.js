@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import styles from '../styles/AddHearingAids.css';
+import '../styles/AddHearingAids.css';
 
 function AddHearingAidsScreen() {
 
@@ -12,7 +12,7 @@ function AddHearingAidsScreen() {
   const [discription, setDiscription] = useState();
 
   const [size1, setSize1] = useState();
-  const [size2, setSize2] = useState();
+  const [size2, setSize2] = useState();        
   const [price, setPrice] = useState();
   const [rating, setRating] = useState();
   const [imageurlcolor1, setImageurlcolor1] = useState();
@@ -65,16 +65,17 @@ function AddHearingAidsScreen() {
 
 
   return (
-    <div>
+    
+    <div style={{marginLeft:'350px',marginTop:'100px'}}>
       <form onSubmit={AddHearingAidsScreen}>
       <div className="row">
-      <div className="col-md-3">
-          <div class="form mb-5 mt-5">
-            <h4><strong>Add Hearing Aids Details</strong></h4><br/>
+      <div className="col-md-3" >
+          <div class="form mb-5 mt-5 ">
+            
 
             <div class="input-container">
-              <lable>Model</lable>
-              <input type="text" placeholder="Enter Model " value={model} required
+              <lable>Model</lable><br/>
+              <input type="text" placeholder="Enter Model " value={model}  required
                 onChange={(e) => {
                   setModel(e.target.value);
                 }
@@ -83,7 +84,7 @@ function AddHearingAidsScreen() {
             </div>
 
             <div class="input-container">
-              <label>Gender</label>
+              <label>Gender</label><br/>
               <input type="text" placeholder="Enter Gender" value={gender} required
                 onChange={(e) => {
                   setGender(e.target.value);
@@ -95,7 +96,7 @@ function AddHearingAidsScreen() {
             
 
             <div class="input-container">
-              <label>Matarials</label>
+              <label>Matarials</label><br/>
               <input type="text" placeholder="Enter Matarials" value={material} required
                 onChange={(e) => {
                   setMaterial(e.target.value);
@@ -106,7 +107,7 @@ function AddHearingAidsScreen() {
 
             
             <div class="input-container">
-              <lable>Description</lable>
+              <lable>Description</lable><br/>
               <input type="text" placeholder="Enter Discription" value={discription} required
                 onChange={(e) => {
                   setDiscription(e.target.value);
@@ -123,8 +124,8 @@ function AddHearingAidsScreen() {
 
             
             <div class="input-container">
-              <lable>Size 01</lable>
-              <input type="number" placeholder="Enter Size1" value={size1} required
+              <lable>Size 01</lable><br/>
+              <input type="number" placeholder="Enter Size 1" value={size1} required
                 onChange={(e) => {
                   setSize1(e.target.value);
                 }
@@ -133,8 +134,8 @@ function AddHearingAidsScreen() {
             </div>
 
             <div class="input-container">
-              <label>Size 02</label>
-              <input type="number" placeholder="Enter Size2" value={size2} required
+              <label>Size 02</label><br/>
+              <input type="number" placeholder="Enter Size 2" value={size2} required
                 onChange={(e) => {
                   setSize2(e.target.value);
                 }}
@@ -142,7 +143,7 @@ function AddHearingAidsScreen() {
             </div>
 
             <div class="input-container">
-              <lable>Price</lable>
+              <lable>Price</lable><br/>
               <input type="text" placeholder="Enter Price" value={price} required
                 onChange={(e) => {
                   setPrice(e.target.value);
@@ -151,7 +152,7 @@ function AddHearingAidsScreen() {
             </div>
 
             <div class="input-container">
-              <label>Rating</label>
+              <label>Rating</label><br/>
               <input type="number" placeholder="Enter Rating" value={rating} required
                 onChange={(e) => {
                   setRating(e.target.value);
@@ -167,8 +168,8 @@ function AddHearingAidsScreen() {
             <div class="form mb-5 mt-5">
 
             <div class="input-container">
-              <label>Image URL Color 01</label>
-              <input type="text" placeholder="Enter imageurlcolor1" value={imageurlcolor1} required
+              <label>Image URL Colour 01</label>
+              <input type="text" placeholder="Enter Imageurlcolor 1" value={imageurlcolor1} required
                 onChange={(e) => {
                   setImageurlcolor1(e.target.value);
                 }
@@ -177,8 +178,8 @@ function AddHearingAidsScreen() {
             </div>
 
             <div class="input-container">
-              <label>Image URL Color 02 </label>
-              <input type="text" placeholder="Enter imageurlcolor2" value={imageurlcolor2} required
+              <label>Image URL Colour 02 </label>
+              <input type="text" placeholder="Enter Imageurlcolor 2" value={imageurlcolor2} required
                 onChange={(e) => {
                   setImageurlcolor2(e.target.value);
                 }

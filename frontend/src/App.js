@@ -53,6 +53,10 @@ import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
+
+import ViewDeafAidsDetails from './screens/ViewDeafAidsDetails';
+import UpdateHearingAidsDetails from './screens/UpdateHearingAidsDetails';
+
 import Adminfeedback from './screens/Adminfeedback';
 
 import MyAppointmentScreen from './screens/MyAppointmentScreen';
@@ -62,6 +66,7 @@ import AdminDashboard from './pages/AdminDashboard';
 
 
 import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
+
 
 
 
@@ -150,6 +155,9 @@ function App() {
         
 
         <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+        <Route path='/viewdeafaidsdetails' element={<ViewDeafAidsDetails />} />
+        <Route path='/updatehearingaidsdetails/:docID' element={<UpdateHearingAidsDetails />} />
+
 
         <Route path='/adminfeedback' element={<Adminfeedback />} />
 

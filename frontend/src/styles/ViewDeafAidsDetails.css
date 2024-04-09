@@ -1,0 +1,64 @@
+.hiraaftersidebar{
+    margin-left: 320px;
+}
+.hirtalehd1{
+    width: 120px;
+    height: 40px;
+}
+.hirtalehd2{
+    width: 80px;
+    height: 40px;
+}
+.hirtalehd3{
+    width: 100px;
+    height: 40px;
+}
+.hirtalehd4{
+    width: 150px;
+    height: 40px;
+}
+.hirtalehd5{
+    width: 80px;
+    height: 40px;
+}
+.hirtalehd6{
+    width: 80px;
+    height: 40px;
+}
+.hirtalehd7{
+    width: 80px;
+    height: 40px;
+}
+.hirtalehd8{
+    width: 130px;
+    height: 40px;
+}
+.hirtalehd9{
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+}
+.hirtalehd10{
+    width: 100Spx;
+    height: 40px;
+    font-size: 12px;
+}
+.hirtalehd11{
+    width: 200px;
+    height: 40px;
+}
+.hiraupdatebtn{
+    width:70px;
+    height: 35px;
+    border: none;
+    border-radius:10px;
+    background-color: green;
+}
+.hiradeletebtn{
+    width:70px;
+    height: 35px;
+    border: none;
+    border-radius:10px;
+    margin-left: 15px;
+    background-color: red;
+}
