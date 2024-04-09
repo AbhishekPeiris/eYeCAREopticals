@@ -18,6 +18,8 @@ const BookingScreen = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const [reservationId, setReservationId] = useState();
+
     useEffect(() => {
         async function ViewBookingDetails() {
             try {
@@ -26,6 +28,13 @@ const BookingScreen = () => {
                     const response = await axios.post(`http://localhost:5000/api/eyeglassreservation/geteyeglassreservations/${user.email}`);
                     setEyeglassReservation(response.data.eyeglassreservation);
                     console.log(response.data.eyeglassreservation);
+
+                    if (response.data.eyeglassreservation.length > 0) {
+                        // Assuming you want the _id of the first reservation
+                        setReservationId(response.data.eyeglassreservation[0]._id);
+                        console.log(response.data.eyeglassreservation[0]._id);
+                    }
+
                     setLoading(false);
                 }, 700);
             } catch (error) {
@@ -108,7 +117,7 @@ const BookingScreen = () => {
                                                 </div>
                                             ))}
 
-                                            {eyeglassreservation.map((eyeglassreservation) => (
+                                            
 
                                                 <Modal show={show} onHide={handleClose} size="lg">
                                                     <Modal.Header closeButton>
@@ -128,7 +137,7 @@ const BookingScreen = () => {
                                                     <Modal.Footer>
                                                         <button
                                                             className="editUserbtn1"
-                                                            onClick={(e) => deleteBooking(eyeglassreservation._id)}
+                                                            onClick={(e) => deleteBooking(reservationId)}
                                                         >
                                                             <span style={{ fontSize: "12px" }}>Delete my reservation</span>
                                                         </button>
@@ -138,7 +147,7 @@ const BookingScreen = () => {
                                                     </Modal.Footer>
                                                 </Modal>
 
-                                            ))}
+                                      
 
 
                                         </div>
