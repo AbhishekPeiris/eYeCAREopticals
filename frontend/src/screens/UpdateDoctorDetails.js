@@ -221,25 +221,33 @@ function UpdateDoctorDetails() {
           <div className="input-container">
             <label>Date</label>
             <br />
-            <input
-              type="text"
-              placeholder="Enter Date"
+            <select
+              className="languagetype"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-            />
+            >
+              <option value="Monday">Monday</option>
+              <option value="WednesDay">Wednesday</option>
+              <option value="Friday">Friday</option>
+            </select>
           </div>
           </div>
           </div>
+
+          
           <div className="displaytp">
           <div className="input-container">
             <label>Specialty</label>
             <br />
-            <input
-              type="text"
-              placeholder="Enter Specialty"
+            <select
+              className="languagetype"
               value={specialty}
               onChange={(e) => setSpecialty(e.target.value)}
-            />
+            >
+              <option value="Eye surgeon">Eye surgeon</option>
+              <option value="General surgeon">General surgeon</option>
+              <option value="Ear Specialist">Ear Specialist</option>
+            </select>
           </div>
           <div className="space-between">
           <div className="input-container">
@@ -258,7 +266,7 @@ function UpdateDoctorDetails() {
           </div>
           </div>
           </div>
-
+          
           <div className="displaytp">
 
           <div className="input-container">
