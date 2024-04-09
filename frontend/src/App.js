@@ -46,6 +46,9 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 
 import CartScreen from './screens/CartScreen';
+
+import UpdateDoctorAppointmentDetails from './screens/UpdateDoctorAppointmentDetails';
+
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
@@ -59,6 +62,7 @@ import AdminDashboard from './pages/AdminDashboard';
 
 
 import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
+
 
 
 
@@ -138,7 +142,7 @@ function App() {
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
         
         <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
-
+        <Route path='/editdoctorappointmentdetails/:userID' element={<UpdateDoctorAppointmentDetails />} />
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 

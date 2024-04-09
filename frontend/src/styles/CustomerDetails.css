@@ -1,0 +1,26 @@
+.viewcustomerDcol{
+    background-color: rgb(250, 241, 215);
+    
+}
+.snupdatebtn{
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    margin-bottom: 10px;
+}
+.sndeletebtn{
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    width: 65px;
+    
+}
+.viewcustomerDcol1{
+    background-color: antiquewhite;
+    width: 220px;
+}
+.viewcustomerDcol11{
+    width: 220px;
+}
