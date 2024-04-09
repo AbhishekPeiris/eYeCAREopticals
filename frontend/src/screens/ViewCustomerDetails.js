@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+import "../styles/CustomerDetails.css";
 
 function ViewCustomerDetails() {
 
@@ -46,51 +47,51 @@ function ViewCustomerDetails() {
 
 
   return (
-    <div>
-      <div className="row">
-        <div className="col-md-1 border ">
+    <div className="container" style={{width:"1500px"}}>
+      <div className="row ">
+        <div className="col-md-1 border viewcustomerDcol">
           <strong>
             <p>First name</p>
           </strong>
         </div>
-        <div className="col-md-1 border ">
+        <div className="col-md-1 border viewcustomerDcol">
           <strong>
             <p>Last name</p>
           </strong>
         </div>
 
-        <div className="col-md-1 border ">
+        <div className="col-md-1 border viewcustomerDcol">
           <strong>
             <p>Date of Birth</p>
           </strong>
         </div>
-        <div className="col-md-1 border ">
+        <div className="col-md-3 border viewcustomerDcol">
           <strong>
             <p>Address</p>
           </strong>
         </div>
-        <div className="col-md-1 border ">
+        <div className="col-md-1 border viewcustomerDcol">
           <strong>
             <p>Gender</p>
           </strong>
         </div>
-        <div className="col-md-1 border ">
+        <div className="col-md-1 border viewcustomerDcol">
           <strong>
             <p>Contact</p>
           </strong>
         </div>
-        <div className="col-md-1 border ">
+        <div className="col-md-1 border viewcustomerDcol1">
           <strong>
             <p>Email</p>
           </strong>
         </div>
-        <div className="col-md-1 border ">
+        <div className="col-md-1 border viewcustomerDcol">
           <strong>
             <p>Password</p>
           </strong>
         </div>
         
-        <div className="col-md-1 border ">Action</div>
+        <div className="col-md-1 border viewcustomerDcol"><strong>Action</strong></div>
       </div>
       <form>
       {user.map((user) => (
@@ -105,7 +106,7 @@ function ViewCustomerDetails() {
           <div className="col-md-1 border ">
             <p style={{fontSize:"11px"}}>{user.dob}</p>
           </div>
-          <div className="col-md-1 border ">
+          <div className="col-md-3 border ">
             <p style={{fontSize:"11px"}}>{user.address}</p>
           </div>
           <div className="col-md-1 border ">
@@ -114,21 +115,21 @@ function ViewCustomerDetails() {
           <div className="col-md-1 border ">
             <p style={{fontSize:"11px"}}>{user.contact}</p>
           </div>
-          <div className="col-md-1 border ">
+          <div className="col-md-1 border viewcustomerDcol11">
             <p style={{fontSize:"11px"}}>{user.email}</p>
           </div>
           <div className="col-md-1 border ">
             <p style={{fontSize:"11px"}}>{user.password}</p>
           </div>
-          <div className="col-md-1 border ">
-          <Link to = {`/editcustomerdetails/${user._id}`}><button>Update</button></Link>
-          <button onClick={(e) => deleteUser(user._id)}>Delete</button>
+          <div className="col-md-1 border  " >
+          <Link to = {`/editcustomerdetails/${user._id}`}><button className="snupdatebtn">Update</button></Link>
+          <button className="sndeletebtn" onClick={(e) => deleteUser(user._id)}>Delete</button>
           </div>
         </div>
       ))}
       </form>
     </div>
-  )
+  ) 
 }
 
 export default ViewCustomerDetails
