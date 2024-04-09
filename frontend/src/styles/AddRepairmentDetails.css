@@ -1,3 +1,82 @@
+
+
+  .fulltable{
+    margin-left:50px !important;
+    margin-top: 200px !important;
+    
+    
+  }
+  .detatable{
+    text-align: center;
+  }
+
+ 
+.repaireviewtable_1_col_1 {
+    width: 10%; 
+  }
+  
+  .fulltable > .row:first-child > .col-md-1:nth-child(-n+10) {
+    background-color: #da751c;
+  }
+
+.fulltable > .row:first-child p {
+    color: white;
+  }
+
 .vddtable{
     width: 70px !important;
+}
+
+.addrfulltable{
+  border:1px solid black;
+  border-radius: 10px;
+  width:320px;
+  padding-left: 5px;
+  margin-left:-50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  
+}
+
+.addrfulltable11{
+  border:1px solid black;
+  border-radius: 10px;
+  width:320px;
+  padding-left: 5px;
+  margin-left:20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+}
+.submitaddbtn1 {
+  display: block;
+  background-color: #da751c;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  width: 40%;
+  height: 40px;
+  border-radius:10px;
+  position: relative !important;
+  top:7px;
+  left: 15px;
+
+  
+}
+
+.submitaddbtn2 {
+  display: block;
+  background-color: #da751c;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  width: 40%;
+  height: 40px;
+  border-radius:10px;
+  position: relative !important;
+  left: 165px;
+  top: -40px;
+  
+}
+.addrhedder{
+  text-align: center;
+  margin-top: 10px;
 }

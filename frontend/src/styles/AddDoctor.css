@@ -1,12 +1,14 @@
-.form {
+.snchadddocform111 {
   background-color: #fff;
-  display: block;
-  padding:20px;
-  max-width: 700px;
-  border-radius: 0.5rem;
+  padding: 20px;
+  width: 700px;
+  border-radius:20px;
   box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  margin-left: 500px;
+  margin-left: 320px;
+  border:10px;
+  margin-top:0px;
 }
+
 
 .form-title {
   font-size:25px;
@@ -14,11 +16,12 @@
   font-weight: 600;
   color: #000;
   text-align: center;
-  padding-left: 10%;
+  padding-left: 100%;
 }
 
 .input-container {
   position: relative;
+  
 }
 
 .input-container input, .form button {
@@ -35,7 +38,7 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.submit {
+.submit111 {
   display: block;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -47,7 +50,7 @@
   line-height: 1.25rem;
   font-weight: 500;
   width: 100%;
-  border-radius: 0.5rem;
+  border-radius: 15px;
   text-transform: uppercase;
   
 }
@@ -63,13 +66,6 @@
   text-decoration: underline;
 }
 
-.flex-container {
-  display: flex;
-  margin-left: auto;
-  text-align:start;
-  
-  
-}
 .input-container1{
   position: relative;
   margin-left: 60px;
@@ -79,6 +75,7 @@
 .submitbutton{
   width: 100px;
   margin:auto;
+  border: none;
 }
 
 .select-container {
@@ -90,14 +87,15 @@
   margin-top: 30px;
   justify-content: space-between; 
 }
+
+
 .languagetype{
   background-color: white;
     border: 1px solid rgb(206, 206, 206);
     height: 45px;
-    padding-left: 10px;
     border-radius: 10px;
     width: 300px;
-    margin-left: -75px;
+    margin-top: 10px;
     
     
   
@@ -110,7 +108,77 @@
     padding-left: 10px;
     border-radius: 10px;
     width: 300px;
-    margin-left: -25px;
-    margin-top: 39px;
+    margin-top: 10px;   
   
 }
+.displaytp{
+  display: flex;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+.space-between{
+  margin-left: 40px;
+}
+
+.sanchviewdocbtn {
+  display: block;
+  background-color: #E84E2D;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 15px;
+  text-transform: uppercase;
+  width: 180px;
+  height: 50px;
+  border: none;
+  margin-left:1200px;
+  margin-top:70px;
+  
+}
+
+.Updateformbtn{
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #da751c;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width:200px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  position: relative;
+  left:400px;
+  top: -30px;
+
+
+}
+
+.updateformdeltbtn{
+  display: block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: #da751c;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width:200px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  position: relative;
+  left:60px;
+  top: 20px;
+
+}
+
+
+

@@ -1,1 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+/* For webkit browsers like Chrome and Safari */
+/* Thin vertical scrollbar */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-horizontal {
+  height: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+  width: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* color of the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color of the handle on hover */
+}

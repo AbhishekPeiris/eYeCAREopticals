@@ -45,12 +45,13 @@
     filter: brightness(95%) !important;
     transition:.5s !important;
 }
-.addtocart{
-    margin-right: 70px !important;
+.addtocartbtn{
+    margin-left: 0 !important;
 }
-.eyeglasspaynow{
+.eyeglasspaynowbtn{
     background-color: #ff4500 !important;
     width: 300px !important;
+    margin-left: 75px !important;
 }
 .eyeGlassDis{
     font-size: 13px !important;
@@ -64,4 +65,7 @@
     margin-right: 15px !important;
     margin-left: 15px !important;
     font-size: 13px !important;
+}
+.selected {
+    color:red !important;
 }

@@ -72,7 +72,7 @@ router.route('/getdoctor/:type').post(async(req, res) => {
     }
 });
 
-router.route('/:id').post(async(req, res) => {
+router.route('/doctorid/:id').post(async(req, res) => {
 
     
     const id = req.params.id;

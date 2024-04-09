@@ -9,6 +9,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useParams } from "react-router-dom";
 
+
 AOS.init({ duration: 1000 });
 
 const EditUserScreen = () => {
@@ -104,8 +105,8 @@ const EditUserScreen = () => {
                 <div>
                     <br /><br /><br />
                     <img src={editimg} alt="Home cover" className='regpic' data-aos="fade-left" />
-                    <div className="mask d-flex align-items-center h-100 frame">
-                        <div className="container h-100">
+                    <div className="mask d-flex align-items-center h-100 frame updateframe">
+                        <div className="container h-100" style={{width:"1200px"}}>
                             <div className="row d-flex justify-content-left align-items-left h-100 mt-5 mb-5">
                                 <div className="col-12 col-md-8 col-lg-6">
                                     <div className="card" style={{ borderRadius: "15px", border: "3px solid #f5e9db" }}>
@@ -116,7 +117,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3">
                                                     <label htmlFor="firstName">First Name</label>
-                                                    <input type="text" id="firstName" className="form-control" placeholder='Enter first name' value={firstname} required 
+                                                    <input type="text" id="firstName" className="form-control edituserinput" placeholder='Enter first name' value={firstname} required 
                                                         onChange={(e) => {
                                                             setFirstname(e.target.value);
                                                         }}
@@ -125,7 +126,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3">
                                                     <label htmlFor="lastName">Last Name</label>
-                                                    <input type="text" id="lastName" className="form-control" placeholder='Enter last name' value={lastname} required 
+                                                    <input type="text" id="lastName" className="form-control edituserinput" placeholder='Enter last name' value={lastname} required 
                                                         onChange={(e) => {
                                                             setLastname(e.target.value);
                                                         }}
@@ -134,7 +135,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3">
                                                     <label htmlFor="dob">Date of Birth</label>
-                                                    <input type="date" id="dob" className="form-control" value={dob} required 
+                                                    <input type="date" id="dob" className="form-control edituserinput" value={dob} required 
                                                         onChange={(e) => {
                                                             setDob(e.target.value);
                                                         }}
@@ -143,7 +144,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3">
                                                     <label htmlFor="address">Address</label>
-                                                    <textarea id="address" className="form-control" style={{ width: '100%', minHeight: '50px', maxHeight: "100px", backgroundColor: "white" }} placeholder="Enter address" value={address} required
+                                                    <textarea id="address" className="form-control edituserinput" style={{ width: '100%', minHeight: '50px', maxHeight: "100px", backgroundColor: "white" }} placeholder="Enter address" value={address} required
                                                         onChange={(e) => {
                                                             setAddress(e.target.value);
                                                         }}
@@ -166,13 +167,13 @@ const EditUserScreen = () => {
                                                                 setGender("female");
                                                             }}
                                                         />&nbsp;&nbsp;
-                                                        <label className="form-check-label" htmlFor="femaleRadio">Female</label>
+                                                        <label className="form-check-label edituserinput" htmlFor="femaleRadio" style={{position:"relative",bottom:"25px",left:"20px"}}>Female</label>
                                                     </div>
                                                 </div>
 
                                                 <div className="mb-3">
                                                     <label htmlFor="contact">Contact</label>
-                                                    <input type='tel' maxLength={10} id="contact" className="form-control" placeholder='Enter contact' value={contact} required 
+                                                    <input type='tel' maxLength={10} id="contact" className="form-control edituserinput" placeholder='Enter contact' value={contact} required 
                                                         onChange={(e) => {
                                                             setContact(e.target.value);
                                                         }}
@@ -181,7 +182,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3">
                                                     <label htmlFor="email">Email</label>
-                                                    <input type="email" id="email" className="form-control" placeholder='Enter email' value={email} required 
+                                                    <input type="email" id="email" className="form-control edituserinput" placeholder='Enter email' value={email} required 
                                                         onChange={(e) => {
                                                             setEmail(e.target.value);
                                                         }}
@@ -190,7 +191,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3">
                                                     <label htmlFor="password">Password</label>
-                                                    <input type={passwordVisible ? 'text' : 'password'} id="password" className="form-control" placeholder='Enter password' value={password} required 
+                                                    <input type={passwordVisible ? 'text' : 'password'} id="password" className="form-control edituserinput" placeholder='Enter password' value={password} required 
                                                         onChange={(e) => {
                                                             setPassword(e.target.value);
                                                         }}
@@ -204,7 +205,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3 cp">
                                                     <label htmlFor="confirmPassword">Confirm password</label>
-                                                    <input type={confirmPasswordVisible ? 'text' : 'password'} id="confirmPassword" className="form-control" placeholder='Enter confirm' value={passwordConfirmation} required 
+                                                    <input type={confirmPasswordVisible ? 'text' : 'password'} id="confirmPassword" className="form-control edituserinput" placeholder='Enter confirm' value={passwordConfirmation} required 
                                                         onChange={(e) => {
                                                             setPasswordConfirmation(e.target.value);
                                                         }}

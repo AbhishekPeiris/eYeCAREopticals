@@ -4,6 +4,8 @@ import Loader from '../components/Loader';
 import { Link, useParams } from 'react-router-dom';
 import Rating from 'react-rating-stars-component';
 import styles from '../styles/Doctor.css';
+import StripeCheckout from "react-stripe-checkout";
+import Swal from 'sweetalert2';
 
 function Doctor() {
 
@@ -11,13 +13,35 @@ function Doctor() {
   const { docID } = useParams();
   const [loading, setLoading] = useState(true);
 
+  const user = JSON.parse(localStorage.getItem('currentUser'));
+
+  const [cusname, setCusname] = useState(user.firstname + ' ' + user.lastname);
+  const [contact, setContact] = useState(user.contact);
+  const [address, setAddress] = useState(user.address);
+  const [email, setEmail] = useState(user.email);
+
+
+  const [doctorname, setDoctorname] = useState();
+  const [date, setDate] = useState();
+  const [doctorfee, setDoctorfee] = useState();
+
+
+
   useEffect(() => {
     async function getDoctor() {
       try {
         console.log(docID);
-        const response = await axios.post(`http://localhost:5000/api/doctor/${docID}`);
+        const response = await axios.post(`http://localhost:5000/api/doctor/doctorid/${docID}`);
         setDoctor(response.data.doctor);
         console.log(response.data.doctor)
+
+       
+          const Appointment = response.data.doctor;
+          setDoctorname(Appointment.firstname + ' ' + Appointment.lastname);
+          setDate(Appointment.date);
+          setDoctorfee(Appointment.doctorfee);
+        
+  
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -26,6 +50,50 @@ function Doctor() {
     }
     getDoctor();
   }, [docID]);
+
+  async function onToken(token) {
+
+    console.log(token);
+
+  
+      const newAppointment = {
+        cusname :cusname,
+        contact :contact,
+        address :address,
+        email : email,
+        doctorname: doctorname,
+        date : date,
+        doctorfee : doctorfee
+       
+      }
+  
+      try {
+        const data = (await axios.post('http://localhost:5000/api/doctor/createdoctorappointment', newAppointment)).data;
+        console.log(data);
+        Swal.fire('Thank you!', "Your Appointment is Successfully", "success").then(result => {
+          window.location.href =`/myappointment`;
+        });
+  
+        setCusname('');
+        setContact('');
+        setAddress('');
+        setEmail('');
+        setDoctorname('');
+        setDate('');
+        setDoctorfee('');
+
+      } catch (error) {
+        console.log(error);
+        Swal.fire('Error', "Your Appointment is Unsuccessfully", "error");
+      }
+    
+
+
+
+  }
+
+
+
 
 
   return (
@@ -68,10 +136,18 @@ function Doctor() {
             </div>
           </div>
 
-          <button className='btn btn-primary apponow'>Appointment Now!</button>
-          <div className='row table_81'>
 
-                    </div>
+          <StripeCheckout
+
+            amount={doctor.doctorfee * 100}
+
+            token={onToken}
+            currency='LKR'
+
+            stripeKey="pk_test_51Nu7smDOmIYodrCji9U41paJjaMrcNBAi0HhO8DB5i0c0fXxABtjqL7GCZJxoSHMvBu8U2uymvDSKsZaAUGsbCpi000BhYzBG5"
+          ><button className='btn btn-primary apponow'>Appointment Now!</button></StripeCheckout>
+          <div className='row table_81'>
+          </div>
 
 
         </div>

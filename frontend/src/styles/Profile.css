@@ -11,7 +11,7 @@
 }
 .Peditbtn{
     position: relative !important;
-    left: 140px !important;
+    left: 180px !important;
 }
 .Pdeletebtn{
     background-color: white !important;
@@ -21,3 +21,27 @@
     color: red !important;
 }
 
+
+.feedbacktagDD{
+    font-size: 11px !important;
+}
+.feedbacktagDDbackgroynd{
+    background-color: rgb(241, 241, 241) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+
+}
+.feedbacktagDDbackgroyndupdatebtn{
+    font-size: 11px !important;
+    margin-right: 10px !important;
+    background-color: green !important;
+
+}
+.feedbacktagDDbackgroynddeletebtn{
+    font-size: 11px !important;
+    background-color: red !important;
+}
+.profileinput{
+    background-color: white !important;
+    color: black !important;
+}
