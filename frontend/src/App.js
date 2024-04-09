@@ -50,6 +50,8 @@ import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
+import ViewDeafAidsDetails from './screens/ViewDeafAidsDetails';
+import UpdateHearingAidsDetails from './screens/UpdateHearingAidsDetails';
 
 
 
@@ -131,7 +133,8 @@ function App() {
         
 
         <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
-
+        <Route path='/viewdeafaidsdetails' element={<ViewDeafAidsDetails />} />
+        <Route path='/updatehearingaidsdetails/:docID' element={<UpdateHearingAidsDetails />} />
 
 
 
