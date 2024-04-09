@@ -53,7 +53,7 @@
 }
 
 .fd-form-title {
-  margin-left: 500px;
+  margin-left:600px;
 }
 
 .fb_other {
@@ -93,8 +93,9 @@
   position:relative !important;
   border: 1px solid black;
   border-radius: 10px !important;
+  width: 600px !important;
   padding: 20px;
-  margin-left: 400px !important;
+  margin-left: 500px !important;
 }
 .fd-container{
   margin-left: -300px !important;
