@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import "../styles/AddDoctor.css";
 
 function UpdateDoctorDetails() {
 
@@ -101,9 +102,9 @@ function UpdateDoctorDetails() {
   
   return (
     <div>
-         <div className="content">
-        <form className="form mb-5 mt-5" onSubmit={EditDoctor}>
-          <p className="form-title">Doctors Registration Form</p>
+         <div className="formcontent111">
+        <form className="form mb-5 mt-5 snchadddocform111" onSubmit={EditDoctor}>
+          <p className="form-title">Doctor's Details Update Form</p>
           <div className="displaytp">
             
           <div className="input-container">
@@ -220,25 +221,33 @@ function UpdateDoctorDetails() {
           <div className="input-container">
             <label>Date</label>
             <br />
-            <input
-              type="text"
-              placeholder="Enter Date"
+            <select
+              className="languagetype"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-            />
+            >
+              <option value="Monday">Monday</option>
+              <option value="WednesDay">Wednesday</option>
+              <option value="Friday">Friday</option>
+            </select>
           </div>
           </div>
           </div>
+
+          
           <div className="displaytp">
           <div className="input-container">
             <label>Specialty</label>
             <br />
-            <input
-              type="text"
-              placeholder="Enter Specialty"
+            <select
+              className="languagetype"
               value={specialty}
               onChange={(e) => setSpecialty(e.target.value)}
-            />
+            >
+              <option value="Eye surgeon">Eye surgeon</option>
+              <option value="General surgeon">General surgeon</option>
+              <option value="Ear Specialist">Ear Specialist</option>
+            </select>
           </div>
           <div className="space-between">
           <div className="input-container">
@@ -257,7 +266,7 @@ function UpdateDoctorDetails() {
           </div>
           </div>
           </div>
-
+          
           <div className="displaytp">
 
           <div className="input-container">
@@ -287,11 +296,13 @@ function UpdateDoctorDetails() {
           </div>
           </div>
           </div>
-          <div className="submitbutton111" >
-            <button type="submit" className="submit"  style={{width:"200px", textAlign:'center',marginLeft:"250px" }}>
+          <button type="submit" className="updateformdeltbtn">
+              Cancle Update 
+            </button>
+            <button type="submit" className="Updateformbtn">
               Update Details
             </button>
-          </div>
+          
         </form>
       </div>
     </div>

@@ -1,0 +1,20 @@
+.viewdoctorappoinmentDcol{
+    background-color: antiquewhite;
+}
+
+
+.snupdatebtn1{
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    margin-bottom: 10px;
+}
+.sndeletebtn1{
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    width: 65px;
+    
+}

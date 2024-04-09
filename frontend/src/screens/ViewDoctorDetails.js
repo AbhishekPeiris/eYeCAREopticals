@@ -44,8 +44,13 @@ function ViewDoctorDetails() {
 
   
   return (
-    <div>
-      <div className="ttp">
+    <div className="aftersidebar">
+      <Link to='/adddoctor' >
+      <button type="submit" className="submit112">
+              + Add Doctors
+            </button>
+            </Link>
+      <div className="ttp1">
         <label>
           <b>Personal Details</b>
         </label>
@@ -108,7 +113,7 @@ function ViewDoctorDetails() {
         <br />
         <br />
         <br />
-        <div className="ttp">
+        <div className="ttp2">
         <label>
           <b>Professional Background</b>
         </label>
@@ -199,10 +204,7 @@ function ViewDoctorDetails() {
         </div>
       ))}
       <br />
-      <br />
-      <br />
-
-      <div className="ttp">
+      <div className="ttp2">
         <label>
           <b>Others</b>
         </label>

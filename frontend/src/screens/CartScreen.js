@@ -109,46 +109,38 @@ const CartScreen = () => {
                             </div>
 
                             <div className="col-lg-3">
-                                <div className="card mb-3 border shadow-0 mt-5">
-                                    <div className="card-body">
-                                        <form>
-                                            <div className="form-group">
-                                                <label className="form-label">Have coupon?</label>
-                                                <div className="input-group">
-                                                    <input type="text" className="form-control border" name="" placeholder="Coupon code" />
-                                                    <button className="btn btn-light border">Apply</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div className="card shadow-0 border">
-                                    <div className="card-body">
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-2">Total price:</p>
-                                            <p className="mb-2">$329.00</p>
-                                        </div>
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-2">Discount:</p>
-                                            <p className="mb-2 text-success">-$60.00</p>
-                                        </div>
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-2">TAX:</p>
-                                            <p className="mb-2">$14.00</p>
-                                        </div>
-                                        <hr />
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-2">Total price:</p>
-                                            <p className="mb-2 fw-bold">$283.00</p>
-                                        </div>
-
-                                        <div className="mt-3">
-                                            <a href="#" className="btn btn-success w-100 shadow-0 mb-2"> Make Purchase </a>
-                                            <a href="#" className="btn btn-light w-100 border mt-2"> Back to shop </a>
-                                        </div>
-                                    </div>
+                            <div className="card mb-3 border shadow-0 mt-5">
+                                <div className="card-body">
+                                    <form>
+                                    <img src="https://1000logos.net/wp-content/uploads/2021/06/Ray-Ban-logo.png" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" style={{ marginLeft: "30px" }} /><br />
+                                    </form>
                                 </div>
                             </div>
+                            <div className="card mb-3 border shadow-0 mt-5">
+                                <div className="card-body">
+                                    <form>
+                                    <img src="https://cheeyewear.com.au/cdn/shop/files/Screen_Shot_2023-09-16_at_12.36.42_pm_1200x1200.png?v=1694845852" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" style={{ marginLeft: "30px" }} /><br />
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div className="card mb-3 border shadow-0 mt-5">
+                                <div className="card-body">
+                                    <form>
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Chanel_logo_interlocking_cs.svg/2560px-Chanel_logo_interlocking_cs.svg.png" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" style={{ marginLeft: "30px" }} /><br />
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div className="card mb-3 border shadow-0 mt-5">
+                                <div className="card-body">
+                                    <form>
+                                    <img src="https://iconape.com/wp-content/png_logo_vector/tens.png" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" style={{ marginLeft: "30px" }} /><br />
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
 
                         </div>
                     </div>

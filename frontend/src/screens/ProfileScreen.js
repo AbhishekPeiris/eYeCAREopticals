@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Tabs } from "antd";
 import styles from "../styles/Profile.css";
 import Loader from "../components/Loader";
 import BookingScreen from "./BookingScreen";
@@ -10,8 +9,6 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import Rating from 'react-rating-stars-component';
 import { Link } from "react-router-dom";
-
-const { TabPane } = Tabs;
 
 const ProfileScreen = () => {
   const [loading, setLoading] = useState(true);
@@ -72,7 +69,7 @@ const ProfileScreen = () => {
         
         const data = (await axios.delete(`http://localhost:5000/api/feedback/deletefeedback/${id}`)).data;
         console.log(data);
-        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+        Swal.fire( "Your Feedback has been Successfully deleted!", 'success').then(result => {
 
             window.location.reload();
 
@@ -93,8 +90,7 @@ const ProfileScreen = () => {
       <br />
       <br />
       <br />
-      <Tabs defaultActiveKey="1">
-        <TabPane tab="Profile" key="1">
+    
           <div>
             {loading ? (
               <Loader />
@@ -287,13 +283,7 @@ const ProfileScreen = () => {
               </Modal.Footer>
             </Modal>
           </div>
-        </TabPane>
-        <TabPane tab="Bookings" key="2">
-          <div>
-            <BookingScreen />
-          </div>
-        </TabPane>
-      </Tabs>
+        
     </div>
   );
 };
