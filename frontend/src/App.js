@@ -66,6 +66,7 @@ import AdminDashboard from './pages/AdminDashboard';
 
 
 import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
+import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
 
 
 
@@ -117,7 +118,7 @@ function App() {
 
           <Route path='/myappointment' element={<DefaultLayout>< MyAppointmentScreen/></DefaultLayout>} />
 
-
+          <Route path='/editdoctorappointment/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
 
           
           
