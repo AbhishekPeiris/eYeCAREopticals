@@ -99,7 +99,7 @@ const BookingScreen = () => {
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.type} | {eyeglassreservation.gender}</span><br />
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.framesize}</span><br /><br />
 
-                                                                    <Link><button className="btn cartviewbtn">Edit Booking</button></Link>
+                                                                    <Link to = {`/editreservation/${eyeglassreservation._id}/${eyeglassreservation.brand}/${eyeglassreservation.model}`}><button className="btn cartviewbtn">Edit Booking</button></Link>
                                                                     <button className="btn cartremovebtn" onClick={handleShow}>Delete Booking</button>
                                                                 </p>
                                                             </div>

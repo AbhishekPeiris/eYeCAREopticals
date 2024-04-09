@@ -66,7 +66,11 @@ import AdminDashboard from './pages/AdminDashboard';
 
 
 import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
+
+import EditReservationScreen from './screens/EditReservationScreen';
+
 import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
+
 
 
 
@@ -118,7 +122,11 @@ function App() {
 
           <Route path='/myappointment' element={<DefaultLayout>< MyAppointmentScreen/></DefaultLayout>} />
 
+          <Route path='/editreservation/:resvationID/:brand/:model' element={<DefaultLayout>< EditReservationScreen/></DefaultLayout>} />
+
+
           <Route path='/editdoctorappointment/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
+
 
           
           
