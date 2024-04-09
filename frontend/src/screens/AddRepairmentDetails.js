@@ -84,10 +84,13 @@ function AddRepairmentDetails() {
                 <div class="input-container">
                   <label>Contact Number</label>
                   <input
-                    type="tel"
+                    type="text"
+                    maxLength="10"
+                    pattern="[0-9]{10}"
                     placeholder="Enter Contact Number"
                     value={contact}
                     required
+
                     onChange={(e) => {
                       setContact(e.target.value);
                     }}

@@ -24,6 +24,7 @@ function UpdateRepairmentDetails() {
       try {
         const response = await axios.post(`http://localhost:5000/api/repairment/${repID}`);
         const repData = response.data.repairment;
+        console.log(repData);
   
         // Set state after fetching user data
         setName(repData.cusname);
@@ -31,10 +32,12 @@ function UpdateRepairmentDetails() {
         setAddress(repData.address);
         setEmail(repData.email);
         setModel(repData.model);
-        setDateofDropoff(repData.dateofdropoff);
-        setPreferredPickupDate(repData.preferredPickupDate);
-        setDiscription(repData.discription);
+        setDateofDropoff(repData.DateofDropoff);
+        setPreferredPickupDate(repData.PreferredPickupDate);
+        setDiscription(repData.DescriptionofIssue);
         setPrice(repData.price);
+
+        console.log(repData.discription);
   
       } catch (error) {
         console.log(error);

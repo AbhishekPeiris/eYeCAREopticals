@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -93,11 +92,13 @@ function AddSpectacles() {
 
   return (
     <div>
-      <form onSubmit={AddSpectacles} className='addsec'>
+      <form onSubmit={AddSpectacles} className='addsec'style={{marginLeft:'100px',border:'10px',borderColor:'black'}}>
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
-            {/* <h4><strong>Customer Details</strong></h4><br/> */}
+            <div style={{textAlign:'center'}}>
+            <h4 ><strong >Spectacle Details</strong></h4><br/> 
+            </div>
 
             <div class="input-container">
               <lable>Model</lable>

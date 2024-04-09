@@ -46,10 +46,17 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 
 import CartScreen from './screens/CartScreen';
+
+import UpdateDoctorAppointmentDetails from './screens/UpdateDoctorAppointmentDetails';
+
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
+
+import ViewDeafAidsDetails from './screens/ViewDeafAidsDetails';
+import UpdateHearingAidsDetails from './screens/UpdateHearingAidsDetails';
+
 import Adminfeedback from './screens/Adminfeedback';
 
 import MyAppointmentScreen from './screens/MyAppointmentScreen';
@@ -59,7 +66,13 @@ import AdminDashboard from './pages/AdminDashboard';
 
 
 import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
+
 import EditReservationScreen from './screens/EditReservationScreen';
+
+import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
+
+
+
 
 
 
@@ -108,7 +121,11 @@ function App() {
           <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
 
           <Route path='/myappointment' element={<DefaultLayout>< MyAppointmentScreen/></DefaultLayout>} />
+
           <Route path='/editreservation/:resvationID/:brand/:model' element={<DefaultLayout>< EditReservationScreen/></DefaultLayout>} />
+
+
+          <Route path='/editdoctorappointment/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
 
 
           
@@ -139,7 +156,7 @@ function App() {
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
         
         <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
-
+        <Route path='/editdoctorappointmentdetails/:userID' element={<UpdateDoctorAppointmentDetails />} />
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
@@ -147,6 +164,9 @@ function App() {
         
 
         <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+        <Route path='/viewdeafaidsdetails' element={<ViewDeafAidsDetails />} />
+        <Route path='/updatehearingaidsdetails/:docID' element={<UpdateHearingAidsDetails />} />
+
 
         <Route path='/adminfeedback' element={<Adminfeedback />} />
 

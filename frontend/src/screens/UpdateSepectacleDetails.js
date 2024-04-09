@@ -94,7 +94,7 @@ function UpdateSepectacleDetails() {
             rating,
             imageurlcolor1,
             imageurlcolor2,
-            imageurlcolor3,
+            imageurlcolor3
 
         }
 
@@ -120,7 +120,7 @@ function UpdateSepectacleDetails() {
     }
   
   return (
-    <div>
+    <div style={{marginLeft:'350px'}}>
        <form  class="form mb-5 mt-5" style={{width:"350px"}} onSubmit={EditSpectacle}>
 
 <h4><strong>Update Spectacle Details</strong></h4><br/>
@@ -232,8 +232,8 @@ function UpdateSepectacleDetails() {
 
 
 
-  <button type="submit" className="submit" style={{width:"300px"}}>Submit</button>
-      <button class="submit" style={{width:"300px"}}>Cancel</button>
+  <button type="submit" className="submit" style={{width:"300px",backgroundColor:'orange'}}>Submit</button>
+      <button class="submit" style={{width:"300px",backgroundColor:'orange'}}>Cancel</button>
 </form>
     </div>
   );
