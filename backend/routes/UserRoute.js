@@ -11,7 +11,8 @@ router.route('/register').post(async (req, res) => {
         gender,
         contact,
         email,
-        password
+        password,
+        role
     } = req.body;
 
     const newUser = new User({
@@ -23,7 +24,8 @@ router.route('/register').post(async (req, res) => {
         gender,
         contact,
         email,
-        password
+        password,
+        role
     });
 
     try {
