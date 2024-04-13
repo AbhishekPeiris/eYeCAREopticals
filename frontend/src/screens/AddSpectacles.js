@@ -59,7 +59,7 @@ function AddSpectacles() {
       console.log(response.data);
       Swal.fire('Thank you!', "Add Details Successfully", "success").then(result => {
 
-        window.location.href = '/AddSpectacles';
+        window.location.href = '/viewspectaclesdetails';
 
     });
 

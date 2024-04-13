@@ -17,14 +17,14 @@ function AddCustomerDetails() {
     e.preventDefault();
 
     const newUser = {
-      firstname,
-      lastname,
-      dob,
-      address,
-      gender,
-      contact,
-      email,
-      password
+      firstname : firstname,
+      lastname :lastname,
+      dob : dob,
+      address : address,
+      gender : gender,
+      contact : contact,
+      email : email,
+      password : password
     }
 
     try {

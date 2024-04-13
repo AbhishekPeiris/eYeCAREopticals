@@ -22,6 +22,7 @@ const RegisterScreen = () => {
     const [contact, setContact] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [role, setRole] = useState("user");
 
     const [passwordConfirmation, setPasswordConfirmation] = useState();
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -48,7 +49,8 @@ const RegisterScreen = () => {
                 gender,
                 contact,
                 email,
-                password
+                password,
+                role
             }
 
             try {
@@ -71,6 +73,7 @@ const RegisterScreen = () => {
                 setContact('');
                 setEmail('');
                 setPassword('');
+                setRole('user');
 
             } catch (error) {
                 

@@ -30,7 +30,7 @@ function ViewSpectaclesDetails() {
         
         const data = (await axios.delete(`http://localhost:5000/api/eyeglassadmin/deleteeyeglass/${id}`)).data;
         console.log(data);
-        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+        Swal.fire('', "Successfully Deleted", 'success').then(result => {
 
             window.location.reload();
 
