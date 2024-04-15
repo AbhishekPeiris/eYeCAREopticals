@@ -95,7 +95,12 @@ const Che = () => {
                     <div className='row'>
                         <div className='col md-3 RBtable_1col_1'>
                             <img src="https://cheeyewear.com.au/cdn/shop/files/Screen_Shot_2023-09-16_at_12.36.42_pm_1200x1200.png?v=1694845852" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br />
-                            <p data-aos="fade-right"><small>CHE eyeglasses and sunglasses redefine contemporary<br/> eyewear with innovative designs and premium craftsmanship.<br/> Combining style and sustainability, each pair is meticulously<br/> crafted using eco-friendly materials. With a focus on comfort and<br/> durability, CHE eyewear offers both fashion-forward aesthetics and<br/> conscientious ethics, making a statement that's as eco-conscious as it is chic.</small></p>
+                            <div style={{textAlign:"justify",width:"450px",fontSize:"14px"}}><p data-aos="fade-right"><small>CHE eyeglasses and sunglasses redefine contemporary
+                                 eyewear with innovative designs and premium craftsmanship.
+                             Combining style and sustainability, each pair is meticulously
+                              crafted using eco-friendly materials. With a focus on comfort and 
+                            durability, CHE eyewear offers both fashion-forward aesthetics and
+                             conscientious ethics, making a statement that's as eco-conscious as it is chic.</small></p></div>
                         </div>
                         <div className='col md-3'>
                             <img src={CheEyeGlass} alt="" className="img-fluid" />
