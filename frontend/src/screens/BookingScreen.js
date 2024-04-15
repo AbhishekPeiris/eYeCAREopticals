@@ -100,7 +100,7 @@ const BookingScreen = () => {
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.framesize}</span><br /><br />
 
                                                                     <Link to = {`/editreservation/${eyeglassreservation._id}/${eyeglassreservation.brand}/${eyeglassreservation.model}`}><button className="btn cartviewbtn">Edit Booking</button></Link>
-                                                                    <button className="btn cartremovebtn" onClick={handleShow}>Delete Booking</button>
+                                                                    <button className="btn cartremovebtn" onClick={handleShow} style={{marginTop:"-57px",marginLeft:"100px",width:"100px"}}>Delete Booking</button>
                                                                 </p>
                                                             </div>
                                                             <div className="col md-3" >

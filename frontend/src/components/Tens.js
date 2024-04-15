@@ -94,7 +94,13 @@ const Tens = () => {
                     <div className='row'>
                         <div className='col md-3 RBtable_1col_1'>
                             <img src="https://iconape.com/wp-content/png_logo_vector/tens.png" alt="" width="150" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br />
-                            <p data-aos="fade-right"><small>Tens eyeglasses and sunglasses offer a unique<br/> perspective, blending vintage aesthetics with<br/> modern flair. Through their innovative lenses,<br/> colors come alive with vivid saturation, enhancing the world<br/> around you. Designed for the adventurous spirit, Tens eyewear<br/> invites you to see life through a vibrant, unforgettable lens,<br/> turning every moment into a visual masterpiece.</small></p>
+                            <div style={{textAlign:"justify",width:"450px",fontSize:"14px"}}><p data-aos="fade-right"><small>Tens eyeglasses and sunglasses offer a unique
+                                 perspective, blending vintage aesthetics With
+                                  modern flair. Through their innovative lenses,
+                                   colors come alive with vivid saturation, enhancing the world
+                                    around you. Designed for the adventurous spirit, Tens eyewear
+                                     invites you to see life through a vibrant, unforgettable lens,
+                                      turning every moment into a visual masterpiece.</small></p></div>
                         </div>
                         <div className='col md-3'>
                             <img src={TensEyeGlass} alt="" className="img-fluid" />
