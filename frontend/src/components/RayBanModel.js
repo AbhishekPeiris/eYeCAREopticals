@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/RayBanModel.css';
 import AOS from 'aos';
@@ -16,11 +16,11 @@ const RayBanModel = () => {
     const [cart, setCart] = useState([]);
 
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    const [email, setEmail] = useState(user.email);
 
-    const [cusname, setCusname] = useState(user.firstname + " " + user.lastname);
-    const [contact, setContact] = useState(user.contact);
-    const [address, setAddress] = useState(user.address);
+    const [email, setEmail] = useState();
+    const [cusname, setCusname] = useState();
+    const [contact, setContact] = useState();
+    const [address, setAddress] = useState();
 
     const [modelNo, setModelNo] = useState();
     const [type, setType] = useState();
@@ -34,46 +34,68 @@ const RayBanModel = () => {
 
     const { brand, model } = useParams();
 
+    const navigate = useNavigate();
+
+
     useEffect(() => {
-        async function getEyeglassDetails(brand, model) {
-            try {
-                const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
-                setEyeglass(response.data.eyeGlass);
-                console.log(response.data.eyeGlass);
 
-                // Only set individual states once after fetching data
-                if (response.data.eyeGlass.length > 0) {
-                    const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
-                    setModelNo(eyeglassData.model);
-                    setType(eyeglassData.type);
-                    setBrandName(eyeglassData.brand);
-                    setGender(eyeglassData.gender);
-                    setPrice(eyeglassData.price);
-                    setRating(eyeglassData.rating);
-                    setImageurlColor(eyeglassData.imageurlcolor1);
-                    setFramsize(eyeglassData.framesize1);
+        if(localStorage.getItem('currentUser')){
+
+            async function getEyeglassDetails(brand, model) {
+
+                setEmail(user.email);
+                setCusname(user.firstname + " " + user.lastname);
+                setContact(user.contact);
+                setAddress(user.address)
+    
+                try {
+                    const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
+                    setEyeglass(response.data.eyeGlass);
+                    console.log(response.data.eyeGlass);
+    
+                    // Only set individual states once after fetching data
+                    if (response.data.eyeGlass.length > 0) {
+                        const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
+                        setModelNo(eyeglassData.model);
+                        setType(eyeglassData.type);
+                        setBrandName(eyeglassData.brand);
+                        setGender(eyeglassData.gender);
+                        setPrice(eyeglassData.price);
+                        setRating(eyeglassData.rating);
+                        setImageurlColor(eyeglassData.imageurlcolor1);
+                        setFramsize(eyeglassData.framesize1);
+                    }
+    
+                } catch (error) {
+                    console.log(error);
                 }
-
-            } catch (error) {
-                console.log(error);
             }
-        }
-        getEyeglassDetails(brand, model);
+            getEyeglassDetails(brand, model);
+    
+            async function getCartItems() {
+                try {
+                    const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
+                    setCart(response.data.cart);
+                    console.log(response.data.cart);
+                
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+    
+            getCartItems();
 
-        async function getCartItems() {
-            try {
-                const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
-                setCart(response.data.cart);
-                console.log(response.data.cart);
+        }
+        else{
+            Swal.fire('Oops!',"Please login to the system", "warning").then(result => {
+                navigate('/login');
+            });
             
-            } catch (error) {
-                console.log(error);
-            }
+            
         }
 
-        getCartItems();
-
-    }, [brand, model, user.email]);
+        
+    }, []);
 
     
 
