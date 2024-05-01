@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
@@ -6,6 +6,7 @@ import "../styles/cart.css";
 import Loader from '../components/Loader';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { useReactToPrint} from "react-to-print";
 
 const BookingScreen = () => {
 
@@ -19,6 +20,8 @@ const BookingScreen = () => {
     const handleShow = () => setShow(true);
 
     const [reservationId, setReservationId] = useState();
+
+    const componentPDF = useRef();
 
     useEffect(() => {
         async function ViewBookingDetails() {
@@ -68,6 +71,11 @@ const BookingScreen = () => {
         }
     }
 
+    const generatePDF = useReactToPrint({
+        content: ()=>componentPDF.current,
+        documentTitle: "eyeCAREoptical_reservation"
+    });
+
     return (
         <div>
 
@@ -84,38 +92,43 @@ const BookingScreen = () => {
                                     <div className="m-4">
                                         <h4 className="card-title mb-4 myshoppingcart"><strong>My Bookings</strong></h4><br />
 
-                                        <div className="row mb-5 cartlisttable">
+                                        
+                                        <div className="row mb-5 cartlisttable" >
+                                        
                                             {eyeglassreservation.map((eyeglassreservation) => (
-                                                <div className="col-lg-3 cartlisttablecol1">
+                                                <div className="col-lg-3 cartlisttablecol1" >
                                                     <div className="caritemscard" data-aos="zoom-in">
                                                         <div className="row" >
-                                                            <div className="col md-3">
-                                                                <p className="cartitemscardptag1">
-                                                                    <span style={{ fontSize: "11px" }}><strong>{eyeglassreservation.cusname}</strong></span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.email}</span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.contact} {eyeglassreservation.address}</span><br />
-                                                                    <hr />
-                                                                    <span style={{ color: "#0a5a70" }}><strong>{eyeglassreservation.brand} | {eyeglassreservation.model}</strong></span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.type} | {eyeglassreservation.gender}</span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.framesize}</span><br /><br />
-
-                                                                    <Link to = {`/editreservation/${eyeglassreservation._id}/${eyeglassreservation.brand}/${eyeglassreservation.model}`}><button className="btn cartviewbtn">Edit Booking</button></Link>
-                                                                    <button className="btn cartremovebtn" onClick={handleShow} style={{marginTop:"-57px",marginLeft:"100px",width:"100px"}}>Delete Booking</button>
-                                                                </p>
-                                                            </div>
                                                             <div className="col md-3" >
                                                                 <p className="cartitemscardptag1">
+                                                                    <div ref={componentPDF} style={{width:"200%"}}>
+                                                                    <span style={{ fontSize: "11px" }}><strong>{eyeglassreservation.cusname}</strong></span><br />
+                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.email}</span><br />
+                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.contact} </span><br />
+                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.address}</span><br />
+                                                                    <hr />
+                                                                    <span style={{ color: "#0a5a70" }}><strong>{eyeglassreservation.brand} | {eyeglassreservation.model}</strong></span><br /><br/>
                                                                     <img src={eyeglassreservation.imageurlcolor[0]} alt="" width={100} /><br />
+                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.type} | {eyeglassreservation.gender}</span><br />
+                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.framesize}</span><br />                
+                                                                    <hr />
                                                                     <span><strong>LKR</strong></span> <span style={{ color: "#ab2317" }}><strong>{eyeglassreservation.price}</strong></span>
+                                                                    </div>
                                                                 </p>
-                                                            </div>
 
+                                                                    <Link to = {`/editreservation/${eyeglassreservation._id}/${eyeglassreservation.brand}/${eyeglassreservation.model}`}><button className="btn cartviewbtn">Edit Booking</button></Link>
+                                                                    <button className="btn cartremovebtn" onClick={handleShow} style={{width:"100px"}}>Delete Booking</button><br/><br/>
+                                                                    <button className="reservationpdfbtn" onClick={generatePDF}><i class="fa fa-download" aria-hidden="true"></i><span style={{fontSize:"10px",marginLeft:"10px"}}>Downlad PDF</span></button>
+                                                                
+                                                            </div>
+                                                            
                                                         </div>
 
                                                     </div>
 
                                                 </div>
                                             ))}
+                                           
 
                                             
 
