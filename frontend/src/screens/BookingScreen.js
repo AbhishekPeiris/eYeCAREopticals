@@ -101,17 +101,17 @@ const BookingScreen = () => {
                                                         <div className="row" >
                                                             <div className="col md-3" >
                                                                 <p className="cartitemscardptag1">
-                                                                    <div ref={componentPDF} style={{width:"200%"}}>
+                                                                    <div ref={componentPDF}>
                                                                     <span style={{ fontSize: "11px" }}><strong>{eyeglassreservation.cusname}</strong></span><br />
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.email}</span><br />
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.contact} </span><br />
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.address}</span><br />
-                                                                    <hr />
+                                                                    <hr style={{width:"350px"}} />
                                                                     <span style={{ color: "#0a5a70" }}><strong>{eyeglassreservation.brand} | {eyeglassreservation.model}</strong></span><br /><br/>
                                                                     <img src={eyeglassreservation.imageurlcolor[0]} alt="" width={100} /><br />
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.type} | {eyeglassreservation.gender}</span><br />
                                                                     <span style={{ fontSize: "11px" }}>{eyeglassreservation.framesize}</span><br />                
-                                                                    <hr />
+                                                                    <hr style={{width:"350px"}} />
                                                                     <span><strong>LKR</strong></span> <span style={{ color: "#ab2317" }}><strong>{eyeglassreservation.price}</strong></span>
                                                                     </div>
                                                                 </p>
