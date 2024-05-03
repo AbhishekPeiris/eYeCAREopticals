@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 import "../styles/CustomerDetails.css";
+import { useReactToPrint} from "react-to-print";
 
 function ViewCustomerDetails() {
 
     const [user, setUser] = useState([]);
+    const componentPDF = useRef();
 
   useEffect(() => {
     async function ViewCustomerDetails() {
@@ -45,10 +47,17 @@ function ViewCustomerDetails() {
     }
 }
 
+const generatePDF = useReactToPrint({
+  content: ()=>componentPDF.current,
+  documentTitle: "eyeCAREoptical_customerDetails"
+});
+
 
   return (
-    <div className="container" style={{width:"1500px"}}>
-      <div className="row ">
+    <div className="container" style={{width:"1500px"}}  ref={componentPDF}>
+      <button className="reservationpdfbtn" onClick={generatePDF}><i class="fa fa-download" aria-hidden="true"></i><span style={{fontSize:"10px",marginLeft:"10px"}}>Downlad PDF</span></button>
+      <div className="row " >
+        
         <div className="col-md-1 border viewcustomerDcol">
           <strong>
             <p>First name</p>
@@ -136,6 +145,7 @@ function ViewCustomerDetails() {
         </div>
       ))}
       </form>
+      
     </div>
   ) 
 }
