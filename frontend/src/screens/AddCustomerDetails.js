@@ -12,6 +12,7 @@ function AddCustomerDetails() {
   const [contact, setContact] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [role, setRole] = useState('user');
 
   async function UserRegister(e) {
     e.preventDefault();
@@ -24,11 +25,12 @@ function AddCustomerDetails() {
       gender : gender,
       contact : contact,
       email : email,
-      password : password
+      password : password,
+      role : role
     }
 
     try {
-      const data = (await axios.post('http://localhost:5000/api/manager/adduser', newUser)).data;
+      const data = (await axios.post('http://localhost:5000/api/user/register', newUser)).data;
       console.log(data);
       Swal.fire('Thank you!', "Registration Successfully", "success").then(result => {
         window.location.href = '/viewcustomerdetails';
@@ -42,6 +44,7 @@ function AddCustomerDetails() {
       setContact('');
       setEmail('');
       setPassword('');
+      setRole('user');
     } catch (error) {
       console.log(error);
       Swal.fire('Error', "Registration Unsuccessfully", "error");
@@ -120,6 +123,19 @@ function AddCustomerDetails() {
             }}
           />
         </div>
+        <div className="input-container">
+        <label>Role</label>
+            <br/>
+          <select
+              value={role}
+              required
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+        </div>
+
         <button type="submit" className="submit" style={{width:"300px"}}>Submit</button>
             <button class="submit" style={{width:"300px"}}>Cancel</button>
       </form>
