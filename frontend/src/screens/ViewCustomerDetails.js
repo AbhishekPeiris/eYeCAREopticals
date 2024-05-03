@@ -90,6 +90,11 @@ function ViewCustomerDetails() {
             <p>Password</p>
           </strong>
         </div>
+        <div className="col-md-1 border viewcustomerDcol">
+          <strong>
+            <p>Role</p>
+          </strong>
+        </div>
         
         <div className="col-md-1 border viewcustomerDcol"><strong>Action</strong></div>
       </div>
@@ -120,6 +125,9 @@ function ViewCustomerDetails() {
           </div>
           <div className="col-md-1 border ">
             <p style={{fontSize:"11px"}}>{user.password}</p>
+          </div>
+          <div className="col-md-1 border ">
+            <p style={{fontSize:"11px"}}>{user.role}</p>
           </div>
           <div className="col-md-1 border  " >
           <Link to = {`/editcustomerdetails/${user._id}`}><button className="snupdatebtn">Update</button></Link>
