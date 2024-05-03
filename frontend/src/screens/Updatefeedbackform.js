@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import "../styles/feedbackformScreen.css";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import StarRatings from "react-star-ratings";
