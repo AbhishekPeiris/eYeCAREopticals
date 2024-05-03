@@ -70,6 +70,7 @@ import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
 import EditReservationScreen from './screens/EditReservationScreen';
 
 import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
+import AdminFeedback from './screens/Adminfeedback';
 
 
 
@@ -126,7 +127,7 @@ function App() {
 
 
           <Route path='/editdoctorappointment/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
-
+          <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
 
           
           
@@ -172,9 +173,7 @@ function App() {
 
         <Route path='/updatesepectacledetails/:specId' element={<UpdateSepectacleDetails />} />
 
-
-
-
+        <Route path='/getallfeedback' element={<AdminFeedback />} />
 
       </Routes>
     </BrowserRouter>
