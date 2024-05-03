@@ -169,6 +169,7 @@ const RayBanModel = () => {
             
             const data = (await axios.post('http://localhost:5000/api/eyeglassreservation/createeyeglassreservation', newEyeglassReservation)).data;
             console.log(data);
+            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})
             Swal.fire('Thank you!', "Your Reservation is Successfully", "success").then(result => {
               window.location.href = '/bookings';
             });
