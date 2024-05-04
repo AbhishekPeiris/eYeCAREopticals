@@ -1,0 +1,34 @@
+.feedback-item {
+    width: calc(33.33% - 20px);
+    background-color: rgb(230, 220, 214);
+    border-radius: 25px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    
+
+  }
+  
+  .container617 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 100px;
+   
+   
+  }
+  .feedback-item p {
+    font-size: 13px;
+  }
+
+  .feedback-item p.comment {
+    font-weight: bold;
+  }
+  .feedback-item p.cusname{
+    font-weight: bold;
+  }
+  
+  
