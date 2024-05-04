@@ -98,24 +98,31 @@ router.route('/doctorid/:id').post(async(req, res) => {
 router.route('/createdoctorappointment').post(async(req, res) => {
 
     const {
-
-        cusname,
+        firstname,
+        lastname,
+        date,
+        gender,
+        age,
+        email,
         contact,
         address,
-        email,
-        doctorname,
-        date,
+        emergency,
+        doctor,
         doctorfee
 
     } = req.body;
 
     const newDoctorAppointment = new DoctorAppointment({
-        cusname,
+        firstname,
+        lastname,
+        date,
+        gender,
+        age,
+        email,
         contact,
         address,
-        email,
-        doctorname,
-        date,
+        emergency,
+        doctor,
         doctorfee
      });
  
@@ -159,27 +166,31 @@ router.route('/editdoctorappointment/:id').put(async (req, res) =>{
     const doctorAppointmentID = req.params.id;
 
     const {
-        cusname,
+        firstname,
+        lastname,
+        date,
+        gender,
+        age,
+        email,
         contact,
         address,
-        email,
-        model,
-        DateofDropoff,
-        PreferredPickupDate,
-        DescriptionofIssue,
-        price
+        emergency,
+        doctor,
+        doctorfee
     } = req.body;
 
     const doctorAppointment = {
-        cusname,
+        firstname,
+        lastname,
+        date,
+        gender,
+        age,
+        email,
         contact,
         address,
-        email,
-        model,
-        DateofDropoff,
-        PreferredPickupDate,
-        DescriptionofIssue,
-        price
+        emergency,
+        doctor,
+        doctorfee
     }
     
     try {

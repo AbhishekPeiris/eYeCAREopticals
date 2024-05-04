@@ -10,16 +10,6 @@ function MyAppointmentScreen() {
   const [appointment, setAppointment] = useState([]);
   const user = JSON.parse(localStorage.getItem('currentUser'));
 
-  const [cusname, setCusname] = useState(user.firstname + ' ' + user.lastname);
-  const [contact, setContact] = useState(user.contact);
-  const [address, setAddress] = useState(user.address);
-  const [email, setEmail] = useState(user.email);
-
-
-  const [doctorname, setDoctorname] = useState();
-  const [date, setDate] = useState();
-  const [doctorfee, setDoctorfee] = useState();
-
   useEffect(() => {
     async function ViewAppointmentDetails() {
       try {
@@ -35,27 +25,27 @@ function MyAppointmentScreen() {
     ViewAppointmentDetails();
   }, []);
 
-  async function deleteAppointment(id){
+  async function deleteAppointment(id) {
 
     try {
-        
-        
-        const data = (await axios.delete(`http://localhost:5000/api/doctor/deletedoctorappointment/${id}`)).data;
-        console.log(data);
-        Swal.fire('Successfull', "You Appointment is deleted", 'success').then(result => {
 
-            window.location.reload();
 
-        });
+      const data = (await axios.delete(`http://localhost:5000/api/doctor/deletedoctorappointment/${id}`)).data;
+      console.log(data);
+      Swal.fire('Successfull', "You Appointment is deleted", 'success').then(result => {
+
+        window.location.reload();
+
+      });
 
     } catch (error) {
-        
-        console.log(error);
-        Swal.fire('Error', "Error with deleting user", 'error');
- 
+
+      console.log(error);
+      Swal.fire('Error', "Error with deleting user", 'error');
+
 
     }
-}
+  }
 
   return (
     <div>
@@ -63,21 +53,26 @@ function MyAppointmentScreen() {
       {appointment.map((appointment) => (
 
         <div className="fulldetailsapp">
-          <p> {appointment.cusname}<br />
-            {appointment.email}<br />
-            <span className="conadd">{appointment.contact} | {appointment.address}<br /></span>
-            <hr style={{marginRight:'30px'}}></hr>
+          <p> <span style={{fontSize:"19px"}}> Patient Name :<b> {appointment.firstname} {appointment.lastname}</b></span><br />
+            <span style={{fontSize:"19px"}}> Age : <b>{appointment.age} Years</b></span><br />
+            <span style={{fontSize:"19px"}}> Gender : <b>{appointment.gender}</b></span><br />
+            <span style={{fontSize:"19px"}}>Appointment Date : <b>{appointment.date}</b></span><br />
+            <spnp style={{fontSize:"19px"}}>{appointment.email}<br /></spnp>
+            <span  className="conadd">{appointment.contact} | {appointment.address}<br /></span>
 
+
+            <hr style={{ marginRight: '30px' }}></hr>
 
             <div className="namedatefee">
-              <span >Name :   <b>{appointment.doctorname}</b></span><br />
-               <span>Date :   <b>{appointment.date}</b></span><br />
-              <span>Doctor Fee :  <b>{appointment.doctorfee}</b></span><br />
+              <span >Doctor Name :   <b>{appointment.doctor}</b></span><br />
+              <span>Doctor Fee :<b> RS {appointment.doctorfee}.00</b></span><br />
             </div></p>
-            <div className="updatedelectbtn">
-            <Link to = {`/editdoctorappointment/${appointment._id}`}><button className="appupdate">update </button></Link>
-            <button className="appdelect"  onClick={(e) => deleteAppointment(appointment._id)}>delect </button>
-            </div>
+
+
+          <div className="updatedelectbtn">
+            <Link to={`/editdoctorappointment/${appointment._id}`}><button className="appupdate">Update </button></Link>
+            <button className="appdelect" onClick={(e) => deleteAppointment(appointment._id)}>Delect </button>
+          </div>
         </div>
 
       ))}
