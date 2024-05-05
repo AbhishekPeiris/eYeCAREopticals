@@ -13,19 +13,19 @@ const transporter = nodemailer.createTransport({
 });
 
 class EmailService {
-    static async sendOTP(user, emailContent, sub) {
+    static async sendEmail(user, emailContent, sub) {
         try {
             const mailOptions = {
-                from: '"Evnify" <nodeapp53@gmail.com>',
+                from: '"eyeCAREopticals" <nodeapp53@gmail.com>',
                 to: user.email,
                 subject: sub,
                 html: emailContent,
             };
 
             const info = await transporter.sendMail(mailOptions);
-            console.log(`OTP code sent to ${user.email}: ${info.response}`);
+            console.log(`reservation email code sent to ${user.email}: ${info.response}`);
         } catch (error) {
-            console.error("Error sending OTP code:", error);
+            console.error("Error sending reservation email code:", error);
         }
     }
 }

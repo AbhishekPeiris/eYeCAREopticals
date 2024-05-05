@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const EmailService = require("../services/EmailService");
 
-function getPasswordResetEmailContent(object) {
+function reservationEmail(object) {
     return `
         <html>
         <head>
@@ -53,15 +53,15 @@ router.post('/summery', async (req, res) => {
     if (!email) {
         return res.status(400).json({ message: "Email is required" });
     }
-    const emailContent = getPasswordResetEmailContent(object);
-    const subject = "Password Reset OTP";
+    const emailContent = reservationEmail(object);
+    const subject = "eyeCAREoptical Reservation";
 
     try {
-        await EmailService.sendOTP({ email }, emailContent, subject);
-        return res.status(200).json({ message: "OTP sent successfully" });
+        await EmailService.sendEmail({ email }, emailContent, subject);
+        return res.status(200).json({ message: "reservation email sent successfully" });
     } catch (error) {
-        console.error("Error sending OTP:", error);
-        return res.status(500).json({ message: "Error sending OTP" });
+        console.error("Error sending email:", error);
+        return res.status(500).json({ message: "Error sending reservation email" });
     }
 
 })
