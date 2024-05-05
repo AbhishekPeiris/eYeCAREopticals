@@ -27,7 +27,7 @@ function ViewDoctorDetails() {
         
         const data = (await axios.delete(`http://localhost:5000/api/doctormanagement/deletedoctor/${id}`)).data;
         console.log(data);
-        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+        Swal.fire('Stay safe', "Docter account is deleted", 'success').then(result => {
 
             window.location.reload();
 
