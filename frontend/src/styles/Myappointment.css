@@ -2,14 +2,14 @@
     margin-left: 100px !important;
     margin-top: 50px !important;
     background-color: rgb(241, 241, 241) !important;
-    width: 370px !important;
-    height: 300px !important;
+    width: 400px !important;
+    height: 380px !important;
     padding-left: 30px !important;
     padding-top: 20px !important;
     border-radius: 10px !important;
 }
 .namedatefee{
-    font-size: 17px !important;
+    font-size: 19px !important;
   
 }
 .appupdate{
@@ -33,4 +33,9 @@
     position: relative;
     margin-left: 5px !important;
     margin-top: 30px !important;
+
+   
+}
+.appotable{
+    margin-top: 50px !important;
 }

@@ -71,6 +71,7 @@ import EditReservationScreen from './screens/EditReservationScreen';
 
 import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
 import AdminFeedback from './screens/Adminfeedback';
+import PatientDetailsForm from './screens/PatientDetailsForm';
 
 
 
@@ -126,9 +127,9 @@ function App() {
           <Route path='/editreservation/:resvationID/:brand/:model' element={<DefaultLayout>< EditReservationScreen/></DefaultLayout>} />
 
 
-          <Route path='/editdoctorappointment/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
+          <Route path='/editdoctorappointment/:cusemail/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
           <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
-
+          <Route path='/patientdetails/:docfname/:doclastname/:docfee' element={<DefaultLayout>< PatientDetailsForm/></DefaultLayout>} />
           
           
 
