@@ -220,4 +220,25 @@ router.route('/deletedoctorappointment/:id').delete(async (req, res) => {
 
     }
 });
+
+router.route('/getalldoctorappointment/:email/:id').post(async(req, res) => {
+
+    const id = req.params.id;
+
+    try {
+        
+        const doctor = await DoctorAppointment.findById(id);
+
+        if (!doctor) {
+            return res.status(404).json({ status: "doctorAppointment not found" });
+        }
+
+        return res.status(200).json({status: "doctorAppointment is fatched", doctor});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch doctorAppointment", message: error});
+
+    }
+});
 module.exports = router;

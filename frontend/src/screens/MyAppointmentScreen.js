@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import { Link, useParams } from 'react-router-dom';
 import "../styles/Myappointment.css";
+import { useReactToPrint} from "react-to-print";
 
 
 function MyAppointmentScreen() {
 
   const [appointment, setAppointment] = useState([]);
   const user = JSON.parse(localStorage.getItem('currentUser'));
+
+  
+  const componentPDF = useRef();
 
   useEffect(() => {
     async function ViewAppointmentDetails() {
@@ -46,13 +50,20 @@ function MyAppointmentScreen() {
 
     }
   }
+  const generatePDF = useReactToPrint({
+    content: ()=>componentPDF.current,
+    documentTitle: "eyeCAREoptical_doctor_appointment"
+});
+
 
   return (
     <div>
+      <div className="row mb-5 appotable" >
       <br /><br /><br />
       {appointment.map((appointment) => (
 
         <div className="fulldetailsapp">
+          <div ref={componentPDF}>
           <p> <span style={{fontSize:"19px"}}> Patient Name :<b> {appointment.firstname} {appointment.lastname}</b></span><br />
             <span style={{fontSize:"19px"}}> Age : <b>{appointment.age} Years</b></span><br />
             <span style={{fontSize:"19px"}}> Gender : <b>{appointment.gender}</b></span><br />
@@ -66,17 +77,19 @@ function MyAppointmentScreen() {
             <div className="namedatefee">
               <span >Doctor Name :   <b>{appointment.doctor}</b></span><br />
               <span>Doctor Fee :<b> RS {appointment.doctorfee}.00</b></span><br />
-            </div></p>
+            </div></p></div>
 
 
           <div className="updatedelectbtn">
-            <Link to={`/editdoctorappointment/${appointment._id}`}><button className="appupdate">Update </button></Link>
-            <button className="appdelect" onClick={(e) => deleteAppointment(appointment._id)}>Delect </button>
+            <Link to={`/editdoctorappointment/${appointment.email}/${appointment._id}`}><button className="appupdate">Update </button></Link>
+            <button className="appdelect" onClick={(e) => deleteAppointment(appointment._id)}>Delete </button>
+            <button className="reservationpdfbtn" onClick={generatePDF} style={{marginLeft:"60px"}}><i class="fa fa-download" aria-hidden="true"></i><span style={{fontSize:"10px",marginLeft:"10px"}}>Downlad PDF</span></button>
           </div>
         </div>
 
       ))}
       <br /><br /><br /> <br /><br /><br /> <br />
+      </div>
     </div>
   )
 }

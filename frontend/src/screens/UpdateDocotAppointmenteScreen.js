@@ -2,59 +2,53 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import EditUserScreen from './EditUserScreen';
 
 function UpdateDocotAppointmenteScreen() {
 
-    const { appoID } = useParams();
+    const { cusemail,appoID } = useParams();
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    const [appointment, setAppointment] = useState([]);
 
-    const [cusname, setCusname] = useState(user.firstname + ' ' + user.lastname);
-    const [contact, setContact] = useState(user.contact);
-    const [address, setAddress] = useState(user.address);
+    const [firstname, setFirstName] = useState('');
+    const [lastname, setLasname] = useState('');
+    const [date, setDate] = useState('');
+    const [gender, setGender] = useState('');
+    const [age, setAge] = useState('');
     const [email, setEmail] = useState(user.email);
-
-
-    const [doctorname, setDoctorname] = useState();
-    const [date, setDate] = useState();
+    const [contact, setContact] = useState('');
+    const [address, setAddress] = useState('');
+    const [emergency, setEmergency] = useState('');
+    const [doctor, setDoctor] = useState();
     const [doctorfee, setDoctorfee] = useState();
 
     useEffect(() => {
+        console.log(cusemail);
+        console.log(appoID);
         async function ViewAppointmentDetails() {
             try {
                 const response = await axios.post(
-                    `http://localhost:5000/api/doctor/getalldoctorappointment/${user.email}`
+                    `http://localhost:5000/api/doctor/getalldoctorappointment/${cusemail}/${appoID}`
                 );
                 console.log(response.data.doctor);
                 const appointments = response.data.doctor;
-
-                setAppointment(appointments)
-
-                {
-                    appointment.map((appointment) => (
-
-                        setCusname(appointment.cusname),
-                        setContact(appointment.contact),
-                        setAddress(appointment.address),
-                        setEmail(appointment.email),
-                        setDoctorname(appointment.doctorname),
-                        setDate(appointment.date),
-                        setDoctorfee(appointment.doctorfee)
-
-
-                    ))
-                }
-
-
+    
+                setFirstName(appointments.firstname);
+                setLasname(appointments.lastname);
+                setDate(appointments.date);
+                setGender(appointments.gender);
+                setAge(appointments.age);
+                setEmail(appointments.email);
+                setContact(appointments.contact);
+                setAddress(appointments.address);
+                setEmergency(appointments.emergency);
+                setDoctor(appointments.doctor);
+                setDoctorfee(appointments.doctorfee);
             } catch (error) {
                 console.log(error);
             }
         }
         ViewAppointmentDetails();
-
-
     }, []);
+    
 
     async function EditUserScreen(e) {
         e.preventDefault();
@@ -63,13 +57,17 @@ function UpdateDocotAppointmenteScreen() {
 
         const updateappointment = {
             _id: appoID,
-            cusname: cusname,
+            firstname: firstname,
+            lastname: lastname,
+            date: date,
+            gender: gender,
+            age: age,
+            email: email,
             contact: contact,
             address: address,
-            email: email,
-            doctorname: doctorname,
-            date: date,
-            doctorfee: doctorfee
+            emergency: emergency,
+            doctor: doctor,
+            doctorfee: doctorfee,
         }
 
         try {
@@ -99,62 +97,114 @@ function UpdateDocotAppointmenteScreen() {
 
     return (
         <div>
-            <br /><br /><br />
+            <form onSubmit={EditUserScreen}>
+                <br /><br /><br />
+                <div className='full'>
+                    <div class="fullform">
+                        <h2 className='heder'>Patient Registration Form</h2>
 
-            <form onSubmit={EditUserScreen} className='docfullfrom' style={{marginLeft:'300px',padding:'100px'}}>
+                        <label className='lb' for="fname">First Name</label>
+                        <input className='text1' type="text" id="fname" name="fname" required value={firstname}
+                            onChange={
+                                (e) => {
+                                    setFirstName(e.target.value);
+                                }
+                            }
+                        />
 
-                <div >
-                    <div className="input-container" >
-                        <label><b>Date</b></label>
+                        <label className='lb' for="lname">Last Name</label>
+                        <input className='text1' type="text" id="lname" name="lname" required value={lastname}
+                            onChange={
+                                (e) => {
+                                    setLasname(e.target.value);
+                                }
+                            }
+                        />
+                        <label className='lb' for="lname">Age </label>
+                        <input className='text1' type="number" id="lname" name="lname" required value={age} min="0" max="120"
+                            onChange={
+                                (e) => {
+                                    setAge(e.target.value);
+                                }
+                            }
+                        />
+                        <label className='lb' for="dob">Date</label>
+                        <input type="date" id="dob" name="dob" required value={date}
+                            onChange={
+                                (e) => {
+                                    setDate(e.target.value);
+                                }
+                            }
+                        />     <br />
+
+                        <label className='lb' >Gender</label>
+
+
+                        <div style={{ display: 'flex' }}>
+                            &nbsp;&nbsp; <label className="form-check-label" htmlFor="maleRadio"> Male</label>&nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="maleRadio" name="gender" value="Male" required checked={gender === "Male"}
+                                onChange={(e) => {
+                                    setGender("Male");
+                                }}
+                            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                            <label className="form-check-label" htmlFor="femaleRadio">Female</label>&nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="femaleRadio" name="gender" value="Female" required checked={gender === "Female"}
+                                onChange={(e) => {
+                                    setGender("Female");
+                                }}
+                            />&nbsp;&nbsp;
+                        </div>
+
+
                         <br />
 
-                        <select
-                            className="languagetype"
-                            value={date}
-                            onChange={(e) => setDate(e.target.value)}
-                        >
-                            <option value="Monday">Monday</option>
-                            <option value="Wednesday">Wednesday</option>
-                            <option value="Friday">Friday</option>
-                        </select>
+                        <label className='lb' for="phone">Phone Number</label>
+                        <input className='text1' type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required value={contact}
+                            onChange={
+                                (e) => {
+                                    setContact(e.target.value);
+                                }
+                            }
+                        />
+
+                        <label className='lb' for="address">Address</label>
+
+                        <textarea id="address" name="address" required style={{ width: "580px", height: "100px" }} value={address}
+                            onChange={
+                                (e) => {
+                                    setAddress(e.target.value);
+                                }
+                            }
+                        ></textarea>
+                        <br />
+
+                        <label className='lb' for="emergency">Emergency Contact Number</label>
+                        <input className='text1' type="tel" id="emergency" name="emergency" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required value={emergency}
+                            onChange={
+                                (e) => {
+                                    setEmergency(e.target.value);
+                                }
+                            }
+                        />
+                        <br />
+
+
+                        <div style={{ display: "flex" }}>
+                            <input type="checkbox" id="consent" name="consent" required />
+                            <label className='lb' for="consent" style={{ fontSize: "13.5px" }}>&nbsp;&nbsp;&nbsp;I consent to the processing of my personal data in accordance with the Privacy Policy.</label>
+                        </div>
+                        <br />
+
+                        <button className='appointmentbtn' type="submit">Appointment Now!</button>
+
+                        <br />
+                        <br />
+
                     </div>
                 </div>
-
-                <div className="input-container" style={{marginTop:'10px'}}>
-                    <label ><b>Patient name</b></label>
-                    <br />
-                    <input
-                        type="text"
-                        placeholder="Enter Name"
-                        value={cusname}
-                        onChange={(e) => setCusname(e.target.value)}
-                    />
-                </div>
-                <div className="input-container">
-                    <label><b>Address</b></label>
-                    <br />
-                    <input
-                        type="text"
-                        placeholder="Enter Address"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                    />
-                </div>
-
-                <div className="input-container">
-                    <label><b>Contact</b></label>
-                    <br />
-                    <input
-                        type="text"
-                        placeholder="Enter Contact"
-                        value={contact}
-                        onChange={(e) => setContact(e.target.value)}
-                    />
-                </div>
-                <button type="submit" className="submit" style={{ width: "150px",marginTop:'50px',height:'40px',borderRadius:' 10px',backgroundColor:'#da751c',color:'white',border:'none', margin:'10px' }}>Update</button>
-                <button style={{ width: "150px",height:'40px',borderRadius:'10px',backgroundColor:'#da751c',color:'white',border:'none'  }}>Cancel</button>
             </form>
-
         </div>
     )
 }
