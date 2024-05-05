@@ -10,13 +10,14 @@ import Swal from 'sweetalert2';
 function PatientDetailsForm() {
 
   const { docfname, doclastname, docfee } = useParams();
+  const user = JSON.parse(localStorage.getItem('currentUser'));
 
   const [firstname, setFirstName] = useState('');
   const [lastname, setLasname] = useState('');
   const [date, setDate] = useState('');
   const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(user.email);
   const [contact, setContact] = useState('');
   const [address, setAddress] = useState('');
   const [emergency, setEmergency] = useState('');
@@ -57,7 +58,7 @@ function PatientDetailsForm() {
       setDate('')
       setGender('')
       setAge('')
-      setEmail('')
+      setEmail(user.email)
       setContact('')
       setAddress('')
       setEmergency('')
@@ -138,15 +139,7 @@ function PatientDetailsForm() {
            
 
             <br />
-            <label className='lb' for="email">Email Address</label>
-            <input className='text1' type="email" id="email" name="email" required value={email}
-              onChange={
-                (e) => {
-                  setEmail(e.target.value);
-                }
-              }
-            />
-
+      
             <label className='lb' for="phone">Phone Number</label>
             <input className='text1' type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required value={contact}
               onChange={
