@@ -99,4 +99,28 @@ router.route('/:brand/:model').post(async(req, res) => {
         
     }
 });
+
+router.route('/updateyeglassstatus/:id').put(async(req, res) => {
+
+    const id = req.params.id;
+
+    const {
+       status
+    } = req.body;
+
+    const updateeyeglassstatus = {
+        status
+    }
+    
+    try {
+        
+        await EyeGlass.findByIdAndUpdate(id , updateeyeglassstatus);
+        return res.status(200).json({status: "EyeglassStatus updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update EyeglassStatus", message: error});
+
+    }
+});
 module.exports = router;
