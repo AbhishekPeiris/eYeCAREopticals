@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import "../styles/cart.css";
 import Rating from 'react-rating-stars-component';
 import Loader from '../components/Loader';
+import { Divider, Flex, Tag } from 'antd';
 
 const CartScreen = () => {
 
@@ -85,6 +86,7 @@ const CartScreen = () => {
                                                                         edit={false}
                                                                     />
                                                                     <br />
+                                                                    {cart.status === 'In stock' ? (<Tag color="green">In stock</Tag>) : (<Tag color="red">Out of Stock</Tag>)}<br/><br/>
                                                                     <Link to={`/${cart.brand}/${cart.model}`}><button className="btn cartviewbtn">View</button></Link>
                                                                     <button className="btn cartremovebtn" onClick={(e) => removeCart(cart._id)} >Remove</button>
                                                                 </p>

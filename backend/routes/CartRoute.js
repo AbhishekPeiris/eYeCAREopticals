@@ -13,6 +13,7 @@ router.route('/addtocart').post(async(req, res) => {
         gender,
         price,
         rating,
+        status,
         imageurlcolor
 
     } = req.body;
@@ -25,6 +26,7 @@ router.route('/addtocart').post(async(req, res) => {
         gender,
         price,
         rating,
+        status,
         imageurlcolor
      });
  

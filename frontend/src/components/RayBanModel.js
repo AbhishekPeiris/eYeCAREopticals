@@ -29,6 +29,7 @@ const RayBanModel = () => {
     const [gender, setGender] = useState();
     const [price, setPrice] = useState();
     const [rating, setRating] = useState();
+    const [status, setStatus] = useState();
     const [imageurlcolor, setImageurlColor] = useState([]);
 
     const [framesize, setFramsize] = useState();
@@ -66,6 +67,7 @@ const RayBanModel = () => {
                         setGender(eyeglassData.gender);
                         setPrice(eyeglassData.price);
                         setRating(eyeglassData.rating);
+                        setStatus(eyeglassData.status);
                         setImageurlColor(eyeglassData.imageurlcolor1);
                         setFramsize(eyeglassData.framesize1);
                     }
@@ -136,6 +138,7 @@ const RayBanModel = () => {
                 gender : gender,
                 price : price,
                 rating : rating,
+                status : status,
                 imageurlcolor : imageurlcolor
             }
     
