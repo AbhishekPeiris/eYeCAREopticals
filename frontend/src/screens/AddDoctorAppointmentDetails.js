@@ -43,17 +43,17 @@ function AddDoctorAppointmentDetails() {
         setDoctorfee('');
       } catch (error) {
         console.log(error);
-        Swal.fire('Error', "Add Appointment Unsuccessfully", "error");
+        Swal.fire('Error', "Add Appointment Unsuccessfull", "error");
       }
     }   
   return (
     <div>
-    <form  class="form mb-5 mt-5" style={{width:"350px"}} onSubmit={AddDoctorAppointmentDetails}>
+    <form  className="da-form-group" onSubmit={AddDoctorAppointmentDetails}>
 
-    <h4><strong>Doctor Appointment Form</strong></h4><br/>
-      <div className="input-container">
-        <label>Customer Name</label><br/>
-        <input type="text" placeholder="Enter customer name " value={cusname} required
+    <h2>Doctor Appointment</h2><br/>
+      <div className="mb-3">
+        <label className="da-control-label">Customer Name</label><br/>
+        <input type="text" className="da-form-control" placeholder="Enter customer name " value={cusname} required
 
         onChange={(e) => {
           setCustomername(e.target.value)
@@ -61,61 +61,61 @@ function AddDoctorAppointmentDetails() {
         />
       </div>
       
-      <div className="input-container">
-        <label>Contact</label><br/>
-        <input type="tel" placeholder="Enter contact" value={contact} required
+      <div className="mb-3">
+        <label className="da-control-label">Contact</label><br/>
+        <input type="tel" className="da-form-control" placeholder="Enter contact" value={contact} required
         onChange={(e) => {
           setContact(e.target.value)
         }}
           
         />
-      <div className="input-container">
-        <label>Address</label><br/>
-        <input type="text" placeholder="Enter address" value={address} required
+      <div className="mb-3">
+        <label className="da-control-label">Address</label><br/>
+        <input type="text" className="da-form-control" placeholder="Enter address" value={address} required
          onChange={(e) => {
           setAddress(e.target.value)
         }}
         />
       </div>
       </div>
-      <div className="input-container">
-        <label>Email</label><br/>
-        <input type="email" placeholder="Enter email" value={email} required
+      <div className="mb-3">
+        <label className="da-control-label">Email</label><br/>
+        <input type="email" className="da-form-control" placeholder="Enter email" value={email} required
          onChange={(e) => {
           setEmail(e.target.value)
         }}
         />
       </div>
 
-      <div className="input-container">
-        <label>Doctor Name </label><br/>
-        <input type="text" placeholder="Enter doctor name" value={doctorname} required
+      <div className="mb-3">
+        <label className="da-control-label">Doctor Name </label><br/>
+        <input type="text" className="da-form-control" placeholder="Enter doctor name" value={doctorname} required
           onChange={(e) => {
             setDoctorname(e.target.value)
           }}
         />
       </div>
 
-      <div className="input-container">
-        <label>Date</label><br/>
-        <input type="date" placeholder="Enter Date " value={date} required
+      <div className="mb-3">
+        <label className="da-control-label">Date</label><br/>
+        <input type="date" className="da-form-control" placeholder="Enter Date " value={date} required
           onChange={(e) => {
             setDate(e.target.value)
           }}
         />
       </div>
 
-      <div className="input-container">
-        <label>Doctor Fee</label><br/>
-        <input type="text" placeholder="Enter doctor fee" value={doctorfee} required
+      <div className="mb-3">
+        <label className="da-control-label">Doctor Fee</label><br/>
+        <input type="text" className="da-form-control" placeholder="Enter doctor fee" value={doctorfee} required
          onChange={(e) => {
           setDoctorfee(e.target.value)
         }}
         />
       </div>
 
-      <button type="submit" className="submit" style={{width:"300px"}}>Submit</button>
-          <button class="submit" style={{width:"300px"}}>Cancel</button>
+      <button type="submit" className="submit">Submit</button>
+         
     </form>
   </div>
 
