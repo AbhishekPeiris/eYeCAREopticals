@@ -40,6 +40,8 @@ const RayBanModel = () => {
 
     const [loading, setLoading] = useState(true);
 
+    const [eyeglassID, seteyeglassID] = useState('');
+
 
     useEffect(() => {
 
@@ -60,7 +62,8 @@ const RayBanModel = () => {
     
                     // Only set individual states once after fetching data
                     if (response.data.eyeGlass.length > 0) {
-                        const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
+                        const eyeglassData = response.data.eyeGlass[0]; 
+                        seteyeglassID(eyeglassData._id)// Assuming only one item is returned
                         setModelNo(eyeglassData.model);
                         setType(eyeglassData.type);
                         setBrandName(eyeglassData.brand);
@@ -178,15 +181,24 @@ const RayBanModel = () => {
             imageurlcolor : imageurlcolor
 
           }
+
+          const updateEyeglassStatus = {
+            status: "Out of stock",
+        };
+          
       
           try {
             setLoading(true);
             const data = (await axios.post('http://localhost:5000/api/eyeglassreservation/createeyeglassreservation', newEyeglassReservation)).data;
             console.log(data);
-            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})
-            setStatus('Out of stock')
+            const updateResponse = await axios.put(
+                `http://localhost:5000/api/eyeglass/updateyeglassstatus/${eyeglassID}`,
+                updateEyeglassStatus
+            );
+            console.log(updateResponse.data);
+            //await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})    
             Swal.fire('Thank you!', "Your Reservation is Successfully", "success").then(result => {
-              window.location.href = '/bookings';
+              //window.location.href = '/bookings';
             });
             setLoading(false);
             

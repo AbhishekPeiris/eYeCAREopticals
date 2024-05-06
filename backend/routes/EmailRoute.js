@@ -75,7 +75,7 @@ function reservationEmail(object) {
                 </div>
                 <div class="details">
                     <h2>Reservation Details:</h2>
-                    <img src=${object.imageurlcolor} alt="Item" width="200" /><br/>
+                    <img src=${object.imageurlcolor} alt="Item" width="300" /><br/>
                     <p><strong>Model:</strong> ${object.model}</p>
                     <p><strong>Type:</strong> ${object.type}</p>
                     <p><strong>Brand:</strong> ${object.brand}</p>
