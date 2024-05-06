@@ -84,7 +84,7 @@ function UpdateDoctorDetails() {
             
             const data = (await axios.put(`http://localhost:5000/api/doctormanagement/editdoctor/${docID}`, updatedoctor)).data;
         
-            Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
+            Swal.fire('Updated', "Docter profile is updated successfully", "success").then(result => {
 
                  window.location.href = '/viewdoctordetails';
 

@@ -35,8 +35,8 @@ router.route('/createeyeglassreservation').post(async(req, res) => {
  
      try {
          
-         await newEyeglassReservation.save();
-         return res.status(200).json({status: "EyeglassReservation is create successfully"});
+         const response = await newEyeglassReservation.save();
+         return res.status(200).json(response);
  
      } catch (error) {
          
