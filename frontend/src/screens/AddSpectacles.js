@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Sidebar from '../components/Sidebar';
+//import "../styles/AdminDashboard.css";
+import '../styles/newStyles.css';
+
+
+
 
 
 function AddSpectacles() {
@@ -91,13 +97,21 @@ function AddSpectacles() {
 
 
   return (
-    <div>
+    <div className='container DashboardContainer'>
+      <Sidebar />
+      
+      <div>
+      <div style={{ textAlign: 'center' }}>
+  <h4 style={{ marginTop: '150px' }}><strong>Spectacle Details</strong></h4>
+</div>
+<br/>
+
       <form onSubmit={AddSpectacles} className='addsec'style={{marginLeft:'100px',border:'10px',borderColor:'black'}}>
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
             <div style={{textAlign:'center'}}>
-            <h4 ><strong >Spectacle Details</strong></h4><br/> 
+
             </div>
 
             <div class="input-container">
@@ -285,6 +299,7 @@ function AddSpectacles() {
         </div>
       </div>
       </form>
+      </div>
     </div>
   );
 }
