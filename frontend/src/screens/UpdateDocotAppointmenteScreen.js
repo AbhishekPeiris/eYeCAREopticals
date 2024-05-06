@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 function UpdateDocotAppointmenteScreen() {
 
-    const { cusemail,appoID } = useParams();
+    const { cusemail, appoID } = useParams();
     const user = JSON.parse(localStorage.getItem('currentUser'));
 
     const [firstname, setFirstName] = useState('');
@@ -30,7 +30,7 @@ function UpdateDocotAppointmenteScreen() {
                 );
                 console.log(response.data.doctor);
                 const appointments = response.data.doctor;
-    
+
                 setFirstName(appointments.firstname);
                 setLasname(appointments.lastname);
                 setDate(appointments.date);
@@ -48,7 +48,7 @@ function UpdateDocotAppointmenteScreen() {
         }
         ViewAppointmentDetails();
     }, []);
-    
+
 
     async function EditUserScreen(e) {
         e.preventDefault();
@@ -141,20 +141,20 @@ function UpdateDocotAppointmenteScreen() {
 
 
                         <div style={{ display: 'flex' }}>
-                            &nbsp;&nbsp; <label className="form-check-label" htmlFor="maleRadio"> Male</label>&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                             <input type="radio" id="maleRadio" name="gender" value="Male" required checked={gender === "Male"}
                                 onChange={(e) => {
                                     setGender("Male");
                                 }}
-                            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            /> &nbsp;&nbsp;<label className="form-check-label" htmlFor="maleRadio"> Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-                            <label className="form-check-label" htmlFor="femaleRadio">Female</label>&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;
                             <input type="radio" id="femaleRadio" name="gender" value="Female" required checked={gender === "Female"}
                                 onChange={(e) => {
                                     setGender("Female");
                                 }}
-                            />&nbsp;&nbsp;
+                            />&nbsp;&nbsp;<label className="form-check-label" htmlFor="femaleRadio">Female</label>
                         </div>
 
 
@@ -197,7 +197,7 @@ function UpdateDocotAppointmenteScreen() {
                         </div>
                         <br />
 
-                        <button className='appointmentbtn' type="submit">Appointment Now!</button>
+                        <button className='appointmentbtn' type="submit"> Update Now!</button>
 
                         <br />
                         <br />
