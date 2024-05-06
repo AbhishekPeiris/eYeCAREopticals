@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
@@ -326,7 +326,7 @@ function UpdateSepectacleDetails() {
 
 
             <button type="submit" class="submit">Submit</button>
-            <button class="submit">Cancel</button>
+            <Link to ='/viewspectaclesdetails'><button class="submit">Cancel</button></Link>
           </div>
         </div>
       </div>
