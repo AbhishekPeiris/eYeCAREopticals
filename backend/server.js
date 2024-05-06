@@ -19,10 +19,7 @@ app.listen(PORT, () => {
     console.log(`Server is up and running on port number ${PORT}`);
 });
 
-mongoose.connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect(URL);
 
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -90,5 +87,8 @@ app.use('/api/eyeglassadmin',EyeglassAdminRoute);
 
 const CartRoute = require('./routes/CartRoute');
 app.use('/api/cart',CartRoute);
+
+const EmailRoute = require('./routes/EmailRoute');
+app.use('/api/sendemail',EmailRoute);
 
 

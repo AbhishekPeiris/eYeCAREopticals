@@ -219,7 +219,8 @@ router.route('/edituser/:id').put(async (req, res) =>{
         gender,
         contact,
         email,
-        password
+        password,
+        role
     } = req.body;
 
     const updateUser = {
@@ -231,7 +232,8 @@ router.route('/edituser/:id').put(async (req, res) =>{
         gender,
         contact,
         email,
-        password
+        password,
+        role
     }
     
     try {

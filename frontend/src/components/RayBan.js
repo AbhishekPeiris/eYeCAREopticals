@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Divider, Flex, Tag } from 'antd';
 
 AOS.init({ duration: 1000 });
 
@@ -172,7 +173,8 @@ const RayBan = () => {
                                             edit={false}
                                         />
                                         <hr style={{ backgroundColor: "black" }} />
-                                        Frame : <strong>LKR {eyeglass.price}</strong>
+                                        Frame : <strong>LKR {eyeglass.price}</strong><br/>
+                                        {eyeglass.status === 'In stock' ? (<Tag color="green">In stock</Tag>) : (<Tag color="red">Out of Stock</Tag>)}<br/><br/>
                                         <Link to={`/${eyeglass.brand}/${eyeglass.model}`}><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
                                     </p>
                                 </div>

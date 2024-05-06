@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 import Rating from 'react-rating-stars-component';
 import StripeCheckout from "react-stripe-checkout";
 import Swal from 'sweetalert2';
+import Loader from '../components/Loader';
 
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
@@ -36,6 +37,8 @@ const RayBanModel = () => {
 
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(true);
+
 
     useEffect(() => {
 
@@ -49,6 +52,7 @@ const RayBanModel = () => {
                 setAddress(user.address)
     
                 try {
+                    setLoading(true);
                     const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
                     setEyeglass(response.data.eyeGlass);
                     console.log(response.data.eyeGlass);
@@ -65,21 +69,25 @@ const RayBanModel = () => {
                         setImageurlColor(eyeglassData.imageurlcolor1);
                         setFramsize(eyeglassData.framesize1);
                     }
+                    setLoading(false);
     
                 } catch (error) {
                     console.log(error);
+                    setLoading(false);
                 }
             }
             getEyeglassDetails(brand, model);
     
             async function getCartItems() {
                 try {
+                    setLoading(true);
                     const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
                     setCart(response.data.cart);
                     console.log(response.data.cart);
-                
+                    setLoading(false);
                 } catch (error) {
                     console.log(error);
+                    setLoading(false);
                 }
             }
     
@@ -132,13 +140,16 @@ const RayBanModel = () => {
             }
     
             try {
+                setLoading(true);
                 const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
                 console.log(response.data);
                 console.log(newCartItem);
                 window.location.reload();
+                setLoading(false);
     
             } catch (error) {
-                console.log(error);;
+                console.log(error);
+                setLoading(false);
             }
 
         }
@@ -166,17 +177,19 @@ const RayBanModel = () => {
           }
       
           try {
-            
+            setLoading(true);
             const data = (await axios.post('http://localhost:5000/api/eyeglassreservation/createeyeglassreservation', newEyeglassReservation)).data;
             console.log(data);
+            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})
             Swal.fire('Thank you!', "Your Reservation is Successfully", "success").then(result => {
               window.location.href = '/bookings';
             });
-      
+            setLoading(false);
             
           } catch (error) {
             console.log(error);
             Swal.fire('Error', "Your Resetvation is Unsuccessfully", "error");
+            setLoading(false);
           }
 
     }
@@ -187,6 +200,12 @@ const RayBanModel = () => {
 
     return (
         <div>
+
+        {loading ? (
+            <Loader />
+        ) : (
+            <div>
+
             <div className="row">
                 <div className='col md-5'>
                     <br /><br /><br />
@@ -345,6 +364,11 @@ const RayBanModel = () => {
             ))}
 
         </div>
+            
+        )}
+
+        </div>
+            
     );
 }
 

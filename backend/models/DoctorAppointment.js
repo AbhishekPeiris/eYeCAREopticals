@@ -3,15 +3,23 @@ const Schema = mongoose.Schema;
 
 const DoctorAppointmentSchema = new Schema({
 
-    cusname : {
+    firstname : {
         type: String,
         required: true
     },
-    contact : {
+    lastname : {
         type: String,
         required: true
     },
-    address : {
+    date : {
+        type: String,
+        required: true
+    },
+    gender : {
+        type: String,
+        required: true
+    },
+    age : {
         type: String,
         required: true
     },
@@ -19,16 +27,24 @@ const DoctorAppointmentSchema = new Schema({
         type: String,
         required: true
     },
-    doctorname : {
-        type: String,
-        required: true
+    contact : {
+        type : String,
+        required : true
     },
-    date : {
+    address : {
+        type : String,
+        required : true
+    },
+    emergency : {
+        type : String,
+        required : true
+    },
+    doctor : {
         type : String,
         required : true
     },
     doctorfee : {
-        type : Number,
+        type : String,
         required : true
     },
     
