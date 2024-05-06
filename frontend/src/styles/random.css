@@ -46,6 +46,7 @@ overflow: scroll;
   .form617 {
     flex: 1;
     padding: 20px;
+    
   }
   
   .container617 {
@@ -79,7 +80,7 @@ overflow: scroll;
   }
   
   .table617 th {
-    background-color: #f2f2f2;
+    background-color: #abd3ee;
   }
   
   .table617 tr:nth-child(even) {
