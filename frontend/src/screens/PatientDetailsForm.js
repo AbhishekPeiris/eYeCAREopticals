@@ -75,6 +75,16 @@ function PatientDetailsForm() {
 
   }
 
+  function sumbmithadle(){
+ 
+    // Check if all required fields are filled
+    if (!firstname || !lastname || !date || !gender || !age || !contact || !address || !emergency) {
+      alert('Please fill in all required fields')
+      window.location.reload();
+    }
+    
+  }
+
   return (
     <div>
       <form>
@@ -184,7 +194,8 @@ function PatientDetailsForm() {
               currency='LKR'
               stripeKey="pk_test_51Nu7smDOmIYodrCji9U41paJjaMrcNBAi0HhO8DB5i0c0fXxABtjqL7GCZJxoSHMvBu8U2uymvDSKsZaAUGsbCpi000BhYzBG5"
             >
-              <button className='appointmentbtn' type="button">Appointment Now!</button>
+            
+              <button className='appointmentbtn' type="button" onClick={sumbmithadle}>Appointment Now!</button>
             </StripeCheckout>
             <br />
             <br />
