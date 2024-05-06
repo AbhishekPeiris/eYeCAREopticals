@@ -185,6 +185,7 @@ router.route('/getalluser').post(async (req, res) => {
     }
 });
 
+
 router.route('/getalluser/:id').post(async(req, res) => {
 
     const userID = req.params.id;
