@@ -80,4 +80,28 @@ router.route('/removecartitem/:id').delete(async (req, res) => {
     }
 });
 
+router.route('/updateyeglassstatuscart/:id').put(async(req, res) => {
+
+    const id = req.params.id;
+
+    const {
+       status
+    } = req.body;
+
+    const updateeyeglassstatuscart = {
+        status
+    }
+    
+    try {
+        
+        await Cart.findByIdAndUpdate(id , updateeyeglassstatuscart);
+        return res.status(200).json({status: "EyeglassStatuscart updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update EyeglassStatuscart", message: error});
+
+    }
+});
+
 module.exports = router;
