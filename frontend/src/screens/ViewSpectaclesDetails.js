@@ -144,6 +144,9 @@ function ViewSpectaclesDetails() {
         <div className="col-md-1 border samth">
           <strong><p>Rating</p></strong>
         </div>
+        <div className="col-md-1 border samth">
+          <strong><p>Status</p></strong>
+        </div>
       </div>
 
       {spectacles.map((spectacle) => (
@@ -167,6 +170,9 @@ function ViewSpectaclesDetails() {
                                             size={24}
                                             edit={false}
                                         />
+          </div>
+          <div className="col-md-1 border samtd">
+            <p>{spectacle.status}</p>
           </div>
         </div>
       ))}
