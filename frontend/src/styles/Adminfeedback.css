@@ -2,44 +2,51 @@
     width:150px;
     height:40px;
     text-align: center;
-    background-color: moccasin;
+    background-color: rgb(183, 220, 247);
+    top: 20px;
 }
 
 .table6172{
     width:150px;
     height:40px;
     text-align: center;
-    background-color: moccasin;
+    background-color: rgb(183, 220, 247);
+    top: 20px;
 }
 .table6173{
     width:150px;
     height:40px;
     text-align: center;
-    background-color: moccasin;
+    background-color:  rgb(183, 220, 247);
+    top: 20px;
 }
 .table6174{
     width:200px;
     height:40px;
     text-align: center;
-    background-color: moccasin;
+    background-color: rgb(183, 220, 247);
+    top: 20px;
 }
 .table6175{
     width:200px;
     height:40px;
     text-align: center;
-    background-color: moccasin;
+    background-color:  rgb(183, 220, 247);
+    top: 20px;
 }
 .table6176{
     width:200px;
     height:40px;
     text-align: center;
-    background-color: moccasin;
+    background-color:  rgb(183, 220, 247);
+    top: 20px;
 }
 .table6177{
     width:200px;
     height:40px;
     text-align: center;
-    background-color: moccasin;
+    background-color:  rgb(183, 220, 247);
+    top: 20px;
 }
 .table6171a{
     width:150px;
@@ -48,9 +55,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
     
     
 }
+.form617 {
+    margin-left: 150px;
+    margin-top: 150px;
+    position: 200px;
+    font-size: 15px;
+    text-align: center; /* Center-align text */
+    justify-content: center;
+    align-items: center;
+}
+
 .table6172a{
     width:150px;
     height:50px;
@@ -58,6 +76,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
+   
     
 }
 .table6173a{
@@ -103,6 +123,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  
 }
 
 
@@ -114,16 +135,46 @@
     width:100px;
     height: 40px;
     background-color: rgb(181, 38, 38);
+    font-weight: bold;
   }
-  .form617{
-    margin-left: 150px;
-    margin-top: 150px;
-    position: 300px;
-    
+ 
    
+  
+ 
+  
+  .table6171a p,
+  .table6174a p {
+    font-weight: bold;
   }
-
-
-
-
-
+  .download-button617 {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #111111;
+    border-radius: 5px;
+    background-color: rgb(137, 180, 237);
+    font-weight: bold;
+    
+  }
+  
+  .search-bar617 {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #020202;
+    border-radius: 5px;
+    background-color: rgb(247, 247, 245);
+    margin-right: 20px;
+    margin-top: 20px;
+    position: absolute;
+    top: 100px;
+    left: 280px;
+  }
+  .container617{
+    font-size: 15px;
+  }
+ 
