@@ -41,22 +41,22 @@ function Sidebar() {
 
   const SubLinks = [
     [
-      { Name: "Add Repairment", path: "/addrepairment" },
+      { Name: "Add Repairment", path: "/addrepairmentdetails" },
       { Name: "View Repairment Details", path: "/viewrepairmentdetails" },
     ],
     [
-      { Name: "Manage Spectacle Stock", path: "/managespectaclestock" },
-      { Name: "View Spectacle Details", path: "/viewspectacledetails" },
+      { Name: "Manage Spectacle Stock", path: "/addspectacles" },
+      { Name: "View Spectacle Details", path: "/viewspectaclesdetails" },
     ],
     [
-      { Name: "Manage Hearing Aids", path: "/managehearingaids" },
-      { Name: "View Hearing Aids Details", path: "/viewhearingaidsdetails" },
+      { Name: "Manage Hearing Aids", path: "/addhearingaidsscreen" },
+      { Name: "View Hearing Aids Details", path: "/viewdeafaidsdetails" },
     ],
     [
-      { Name: "Manage Doctor Details", path: "/managedoctordetails" },
+      { Name: "Manage Doctor Details", path: "/adddoctor" },
       { Name: "View Doctor Details", path: "/viewdoctordetails" },
     ],
-    [{ Name: "Doctor Appointment", path: "/doctorappointment" }],
+    [{ Name: "Doctor Appointment", path: "/viewdoctorappointment" }],
   ];
 
   return (
