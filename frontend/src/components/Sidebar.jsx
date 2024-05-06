@@ -36,7 +36,7 @@ function Sidebar() {
     { Name: "Doctors", path: "/doctors", id: 3 },
     { Name: "Appointments", path: "/appointments", id: 4 },
     { Name: "Customer Details", path: "/customerDetails", id: 5 },
-    { Name: "Feedback", path: "/feedback", id: 6 },
+    { Name: "Feedback", path: "/adminfeedback", id: 6 },
   ];
 
   const SubLinks = [
