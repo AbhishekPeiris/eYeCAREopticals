@@ -1,0 +1,216 @@
+/* dashboard.css */
+
+.DashboardContainer {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.DashboardContainer .sidebar {
+  width: 300px;
+  height: 100vh;
+  border-right: 1px solid rgb(156, 156, 156);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.DashboardContainer .sidebar h1 {
+  font-size: 40px;
+}
+
+.DashboardContainer .sidebar h1 .left {
+  color: rgb(22, 48, 176);
+}
+
+.DashboardContainer .sidebar h1 .right {
+  color: rgb(46, 46, 46);
+}
+
+.navigationalLinks {
+  margin-left: -40px;
+}
+
+.DashboardContainer .sidebar ul li {
+  list-style-type: none;
+  margin-bottom: 0.7rem;
+  width: 240px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.DashboardContainer .sidebar ul li button {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  float: inline-end;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.DashboardContainer .sidebar ul li .sublinks {
+  z-index: 10;
+  width: 100%;
+  margin-left: -15px;
+  background-color: white;
+}
+
+.content {
+  max-width: 1080px;
+  width: 90%; /* Adjusted for responsiveness */
+  min-width: 500px;
+  height: auto; /* Adjusted for responsiveness */
+  max-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding: 20px;
+  padding-top: 10px;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.chartdiv {
+  width: 80%;
+  height: 1000px !important;
+  margin-bottom: 20px;
+  margin-top: 920px; /* Adjusted for responsiveness */
+}
+
+.displayUtitlities {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 20px; /* Adjusted for responsiveness */
+  margin-bottom: 20px;
+}
+
+/* Calendar.css */
+.calendar-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.react-calendar {
+  max-width: 400px;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+}
+
+.react-calendar__tile--active {
+  background-color: #182f85;
+  color: #212121;
+}
+
+.react-calendar__tile--now {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__tile--hover {
+  background-color: #6e6d6d;
+}
+
+.react-calendar__navigation button {
+  background-color: #182f85;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: #6e6d6d;
+}
+
+.react-calendar__navigation button[disabled] {
+  color: #ccc;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: bold;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #ccc;
+}
+
+.react-calendar__tile {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profiles {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.profilecard {
+  width: 310px;
+  max-width: 320px;
+  overflow: auto;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 2px black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 10px 15px;
+}
+
+.profilecard img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1000px) {
+  .content {
+    width: 90%;
+  }
+
+  .chartdiv {
+    width: 90%;
+  }
+
+  .displayUtitlities,
+  .DashboardContainer,
+  .DashboardContainer .sidebar {
+    flex-direction: column;
+    width: 100% !important;
+  }
+
+  .chartdiv {
+    margin-top: 1120px;
+  }
+  .profiles {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .chartdiv {
+    margin-top: 1420px;
+  }
+}

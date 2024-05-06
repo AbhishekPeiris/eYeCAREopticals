@@ -1,0 +1,54 @@
+.samfullafterside{
+    margin-left: 350px;
+    text-align: center;
+}
+.mdlno1{
+    width: 150px;
+    height: 40px;
+    font-size:15px; 
+    
+}
+.mdlno2{
+    width: 200px;
+    height: 40px;
+    font-size:15px;
+}
+.mdlno3{
+    width: 200px;
+    height: 40px;
+    font-size:15px;
+}
+.mdlno4{
+    width: 200px;
+    height: 40px;
+    font-size:15px;
+}
+.samth{
+    width: 150px;
+}
+.samtd{
+    width: 150px;
+}
+.samtdsam{
+    width:200px;
+}
+.samthsam{
+    width:200px;
+    
+}
+.samupdatebtn{
+    background-color: green;
+    border:none;
+    border-radius: 3px;
+    color: white;
+    font-size: 13px;
+    
+}
+.samdeletebtn{
+    background-color: red;
+    border:none;
+    border-radius: 3px;
+    color: white;
+    font-size: 13px;
+    margin-left: 20px;
+}

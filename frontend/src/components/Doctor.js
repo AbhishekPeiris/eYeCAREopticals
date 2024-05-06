@@ -4,6 +4,8 @@ import Loader from '../components/Loader';
 import { Link, useParams } from 'react-router-dom';
 import Rating from 'react-rating-stars-component';
 import styles from '../styles/Doctor.css';
+import StripeCheckout from "react-stripe-checkout";
+import Swal from 'sweetalert2';
 
 function Doctor() {
 
@@ -15,9 +17,11 @@ function Doctor() {
     async function getDoctor() {
       try {
         console.log(docID);
-        const response = await axios.post(`http://localhost:5000/api/doctor/${docID}`);
+        const response = await axios.post(`http://localhost:5000/api/doctor/doctorid/${docID}`);
         setDoctor(response.data.doctor);
         console.log(response.data.doctor)
+        
+  
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -68,10 +72,10 @@ function Doctor() {
             </div>
           </div>
 
-          <button className='btn btn-primary apponow'>Appointment Now!</button>
-          <div className='row table_81'>
 
-                    </div>
+          <Link to={`/patientdetails/${doctor.firstname}/${doctor.lastname}/${doctor.doctorfee}`}><button className='btn btn-primary apponow'>Appointment Now!</button></Link>
+          <div className='row table_81'>
+          </div>
 
 
         </div>

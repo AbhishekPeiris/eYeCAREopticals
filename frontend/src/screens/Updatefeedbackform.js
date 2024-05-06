@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import "../styles/feedbackformScreen.css";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import StarRatings from "react-star-ratings";
@@ -61,7 +62,7 @@ function Updatefeedbackform() {
             
             const data = (await axios.put(`http://localhost:5000/api/feedback/editfeedback/${feedbackID}`, updatefeedback)).data;
         
-            Swal.fire('Updated', "Your profile is updated successfully", "success").then(result => {
+            Swal.fire('Updated', "Your Feedback is updated successfully", "success").then(result => {
 
                  window.location.href = '/profile';
 
@@ -71,13 +72,13 @@ function Updatefeedbackform() {
         } catch (error) {
             
             console.log(error);
-            Swal.fire('Error', "Error with updating user", "error");
+            Swal.fire('Error', "Error with updating Feedback", "error");
           
 
         }
     }
   return (
-    <div className="fd-container">
+    <div style={{marginLeft:'300px'}}>
       <br />
       <br />
       <br />
@@ -86,7 +87,7 @@ function Updatefeedbackform() {
         <img src={pngwing} alt="feed pic" className="png123" />
       </div>
 
-      <h2 className="fd-form-title">Customer Feedback Form</h2>
+      <h2 className="fd-form-title" style={{marginLeft:"10px"}}> Edit Customer Feedback Form</h2>
       <form className="form" onSubmit={editfeedback}>
         <div className="fd-form-group">
           <label className="fb_other" htmlFor="fd-exampleInputName">

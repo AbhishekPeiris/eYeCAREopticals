@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Divider, Flex, Tag } from 'antd';
 
 AOS.init({ duration: 1000 });
 
@@ -82,6 +83,16 @@ const RayBan = () => {
         });
     }
 
+    function shopnow(status,brand,model){
+        if (!(status === 'In stock')){
+            alert('This product is currently out of stock. Please check back later.');
+        }
+        else{
+            window.location.href = `/${brand}/${model}`;
+        }
+
+    }
+
     return (
 
         <div>
@@ -95,7 +106,10 @@ const RayBan = () => {
                     <div className='row'>
                         <div className='col md-3 RBtable_1col_1'>
                             <img src="https://1000logos.net/wp-content/uploads/2021/06/Ray-Ban-logo.png" alt="" width="200" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br />
-                            <p data-aos="fade-right"><small>Ray-Ban eyeglasses and sunglasses epitomize timeless style and cutting-edge optics.<br /> Renowned for iconic designs like the Aviator and Wayfarer, they seamlessly merge fashion and function.<br /> Crafted with precision, Ray-Ban lenses provide unparalleled clarity and UV protection.<br /> Elevate your look with the brand that has defined cool since 1936.</small></p>
+                            <div style={{textAlign:"justify",width:"450px",fontSize:"14px"}}><p data-aos="fade-right"><small>Ray-Ban eyeglasses and sunglasses epitomize timeless style and cutting-edge optics.
+                                Renowned for iconic designs like the Aviator and Wayfarer, they seamlessly merge fashion and function.
+                            Crafted with precision, Ray-Ban lenses provide unparalleled clarity and UV protection.
+                             Elevate your look with the brand that has defined cool since 1936.</small></p></div>
                         </div>
                         <div className='col md-3'>
                             <img src={RaybanEyeGlass} alt="" className="img-fluid" />
@@ -169,8 +183,9 @@ const RayBan = () => {
                                             edit={false}
                                         />
                                         <hr style={{ backgroundColor: "black" }} />
-                                        Frame : <strong>LKR {eyeglass.price}</strong>
-                                        <Link to={`/${eyeglass.brand}/${eyeglass.model}`}><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
+                                        Frame : <strong>LKR {eyeglass.price}</strong><br/>
+                                        {eyeglass.status === 'In stock' ? (<Tag color="green">In stock</Tag>) : (<Tag color="red">Out of Stock</Tag>)}<br/><br/>
+                                        <button className='Reyeglassesbtn' onClick={(e)=>{shopnow(eyeglass.status,eyeglass.brand,eyeglass.model)}}>SHOP NOW !</button>
                                     </p>
                                 </div>
                             ))}

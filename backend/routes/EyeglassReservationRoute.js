@@ -35,8 +35,8 @@ router.route('/createeyeglassreservation').post(async(req, res) => {
  
      try {
          
-         await newEyeglassReservation.save();
-         return res.status(200).json({status: "EyeglassReservation is create successfully"});
+         const response = await newEyeglassReservation.save();
+         return res.status(200).json(response);
  
      } catch (error) {
          
@@ -67,6 +67,22 @@ router.route('/geteyeglassreservations/:email').post(async(req, res) => {
     }
 });
 
+router.route('/geteyeglassreservations/:email/:id').get(async (req, res) => {
+    const email = req.params.email;
+    const id = req.params.id;
+
+    try {
+        const eyeglassreservation = await EyeglassReservation.findById(id);
+
+        if (!eyeglassreservation || eyeglassreservation.email !== email) {
+            return res.status(404).json({ status: "Eyeglass reservation not found" });
+        }
+
+        return res.status(200).json({ status: "Eyeglass reservation fetched", eyeglassreservation });
+    } catch (error) {
+        return res.status(500).json({ status: "Error with fetching eyeglass reservation", message: error });
+    }
+});
 
 router.route('/editeyeglassreservation/:id').put(async (req, res) =>{
 

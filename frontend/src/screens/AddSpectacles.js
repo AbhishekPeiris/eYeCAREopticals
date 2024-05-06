@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -24,6 +23,7 @@ function AddSpectacles() {
 
   const [price, setprice] = useState();
   const [rating, setrating] = useState();
+  const [status, setstatus] = useState();
   const [imageurlcolor1, setimageurlcolor1] = useState();
   const [imageurlcolor2, setimageurlcolor2] = useState();
   const [imageurlcolor3, setimageurlcolor3] = useState();
@@ -49,6 +49,7 @@ function AddSpectacles() {
       framesize3 : framesize3,
       price : price,
       rating : rating,
+      status : status,
       imageurlcolor1 : imageurlcolor1,
       imageurlcolor2 : imageurlcolor2,
       imageurlcolor3 : imageurlcolor3,
@@ -60,7 +61,7 @@ function AddSpectacles() {
       console.log(response.data);
       Swal.fire('Thank you!', "Add Details Successfully", "success").then(result => {
 
-        window.location.href = '/AddSpectacles';
+        window.location.href = '/viewspectaclesdetails';
 
     });
 
@@ -78,6 +79,7 @@ function AddSpectacles() {
     setframesize3('');
     setprice('');
     setrating('');
+    setstatus('In stock')
     setimageurlcolor1('');
     setimageurlcolor2('');
     setimageurlcolor3('');
@@ -93,11 +95,13 @@ function AddSpectacles() {
 
   return (
     <div>
-      <form onSubmit={AddSpectacles} className='addsec'>
+      <form onSubmit={AddSpectacles} className='addsec'style={{marginLeft:'100px',border:'10px',borderColor:'black'}}>
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
-            {/* <h4><strong>Customer Details</strong></h4><br/> */}
+            <div style={{textAlign:'center'}}>
+            <h4 ><strong >Spectacle Details</strong></h4><br/> 
+            </div>
 
             <div class="input-container">
               <lable>Model</lable>
@@ -197,7 +201,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Frame Size 01</label>
-              <input type="number" placeholder="Enter Frame Size 01" value={framesize1} required
+              <input type="text" placeholder="Enter Frame Size 01" value={framesize1} required
                 onChange={(e) => {
                   setframesize1(e.target.value);
                 }}
@@ -207,7 +211,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Frame Size 02</label>
-              <input type="number" placeholder="Enter Frame Size 02" value={framesize2} required
+              <input type="text" placeholder="Enter Frame Size 02" value={framesize2} required
                 onChange={(e) => {
                   setframesize2(e.target.value);
                 }}
@@ -216,7 +220,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Frame Size 03</label>
-              <input type="number" placeholder="Enter Frame Size 03" value={framesize3} required
+              <input type="text" placeholder="Enter Frame Size 03" value={framesize3} required
                 onChange={(e) => {
                   setframesize3(e.target.value);
                 }}
@@ -242,6 +246,19 @@ function AddSpectacles() {
                 }}
               />
             </div>
+
+            <div className="input-container">
+        <label>Status</label>
+            <br/>
+          <select
+              value={status}
+              required
+              onChange={(e) => setstatus(e.target.value)}
+            >
+              <option value="In stock">In stock</option>
+              <option value="Out of stock">Out of stock</option>
+            </select>
+        </div>
 
             </div>
             </div>

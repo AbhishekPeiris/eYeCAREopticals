@@ -95,7 +95,12 @@ const Chanel = () => {
                     <div className='row'>
                         <div className='col md-3 RBtable_1col_1'>
                             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Chanel_logo_interlocking_cs.svg/2560px-Chanel_logo_interlocking_cs.svg.png" alt="" width="170" className="img-fluid mb-4 mb-lg-0" data-aos="zoom-in" /><br /><br/>
-                            <p data-aos="fade-right"><small>CHANEL eyeglasses and sunglasses epitomize timeless elegance and<br/> sophistication. With iconic designs and meticulous attention<br/> to detail, each pair embodies the spirit of luxury<br/> and refinement. From classic shapes to bold statements,<br/> CHANEL eyewear exudes effortless style and glamour,<br/> perfect for those who appreciate the fusion of fashion and artistry.</small></p>
+                            <div style={{textAlign:"justify",width:"450px",fontSize:"14px"}}><p data-aos="fade-right"><small>CHANEL eyeglasses and sunglasses epitomize timeless elegance and
+                                 sophistication. With iconic designs and meticulous attention
+                                  to detail, each pair embodies the spirit of luxury
+                                   and refinement. From classic shapes to bold statements,
+                                    CHANEL eyewear exudes effortless style and glamour,
+                                     perfect for those who appreciate the fusion of fashion and artistry.</small></p></div>
                         </div>
                         <div className='col md-3'>
                             <img src={ChanelEyeGlass} alt="" className="img-fluid" />

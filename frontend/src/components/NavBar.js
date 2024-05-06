@@ -81,9 +81,10 @@ const NavBar = () => {
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                             
-                                                <li className='ddline'><i class="fa fa-user-circle dropdownIcon" aria-hidden="true"></i><Link to="/profile" className="dropdown-item">Your Profile</Link></li>
-                                                <li className='ddline'><i class="fa fa-shopping-cart dropdownIcon" aria-hidden="true"></i><Link to="/bookings" className="dropdown-item">Your Bookings</Link></li>
-                                                <li className='ddline'><i class="fa fa-sign-out dropdownIcon" aria-hidden="true"></i><Link class="dropdown-item" onClick={logout}>Logout</Link></li>
+                                                <li className='ddline'><i class="fa fa-user-circle dropdownIcon" aria-hidden="true"></i><Link to="/profile" className="dropdown-item"><span style={{fontSize:"14px"}}>Your Profile</span></Link></li>
+                                                <li className='ddline'><i class="fa fa-shopping-cart dropdownIcon" aria-hidden="true"></i><Link to="/bookings" className="dropdown-item"><span style={{fontSize:"14px"}}>Your Bookings</span></Link></li>
+                                                <li className='ddline'><i class="fa fa-user-md dropdownIcon" aria-hidden="true"></i><Link to="/myappointment" className="dropdown-item"><span style={{fontSize:"14px"}}>Your Appointments</span></Link></li>
+                                                <li className='ddline'><i class="fa fa-sign-out dropdownIcon" aria-hidden="true"></i><Link class="dropdown-item" onClick={logout}><span style={{fontSize:"14px"}}>Logout</span></Link></li>
 
                                             </ul>
 

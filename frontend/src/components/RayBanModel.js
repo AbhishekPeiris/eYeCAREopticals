@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import styles from '../styles/RayBanModel.css';
+import '../styles/RayBanModel.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Rating from 'react-rating-stars-component';
 import StripeCheckout from "react-stripe-checkout";
+import Swal from 'sweetalert2';
+import Loader from '../components/Loader';
 
 const RayBanModel = () => {
     const [eyeglass, setEyeglass] = useState([]);
     const [selectedColor, setSelectedColor] = useState(1); // Default to color 1
+    const [selectedButton, setSelectedButton] = useState(null);
 
     const [cart, setCart] = useState([]);
 
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    const [email, setEmail] = useState(user.email);
+
+    const [email, setEmail] = useState();
+    const [cusname, setCusname] = useState();
+    const [contact, setContact] = useState();
+    const [address, setAddress] = useState();
 
     const [modelNo, setModelNo] = useState();
     const [type, setType] = useState();
@@ -22,49 +29,83 @@ const RayBanModel = () => {
     const [gender, setGender] = useState();
     const [price, setPrice] = useState();
     const [rating, setRating] = useState();
+    const [status, setStatus] = useState();
     const [imageurlcolor, setImageurlColor] = useState([]);
+
+    const [framesize, setFramsize] = useState();
 
     const { brand, model } = useParams();
 
+    const navigate = useNavigate();
+
+    const [loading, setLoading] = useState(true);
+
+
     useEffect(() => {
-        async function getEyeglassDetails(brand, model) {
-            try {
-                const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
-                setEyeglass(response.data.eyeGlass);
-                console.log(response.data.eyeGlass);
 
-                // Only set individual states once after fetching data
-                if (response.data.eyeGlass.length > 0) {
-                    const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
-                    setModelNo(eyeglassData.model);
-                    setType(eyeglassData.type);
-                    setBrandName(eyeglassData.brand);
-                    setGender(eyeglassData.gender);
-                    setPrice(eyeglassData.price);
-                    setRating(eyeglassData.rating);
-                    setImageurlColor(eyeglassData.imageurlcolor1);
+        if(localStorage.getItem('currentUser')){
+
+            async function getEyeglassDetails(brand, model) {
+
+                setEmail(user.email);
+                setCusname(user.firstname + " " + user.lastname);
+                setContact(user.contact);
+                setAddress(user.address)
+    
+                try {
+                    setLoading(true);
+                    const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
+                    setEyeglass(response.data.eyeGlass);
+                    console.log(response.data.eyeGlass);
+    
+                    // Only set individual states once after fetching data
+                    if (response.data.eyeGlass.length > 0) {
+                        const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
+                        setModelNo(eyeglassData.model);
+                        setType(eyeglassData.type);
+                        setBrandName(eyeglassData.brand);
+                        setGender(eyeglassData.gender);
+                        setPrice(eyeglassData.price);
+                        setRating(eyeglassData.rating);
+                        setStatus(eyeglassData.status);
+                        setImageurlColor(eyeglassData.imageurlcolor1);
+                        setFramsize(eyeglassData.framesize1);
+                    }
+                    setLoading(false);
+    
+                } catch (error) {
+                    console.log(error);
+                    setLoading(false);
                 }
-
-            } catch (error) {
-                console.log(error);
             }
-        }
-        getEyeglassDetails(brand, model);
+            getEyeglassDetails(brand, model);
+    
+            async function getCartItems() {
+                try {
+                    setLoading(true);
+                    const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
+                    setCart(response.data.cart);
+                    console.log(response.data.cart);
+                    setLoading(false);
+                } catch (error) {
+                    console.log(error);
+                    setLoading(false);
+                }
+            }
+    
+            getCartItems();
 
-        async function getCartItems() {
-            try {
-                const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}`);
-                setCart(response.data.cart);
-                console.log(response.data.cart);
+        }
+        else{
+            Swal.fire('Oops!',"Please login to the system", "warning").then(result => {
+                navigate('/login');
+            });
             
-            } catch (error) {
-                console.log(error);
-            }
+            
         }
 
-        getCartItems();
-
-    }, [brand, model, user.email]);
+        
+    }, []);
 
     
 
@@ -97,17 +138,21 @@ const RayBanModel = () => {
                 gender : gender,
                 price : price,
                 rating : rating,
+                status : status,
                 imageurlcolor : imageurlcolor
             }
     
             try {
+                setLoading(true);
                 const response = await axios.post("http://localhost:5000/api/cart/addtocart", newCartItem);
                 console.log(response.data);
                 console.log(newCartItem);
                 window.location.reload();
+                setLoading(false);
     
             } catch (error) {
-                console.log(error);;
+                console.log(error);
+                setLoading(false);
             }
 
         }
@@ -115,14 +160,55 @@ const RayBanModel = () => {
        
     }
 
-    function onToken(token) {
+    async function onToken(token) {
 
         console.log(token);
 
+        const newEyeglassReservation = {
+            cusname : cusname,
+            contact : contact,
+            address : address,
+            email : email,
+            model : modelNo,
+            type : type,
+            brand : brandname,
+            gender : gender,
+            framesize : framesize,
+            price : price,
+            imageurlcolor : imageurlcolor
+
+          }
+      
+          try {
+            setLoading(true);
+            const data = (await axios.post('http://localhost:5000/api/eyeglassreservation/createeyeglassreservation', newEyeglassReservation)).data;
+            console.log(data);
+            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})
+            Swal.fire('Thank you!', "Your Reservation is Successfully", "success").then(result => {
+              window.location.href = '/bookings';
+            });
+            setLoading(false);
+            
+          } catch (error) {
+            console.log(error);
+            Swal.fire('Error', "Your Resetvation is Unsuccessfully", "error");
+            setLoading(false);
+          }
+
+    }
+
+    function selectSize(size) {
+        setFramsize(size);
     }
 
     return (
         <div>
+
+        {loading ? (
+            <Loader />
+        ) : (
+            <div>
+
             <div className="row">
                 <div className='col md-5'>
                     <br /><br /><br />
@@ -185,7 +271,7 @@ const RayBanModel = () => {
                             <div className='col md-5'>
                                 <p><strong>SELECT FRAME COLOR :</strong></p>
                                 {[1, 2, 3].map(colorNumber => (
-                                    <button key={colorNumber} className='framecolorimg' onClick={() => selectColor(colorNumber)}>
+                                    <button key={colorNumber} className='framecolorimg' onClick={() => {selectColor(colorNumber);setImageurlColor(eyeglass[`imageurlcolor${colorNumber}`][0])}}>
                                         <img src={eyeglass[`imageurlcolor${colorNumber}`][0]} alt="Frame Color" width={100} />
                                     </button>
                                 ))}
@@ -196,9 +282,33 @@ const RayBanModel = () => {
                         <div className='row'>
                             <div className='col md-5'>
                                 <p><strong>SELECT FRAME SIZE :</strong></p>
-                                <button className='framecolorimg'>{eyeglass.framesize1}</button>
-                                <button className='framecolorimg'>{eyeglass.framesize2}</button>
-                                <button className='framecolorimg'>{eyeglass.framesize3}</button>
+                                <button
+                className={selectedButton === eyeglass.framesize1 ? 'framecolorimg selected' : 'framecolorimg'}
+                onClick={(e) => { 
+                    selectSize(eyeglass.framesize1); 
+                    setSelectedButton(eyeglass.framesize1);
+                    }}
+                >
+                {eyeglass.framesize1}
+            </button>
+            <button
+                className={selectedButton === eyeglass.framesize2 ? 'framecolorimg selected' : 'framecolorimg'}
+                onClick={(e) => { 
+                    selectSize(eyeglass.framesize2); 
+                    setSelectedButton(eyeglass.framesize2); 
+                }}
+             >
+                {eyeglass.framesize2}
+            </button>
+            <button
+                className={selectedButton === eyeglass.framesize3 ? 'framecolorimg selected' : 'framecolorimg'}
+                onClick={(e) => { 
+                    selectSize(eyeglass.framesize3); 
+                    setSelectedButton(eyeglass.framesize3); 
+                }}
+            >
+                {eyeglass.framesize3}
+            </button>
                             </div>
                         </div><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
@@ -213,13 +323,14 @@ const RayBanModel = () => {
                             </div>
                         </div><br />
                         <button className='btn btn-primary addtocartbtn' onClick={AddtoCart}><i class="fa fa-cart-plus" aria-hidden="true"></i> &nbsp;Add to Cart</button>
-                        <button className='btn btn-primary eyeglasspaynowbtn'>Pay Now!</button>
+                        
                         <StripeCheckout
-                             
+                             amount={eyeglass.price * 100}
                              token={onToken}
-                             
+                             currency='LKR'
                              stripeKey="pk_test_51Nu7smDOmIYodrCji9U41paJjaMrcNBAi0HhO8DB5i0c0fXxABtjqL7GCZJxoSHMvBu8U2uymvDSKsZaAUGsbCpi000BhYzBG5"
-                        />
+                             
+                        ><button className='btn btn-primary eyeglasspaynowbtn'>Pay Now!</button></StripeCheckout>
                         <br /><br />
                         <hr style={{ backgroundColor: "black", width: "500px" }} />
                     </div>
@@ -256,6 +367,11 @@ const RayBanModel = () => {
             ))}
 
         </div>
+            
+        )}
+
+        </div>
+            
     );
 }
 

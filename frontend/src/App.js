@@ -46,10 +46,36 @@ import ViewDoctorDetails from './screens/ViewDoctorDetails';
 
 
 import CartScreen from './screens/CartScreen';
+
+import UpdateDoctorAppointmentDetails from './screens/UpdateDoctorAppointmentDetails';
+
 import ViewSpectaclesDetails from './screens/ViewSpectaclesDetails';
 import ViewAllFeedback from './screens/ViewAllFeedback';
 import Updatefeedbackform from './screens/Updatefeedbackform';
 import UpdateDoctorDetails from './screens/UpdateDoctorDetails';
+
+import ViewDeafAidsDetails from './screens/ViewDeafAidsDetails';
+import UpdateHearingAidsDetails from './screens/UpdateHearingAidsDetails';
+
+import Adminfeedback from './screens/Adminfeedback';
+
+import MyAppointmentScreen from './screens/MyAppointmentScreen';
+
+import AdminDashboard from './pages/AdminDashboard';
+
+
+
+import UpdateSepectacleDetails from './screens/UpdateSepectacleDetails';
+
+import EditReservationScreen from './screens/EditReservationScreen';
+
+import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
+import AdminFeedback from './screens/Adminfeedback';
+import PatientDetailsForm from './screens/PatientDetailsForm';
+
+
+
+
 
 
 
@@ -91,6 +117,7 @@ function App() {
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
+          <Route path='/FeedbackScreen' element={<DefaultLayout><feedbackScreen /></DefaultLayout>} />
 
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
@@ -98,10 +125,21 @@ function App() {
           <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
           <Route path='/updatefeedbackform/:feedbackID' element={<DefaultLayout>< Updatefeedbackform/></DefaultLayout>} />
 
+          <Route path='/myappointment' element={<DefaultLayout>< MyAppointmentScreen/></DefaultLayout>} />
+
+          <Route path='/editreservation/:resvationID/:brand/:model' element={<DefaultLayout>< EditReservationScreen/></DefaultLayout>} />
+
+
+          <Route path='/editdoctorappointment/:cusemail/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
+          <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
+          <Route path='/patientdetails/:docfname/:doclastname/:docfee' element={<DefaultLayout>< PatientDetailsForm/></DefaultLayout>} />
+          
+          
 
         {/* AdminDashboardScreen without NavBar and Footer */}
-        <Route path="/admindashboard" element={<AdminDashboardScreen />} />
+        <Route path="/admindDashboard" element={<AdminDashboardScreen />} />
         <Route path='/adddoctor' element={<AddDoctor />} />
+        <Route path="/admindashboard" element={<AdminDashboard />} />
 
         <Route path='/addrepairmentdetails' element={<AddRepairmentDetails />} />
         <Route path='/viewrepairmentdetails' element={<ViewRepairmentDetails />} />
@@ -123,7 +161,7 @@ function App() {
         <Route path='/viewdoctorappointment' element={<ViewDoctorAppointmentDetails />} />
         
         <Route path='/editcustomerdetails/:userID' element={<UpdateCustomerDetails />} />
-
+        <Route path='/editdoctorappointmentdetails/:userID' element={<UpdateDoctorAppointmentDetails />} />
         <Route path='/viewdoctordetails' element={<ViewDoctorDetails />} />
         <Route path='/viewspectaclesdetails' element={<ViewSpectaclesDetails />} />
 
@@ -131,9 +169,15 @@ function App() {
         
 
         <Route path='/updatedoctordetails/:docID' element={<UpdateDoctorDetails />} />
+        <Route path='/viewdeafaidsdetails' element={<ViewDeafAidsDetails />} />
+        <Route path='/updatehearingaidsdetails/:docID' element={<UpdateHearingAidsDetails />} />
 
 
+        <Route path='/adminfeedback' element={<Adminfeedback />} />
 
+        <Route path='/updatesepectacledetails/:specId' element={<UpdateSepectacleDetails />} />
+
+        <Route path='/getallfeedback' element={<AdminFeedback />} />
 
       </Routes>
     </BrowserRouter>

@@ -18,6 +18,7 @@ router.route('/addeyeglass').post(async(req, res) => {
         framesize3,
         price,
         rating,
+        status,
         imageurlcolor1,
         imageurlcolor2,
         imageurlcolor3
@@ -38,6 +39,7 @@ router.route('/addeyeglass').post(async(req, res) => {
        framesize3,
        price,
        rating,
+       status,
        imageurlcolor1,
        imageurlcolor2,
        imageurlcolor3

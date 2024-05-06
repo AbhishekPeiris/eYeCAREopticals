@@ -1,0 +1,41 @@
+.fulldetailsapp{
+    margin-left: 100px !important;
+    margin-top: 50px !important;
+    background-color: rgb(241, 241, 241) !important;
+    width: 400px !important;
+    height: 380px !important;
+    padding-left: 30px !important;
+    padding-top: 20px !important;
+    border-radius: 10px !important;
+}
+.namedatefee{
+    font-size: 19px !important;
+  
+}
+.appupdate{
+    background-color:green;
+    color: white;
+    margin-right: 10px !important;
+    border-radius: 5px !important;
+    border: none !important;
+    width: 80px !important;
+    height: 40px !important;
+}
+.appdelect{
+    background-color:red;
+    color: white;
+    border-radius: 5px !important;
+    border: none !important;
+    width: 80px !important;
+    height: 40px !important;
+}
+.updatedelectbtn{
+    position: relative;
+    margin-left: 5px !important;
+    margin-top: 30px !important;
+
+   
+}
+.appotable{
+    margin-top: 50px !important;
+}

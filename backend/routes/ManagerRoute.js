@@ -142,7 +142,8 @@ router.route('/adduser').post(async (req, res) => {
         gender,
         contact,
         email,
-        password
+        password,
+        role
     } = req.body;
 
     const newUser = new User({
@@ -154,17 +155,18 @@ router.route('/adduser').post(async (req, res) => {
         gender,
         contact,
         email,
-        password
+        password,
+        role
     });
 
     try {
         
         await newUser.save();
-        return res.status(200).json({status: "User is added successfully"});
+        return res.status(200).json({status: "User is registered successfully"});
 
     } catch (error) {
         
-        return res.status(500).json({status: "Error with add user", messsage: error});
+        return res.status(500).json({status: "Error with register user", messsage: error});
     }
 });
 
@@ -182,6 +184,7 @@ router.route('/getalluser').post(async (req, res) => {
         return res.status(500).json({ status: "Error with fetching doctor appointments", message: message });
     }
 });
+
 
 router.route('/getalluser/:id').post(async(req, res) => {
 
@@ -216,7 +219,8 @@ router.route('/edituser/:id').put(async (req, res) =>{
         gender,
         contact,
         email,
-        password
+        password,
+        role
     } = req.body;
 
     const updateUser = {
@@ -228,7 +232,8 @@ router.route('/edituser/:id').put(async (req, res) =>{
         gender,
         contact,
         email,
-        password
+        password,
+        role
     }
     
     try {

@@ -26,3 +26,10 @@
     font-size: 11px !important;
     background-color: red !important;
 }
+.reservationpdfbtn{
+    border: none !important;
+}
+.reservationpdfbtn:hover{
+    color: #ff4500 !important;
+    transition:.5s !important;
+}

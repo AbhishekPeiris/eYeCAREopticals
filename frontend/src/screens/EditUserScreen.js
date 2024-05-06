@@ -46,7 +46,7 @@ const EditUserScreen = () => {
         setGender(user.gender);
         setContact(user.contact);
         setEmail(user.email);
-    
+
     }, []);
 
     async function EditUser(e) {
@@ -205,7 +205,7 @@ const EditUserScreen = () => {
 
                                                 <div className="mb-3 cp">
                                                     <label htmlFor="confirmPassword">Confirm password</label>
-                                                    <input type={confirmPasswordVisible ? 'text' : 'password'} id="confirmPassword" className="form-control edituserinput" placeholder='Enter confirm' value={passwordConfirmation} required 
+                                                    <input type={confirmPasswordVisible ? 'text' : 'password'} id="confirmPassword" className="form-control edituserinput" placeholder='Enter confirm password' value={passwordConfirmation} required 
                                                         onChange={(e) => {
                                                             setPasswordConfirmation(e.target.value);
                                                         }}
