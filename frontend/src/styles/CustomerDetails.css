@@ -1,26 +1,81 @@
-.viewcustomerDcol{
-    background-color: rgb(250, 241, 215);
-    
-}
-.snupdatebtn{
-    background-color: green;
+.submit{
+    background-color: rgb(168, 145, 234);
+    display: block;
     border-radius: 5px;
     border: none;
     color: white;
     margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+   
+   
 }
-.sndeletebtn{
-    background-color: red;
-    border-radius: 5px;
+
+/*my css*/
+/* Form */
+.cd-form-group {
+    margin-bottom: 15px;
+    padding: 10% 25%;
+    background-image: linear-gradient(to right, rgb(172, 168, 168) , yellow);
+  }
+  
+  /* Label */
+  .cd-control-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Input */
+  .cd-form-control {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+         -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+
+  .cd-btn-update{
+    background-color: #04AA6D; 
     border: none;
     color: white;
-    width: 65px;
-    
-}
-.viewcustomerDcol1{
-    background-color: antiquewhite;
-    width: 100px;
-}
-.viewcustomerDcol11{
-    width: 100px;
-}
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+
+  }
+
+  .cd-btn-delete{
+    background-color: rgb(231, 30, 30); 
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+
+  .cd-action-col{
+    display: flex;
+    padding: 5px 10px;
+    gap: 10px;
+  }
