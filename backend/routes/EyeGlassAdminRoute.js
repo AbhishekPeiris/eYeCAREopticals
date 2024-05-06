@@ -18,6 +18,7 @@ router.route('/addeyeglass').post(async(req, res) => {
         framesize3,
         price,
         rating,
+        status,
         imageurlcolor1,
         imageurlcolor2,
         imageurlcolor3
@@ -38,6 +39,7 @@ router.route('/addeyeglass').post(async(req, res) => {
        framesize3,
        price,
        rating,
+       status,
        imageurlcolor1,
        imageurlcolor2,
        imageurlcolor3
@@ -94,6 +96,26 @@ router.route('/:model').post(async(req, res) => {
 
     }
 });
+router.route('/geteyeglass/:id').post(async(req, res) => {
+
+    const id = req.params.id;
+
+    try {
+        
+        const eyeglass = await EyeGlass.findById(id);
+
+        if (!eyeglass) {
+            return res.status(404).json({ status: "eyeglass not found" });
+        }
+
+        return res.status(200).json({status: "eyeglass is fatched", eyeglass});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch eyeglass", message: error});
+
+    }
+});
 
 router.route('/editeyeglass/:id').put(async (req, res) =>{
 
@@ -114,6 +136,7 @@ router.route('/editeyeglass/:id').put(async (req, res) =>{
         framesize3,
         price,
         rating,
+        status,
         imageurlcolor1,
         imageurlcolor2,
         imageurlcolor3
@@ -134,6 +157,7 @@ router.route('/editeyeglass/:id').put(async (req, res) =>{
         framesize3,
         price,
         rating,
+        status,
         imageurlcolor1,
         imageurlcolor2,
         imageurlcolor3
