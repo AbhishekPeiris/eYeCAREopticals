@@ -14,6 +14,7 @@ function UpdateCustomerDetails() {
     const [contact, setContact] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [role, setRole] = useState('user');
 
  
 
@@ -32,6 +33,7 @@ function UpdateCustomerDetails() {
             setContact(userData.contact);
             setEmail(userData.email);
             setPassword(userData.password);
+            setRole(userData.role);
       
           } catch (error) {
             console.log(error);
@@ -60,7 +62,8 @@ function UpdateCustomerDetails() {
             gender,
             contact,
             email,
-            password
+            password,
+            role
         }
 
         try {
@@ -156,6 +159,18 @@ function UpdateCustomerDetails() {
       }}
     />
   </div>
+  <div className="input-container">
+        <label>Role</label>
+            <br/>
+          <select
+              value={role}
+              required
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+        </div>
   <button type="submit" className="submit" style={{width:"300px"}}>Submit</button>
       <button class="submit" style={{width:"300px"}}>Cancel</button>
 </form>
