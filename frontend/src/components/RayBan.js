@@ -83,6 +83,16 @@ const RayBan = () => {
         });
     }
 
+    function shopnow(status,brand,model){
+        if (!(status === 'In stock')){
+            alert('This product is currently out of stock. Please check back later.');
+        }
+        else{
+            window.location.href = `/${brand}/${model}`;
+        }
+
+    }
+
     return (
 
         <div>
@@ -175,7 +185,7 @@ const RayBan = () => {
                                         <hr style={{ backgroundColor: "black" }} />
                                         Frame : <strong>LKR {eyeglass.price}</strong><br/>
                                         {eyeglass.status === 'In stock' ? (<Tag color="green">In stock</Tag>) : (<Tag color="red">Out of Stock</Tag>)}<br/><br/>
-                                        <Link to={`/${eyeglass.brand}/${eyeglass.model}`}><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
+                                        <button className='Reyeglassesbtn' onClick={(e)=>{shopnow(eyeglass.status,eyeglass.brand,eyeglass.model)}}>SHOP NOW !</button>
                                     </p>
                                 </div>
                             ))}
