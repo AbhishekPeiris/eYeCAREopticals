@@ -85,7 +85,7 @@ function AddHearingAidsScreen() {
 
 
       <div style={{ textAlign: 'center' }}>
-  <h4 style={{ margin: '10px' }}><strong>Spectacle Details</strong></h4>
+  <h4 style={{ margin: '10px' }}><strong>Add Hearing Aids Details</strong></h4>
 </div>
 <br/>
 

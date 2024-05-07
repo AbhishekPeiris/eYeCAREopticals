@@ -137,7 +137,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <lable>Model</lable>
-              <input type="text" placeholder="Enter model " value={model} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter model " value={model} required
                 onChange={(e) => {
                   setmodel(e.target.value);
                 }}
@@ -146,7 +146,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Type</label>
-              <input type="text" placeholder="Enter Type " value={type} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter Type " value={type} required
                 onChange={(e) => {
                   settype(e.target.value);
                 }}
@@ -174,7 +174,7 @@ function AddSpectacles() {
             
             <div class="input-container">
               <lable>Gender</lable>
-              <input type="text" placeholder="Enter Gender" value={gender} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter Gender" value={gender} required
                 onChange={(e) => {
                   setgender(e.target.value);
                 }}
@@ -189,7 +189,7 @@ function AddSpectacles() {
           {/* <h4><strong>Accessories Details</strong></h4><br /> */}
             <div class="input-container">
               <lable>Frame Shape</lable>
-              <input type="text" placeholder="Enter Frame Shape" value={frameshape} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter Frame Shape" value={frameshape} required
                 onChange={(e) => {
                   setframeshape(e.target.value);
                 }}
@@ -198,7 +198,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Frame Material</label>
-              <input type="text" placeholder="Enter Frame Material" value={framematerial} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter Frame Material" value={framematerial} required
                 onChange={(e) => {
                   setframematerial(e.target.value);
                 }}
@@ -207,7 +207,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <lable>Frame Type</lable>
-              <input type="text" placeholder="Enter Frame Type" value={frametype} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter Frame Type" value={frametype} required
                 onChange={(e) => {
                   setframetype(e.target.value);
                 }}
@@ -216,7 +216,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Hinge Type</label>
-              <input type="text" placeholder="Enter Hinge Type" value={hingetype} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter Hinge Type" value={hingetype} required
                 onChange={(e) => {
                   sethingetype(e.target.value);
                 }}
@@ -225,7 +225,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Discription</label>
-              <input type="text" placeholder="Enter Discription" value={discription} required
+              <input style={{width:"250px"}} type="text" placeholder="Enter Discription" value={discription} required
                 onChange={(e) => {
                   setdiscription(e.target.value);
                 }}
@@ -240,7 +240,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Frame Size 01</label>
-              <input type="text" placeholder="Enter Frame Size 01" value={framesize1} required
+              <input style={{width:"230px"}} type="text" placeholder="Enter Frame Size 01" value={framesize1} required
                 onChange={(e) => {
                   setframesize1(e.target.value);
                 }}
@@ -250,7 +250,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Frame Size 02</label>
-              <input type="text" placeholder="Enter Frame Size 02" value={framesize2} required
+              <input style={{width:"230px"}} type="text" placeholder="Enter Frame Size 02" value={framesize2} required
                 onChange={(e) => {
                   setframesize2(e.target.value);
                 }}
@@ -259,7 +259,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Frame Size 03</label>
-              <input type="text" placeholder="Enter Frame Size 03" value={framesize3} required
+              <input style={{width:"230px"}} type="text" placeholder="Enter Frame Size 03" value={framesize3} required
                 onChange={(e) => {
                   setframesize3(e.target.value);
                 }}
@@ -269,7 +269,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Price</label>
-              <input type="text" placeholder="Enter Price" value={price} required
+              <input style={{width:"230px"}} type="text" placeholder="Enter Price" value={price} required
                 onChange={(e) => {
                   setprice(e.target.value);
                 }}
@@ -279,7 +279,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Rating</label>
-              <input type="text" placeholder="Enter Rating" value={rating} required
+              <input style={{width:"230px"}} type="text" placeholder="Enter Rating" value={rating} required
                 onChange={(e) => {
                   setrating(e.target.value);
                 }}
@@ -305,8 +305,8 @@ function AddSpectacles() {
             <div className="col-md-3">
             <div class="form mb-5 mt-5">
             <div class="input-container">
-              <label>Image URL Color 02</label>
-              <input type="text" placeholder="Enter Image URL Color 01" value={imageurlcolor1} required
+              <label>Image URL Colour</label>
+              <input style={{width:"20px"}} type="text" placeholder="Enter Image URL Color 01" value={imageurlcolor1} required
                 onChange={(e) => {
                   setimageurlcolor1(e.target.value);
                 }}
@@ -315,8 +315,8 @@ function AddSpectacles() {
 
 
             <div class="input-container">
-              <label>Image URL Color 02</label>
-              <input type="text" placeholder="Enter Image URL Color 02" value={imageurlcolor2} required
+              <label>Image URL Color  </label>
+              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL Color 02" value={imageurlcolor2} required
                 onChange={(e) => {
                   setimageurlcolor2(e.target.value);
                 }}
@@ -325,8 +325,8 @@ function AddSpectacles() {
 
 
             <div class="input-container">
-              <label>Image URL Color 03</label>
-              <input type="text" placeholder="Enter Image URL Color 03" value={imageurlcolor3} required
+              <label>Image URL</label>
+              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL Color 03" value={imageurlcolor3} required
                 onChange={(e) => {
                   setimageurlcolor3(e.target.value);
                 }}
