@@ -89,7 +89,7 @@ function FeedbackFormScreen() {
     id="fd-exampleInputContactNumber"
     type="text"
     className="fd-form-control"
-    maxLength="10"
+    maxLength="10" 
     pattern="[0-9]{10}"
     placeholder="Enter  contact number"
     required

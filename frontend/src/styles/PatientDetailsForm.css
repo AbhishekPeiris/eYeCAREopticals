@@ -37,7 +37,7 @@ select {
     box-sizing: border-box;
 }
 .appointmentbtn {
-    background-color:#E84E2D;
+    background-color:#ff4500;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -46,7 +46,7 @@ select {
     cursor: pointer;
 }
 .appointmentbtn:hover {
-    background-color:rgb(187, 104, 104);
+    background-color:rgb(183, 38, 38);
 }
 .heder{
 

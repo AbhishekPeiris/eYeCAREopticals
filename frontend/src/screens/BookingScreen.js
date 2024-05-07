@@ -6,7 +6,7 @@ import "../styles/cart.css";
 import Loader from '../components/Loader';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { useReactToPrint} from "react-to-print";
+import { useReactToPrint } from "react-to-print";
 
 const BookingScreen = () => {
 
@@ -21,12 +21,18 @@ const BookingScreen = () => {
 
     const [reservationId, setReservationId] = useState();
 
+    const [eyeglassID, seteyeglasscartID] = useState();
+    const [cartID, setCartID] = useState();
+
     const componentPDF = useRef();
+
+    const [model, setModel] = useState();
+    const [brand, setBrand] = useState();
 
     useEffect(() => {
         async function ViewBookingDetails() {
             try {
-                setTimeout(async () => {
+                
                     setLoading(true);
                     const response = await axios.post(`http://localhost:5000/api/eyeglassreservation/geteyeglassreservations/${user.email}`);
                     setEyeglassReservation(response.data.eyeglassreservation);
@@ -39,22 +45,80 @@ const BookingScreen = () => {
                     }
 
                     setLoading(false);
-                }, 700);
+            
             } catch (error) {
                 console.log(error);
                 setLoading(false);
             }
         }
         ViewBookingDetails();
+
     }, [user.email]);
 
     async function deleteBooking(id) {
+
+        async function getEyeglassDetails(brand, model) {
+
+            try {
+                
+                const response = await axios.post(`http://localhost:5000/api/eyeglass/${brand}/${model}`)
+                console.log(response.data);
+
+                if (response.data.eyeGlass.length > 0) {
+                    const eyeglassData = response.data.eyeGlass[0];
+                    seteyeglasscartID(eyeglassData._id);
+                    console.log(eyeglassID)
+                }
+                
+
+            } catch (error) {
+                console.log(error);
+                setLoading(false);
+            }
+
+        }
+        getEyeglassDetails(brand, model);
+
+        async function getCartItem(model) {
+            try {
+                
+                const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}/${model}`);
+
+                if (response.data.cart.length > 0) {
+                    const cartData = response.data.cart[0];
+                    setCartID(cartData._id)
+                    console.log(eyeglassID);
+                }
+                
+
+            } catch (error) {
+                console.log(error);
+                setLoading(false);
+            }
+        }
+
+        getCartItem(model);
+
 
         try {
 
             setLoading(false);
             const data = (await axios.delete(`http://localhost:5000/api/eyeglassreservation/deleteeyeglassreservation/${id}`)).data;
             console.log(data);
+
+            const updateEyeglassStatus = {
+                status: "In stock",
+            };
+            const updateResponse = await axios.put(
+                `http://localhost:5000/api/eyeglass/updateyeglassstatus/${eyeglassID}`,
+                updateEyeglassStatus
+            );
+            console.log(updateResponse.data);
+            const updateResponsecart = await axios.put(
+                `http://localhost:5000/api/cart/updateyeglassstatuscart/${cartID}`,
+                updateEyeglassStatus
+            );
+            console.log(updateResponsecart.data);
 
             Swal.fire('Stay safe', "You reservation is deleted", 'success').then(result => {
 
@@ -65,16 +129,23 @@ const BookingScreen = () => {
         } catch (error) {
 
             console.log(error);
-            Swal.fire('Error', "Error with deleting reservation", 'error');
+            Swal.fire('Are you sure?', "Your are try to delete this reservation", 'warning');
             setLoading(false);
 
         }
     }
 
     const generatePDF = useReactToPrint({
-        content: ()=>componentPDF.current,
+        content: () => componentPDF.current,
         documentTitle: "eyeCAREoptical_reservation"
     });
+
+    function handleDeleteBooking(brand,model){
+        setBrand(brand);
+        setModel(model);
+        handleShow(brand,model);
+        
+    }
 
     return (
         <div>
@@ -92,9 +163,9 @@ const BookingScreen = () => {
                                     <div className="m-4">
                                         <h4 className="card-title mb-4 myshoppingcart"><strong>My Bookings</strong></h4><br />
 
-                                        
+
                                         <div className="row mb-5 cartlisttable" >
-                                        
+
                                             {eyeglassreservation.map((eyeglassreservation) => (
                                                 <div className="col-lg-3 cartlisttablecol1" >
                                                     <div className="caritemscard" data-aos="zoom-in">
@@ -102,65 +173,68 @@ const BookingScreen = () => {
                                                             <div className="col md-3" >
                                                                 <p className="cartitemscardptag1">
                                                                     <div ref={componentPDF}>
-                                                                    <span style={{ fontSize: "11px" }}><strong>{eyeglassreservation.cusname}</strong></span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.email}</span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.contact} </span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.address}</span><br />
-                                                                    <hr style={{width:"350px"}} />
-                                                                    <span style={{ color: "#0a5a70" }}><strong>{eyeglassreservation.brand} | {eyeglassreservation.model}</strong></span><br /><br/>
-                                                                    <img src={eyeglassreservation.imageurlcolor[0]} alt="" width={100} /><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.type} | {eyeglassreservation.gender}</span><br />
-                                                                    <span style={{ fontSize: "11px" }}>{eyeglassreservation.framesize}</span><br />                
-                                                                    <hr style={{width:"350px"}} />
-                                                                    <span><strong>LKR</strong></span> <span style={{ color: "#ab2317" }}><strong>{eyeglassreservation.price}</strong></span>
+                                                                        <span style={{ fontSize: "11px" }}><strong>{eyeglassreservation.cusname}</strong></span><br />
+                                                                        <span style={{ fontSize: "11px" }}>{eyeglassreservation.email}</span><br />
+                                                                        <span style={{ fontSize: "11px" }}>{eyeglassreservation.contact} </span><br />
+                                                                        <span style={{ fontSize: "11px" }}>{eyeglassreservation.address}</span><br />
+                                                                        <hr style={{ width: "350px" }} />
+                                                                        <span style={{ color: "#0a5a70" }}><strong>{eyeglassreservation.brand} | {eyeglassreservation.model}</strong></span><br /><br />
+                                                                        <img src={eyeglassreservation.imageurlcolor[0]} alt="" width={100} /><br />
+                                                                        <span style={{ fontSize: "11px" }}>{eyeglassreservation.type} | {eyeglassreservation.gender}</span><br />
+                                                                        <span style={{ fontSize: "11px" }}>{eyeglassreservation.framesize}</span><br />
+                                                                        <hr style={{ width: "350px" }} />
+                                                                        <span><strong>LKR</strong></span> <span style={{ color: "#ab2317" }}><strong>{eyeglassreservation.price}</strong></span>
                                                                     </div>
                                                                 </p>
 
-                                                                    <Link to = {`/editreservation/${eyeglassreservation._id}/${eyeglassreservation.brand}/${eyeglassreservation.model}`}><button className="btn cartviewbtn">Edit Booking</button></Link>
-                                                                    <button className="btn cartremovebtn" onClick={handleShow} style={{width:"100px"}}>Delete Booking</button><br/><br/>
-                                                                    <button className="reservationpdfbtn" onClick={generatePDF}><i class="fa fa-download" aria-hidden="true"></i><span style={{fontSize:"10px",marginLeft:"10px"}}>Downlad PDF</span></button>
-                                                                
+                                                                <Link to={`/editreservation/${eyeglassreservation._id}/${eyeglassreservation.brand}/${eyeglassreservation.model}`}><button className="btn cartviewbtn">Edit Booking</button></Link>
+
+                                                                <button className="btn cartremovebtn" onClick={() => {
+        handleDeleteBooking(eyeglassreservation.brand, eyeglassreservation.model);
+    }} style={{ width: "100px" }}>Delete Booking</button>
+                                                                <br /><br />
+                                                                <button className="reservationpdfbtn" onClick={generatePDF}><i class="fa fa-download" aria-hidden="true"></i><span style={{ fontSize: "10px", marginLeft: "10px" }}>Downlad PDF</span></button>
+
                                                             </div>
-                                                            
+
                                                         </div>
 
                                                     </div>
 
                                                 </div>
                                             ))}
-                                           
 
-                                            
 
-                                                <Modal show={show} onHide={handleClose} size="lg">
-                                                    <Modal.Header closeButton>
-                                                        <Modal.Title style={{ marginTop: "30px", marginLeft: "50px" }}>
-                                                            <strong>Deleting Your Booking</strong>
-                                                        </Modal.Title>
-                                                    </Modal.Header>
-                                                    <Modal.Body>
-                                                        <p style={{ marginLeft: "50px" }}>
-                                                            Deleting your reservation will remove all of your
-                                                            <br />
-                                                            information from our database. This cannot be
-                                                            <br />
-                                                            undone.
-                                                        </p>
-                                                    </Modal.Body>
-                                                    <Modal.Footer>
-                                                        <button
-                                                            className="editUserbtn1"
-                                                            onClick={(e) => deleteBooking(reservationId)}
-                                                        >
-                                                            <span style={{ fontSize: "12px" }}>Delete my reservation</span>
-                                                        </button>
-                                                        <Button variant="secondary" onClick={handleClose}>
-                                                            <span style={{ fontSize: "12px" }}>Never mind, keep my reservation</span>
-                                                        </Button>
-                                                    </Modal.Footer>
-                                                </Modal>
 
-                                      
+
+                                            <Modal show={show} onHide={handleClose} size="lg">
+                                                <Modal.Header closeButton>
+                                                    <Modal.Title style={{ marginTop: "30px", marginLeft: "50px" }}>
+                                                        <strong>Deleting Your Booking</strong>
+                                                    </Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body>
+                                                    <p style={{ marginLeft: "50px" }}>
+                                                        Deleting your reservation will remove all of your
+                                                        <br />
+                                                        information from our database. This cannot be
+                                                        <br />
+                                                        undone.
+                                                    </p>
+                                                </Modal.Body>
+                                                <Modal.Footer>
+                                                    <button
+                                                        className="editUserbtn1"
+                                                        onClick={(e) => deleteBooking(reservationId,brand,model)}
+                                                    >
+                                                        <span style={{ fontSize: "12px" }}>Delete my reservation</span>
+                                                    </button>
+                                                    <Button variant="secondary" onClick={handleClose}>
+                                                        <span style={{ fontSize: "12px" }}>Never mind, keep my reservation</span>
+                                                    </Button>
+                                                </Modal.Footer>
+                                            </Modal>
+
 
 
                                         </div>

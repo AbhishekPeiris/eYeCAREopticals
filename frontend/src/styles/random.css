@@ -1,0 +1,106 @@
+.divana {
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 100vh;
+overflow: scroll;
+}
+
+.sidebar {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: rgb(36, 36, 36);
+
+    color: #050505;
+
+    height: 100vh;
+    width: 350px;
+    padding: 10px 50px;
+}
+
+.sidebar button {
+    background-color: transparent;
+    color: #ad0000;
+    border: none;
+    outline: none;
+}
+
+.link {
+
+    color: rgb(253, 250, 250);
+
+}
+
+.sidebar ul li {
+    margin-bottom: 25px;
+
+}
+
+.sidebar ul li:first-child{
+    margin-top: 30px;
+}
+/* random.css */
+.mainContainer {
+    display: flex;
+  }
+  
+  .form617 {
+    flex: 1;
+    padding: 20px;
+
+  }
+  
+  .container617 {
+    width: 100%;
+    height: 100vh;
+    overflow-x: scroll;
+  }
+  
+  .search-bar617 {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .download-button617 {
+    padding: 8px 16px;
+    background-color: #305d98;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .table617 {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table617 th, .table617 td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .table617 th {
+
+    background-color: #abd3ee;
+
+  }
+  
+  .table617 tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table617 tr:hover {
+    background-color: #ddd;
+  }
+  
+  .table617 td button {
+    padding: 4px 8px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

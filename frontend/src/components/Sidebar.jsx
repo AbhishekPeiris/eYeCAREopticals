@@ -36,7 +36,9 @@ function Sidebar() {
     { Name: "Doctors", path: "/doctors", id: 3 },
     { Name: "Appointments", path: "/appointments", id: 4 },
     { Name: "Customer Details", path: "/customerDetails", id: 5 },
-    { Name: "Feedback", path: "/feedback", id: 6 },
+
+    { Name: "Feedback", path: "/Adminfeedback", id: 6 },
+
   ];
 
   const SubLinks = [
@@ -60,7 +62,7 @@ function Sidebar() {
   ];
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" style={sidebarStyle}>
       <h1>
         <span className="left">Admin</span>
         <span className="right">Panel</span>
@@ -68,21 +70,22 @@ function Sidebar() {
       <div className="navigationalLinks">
         <ul>
           {MainLinks.map((item) => (
-            <li key={item.id}>
-              <CustomLink Name={item.Name} path={item.path} />
+            <li key={item.id} style={listItemStyle}>
+              <CustomLink Name={item.Name} path={item.path} style={linkStyle} />
               {SubLinks[item.id] && (
                 <>
                   <button
                     type="button"
                     onClick={() => handleOnClick(`link${item.id}`)}
+                    style={buttonStyle}
                   >
-                    <span className="fas fa-chevron-down"></span>
+                    <span className="fas fa-chevron-down" style={iconStyle}></span>
                   </button>
                   {activeLinks[`link${item.id}`] && (
-                    <ul className="sublinks">
+                    <ul className="sublinks" style={sublistStyle}>
                       {SubLinks[item.id].map((subitem, index) => (
-                        <li key={index}>
-                          <CustomLink Name={subitem.Name} path={subitem.path} />
+                        <li key={index} style={sublistItemStyle}>
+                          <CustomLink Name={subitem.Name} path={subitem.path} style={sublinkStyle} />
                         </li>
                       ))}
                     </ul>
@@ -96,5 +99,44 @@ function Sidebar() {
     </div>
   );
 }
+
+const sidebarStyle = {
+  backgroundColor: "#f78623",
+  color: "#fff",
+  padding: "20px",
+};
+
+const listItemStyle = {
+  marginBottom: "10px",
+};
+
+const linkStyle = {
+  color: "#fff !" ,
+  textDecoration: "none",
+};
+
+const buttonStyle = {
+  backgroundColor: "transparent",
+  border: "none",
+  cursor: "pointer",
+};
+
+const iconStyle = {
+  color: "#fff",
+};
+
+const sublistStyle = {
+  listStyleType: "none",
+  paddingLeft: "20px",
+};
+
+const sublistItemStyle = {
+  marginBottom: "5px",
+};
+
+const sublinkStyle = {
+  color: "#ccc",
+  textDecoration: "none",
+};
 
 export default Sidebar;

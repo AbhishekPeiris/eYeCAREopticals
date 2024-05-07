@@ -80,4 +80,50 @@ router.route('/removecartitem/:id').delete(async (req, res) => {
     }
 });
 
+router.route('/updateyeglassstatuscart/:id').put(async(req, res) => {
+
+    const id = req.params.id;
+
+    const {
+       status
+    } = req.body;
+
+    const updateeyeglassstatuscart = {
+        status
+    }
+    
+    try {
+        
+        await Cart.findByIdAndUpdate(id , updateeyeglassstatuscart);
+        return res.status(200).json({status: "EyeglassStatuscart updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update EyeglassStatuscart", message: error});
+
+    }
+});
+
+router.route('/getallcartitems/:email/:model').post(async(req, res) => {
+
+    const email = req.params.email;
+    const model = req.params.model;
+
+    try {
+        
+        const cart = await Cart.find({ email: email, model: model });
+
+        if (!cart) {
+            return res.status(404).json({ status: "cart items not found" });
+        }
+
+        return res.status(200).json({status: "cart items is fatched", cart});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with fetch cart items", message: error});
+
+    }
+});
+
 module.exports = router;
