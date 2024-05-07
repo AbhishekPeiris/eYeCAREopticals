@@ -5,7 +5,9 @@ import Swal from 'sweetalert2';
 import Sidebar from "../components/Sidebar";
 import "../styles/random.css"
 import Rating from 'react-rating-stars-component';
-import { toPng } from 'html-to-image';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 function AdminFeedback() {
 
@@ -46,15 +48,35 @@ function AdminFeedback() {
     );
   });
 
-  const downloadAsImage = async () => {
-    const table = document.querySelector('.container617');
-    try {
-      const dataUrl = await toPng(table);
-      const blob = await fetch(dataUrl).then((res) => res.blob());
-      saveAs(blob, 'table-image.png');
-    } catch (error) {
-      console.error('Error:', error);
-    }
+
+  const downloadAsPDF = () => {
+    const table = document.querySelector('.table617');
+    html2canvas(table).then(canvas => {
+      const pdf = new jsPDF();
+      pdf.setFontSize(18);
+      pdf.text("Feedback Report", 14, 22);
+
+      const tableColumns = ["Customer name", "Contact", "Address", "Email", "Rating", "Comment"];
+
+      const tableRows = filteredFeedback.map((feedback) => [
+        feedback.cusname || "N/A",
+        feedback.contact || "N/A",
+        feedback.address || "N/A",
+        feedback.email || "N/A",
+        feedback.rating || "N/A",
+        feedback.comment || "N/A",
+
+      ])
+
+      pdf.autoTable({
+        head: [tableColumns],
+    body: tableRows,
+    startY: 30,
+    theme: 'striped',
+      })
+      pdf.save('feedback-report.pdf');
+    });
+
   };
 
   return (
@@ -69,7 +91,9 @@ function AdminFeedback() {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-bar617"
             />
-            <button onClick={downloadAsImage} className="download-button617">Download Report</button>
+
+            <button onClick={downloadAsPDF} className="download-button617">Download Report</button>
+
           </div>
           <table className="table617">
             <thead>
