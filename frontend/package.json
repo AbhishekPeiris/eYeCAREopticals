@@ -25,7 +25,7 @@
 
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",
-]
+
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-calendar": "^4.8.0",
