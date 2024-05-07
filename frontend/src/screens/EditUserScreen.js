@@ -109,7 +109,7 @@ const EditUserScreen = () => {
                         <div className="container h-100" style={{width:"1200px"}}>
                             <div className="row d-flex justify-content-left align-items-left h-100 mt-5 mb-5">
                                 <div className="col-12 col-md-8 col-lg-6">
-                                    <div className="card" style={{ borderRadius: "15px", border: "3px solid #f5e9db" }}>
+                                    <div className="card" style={{ borderRadius: "15px", border: "3px solid #f5e9db", width:"550px" }}>
                                         <div className="card-body p-4">
                                             <h2 className="text-center mb-4"><strong>Edit my profile</strong></h2>
 
