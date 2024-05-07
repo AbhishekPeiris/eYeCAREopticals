@@ -155,7 +155,7 @@ const BookingScreen = () => {
             ) : (
 
                 <section className="my-5">
-                    <div className="container">
+                    <div className="">
                         <div className="row">
 
                             <div className="col-lg-9">
