@@ -26,8 +26,8 @@ function AddCustomerDetails() {
   const [errorpassword, setErrorPassword] = useState(false);
   const [errorrole, setErrorRole] = useState(false);
 
-  function resetErrors(){
-   
+  function resetErrors() {
+
     setErrorFirstname(false);
     setErrorLastname(false);
     setErrorDob(false);
@@ -133,94 +133,109 @@ function AddCustomerDetails() {
 
   return (
     <div>
-      <form  class="form mb-5 mt-5" style={{width:"350px"}} onSubmit={UserRegister}>
 
-        <Sidebar />
+      <div className='row'>
+        <div className='col-3'>
+          <Sidebar />
+        </div>
+        <div className='col-3'>
+          <form class="cd-form-group" onSubmit={UserRegister}>
 
-      <h4><strong>Customer Registration Form</strong></h4><br/>
-        <div className="input-container">
-          <label>First name</label><br/>
-          <input type="text" placeholder="Enter first name " value={firstname} required
-            onChange={(e) => {
-              setFirstname(e.target.value);
-            }}
-          />
+            <h4><strong>Customer Registration Form</strong></h4><br />
+            <div className="mb-3">
+              <label className='cd-control-label'>First name</label><br />
+              <input type="text" placeholder="Enter first name " value={firstname} required className='cd-form-control'
+                onChange={(e) => {
+                  setFirstname(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className='cd-control-label'>Last name </label><br />
+              <input type="text" placeholder="Enter last name" value={lastname} required className='cd-form-control'
+                onChange={(e) => {
+                  setLastname(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className='cd-control-label'>Date of Birth</label><br />
+              <input type="date" placeholder="Enter Date of Birth" value={dob} required className='cd-form-control'
+                onChange={(e) => {
+                  setDob(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-3">
+              <label className='cd-control-label'>Address</label><br />
+              <input type="text" placeholder="Enter address" value={address} required className='cd-form-control'
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-3">
+              <label className='cd-control-label'>Gender</label>
+              <br />
+              <select
+                value={gender}
+                required
+                className='cd-form-control'
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option value="">Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <div className="mb-3">
+              <label className='cd-control-label'>Contact</label><br />
+              <input type="tel" placeholder="Enter contact" value={contact} required className='cd-form-control' maxLength={10} minLength={10}
+                onChange={(e) => {
+                  setContact(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-3">
+              <label className='cd-control-label'>Email</label><br />
+              <input type="email" placeholder="Enter email" value={email} required className='cd-form-control'
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-3">
+              <label className='cd-control-label'>Password</label><br />
+              <input type="password" placeholder="Enter password" value={password} required className='cd-form-control'
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
+            <div className="mb-3">
+              <label className='cd-control-label'>Role</label>
+              <br />
+              <select
+                value={role}
+                required
+                className='cd-form-control'
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+            </div>
+
+            <button type="submit" className="submit">Submit</button>
+          
+          </form>
+
         </div>
 
-        <div className="input-container">
-          <label>Last name </label><br/>
-          <input type="text" placeholder="Enter last name" value={lastname} required
-            onChange={(e) => {
-              setLastname(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="input-container">
-          <label>Date of Birth</label><br/>
-          <input type="date" placeholder="Enter Date of Birth" value={dob} required
-            onChange={(e) => {
-              setDob(e.target.value);
-            }}
-          />
-        </div>
-        <div className="input-container">
-          <label>Address</label><br/>
-          <input type="text" placeholder="Enter address" value={address} required
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-          />
-        </div>
-        <div className="input-container">
-          <label>Gender</label><br/>
-          <input type="text" placeholder="Enter gender" value={gender} required
-            onChange={(e) => {
-              setGender(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="input-container">
-          <label>Contact</label><br/>
-          <input type="tel" placeholder="Enter contact" value={contact} required
-            onChange={(e) => {
-              setContact(e.target.value);
-            }}
-          />
-        </div>
-        <div className="input-container">
-          <label>Email</label><br/>
-          <input type="email" placeholder="Enter email" value={email} required
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </div>
-        <div className="input-container">
-          <label>Password</label><br/>
-          <input type="password" placeholder="Enter password" value={password} required
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <div className="input-container">
-        <label>Role</label>
-            <br/>
-          <select
-              value={role}
-              required
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value="admin">Admin</option>
-              <option value="user">User</option>
-            </select>
-        </div>
-
-        <button type="submit" className="submit" style={{width:"300px"}}>Submit</button>
-            <button class="submit" style={{width:"300px"}}>Cancel</button>
-      </form>
+      </div>
 
 
     </div>
