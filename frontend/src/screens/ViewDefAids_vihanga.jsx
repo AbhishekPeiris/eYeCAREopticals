@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import { AiOutlineCheck, AiOutlineUndo, AiOutlineFileText } from 'react-icons/ai';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -35,6 +36,7 @@ function ViewDefAidsvihanga() {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
   };
+
 
   const applyFilters = () => {
     const filteredData = deafaids.filter(deafAid => {
@@ -173,8 +175,12 @@ function ViewDefAidsvihanga() {
           placeholder="Material"
           style={{ marginRight: '10px', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '14px' }}
         />
-        <button onClick={applyFilters} style={{ backgroundColor: '#fc6203', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', outline: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', marginRight: '10px' }}>Apply Filters</button>
-        <button onClick={resetFilters} style={{ backgroundColor: '#fc6203', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', outline: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>Reset Filters</button>
+        <button onClick={applyFilters} style={{ backgroundColor: '#fc6203', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', outline: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', marginRight: '10px' }}>
+          <AiOutlineCheck /> Apply Filters
+        </button>
+        <button onClick={resetFilters} style={{ backgroundColor: '#fc6203', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', outline: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
+          <AiOutlineUndo /> Reset Filters
+        </button>
       </div>
 
       {/* Table */}
@@ -319,3 +325,4 @@ function ViewDefAidsvihanga() {
 }
 
 export default ViewDefAidsvihanga;
+
