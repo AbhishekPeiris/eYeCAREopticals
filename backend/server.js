@@ -47,6 +47,52 @@ app.get("/sales", async (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
     }
   });
+
+  app.get('/getddefAidDetaails', async (req, res) => {
+    try {
+      const deafaids = await DeafAids.find();
+      res.json({ deafaids });
+    } catch (error) {
+      console.error('Error fetching DeafAids data:', error);
+      res.status(500).json({ error: 'Failed to fetch DeafAids data' });
+    }
+  });
+
+// Route for updating a Deaf Aid item
+app.patch('/updateDeafAid/:id', async (req, res) => {
+  const { model, gender, material, description, size1, size2, price, rating, imageurlcolor1, imageurlcolor2 } = req.body;
+  const { id } = req.params;
+  
+  try {
+    // Find the Deaf Aid item by ID and update its properties
+    const updatedDeafAid = await DeafAids.findByIdAndUpdate(
+      id,
+      {
+        model,
+        gender,
+        material,
+        description,
+        size1,
+        size2,
+        price,
+        rating,
+        imageurlcolor1,
+        imageurlcolor2
+      },
+      { new: true } // To return the updated document
+    );
+
+    if (!updatedDeafAid) {
+      return res.status(404).json({ message: 'Deaf Aid not found' });
+    }
+
+    res.status(200).json({ message: 'Deaf Aid updated successfully', deafAid: updatedDeafAid });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
   
 
 const userRouter = require('./routes/UserRoute');
@@ -89,6 +135,7 @@ const CartRoute = require('./routes/CartRoute');
 app.use('/api/cart',CartRoute);
 
 const EmailRoute = require('./routes/EmailRoute');
+const DeafAids = require('./models/DeafAids');
 app.use('/api/sendemail',EmailRoute);
 
 

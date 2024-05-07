@@ -76,7 +76,7 @@ router.route('/editdeafaidsreservation/:id').put(async (req, res) =>{
         gender,
         size,
         price,
-        imageurlcolor
+        imageurlcolor1
     } = req.body;
 
     const updateDeafaidsReservation = {
@@ -88,7 +88,7 @@ router.route('/editdeafaidsreservation/:id').put(async (req, res) =>{
         gender,
         size,
         price,
-        imageurlcolor
+        imageurlcolor1
     }
     
     try {

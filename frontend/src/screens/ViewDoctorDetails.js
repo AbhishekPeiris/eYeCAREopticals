@@ -50,6 +50,7 @@ function ViewDoctorDetails() {
               + Add Doctors
             </button>
             </Link>
+            
       <div className="ttp1">
         <label>
           <b>Personal Details</b>

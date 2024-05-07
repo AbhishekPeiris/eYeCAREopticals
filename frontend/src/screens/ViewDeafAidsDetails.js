@@ -52,6 +52,7 @@ function ViewDeafAidsDetails() {
     
   return (
     <div className="hiraaftersidebar">
+
       <div className="row">
         <div className="col-md-1 border hirtalehd1">
           <strong>
@@ -108,7 +109,7 @@ function ViewDeafAidsDetails() {
       </div>
 
       {deafaids.map((deafaids) => (
-        <div className="row">
+        <div className="row" key={deafaids._id}>
           <div className="col-md-1 border hirtalehd1">
             <p>{deafaids.model}</p>
           </div>
