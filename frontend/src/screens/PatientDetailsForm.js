@@ -118,7 +118,7 @@ function PatientDetailsForm() {
                 }
               }
             />
-            <label className='lb' for="dob">Date</label>
+            <label className='lb' for="dob"> Appointment Date</label>
             <input type="date" id="dob" name="dob" required value={date}
               onChange={
                 (e) => {
