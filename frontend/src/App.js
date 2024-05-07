@@ -72,6 +72,7 @@ import EditReservationScreen from './screens/EditReservationScreen';
 import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
 import AdminFeedback from './screens/Adminfeedback';
 import PatientDetailsForm from './screens/PatientDetailsForm';
+import ViewDefAidsvihanga from './screens/ViewDefAids_vihanga';
 
 
 
@@ -178,6 +179,7 @@ function App() {
         <Route path='/updatesepectacledetails/:specId' element={<UpdateSepectacleDetails />} />
 
         <Route path='/getallfeedback' element={<AdminFeedback />} />
+        <Route path='/vihanga' element={<ViewDefAidsvihanga />} />
 
       </Routes>
     </BrowserRouter>
