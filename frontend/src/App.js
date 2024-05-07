@@ -71,6 +71,9 @@ import EditReservationScreen from './screens/EditReservationScreen';
 
 import UpdateDocotAppointmenteScreen from './screens/UpdateDocotAppointmenteScreen';
 import AdminFeedback from './screens/Adminfeedback';
+import PatientDetailsForm from './screens/PatientDetailsForm';
+
+
 
 
 
@@ -114,6 +117,7 @@ function App() {
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
+          <Route path='/FeedbackScreen' element={<DefaultLayout><feedbackScreen /></DefaultLayout>} />
 
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 
@@ -126,9 +130,9 @@ function App() {
           <Route path='/editreservation/:resvationID/:brand/:model' element={<DefaultLayout>< EditReservationScreen/></DefaultLayout>} />
 
 
-          <Route path='/editdoctorappointment/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
+          <Route path='/editdoctorappointment/:cusemail/:appoID' element={<DefaultLayout>< UpdateDocotAppointmenteScreen/></DefaultLayout>} />
           <Route path='/viewallfeedback' element={<DefaultLayout>< ViewAllFeedback/></DefaultLayout>} />
-
+          <Route path='/patientdetails/:docfname/:doclastname/:docfee' element={<DefaultLayout>< PatientDetailsForm/></DefaultLayout>} />
           
           
 

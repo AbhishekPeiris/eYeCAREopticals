@@ -4,53 +4,130 @@ import Swal from 'sweetalert2';
 import Sidebar from '../components/Sidebar';
 import "../styles/AdminDashboard.css";
 
-function AddCustomerDetails() {
 
-  const [firstname, setFirstname] = useState();
-  const [lastname, setLastname] = useState();
-  const [dob, setDob] = useState();
-  const [address, setAddress] = useState();
-  const [gender, setGender] = useState();
-  const [contact, setContact] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [role, setRole] = useState('user');
+function AddCustomerDetails() {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [dob, setDob] = useState("");
+  const [address, setAddress] = useState("");
+  const [gender, setGender] = useState("");
+  const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("user");
+
+  const [errorfirstname, setErrorFirstname] = useState(false);
+  const [errorlastname, setErrorLastname] = useState(false);
+  const [errordob, setErrorDob] = useState(false);
+  const [erroraddress, setErrorAddress] = useState(false);
+  const [errorgender, setErrorGender] = useState(false);
+  const [errorcontact, setErrorContact] = useState(false);
+  const [erroremail, setErrorEmail] = useState(false);
+  const [errorpassword, setErrorPassword] = useState(false);
+  const [errorrole, setErrorRole] = useState(false);
+
+  function resetErrors(){
+   
+    setErrorFirstname(false);
+    setErrorLastname(false);
+    setErrorDob(false);
+    setErrorAddress(false);
+    setErrorGender(false);
+    setErrorContact(false);
+    setErrorEmail(false);
+    setErrorPassword(false);
+    setErrorRole(false);
+
+  }
+  function ValidateForm() {
+    //reset previous error messages
+
+    resetErrors();
+    if (firstname.trim() === "") {
+      setErrorFirstname(false);
+    }
+    if (lastname.trim() === "") {
+      setErrorLastname(false);
+    }
+    if (dob === "") {
+      setErrorDob(false);
+    }
+    if (address.trim() === "") {
+      setErrorAddress(false);
+    }
+    if (gender === "") {
+      setErrorGender(false);
+    }
+    if (contact.trim() === "") {
+      setErrorContact(false);
+    }
+    if (email.trim() === "") {
+      setErrorEmail(false);
+    }
+    if (password === "") {
+      setErrorPassword(false);
+    }
+    if (role === "") {
+      setErrorRole(false);
+    }
+  }
+
+  function isThereAnyValidationError() {
+    return (
+      errorfirstname ||
+      errorlastname ||
+      errordob ||
+      erroraddress ||
+      errorgender ||
+      errorcontact ||
+      erroremail ||
+      errorpassword ||
+      errorrole
+    );
+  }
 
 
   async function UserRegister(e) {
     e.preventDefault();
+    ValidateForm();
 
-    const newUser = {
-      firstname : firstname,
-      lastname :lastname,
-      dob : dob,
-      address : address,
-      gender : gender,
-      contact : contact,
-      email : email,
-      password : password,
-      role : role
-    }
+    if (!isThereAnyValidationError()) {
+      const newUser = {
+        firstname: firstname,
+        lastname: lastname,
+        dob: dob,
+        address: address,
+        gender: gender,
+        contact: contact,
+        email: email,
+        password: password,
+        role: role,
+      };
 
-    try {
-      const data = (await axios.post('http://localhost:5000/api/user/register', newUser)).data;
-      console.log(data);
-      Swal.fire('Thank you!', "Registration Successfully", "success").then(result => {
-        window.location.href = '/viewcustomerdetails';
-      });
+      try {
+        const data = (
+          await axios.post("http://localhost:5000/api/user/register", newUser)
+        ).data;
+        console.log(data);
+        Swal.fire("Thank you!", "Registration Successfully", "success").then(
+          (result) => {
+            window.location.href = "/viewcustomerdetails";
+          }
+        );
 
-      setFirstname('');
-      setLastname('');
-      setDob('');
-      setAddress('');
-      setGender('');
-      setContact('');
-      setEmail('');
-      setPassword('');
-      setRole('user');
-    } catch (error) {
-      console.log(error);
-      Swal.fire('Error', "Registration Unsuccessfully", "error");
+        setFirstname("");
+        setLastname("");
+        setDob("");
+        setAddress("");
+        setGender("");
+        setContact("");
+        setEmail("");
+        setPassword("");
+        setRole("user");
+      } catch (error) {
+        console.log(error);
+        Swal.fire("Error", "Registration Unsuccessfully", "error");
+      }
     }
   }
 
@@ -144,6 +221,8 @@ function AddCustomerDetails() {
         <button type="submit" className="submit" style={{width:"300px"}}>Submit</button>
             <button class="submit" style={{width:"300px"}}>Cancel</button>
       </form>
+
+
     </div>
   );
 }

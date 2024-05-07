@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Divider, Flex, Tag } from 'antd';
 
 AOS.init({ duration: 1000 });
 
@@ -80,6 +81,16 @@ const RayBan = () => {
             const priceCondition = selectedPrice === 'all' || (rayBan.price <= parseInt(selectedPrice) && rayBan.price >= parseInt(selectedPrice) - 9999);
             return typeCondition && genderCondition && priceCondition;
         });
+    }
+
+    function shopnow(status,brand,model){
+        if (!(status === 'In stock')){
+            alert('This product is currently out of stock. Please check back later.');
+        }
+        else{
+            window.location.href = `/${brand}/${model}`;
+        }
+
     }
 
     return (
@@ -172,8 +183,9 @@ const RayBan = () => {
                                             edit={false}
                                         />
                                         <hr style={{ backgroundColor: "black" }} />
-                                        Frame : <strong>LKR {eyeglass.price}</strong>
-                                        <Link to={`/${eyeglass.brand}/${eyeglass.model}`}><button className='Reyeglassesbtn' >SHOP NOW !</button></Link>
+                                        Frame : <strong>LKR {eyeglass.price}</strong><br/>
+                                        {eyeglass.status === 'In stock' ? (<Tag color="green">In stock</Tag>) : (<Tag color="red">Out of Stock</Tag>)}<br/><br/>
+                                        <button className='Reyeglassesbtn' onClick={(e)=>{shopnow(eyeglass.status,eyeglass.brand,eyeglass.model)}}>SHOP NOW !</button>
                                     </p>
                                 </div>
                             ))}

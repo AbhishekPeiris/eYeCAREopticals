@@ -185,6 +185,7 @@ router.route('/getalluser').post(async (req, res) => {
     }
 });
 
+
 router.route('/getalluser/:id').post(async(req, res) => {
 
     const userID = req.params.id;
@@ -218,7 +219,8 @@ router.route('/edituser/:id').put(async (req, res) =>{
         gender,
         contact,
         email,
-        password
+        password,
+        role
     } = req.body;
 
     const updateUser = {
@@ -230,7 +232,8 @@ router.route('/edituser/:id').put(async (req, res) =>{
         gender,
         contact,
         email,
-        password
+        password,
+        role
     }
     
     try {

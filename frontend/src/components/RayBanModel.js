@@ -29,6 +29,7 @@ const RayBanModel = () => {
     const [gender, setGender] = useState();
     const [price, setPrice] = useState();
     const [rating, setRating] = useState();
+    const [status, setStatus] = useState();
     const [imageurlcolor, setImageurlColor] = useState([]);
 
     const [framesize, setFramsize] = useState();
@@ -38,6 +39,10 @@ const RayBanModel = () => {
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
+    
+
+    const [eyeglassID, seteyeglassID] = useState('');
+    const [eyeglasscartID, seteyeglasscartID] = useState('');
 
 
     useEffect(() => {
@@ -59,13 +64,15 @@ const RayBanModel = () => {
     
                     // Only set individual states once after fetching data
                     if (response.data.eyeGlass.length > 0) {
-                        const eyeglassData = response.data.eyeGlass[0]; // Assuming only one item is returned
+                        const eyeglassData = response.data.eyeGlass[0]; 
+                        seteyeglassID(eyeglassData._id)// Assuming only one item is returned
                         setModelNo(eyeglassData.model);
                         setType(eyeglassData.type);
                         setBrandName(eyeglassData.brand);
                         setGender(eyeglassData.gender);
                         setPrice(eyeglassData.price);
                         setRating(eyeglassData.rating);
+                        setStatus(eyeglassData.status);
                         setImageurlColor(eyeglassData.imageurlcolor1);
                         setFramsize(eyeglassData.framesize1);
                     }
@@ -92,6 +99,23 @@ const RayBanModel = () => {
             }
     
             getCartItems();
+
+            async function getCartItem() {
+                try {
+                    setLoading(true);
+                    const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}/${model}`);
+                    console.log(response.data.cart);
+                    const CartData = response.data.cart[0]; 
+                    seteyeglasscartID(CartData._id)
+                    console.log(CartData._id)
+                    setLoading(false);
+                } catch (error) {
+                    console.log(error);
+                    setLoading(false);
+                }
+            }
+    
+            getCartItem();
 
         }
         else{
@@ -136,6 +160,7 @@ const RayBanModel = () => {
                 gender : gender,
                 price : price,
                 rating : rating,
+                status : status,
                 imageurlcolor : imageurlcolor
             }
     
@@ -159,6 +184,11 @@ const RayBanModel = () => {
 
     async function onToken(token) {
 
+        if(!eyeglasscartID){
+            Swal.fire('Oops!',"Add your item to cart first", "error");
+            return;
+        }
+
         console.log(token);
 
         const newEyeglassReservation = {
@@ -175,12 +205,30 @@ const RayBanModel = () => {
             imageurlcolor : imageurlcolor
 
           }
+
+          const updateEyeglassStatus = {
+            status: "Out of stock",
+        };
+          
       
           try {
             setLoading(true);
             const data = (await axios.post('http://localhost:5000/api/eyeglassreservation/createeyeglassreservation', newEyeglassReservation)).data;
             console.log(data);
-            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})
+            const updateResponse = await axios.put(
+                `http://localhost:5000/api/eyeglass/updateyeglassstatus/${eyeglassID}`,
+                updateEyeglassStatus
+            );
+            console.log(updateResponse.data);
+            console.log(eyeglasscartID);
+
+            const updateResponsecart = await axios.put(
+                `http://localhost:5000/api/cart/updateyeglassstatuscart/${eyeglasscartID}`,
+                updateEyeglassStatus
+            );
+            console.log(updateResponsecart.data);
+
+            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})    
             Swal.fire('Thank you!', "Your Reservation is Successfully", "success").then(result => {
               window.location.href = '/bookings';
             });

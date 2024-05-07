@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
-import Rating from 'react-rating-stars-component';
+import "../styles/ViewAllFeedback.css";
+import Rating from "react-rating-stars-component";
 
 function ViewAllFeedback() {
   const [feedback, setFeedback] = useState([]);
@@ -10,7 +9,7 @@ function ViewAllFeedback() {
   useEffect(() => {
     async function fetchFeedback() {
       try {
-        const response = await axios.get(
+        const response = await axios.post(
           "http://localhost:5000/api/feedback/"
         );
         setFeedback(response.data.feedback);
@@ -22,22 +21,20 @@ function ViewAllFeedback() {
   }, []);
 
   return (
-    <div className="container" style={{ width: "1500px" }}>
-      {feedback.map((item) => (
-        <div className="row" key={item.id}>
-          <p style={{ fontSize: "11px" }}>{item.cusname}</p>
-          <p style={{ fontSize: "11px" }}>{item.contact}</p>
-          <p style={{ fontSize: "11px" }}>{item.address}</p>
-          <p style={{ fontSize: "11px" }}>{item.email}</p>
-          <Rating
-            count={5}
-            value={item.rating}
-            size={24}
-            edit={false}
-          />
-          <p style={{ fontSize: "11px" }}>{item.comment}</p>
-        </div>
-      ))}
+    <div>
+     
+      <div className="container617">
+        {feedback.map((item) => (
+          <div className="feedback-item" key={item.id}>
+            <p className="cusname">{item.cusname}</p>
+            <p>{item.contact}</p>
+            <p>{item.address}</p>
+            <p>{item.email}</p>
+            <Rating count={5} value={item.rating} size={24} edit={false} />
+            <p className="comment">{item.comment}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

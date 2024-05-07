@@ -18,6 +18,7 @@ router.route('/addeyeglass').post(async(req, res) => {
         framesize3,
         price,
         rating,
+        status,
         imageurlcolor1,
         imageurlcolor2,
         imageurlcolor3
@@ -38,6 +39,7 @@ router.route('/addeyeglass').post(async(req, res) => {
        framesize3,
        price,
        rating,
+       status,
        imageurlcolor1,
        imageurlcolor2,
        imageurlcolor3
@@ -95,6 +97,30 @@ router.route('/:brand/:model').post(async(req, res) => {
 
         return res.status(500).json({status: "Error with fetch eyeglass", message: error});
         
+    }
+});
+
+router.route('/updateyeglassstatus/:id').put(async(req, res) => {
+
+    const id = req.params.id;
+
+    const {
+       status
+    } = req.body;
+
+    const updateeyeglassstatus = {
+        status
+    }
+    
+    try {
+        
+        await EyeGlass.findByIdAndUpdate(id , updateeyeglassstatus);
+        return res.status(200).json({status: "EyeglassStatus updated"});
+
+    } catch (error) {
+        
+        return res.status(500).json({status: "Error with update EyeglassStatus", message: error});
+
     }
 });
 module.exports = router;

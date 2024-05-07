@@ -274,6 +274,7 @@ function ViewSpectaclesDetails() {
             ))}
           </tbody>
         </table>
+
       </div>
     </div>
 

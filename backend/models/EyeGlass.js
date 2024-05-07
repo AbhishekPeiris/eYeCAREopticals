@@ -59,6 +59,11 @@ const eyeGlassSchema = new Schema({
         type: Number,
         required: true
     },
+    status :{
+        type: String,
+        required: true,
+        default : 'In stock'
+    },
     imageurlcolor1 : [],
     imageurlcolor2 : [], 
     imageurlcolor3 : [],

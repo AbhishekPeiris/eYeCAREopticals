@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { saveAs } from 'file-saver';
 import Swal from 'sweetalert2';
+import Sidebar from "../components/Sidebar";
+import "../styles/random.css"
 import Rating from 'react-rating-stars-component';
-
+import { toPng } from 'html-to-image';
 
 function AdminFeedback() {
 
   const [feedback, setFeedback] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    async function ViewAllFeedback() {
+    async function fetchFeedback() {
       try {
         const response = await axios.post(
           "http://localhost:5000/api/feedback/"
@@ -20,104 +23,83 @@ function AdminFeedback() {
         console.log(error);
       }
     }
-    ViewAllFeedback();
+    fetchFeedback();
   }, []);
 
   async function deleteFeedback(id){
-
     try {
-        
-        
-        const data = (await axios.delete(`http://localhost:5000/api/feedback/deletefeedback/${id}`)).data;
-        console.log(data);
-        Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
-
-            window.location.reload();
-
-        });
-
+      const data = (await axios.delete(`http://localhost:5000/api/feedback/deletefeedback/${id}`)).data;
+      console.log(data);
+      Swal.fire('Stay safe', "You account is deleted", 'success').then(result => {
+        window.location.reload();
+      });
     } catch (error) {
-        
-        console.log(error);
-        Swal.fire('Error', "Error with deleting user", 'error');
- 
-
+      console.log(error);
+      Swal.fire('Error', "Error with deleting user", 'error');
     }
-}
-  
+  }
+
+  const filteredFeedback = feedback.filter((item) => {
+    return (
+      item.cusname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.email.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+
+  const downloadAsImage = async () => {
+    const table = document.querySelector('.container617');
+    try {
+      const dataUrl = await toPng(table);
+      const blob = await fetch(dataUrl).then((res) => res.blob());
+      saveAs(blob, 'table-image.png');
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   return (
-    <div className="container" style={{width:"1500px"}}>
-    <div className="row ">
-      <div className="col-md-1 border">
-        <strong>
-          <p>Customer name</p>
-        </strong>
+    <div className="divana">
+      <Sidebar />
+      <div className="form617"  style={{ marginTop: '-300px'}}>
+        <div className="container617" style={{ width: "120%" , height: '100vh', overflowX: 'scroll'}}>
+          <div  style={{ marginBottom: '-150px', width: '1150px',display: 'flex',alignItems: 'center', justifyContent: 'space-between',marginLeft: '-220px'}}>
+            <input 
+              type="text"
+              placeholder="Search name or email"
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-bar617"
+            />
+            <button onClick={downloadAsImage} className="download-button617">Download Report</button>
+          </div>
+          <table className="table617">
+            <thead>
+              <tr>
+                <th>Customer name</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Rating</th>
+                <th>Comment</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredFeedback.map((feedback) => (
+                <tr key={feedback._id}>
+                  <td>{feedback.cusname}</td>
+                  <td>{feedback.contact}</td>
+                  <td>{feedback.address}</td>
+                  <td>{feedback.email}</td>
+                  <td><Rating count={5} value={feedback.rating} size={24} edit={false} /></td>
+                  <td>{feedback.comment}</td>
+                  <td><button onClick={(e) => deleteFeedback(feedback._id)}>Delete</button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div className="col-md-1 border">
-        <strong>
-          <p>Contact</p>
-        </strong>
-      </div>
-
-      <div className="col-md-1 border">
-        <strong>
-          <p>Address</p>
-        </strong>
-      </div>
-      <div className="col-md-3 border">
-        <strong>
-          <p>Email</p>
-        </strong>
-      </div>
-      <div className="col-md-1 border">
-        <strong>
-          <p>Rating</p>
-        </strong>
-      </div>
-      <div className="col-md-1 border">
-        <strong>
-          <p>Comment</p>
-        </strong>
-      </div>
-     
-      
-      <div className="col-md-1 border"><strong>Action</strong></div>
     </div>
-    <form>
-    {feedback.map((feedback) => (
-      <div className="row">
-        <div className="col-md-1 border ">
-          <p style={{fontSize:"11px"}}>{feedback.cusname}</p>
-        </div>
-        <div className="col-md-1 border ">
-          <p style={{fontSize:"11px"}}>{feedback.contact}</p>
-        </div>
-
-        <div className="col-md-1 border ">
-          <p style={{fontSize:"11px"}}>{feedback.address}</p>
-        </div>
-        <div className="col-md-3 border ">
-          <p style={{fontSize:"11px"}}>{feedback.email}</p>
-        </div>
-        <div className="col-md-1 border ">
-        <Rating
-                                            count={5}
-                                            value={feedback.rating}
-                                            size={24}
-                                            edit={false}
-                                        />
-        </div>
-        <div className="col-md-1 border ">
-          <p style={{fontSize:"11px"}}>{feedback.comment}</p>
-        </div>
-       
-        <div className="col-md-1 border  " >
-        <button onClick={(e) => deleteFeedback(feedback._id)}>Delete</button>
-        </div>
-      </div>
-    ))}
-    </form>
-  </div>
   );
 }
 
