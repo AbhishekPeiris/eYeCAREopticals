@@ -99,7 +99,7 @@ function Sidebar() {
 }
 
 const sidebarStyle = {
-  backgroundColor: "#333",
+  backgroundColor: "#f78623",
   color: "#fff",
   padding: "20px",
 };
@@ -109,7 +109,7 @@ const listItemStyle = {
 };
 
 const linkStyle = {
-  color: "#fff",
+  color: "#fff !" ,
   textDecoration: "none",
 };
 

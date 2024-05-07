@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import Sidebar from '../components/Sidebar';
-//import "../styles/AdminDashboard.css";
+import "../styles/AdminDashboard.css";
 import '../styles/newStyles.css';
 
 
@@ -94,11 +94,12 @@ function AddSpectacles() {
     }
   }
 
-
-
+  
+  
   return (
     <div className='container DashboardContainer'>
       <Sidebar />
+      
       
       <div>
       <div style={{ textAlign: 'center' }}>

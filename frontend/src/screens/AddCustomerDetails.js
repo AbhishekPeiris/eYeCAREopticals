@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Sidebar from '../components/Sidebar';
+import "../styles/AdminDashboard.css";
 
 function AddCustomerDetails() {
 
@@ -13,6 +15,7 @@ function AddCustomerDetails() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [role, setRole] = useState('user');
+
 
   async function UserRegister(e) {
     e.preventDefault();
@@ -54,6 +57,8 @@ function AddCustomerDetails() {
   return (
     <div>
       <form  class="form mb-5 mt-5" style={{width:"350px"}} onSubmit={UserRegister}>
+
+        <Sidebar />
 
       <h4><strong>Customer Registration Form</strong></h4><br/>
         <div className="input-container">

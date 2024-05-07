@@ -8,6 +8,14 @@
     font-size:15px; 
     
 }
+
+.sidebar{
+    width: 100px;
+    height: 20px;
+    margin-left: 50px;
+}
+
+
 .mdlno2{
     width: 200px;
     height: 40px;
