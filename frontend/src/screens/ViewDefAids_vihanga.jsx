@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 function ViewDefAidsvihanga() {
   const [deafaids, setDeafAids] = useState([]);
@@ -20,6 +21,83 @@ function ViewDefAidsvihanga() {
     imageurlcolor2: ''
   });
 
+  // Filter state
+  const [filters, setFilters] = useState({
+    model: '',
+    gender: '',
+    material: ''
+  });
+
+  // Filtered Deaf Aids state
+  const [filteredDeafAids, setFilteredDeafAids] = useState([]);
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters({ ...filters, [name]: value });
+  };
+
+  const applyFilters = () => {
+    const filteredData = deafaids.filter(deafAid => {
+      return (
+        deafAid.gender.toLowerCase().includes(filters.gender.toLowerCase()) &&
+        deafAid.model.toLowerCase().includes(filters.model.toLowerCase()) &&
+        deafAid.material.toLowerCase().includes(filters.material.toLowerCase())
+      );
+    });
+    setFilteredDeafAids(filteredData);
+  };
+
+  const resetFilters = () => {
+    setFilters({
+      model: '',
+      gender: '',
+      material: ''
+    });
+    setFilteredDeafAids(deafaids);
+  };
+
+  const generatePDF = () => {
+    const doc = new jsPDF();
+
+    // Heading
+    doc.setFontSize(16);
+    doc.text("Deaf Aids Inventory Report", 10, 10); // Adjust the position as needed
+
+    // Define table headers
+    const headers = ["Model", "Gender", "Material", "Description", "Size1", "Size2", "Price", "Rating"];
+
+    // Define table rows
+    const rows = filteredDeafAids.map(deafAid => [
+      deafAid.model,
+      deafAid.gender,
+      deafAid.material,
+      deafAid.description,
+      deafAid.size1,
+      deafAid.size2,
+      deafAid.price,
+      deafAid.rating
+    ]);
+
+    // Set up table properties
+    const tableProps = {
+      startY: 20, // Start below the heading
+      head: [headers],
+      body: rows,
+      theme: 'grid',
+      styles: {
+        lineColor: [0, 0, 0],
+        lineWidth: 0.1,
+        fontSize: 10
+      }
+    };
+
+    // Add table to the PDF
+    doc.autoTable(tableProps);
+
+    // Save the PDF
+    doc.save('deaf_aids_inventory.pdf');
+  };
+
   const handleUpdate = async (deafAid) => {
     try {
       await axios.patch(`http://localhost:5000/updateDeafAid/${deafAid._id}`, formData);
@@ -33,11 +111,6 @@ function ViewDefAidsvihanga() {
     }
   };
 
-  const handleUpdateForm = (deafAid) => {
-    setFormData(deafAid);
-    setDisplay(true); // Open the update form when "Update" button is clicked
-  }
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -48,6 +121,7 @@ function ViewDefAidsvihanga() {
       try {
         const response = await axios.get("http://localhost:5000/getddefAidDetaails/");
         setDeafAids(response.data.deafaids);
+        setFilteredDeafAids(response.data.deafaids); // Initialize filtered data with all Deaf Aids
       } catch (error) {
         console.error(error);
       }
@@ -66,16 +140,46 @@ function ViewDefAidsvihanga() {
     }
   };
 
+  const handleUpdateForm = (deafAid) => {
+    setFormData(deafAid);
+    setDisplay(true); // Open the update form when "Update" button is clicked
+  };
+
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div>
+      {/* Filter inputs */}
+      <div style={{ marginBottom: '10px' }}>
+        <input
+          type="text"
+          name="model"
+          value={filters.model}
+          onChange={handleFilterChange}
+          placeholder="Model"
+          style={{ marginRight: '10px', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '14px' }}
+        />
+        <input
+          type="text"
+          name="gender"
+          value={filters.gender}
+          onChange={handleFilterChange}
+          placeholder="Gender"
+          style={{ marginRight: '10px', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '14px' }}
+        />
+        <input
+          type="text"
+          name="material"
+          value={filters.material}
+          onChange={handleFilterChange}
+          placeholder="Material"
+          style={{ marginRight: '10px', padding: '8px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '14px' }}
+        />
+        <button onClick={applyFilters} style={{ backgroundColor: '#fc6203', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', outline: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', marginRight: '10px' }}>Apply Filters</button>
+        <button onClick={resetFilters} style={{ backgroundColor: '#fc6203', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '4px', cursor: 'pointer', outline: 'none', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>Reset Filters</button>
+      </div>
 
-    <Link to='/addhearingaidsscreen' >
-      <button type="submit" className="submit112hiru">
-              + Add Deaf Aids
-            </button>
-    </Link>
-
+      {/* Table */}
       <table style={{ borderCollapse: 'collapse', width: '80%', boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', borderRadius: '10px' }}>
+        {/* Table headers */}
         <thead style={{ backgroundColor: '#f2f2f2' }}>
           <tr>
             <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>Model</th>
@@ -86,13 +190,14 @@ function ViewDefAidsvihanga() {
             <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>Size2</th>
             <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>Price</th>
             <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>Rating</th>
-            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>imageurlcolor1</th>
-            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>imageurlcolor2</th>
+            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>Image URL Color 1</th>
+            <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>Image URL Color 2</th>
             <th style={{ padding: '10px', textAlign: 'left', borderBottom: '1px solid #ddd' }}>Action</th>
           </tr>
         </thead>
+        {/* Table body */}
         <tbody>
-          {deafaids.map((deafAid) => (
+          {filteredDeafAids.map((deafAid) => (
             <tr key={deafAid._id} style={{ borderBottom: '1px solid #ddd' }}>
               <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>{deafAid.model}</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>{deafAid.gender}</td>
@@ -104,39 +209,36 @@ function ViewDefAidsvihanga() {
               <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>{deafAid.rating}</td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}> <img src={deafAid.imageurlcolor1} alt='ps' style={{ width: '50px', height: 'auto' }} /></td>
               <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}> <img src={deafAid.imageurlcolor2} alt='ps' style={{ width: '50px', height: 'auto' }} /></td>
+              {/* Action buttons */}
               <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>
-              <td style={{ padding: '10px', borderBottom: '1px solid #ddd' }}>
-  <button
-    style={{
-      backgroundColor: '#4CAF50',
-      color: 'white',
-      border: 'none',
-      borderRadius: '4px',
-      cursor: 'pointer',
-      padding: '5px 10px',
-      marginRight: '5px'
-    }}
-    onClick={() => handleUpdateForm(deafAid)}
-  >
-    <FaEdit />
-  </button>
-  <button
-    style={{
-      backgroundColor: '#f44336',
-      color: 'white',
-      border: 'none',
-      borderRadius: '4px',
-      cursor: 'pointer',
-      padding: '5px 10px'
-    }}
-    onClick={() => handleDelete(deafAid._id)}
-  >
-    <FaTrash />
-  </button>
-</td>
-
-</td>
-
+                <button
+                  style={{
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    padding: '5px 10px',
+                    marginRight: '5px'
+                  }}
+                  onClick={() => handleUpdateForm(deafAid)}
+                >
+                  <FaEdit />
+                </button>
+                <button
+                  style={{
+                    backgroundColor: '#f44336',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    padding: '5px 10px'
+                  }}
+                  onClick={() => handleDelete(deafAid._id)}
+                >
+                  <FaTrash />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -200,12 +302,18 @@ function ViewDefAidsvihanga() {
             </div>
             {/* Submit button */}
             <div>
-            <button type="submit" onClick={() => handleUpdate(formData)} style={{ padding: '10px', borderRadius: '4px', border: 'none', backgroundColor: '#4CAF50', color: 'white', cursor: 'pointer' }}>Update</button>
-            <button className="close" onClick={() => { setDisplay(false) }} style={{ padding: '10px', borderRadius: '4px', border: 'none', backgroundColor: '#f44336', color: 'white', cursor: 'pointer', marginLeft: '10px' }}>Close</button>
+              <button type="submit" onClick={() => handleUpdate(formData)} style={{ padding: '10px', borderRadius: '4px', border: 'none', backgroundColor: '#4CAF50', color: 'white', cursor: 'pointer' }}>Update</button>
+              <button className="close" onClick={() => { setDisplay(false) }} style={{ padding: '10px', borderRadius: '4px', border: 'none', backgroundColor: '#f44336', color: 'white', cursor: 'pointer', marginLeft: '10px' }}>Close</button>
             </div>
           </form>
         </div>
       )}
+      
+      <Link to='/addhearingaidsscreen'>
+        <button type="submit" className="submit112hiru">+ Add Deaf Aids</button>
+      </Link>
+
+      <button onClick={generatePDF}>Generate PDF</button>
     </div>
   );
 }
