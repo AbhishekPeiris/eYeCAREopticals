@@ -86,16 +86,17 @@ function AdminFeedback() {
         <div className="container617" style={{ width: "120%" , height: '100vh', overflowX: 'scroll'}}>
           <div  style={{ marginBottom: '-150px', width: '1150px',display: 'flex',alignItems: 'center', justifyContent: 'space-between',marginLeft: '-220px'}}>
             <input 
+            style={{marginTop:"100px"}}
               type="text"
               placeholder="Search name or email"
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-bar617"
             />
 
-            <button onClick={downloadAsPDF} className="download-button617">Download Report</button>
+            <button style={{marginTop:"100px"}} onClick={downloadAsPDF} className="download-button617">Download Report</button>
 
           </div>
-          <table className="table617">
+          <table className="table617" style={{position:"relative",top:"80px"}}>
             <thead>
               <tr>
                 <th>Customer name</th>
