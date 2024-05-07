@@ -1,237 +1,256 @@
 
 
-  .fulltable{
-    margin-left:50px !important;
-    margin-top: 200px !important;
-    
-    
-  }
-  .detatable{
-    text-align: center;
-  }
-
- 
-.repaireviewtable_1_col_1 {
-    width: 10%; 
-  }
+.fulltable{
+  margin-left:50px !important;
+  margin-top: 200px !important;
   
-  .fulltable > .row:first-child > .col-md-1:nth-child(-n+10) {
-    background-color: #da751c;
-  }
+  
+}
+.detatable{
+  text-align: center;
+}
+
+
+.repaireviewtable_1_col_1 {
+  width: 10%; 
+}
+
+.fulltable > .row:first-child > .col-md-1:nth-child(-n+10) {
+  background-color: #da751c;
+}
 
 .fulltable > .row:first-child p {
-    color: white;
-  }
+  color: white;
+}
 
 .vddtable{
-    width: 70px !important;
+  width: 70px !important;
 }
 
 .addrfulltable{
-  border:1px solid black;
-  border-radius: 10px;
-  width:320px;
-  padding-left: 5px;
 
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background: rgb(247, 213, 177);
-margin-left: 150px;
-  margin-top: 100px;
-  
+border:1px solid black;
+border-radius: 10px;
+width:320px;
+padding-left: 5px;
+
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+background: lightgoldenrodyellow;
+margin-left: 90px;
+margin-top: 100px;
+left: 100px;
+
 }
 
 .addrfulltable11{
-  border:1px solid black;
-  border-radius: 10px;
-  width:320px;
-  padding-left: 5px;
-margin-left: 200px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background: lightgoldenrodyellow;
+position: relative;
+border:1px solid black;
+border-radius: 10px;
+width:320px;
+padding-left: 5px;
 
-  margin-top: 100px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+background: lightgoldenrodyellow;
+
+margin-top: -500px;
+
 
 
 }
 .submitaddbtn1 {
-  display: block;
-  background-color: #da751c;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 500;
-  width: 40%;
-  height: 40px;
-  border-radius:10px;
-  position: relative !important;
-  top:7px;
-  left: 15px;
+display: block;
+background-color: #da751c;
+color: #ffffff;
+font-size: 15px;
+font-weight: 500;
+width: 40%;
+height: 40px;
+border-radius:10px;
+position: relative !important;
+top:7px;
+left: 15px;
 
-  
+
 }
 
 .submitaddbtn2 {
-  display: block;
-  background-color: #da751c;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 500;
-  width: 40%;
-  height: 40px;
-  border-radius:10px;
-  position: relative !important;
-  left: 165px;
-  top: -40px;
-  
+display: block;
+background-color: #da751c;
+color: #ffffff;
+font-size: 15px;
+font-weight: 500;
+width: 40%;
+height: 40px;
+border-radius:10px;
+position: relative !important;
+left: 165px;
+top: -40px;
+
 }
 .addrhedder{
-  text-align: center;
-  margin-top: 10px;
+text-align: center;
+margin-top: 10px;
 }
 
 .thathiupdatebtnn{
-  color: rgb(255, 255, 255);
-  background: green ;
-  border: none;
-  width: 80px;
+color: rgb(255, 255, 255);
+background: green ;
+border: none;
+width: 80px;
 
 }
 
 .deletebtnn{
-  color: rgb(255, 255, 255);
-  background: red ;
-  border: none;
-  width: 80px;
+color: rgb(255, 255, 255);
+background: red ;
+border: none;
+width: 80px;
 }
 .thathfulltable{
-  margin-left:360px;
-  text-align: center;
-  margin-top: 150px;
+margin-left:360px;
+text-align: center;
+margin-top: 150px;
 }
 .thathitd1{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 
 .thathitd2{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 
 }
 .thathitd3{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 .thathitd4{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 .thathitd5{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 .thathitd6{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 .thathitd7{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
-  
+width:300px;
+height: 40px;
+background-color: #da751c;
+
 }
 .thathitd8{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 .thathitd9{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 .thathitd10{
-  width:300px;
-  height: 40px;
-  background-color: #da751c;
+width:300px;
+height: 40px;
+background-color: #da751c;
 }
 
 .thathitd1d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 
 .thathitd2d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd3d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd4d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd5d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd6d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd7d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd8d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd9d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd10d{
-  width:300px;
-  height: 40px;
+width:300px;
+height: 40px;
 }
 .thathitd11d{
-  width:600px;
-  height:40px;
-}
-.thathideletebtnn{
-  margin-left:10px;
-  background-color: red;
-  width: 80px;
-  height:28px;
-  color: #ffffff;
-  border:none;
-  border-radius:5px;
-}
-.thathiupdatebtnn{
-  background-color: green;
-  width: 80px;
-  height:28px;
-  color: #ffffff;
-  border:none;
-  border-radius:5px;
-}
-.thathiaddrepbtn{
-  height: 40px;
-  position: relative;
-  margin-left: 450px;
-  border: none;
-  border-radius: 10px;
-  color: #ffffff;
-  background-color: #da751c;
-  margin-bottom: 50px;
-  margin-top: -100px;
+width:600px;
+height:40px;
 }
 
+/* bottn */
+
+.thathideletebtnn{
+margin-left:10px;
+background-color: red;
+width: 80px;
+height:28px;
+color: #ffffff;
+border:none;
+border-radius:5px;
+}
+
+.thathiupdatebtnn{
+background-color: green;
+width: 80px;
+height:28px;
+color: #ffffff;
+border:none;
+border-radius:5px;
+}
+
+.thathiaddrepbtn{
+height: 40px;
+position: relative;
+margin-left: 450px;
+border: none;
+border-radius: 10px;
+color: #ffffff;
+background-color: #da751c;
+margin-bottom: 50px;
+margin-top: -100px;
+}
+
+.actioncontainerthathi{
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+.secondform{
+margin-left: 500px;
+
+}

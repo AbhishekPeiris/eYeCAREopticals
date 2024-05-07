@@ -60,7 +60,8 @@ router.route('/login').post(async (req, res) => {
                 address: user.address,
                 gender: user.gender,
                 contact: user.contact,
-                email: user.email
+                email: user.email,
+                role: user.role
             }
 
             return res.status(200).json({ status: "Login Success", loginUser});        
