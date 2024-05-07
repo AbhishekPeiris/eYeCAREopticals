@@ -107,7 +107,7 @@ function AddSpectacles() {
       
       <div>
       <div style={{ textAlign: 'center' }}>
-  <h4 style={{ marginTop: '100px' , marginBottom:'0px'}}><strong>Spectacle Details</strong></h4>
+  <h4 style={{ marginTop: '50px' , marginBottom:'0px'}}><strong>Spectacle Details</strong></h4>
   <Link to="/viewspectaclesdetails" style={{ textDecoration: 'none', marginLeft: '20px', display: 'inline-block' }}>
   <button style={{ 
   backgroundColor: 'orange', 
@@ -123,10 +123,10 @@ function AddSpectacles() {
 }}>View Spectacle Details</button>
 
           </Link>
-    </div>
+    </div><br/><br/>
    
 
-    <form onSubmit={AddSpectacles} className='addspec' style={{ marginLeft: '10px', border: '10px', borderColor: 'black'}}>
+    <form onSubmit={AddSpectacles} className='addspec' style={{ marginTop: '-60px', marginLeft: '10px', border: '10px', borderColor: 'black'}}>
 
       <div className="row">
       <div className="col-md-3">
@@ -145,12 +145,16 @@ function AddSpectacles() {
             </div>
 
             <div class="input-container">
-              <label>Type</label>
-              <input style={{width:"250px"}} type="text" placeholder="Enter Type " value={type} required
-                onChange={(e) => {
-                  settype(e.target.value);
-                }}
-              />
+            <label>Type</label>
+            <br/>
+          <select
+              value={type}
+              required
+              onChange={(e) => setstatus(e.target.value)}
+            >
+              <option value="Prescription Eyeglasses">Prescription Eyeglasses</option>
+              <option value="Sunglasses">Sunglasses</option>
+            </select>
             </div>
 
             
@@ -286,6 +290,14 @@ function AddSpectacles() {
               />
             </div>
 
+      
+
+            </div>
+            </div>
+
+            <div className="col-md-3">
+            <div class="form mb-5 mt-5">
+
             <div className="input-container">
         <label>Status</label>
             <br/>
@@ -293,20 +305,16 @@ function AddSpectacles() {
               value={status}
               required
               onChange={(e) => setstatus(e.target.value)}
+              style={{width:"210px"}}
             >
               <option value="In stock">In stock</option>
               <option value="Out of stock">Out of stock</option>
             </select>
         </div>
 
-            </div>
-            </div>
-
-            <div className="col-md-3">
-            <div class="form mb-5 mt-5">
             <div class="input-container">
-              <label>Image URL Colour</label>
-              <input style={{width:"20px"}} type="text" placeholder="Enter Image URL Color 01" value={imageurlcolor1} required
+              <label>Image URL</label><br/>
+              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL Color 01" value={imageurlcolor1} required
                 onChange={(e) => {
                   setimageurlcolor1(e.target.value);
                 }}
@@ -315,7 +323,7 @@ function AddSpectacles() {
 
 
             <div class="input-container">
-              <label>Image URL Color  </label>
+              <label>Image URL  </label>
               <input style={{width:"210px"}} type="text" placeholder="Enter Image URL Color 02" value={imageurlcolor2} required
                 onChange={(e) => {
                   setimageurlcolor2(e.target.value);
