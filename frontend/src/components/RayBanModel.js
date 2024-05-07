@@ -184,6 +184,11 @@ const RayBanModel = () => {
 
     async function onToken(token) {
 
+        if(!eyeglasscartID){
+            Swal.fire('Oops!',"Add your item to cart first", "error");
+            return;
+        }
+
         console.log(token);
 
         const newEyeglassReservation = {

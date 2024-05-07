@@ -129,7 +129,7 @@ const BookingScreen = () => {
         } catch (error) {
 
             console.log(error);
-            Swal.fire('Error', "Error with deleting reservation", 'error');
+            Swal.fire('Are you sure?', "Your are try to delete this reservation", 'warning');
             setLoading(false);
 
         }
@@ -143,9 +143,8 @@ const BookingScreen = () => {
     function handleDeleteBooking(brand,model){
         setBrand(brand);
         setModel(model);
-        handleShow();
-        console.log(brand);
-        console.log(model);
+        handleShow(brand,model);
+        
     }
 
     return (
@@ -226,7 +225,7 @@ const BookingScreen = () => {
                                                 <Modal.Footer>
                                                     <button
                                                         className="editUserbtn1"
-                                                        onClick={(e) => deleteBooking(reservationId)}
+                                                        onClick={(e) => deleteBooking(reservationId,brand,model)}
                                                     >
                                                         <span style={{ fontSize: "12px" }}>Delete my reservation</span>
                                                     </button>
