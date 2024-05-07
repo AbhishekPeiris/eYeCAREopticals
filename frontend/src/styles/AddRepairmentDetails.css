@@ -28,28 +28,32 @@
 }
 
 .addrfulltable{
+  
   border:1px solid black;
   border-radius: 10px;
   width:320px;
   padding-left: 5px;
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background: rgb(247, 213, 177);
-margin-left: 150px;
+  background: lightgoldenrodyellow;
+  margin-left: 90px;
   margin-top: 100px;
+  left: 100px;
   
 }
 
 .addrfulltable11{
+  position: relative;
   border:1px solid black;
   border-radius: 10px;
   width:320px;
   padding-left: 5px;
-margin-left: 200px;
+  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background: lightgoldenrodyellow;
 
-  margin-top: 100px;
+  margin-top: -500px;
+  
 
 
 }
@@ -206,6 +210,9 @@ margin-left: 200px;
   width:600px;
   height:40px;
 }
+
+/* bottn */
+
 .thathideletebtnn{
   margin-left:10px;
   background-color: red;
@@ -215,6 +222,7 @@ margin-left: 200px;
   border:none;
   border-radius:5px;
 }
+
 .thathiupdatebtnn{
   background-color: green;
   width: 80px;
@@ -223,6 +231,7 @@ margin-left: 200px;
   border:none;
   border-radius:5px;
 }
+
 .thathiaddrepbtn{
   height: 40px;
   position: relative;
@@ -235,3 +244,13 @@ margin-left: 200px;
   margin-top: -100px;
 }
 
+.actioncontainerthathi{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.secondform{
+  margin-left: 500px;
+  
+}
