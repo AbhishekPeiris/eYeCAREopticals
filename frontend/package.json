@@ -17,6 +17,8 @@
     "file-saver": "^2.0.5",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-calendar": "^4.8.0",
