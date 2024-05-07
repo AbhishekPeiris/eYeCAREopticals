@@ -54,7 +54,7 @@ function Sidebar() {
     ],
     [
       { Name: "Manage Hearing Aids", path: "/addhearingaidsscreen" },
-      { Name: "View Hearing Aids Details", path: "/viewdeafaidsdetails" },
+      { Name: "View Hearing Aids Details", path: "/vihanga" },
     ],
     [
       { Name: "Manage Doctor Details", path: "/adddoctor" },

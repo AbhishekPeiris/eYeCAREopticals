@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/AddDoctor.css";
 import { Link } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
 
 function AddDoctor() {
   const [firstname, setFirstname] = useState("");
@@ -85,10 +84,7 @@ function AddDoctor() {
 
           
       <div className="formcontent111">
-
-        <Sidebar />
-
-        <form className="form mb-5 mt-5 snchadddocform111" onSubmit={addDoctorDetails}>
+        <form className="form mb-5 mt-5 snchadddocform111" onSubmit={addDoctorDetails} style={{backgroundColor:"white"}}>
           <p className="form-title">Doctors Registration Form</p>
           <div className="displaytp">
             

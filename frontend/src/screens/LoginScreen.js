@@ -43,7 +43,16 @@ const LoginScreen = () => {
             if (data.status === "Login Success") {
                 localStorage.setItem('currentUser', JSON.stringify(data.loginUser));
                 console.log('User data stored in localStorage:', data.loginUser);
-                window.location.href = '/';
+
+                const user = JSON.parse(localStorage.getItem("currentUser"));
+                console.log(user.role);
+
+                if(user.role === "admin"){
+                    window.location.href = '/admindashboard';
+                }
+                else{
+                    window.location.href = '/';
+                }
             }
             else {
                 Swal.fire('Oops', "Your email or password is incorrect", "error");
@@ -69,7 +78,7 @@ const LoginScreen = () => {
                 <div>
                     <br /><br /><br />
                     <img src={loginImg} alt="Home cover" className='logpic' data-aos="fade-right" />
-                    <div class="container py-5 h-100">
+                    <div class="container py-5 h-100" style={{position:"relative",left:"300px"}}>
                         <div class="row d-flex justify-content-center align-items-center h-100">
                             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                                 <div class="card card2abhi" style={{ borderRadius: "1rem" }}>
