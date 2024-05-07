@@ -56,35 +56,10 @@ function ViewDoctorDetails() {
     }
   }
 
-
-  
-  return (
-    <div className="aftersidebar">
-      <Link to='/adddoctor' >
-      <button type="submit" className="submit112">
-              + Add Doctors
-            </button>
-            </Link>
-            
-      <div className="ttp1">
-        <label>
-          <b>Personal Details</b>
-        </label>
-      </div>
-
-      <div className="row">
-        <div className="col-md-1 border vddtable1">
-          <strong>
-            <p>First name</p>
-          </strong>
-        </div>
-
-        <div className="col-md-1 border vddtable2">
-          <strong>
-            <p>Last name</p>
-          </strong>
-        </div>
-
+  const generatePDF = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle: "eyeCAREoptical_reservation"
+});
 
   return (
     <div>
@@ -335,8 +310,7 @@ function ViewDoctorDetails() {
   </div>
 
       </div>
-    
-      
+  
     </div>
   );
 }

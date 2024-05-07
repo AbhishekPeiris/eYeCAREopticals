@@ -156,12 +156,19 @@ function AddSpectacles() {
             
 
             <div class="input-container">
-              <label>Brand</label>
-              <input type="text" placeholder="Enter Brand" value={brand} required
-                onChange={(e) => {
-                  setbrand(e.target.value);
-                }}
-              />
+            <label className='cd-control-label'>Brand</label>
+              <br />
+              <select
+                value={brand}
+                required
+                className='cd-form-control'
+                onChange={(e) => setbrand(e.target.value)}
+              >
+                <option value="Ray-Ban">Ray-Ban</option>
+                <option value="Che">Che</option>
+                <option value="Chenel">Chenel</option>
+                <option value="Tens">Tens</option>
+              </select>
             </div>
 
             
