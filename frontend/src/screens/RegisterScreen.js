@@ -170,7 +170,7 @@ const RegisterScreen = () => {
 
                                                 <div className="mb-3">
                                                     <label htmlFor="contact">Contact</label>
-                                                    <input type='tel' maxLength={10} id="contact" className="form-control inputregister" placeholder='Enter contact' value={contact} required 
+                                                    <input type='tel' maxLength={10} id="contact" className="form-control inputregister" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder='Enter contact' value={contact} required 
                                                         onChange={(e) => {
                                                             setContact(e.target.value);
                                                         }}
