@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import "../styles/cart.css";
 import Rating from 'react-rating-stars-component';
 import Loader from '../components/Loader';
+import { Divider, Flex, Tag } from 'antd';
 
 const CartScreen = () => {
 
@@ -53,6 +54,16 @@ const CartScreen = () => {
         }
     }
 
+    function shopnow(status,brand,model){
+        if (!(status === 'In stock')){
+            alert('This product is currently out of stock. Please check back later.');
+        }
+        else{
+            window.location.href = `/${brand}/${model}`;
+        }
+
+    }
+
     return (
         <div>
 
@@ -85,7 +96,8 @@ const CartScreen = () => {
                                                                         edit={false}
                                                                     />
                                                                     <br />
-                                                                    <Link to={`/${cart.brand}/${cart.model}`}><button className="btn cartviewbtn">View</button></Link>
+                                                                    {cart.status === 'In stock' ? (<Tag color="green">In stock</Tag>) : (<Tag color="red">Out of Stock</Tag>)}<br/><br/>
+                                                                    <button className="btn cartviewbtn" onClick={(e)=>{shopnow(cart.status,cart.brand,cart.model)}}>View</button>
                                                                     <button className="btn cartremovebtn" onClick={(e) => removeCart(cart._id)} >Remove</button>
                                                                 </p>
                                                             </div>

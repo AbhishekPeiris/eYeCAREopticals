@@ -73,7 +73,7 @@ function Doctor() {
           </div>
 
 
-          <Link to={`/patientdetails/${doctor.firstname}/${doctor.lastname}/${doctor.doctorfee}`}><button className='btn btn-primary apponow'>Appointment Now!</button></Link>
+          <Link to={`/patientdetails/${doctor.firstname}/${doctor.lastname}/${doctor.doctorfee}`}><button className='btn btn-primary apponow'>Appointment Now !</button></Link>
           <div className='row table_81'>
           </div>
 

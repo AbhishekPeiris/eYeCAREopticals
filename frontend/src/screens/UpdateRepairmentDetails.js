@@ -88,6 +88,9 @@ function UpdateRepairmentDetails() {
 
         }
     }
+
+    
+
   
   return (
     <div style={{marginLeft:'300px'}}>

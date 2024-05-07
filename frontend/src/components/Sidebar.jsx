@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CustomLink from "./structures/CustomeLink";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import logo from '../images/navbar_logo.png';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   const [activeLinks, setActiveLinks] = useState({
@@ -35,54 +37,63 @@ function Sidebar() {
     { Name: "Hearing Aids", path: "/hearingaids", id: 2 },
     { Name: "Doctors", path: "/doctors", id: 3 },
     { Name: "Appointments", path: "/appointments", id: 4 },
-    { Name: "Customer Details", path: "/customerDetails", id: 5 },
-    { Name: "Feedback", path: "/feedback", id: 6 },
+    { Name: "Customer Details", path: "/customer", id: 5 },
+
+    { Name: "Feedback", path: "/Adminfeedback", id: 6 },
+
   ];
 
   const SubLinks = [
     [
-      { Name: "Add Repairment", path: "/addrepairment" },
+      { Name: "Add Repairment", path: "/addrepairmentdetails" },
       { Name: "View Repairment Details", path: "/viewrepairmentdetails" },
     ],
     [
-      { Name: "Manage Spectacle Stock", path: "/managespectaclestock" },
-      { Name: "View Spectacle Details", path: "/viewspectacledetails" },
+      { Name: "Manage Spectacle Stock", path: "/addspectacles" },
+      { Name: "View Spectacle Details", path: "/viewspectaclesdetails" },
     ],
     [
-      { Name: "Manage Hearing Aids", path: "/managehearingaids" },
-      { Name: "View Hearing Aids Details", path: "/viewhearingaidsdetails" },
+      { Name: "Manage Hearing Aids", path: "/addhearingaidsscreen" },
+      { Name: "View Hearing Aids Details", path: "/viewdeafaidsdetails" },
     ],
     [
-      { Name: "Manage Doctor Details", path: "/managedoctordetails" },
+      { Name: "Manage Doctor Details", path: "/adddoctor" },
       { Name: "View Doctor Details", path: "/viewdoctordetails" },
     ],
-    [{ Name: "Doctor Appointment", path: "/doctorappointment" }],
+    [{ Name: "Doctor Appointment", path: "/viewdoctorappointment" }],
+
+    [
+      { Name: "Manage Customer Details", path: "/addcustomerdetails" },
+      { Name: "View Customer Details", path: "/viewcustomerdetails" },
+    ],
   ];
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" style={sidebarStyle}>
+      <Link to="/" className="navbar-brand"><img src={logo} alt="Logo" width={105} /></Link>
       <h1>
-        <span className="left">Admin</span>
-        <span className="right">Panel</span>
+        <span >Admin</span>
+        <span >Panel</span>
       </h1>
       <div className="navigationalLinks">
         <ul>
           {MainLinks.map((item) => (
-            <li key={item.id}>
-              <CustomLink Name={item.Name} path={item.path} />
+            <li key={item.id} style={listItemStyle}>
+              <CustomLink Name={item.Name} path={item.path} style={linkStyle} />
               {SubLinks[item.id] && (
                 <>
                   <button
                     type="button"
                     onClick={() => handleOnClick(`link${item.id}`)}
+                    style={buttonStyle}
                   >
-                    <span className="fas fa-chevron-down"></span>
+                    <span className="fas fa-chevron-down" style={iconStyle}></span>
                   </button>
                   {activeLinks[`link${item.id}`] && (
-                    <ul className="sublinks">
+                    <ul className="sublinks" style={sublistStyle}>
                       {SubLinks[item.id].map((subitem, index) => (
-                        <li key={index}>
-                          <CustomLink Name={subitem.Name} path={subitem.path} />
+                        <li key={index} style={sublistItemStyle}>
+                          <CustomLink Name={subitem.Name} path={subitem.path} style={sublinkStyle} />
                         </li>
                       ))}
                     </ul>
@@ -96,5 +107,45 @@ function Sidebar() {
     </div>
   );
 }
+
+const sidebarStyle = {
+  backgroundColor: "black",
+  color: "#fff",
+  padding: "20px",
+};
+
+const listItemStyle = {
+  marginBottom: "10px",
+};
+
+const linkStyle = {
+  color: "#fff !" ,
+  textDecoration: "none",
+};
+
+const buttonStyle = {
+  backgroundColor: "transparent",
+  border: "none",
+  cursor: "pointer",
+};
+
+const iconStyle = {
+  color: "#fff",
+};
+
+const sublistStyle = {
+  listStyleType: "none",
+  paddingLeft: "20px",
+  backgroundColor:"black"
+};
+
+const sublistItemStyle = {
+  marginBottom: "5px",
+};
+
+const sublinkStyle = {
+  color: "#ccc",
+  textDecoration: "none",
+};
 
 export default Sidebar;

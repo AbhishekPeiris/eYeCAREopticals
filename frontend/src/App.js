@@ -79,6 +79,8 @@ import ViewDefAidsvihanga from './screens/ViewDefAids_vihanga';
 
 
 
+
+
 function App() {
 
   const DefaultLayout = ({ children }) => (
@@ -116,6 +118,7 @@ function App() {
           <Route path='/:brand/:model' element={<DefaultLayout><RayBanModel /></DefaultLayout>} />
           <Route path='/addfeedback' element={<DefaultLayout><FeedbackScreen /></DefaultLayout>} />
           <Route path='/feedbackformScreen' element={<DefaultLayout><FeedbackFormScreen /></DefaultLayout>} />
+          <Route path='/FeedbackScreen' element={<DefaultLayout><feedbackScreen /></DefaultLayout>} />
 
           <Route path = "/:docID" element={<DefaultLayout>< Doctor/></DefaultLayout>} />
 

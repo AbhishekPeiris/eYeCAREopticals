@@ -75,6 +75,16 @@ function PatientDetailsForm() {
 
   }
 
+  function sumbmithadle(){
+ 
+    // Check if all required fields are filled
+    if (!firstname || !lastname || !date || !gender || !age || !contact || !address || !emergency) {
+      alert('Please fill in all required fields')
+      window.location.reload();
+    }
+    
+  }
+
   return (
     <div>
       <form>
@@ -121,20 +131,20 @@ function PatientDetailsForm() {
 
 
             <div style={{display:'flex'}}>
-            &nbsp;&nbsp; <label className="form-check-label" htmlFor="maleRadio"> Male</label>&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
             <input type="radio" id="maleRadio" name="gender" value="Male" required checked={gender === "Male"}
               onChange={(e) => {
                 setGender("Male");
               }}
-            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            />&nbsp;&nbsp;<label className="form-check-label" htmlFor="maleRadio"> Male</label>
            
 
-           <label className="form-check-label" htmlFor="femaleRadio">Female</label>&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;
             <input type="radio" id="femaleRadio" name="gender" value="Female" required checked={gender === "Female"}
               onChange={(e) => {
                 setGender("Female");
               }}
-            />&nbsp;&nbsp;
+            />&nbsp;&nbsp;<label className="form-check-label" htmlFor="femaleRadio">Female</label>
             </div>
            
 
@@ -184,7 +194,8 @@ function PatientDetailsForm() {
               currency='LKR'
               stripeKey="pk_test_51Nu7smDOmIYodrCji9U41paJjaMrcNBAi0HhO8DB5i0c0fXxABtjqL7GCZJxoSHMvBu8U2uymvDSKsZaAUGsbCpi000BhYzBG5"
             >
-              <button className='appointmentbtn' type="button">Appointment Now!</button>
+            
+              <button className='appointmentbtn' type="button" onClick={sumbmithadle}>Appointment Now!</button>
             </StripeCheckout>
             <br />
             <br />
