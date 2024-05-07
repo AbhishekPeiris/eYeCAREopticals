@@ -223,9 +223,9 @@ const RayBanModel = () => {
             );
             console.log(updateResponsecart.data);
 
-           // await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})    
+            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})    
             Swal.fire('Thank you!', "Your Reservation is Successfully", "success").then(result => {
-             // window.location.href = '/bookings';
+              window.location.href = '/bookings';
             });
             setLoading(false);
             
