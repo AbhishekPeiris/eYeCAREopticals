@@ -208,6 +208,8 @@ function AddCustomerDetails() {
           className="cd-form-control"
           type="tel"
           placeholder="Enter contact"
+          maxLength={10}
+          minLength={10}
           value={contact}
           onChange={(e) => {
             setContact(e.target.value);
