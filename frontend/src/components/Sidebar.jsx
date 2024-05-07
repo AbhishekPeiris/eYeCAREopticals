@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CustomLink from "./structures/CustomeLink";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import logo from '../images/navbar_logo.png';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   const [activeLinks, setActiveLinks] = useState({
@@ -35,7 +37,7 @@ function Sidebar() {
     { Name: "Hearing Aids", path: "/hearingaids", id: 2 },
     { Name: "Doctors", path: "/doctors", id: 3 },
     { Name: "Appointments", path: "/appointments", id: 4 },
-    { Name: "Customer Details", path: "/customerDetails", id: 5 },
+    { Name: "Customer Details", path: "/customer", id: 5 },
 
     { Name: "Feedback", path: "/Adminfeedback", id: 6 },
 
@@ -59,13 +61,19 @@ function Sidebar() {
       { Name: "View Doctor Details", path: "/viewdoctordetails" },
     ],
     [{ Name: "Doctor Appointment", path: "/viewdoctorappointment" }],
+
+    [
+      { Name: "Manage Customer Details", path: "/addcustomerdetails" },
+      { Name: "View Customer Details", path: "/viewcustomerdetails" },
+    ],
   ];
 
   return (
     <div className="sidebar" style={sidebarStyle}>
+      <Link to="/" className="navbar-brand"><img src={logo} alt="Logo" width={105} /></Link>
       <h1>
-        <span className="left">Admin</span>
-        <span className="right">Panel</span>
+        <span >Admin</span>
+        <span >Panel</span>
       </h1>
       <div className="navigationalLinks">
         <ul>
@@ -101,7 +109,7 @@ function Sidebar() {
 }
 
 const sidebarStyle = {
-  backgroundColor: "#f78623",
+  backgroundColor: "black",
   color: "#fff",
   padding: "20px",
 };
@@ -128,6 +136,7 @@ const iconStyle = {
 const sublistStyle = {
   listStyleType: "none",
   paddingLeft: "20px",
+  backgroundColor:"black"
 };
 
 const sublistItemStyle = {
