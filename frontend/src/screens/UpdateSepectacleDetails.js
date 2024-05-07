@@ -143,7 +143,7 @@ function UpdateSepectacleDetails() {
             </div>
 
             <div class="input-container">
-              <label>Type</label>
+              <label>Type</label><br/>
               <input type="text" placeholder="Enter Type " value={type} required
                 onChange={(e) => {
                   settype(e.target.value);
@@ -259,7 +259,7 @@ function UpdateSepectacleDetails() {
 
 
             <div class="input-container">
-              <label>Price</label>
+              <label>Price</label><br/>
               <input type="text" placeholder="Enter Price" value={price} required
                 onChange={(e) => {
                   setprice(e.target.value);

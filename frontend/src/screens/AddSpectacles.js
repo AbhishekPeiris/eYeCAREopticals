@@ -314,7 +314,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Image URL</label><br/>
-              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL Color 01" value={imageurlcolor1} required
+              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL " value={imageurlcolor1} required
                 onChange={(e) => {
                   setimageurlcolor1(e.target.value);
                 }}
@@ -324,7 +324,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Image URL  </label>
-              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL Color 02" value={imageurlcolor2} required
+              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL " value={imageurlcolor2} required
                 onChange={(e) => {
                   setimageurlcolor2(e.target.value);
                 }}
@@ -334,7 +334,7 @@ function AddSpectacles() {
 
             <div class="input-container">
               <label>Image URL</label>
-              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL Color 03" value={imageurlcolor3} required
+              <input style={{width:"210px"}} type="text" placeholder="Enter Image URL" value={imageurlcolor3} required
                 onChange={(e) => {
                   setimageurlcolor3(e.target.value);
                 }}
