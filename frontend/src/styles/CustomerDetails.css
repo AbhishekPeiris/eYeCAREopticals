@@ -19,7 +19,8 @@
 /* Form */
 .cd-form-group {
     margin-bottom: 15px;
-    padding: 10% 25%;
+    padding: 10px 50px;
+    min-width: 900px;
     background-image: linear-gradient(to right, rgb(172, 168, 168) , yellow);
   }
   
@@ -78,4 +79,8 @@
     display: flex;
     padding: 5px 10px;
     gap: 10px;
+  }
+
+  .bg-sidebar{
+    background-color: orange;
   }

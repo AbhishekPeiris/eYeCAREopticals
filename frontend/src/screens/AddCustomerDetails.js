@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "../styles/CustomerDetails.css";
+import Sidebar from "../components/Sidebar";
+import "../styles/AdminDashboard.css";
+
+
 
 function AddCustomerDetails() {
   const [firstname, setFirstname] = useState("");
@@ -24,35 +28,49 @@ function AddCustomerDetails() {
   const [errorpassword, setErrorPassword] = useState(false);
   const [errorrole, setErrorRole] = useState(false);
 
+  function resetErrors(){
+   
+    setErrorFirstname(false);
+    setErrorLastname(false);
+    setErrorDob(false);
+    setErrorAddress(false);
+    setErrorGender(false);
+    setErrorContact(false);
+    setErrorEmail(false);
+    setErrorPassword(false);
+    setErrorRole(false);
+
+  }
   function ValidateForm() {
     //reset previous error messages
-    
+
+    resetErrors();
     if (firstname.trim() === "") {
-      setErrorFirstname(true);
+      setErrorFirstname(false);
     }
     if (lastname.trim() === "") {
-      setErrorLastname(true);
+      setErrorLastname(false);
     }
     if (dob === "") {
-      setErrorDob(true);
+      setErrorDob(false);
     }
     if (address.trim() === "") {
-      setErrorAddress(true);
+      setErrorAddress(false);
     }
     if (gender === "") {
-      setErrorGender(true);
+      setErrorGender(false);
     }
     if (contact.trim() === "") {
-      setErrorContact(true);
+      setErrorContact(false);
     }
     if (email.trim() === "") {
-      setErrorEmail(true);
+      setErrorEmail(false);
     }
     if (password === "") {
-      setErrorPassword(true);
+      setErrorPassword(false);
     }
     if (role === "") {
-      setErrorRole(true);
+      setErrorRole(false);
     }
   }
 
@@ -114,9 +132,12 @@ function AddCustomerDetails() {
     }
   }
 
-  return (
+  return ( 
+    <div className="DashboardContainer bg-sidebar">
+      <Sidebar />
     <form onSubmit={UserRegister} className="cd-form-group">
-      <h2>Customer Registration</h2>
+      
+      <h2 className="">Customer Registration</h2>
       <br />
       <div className="mb-3">
         <label className="cd-control-label">First Name </label>
@@ -271,6 +292,7 @@ function AddCustomerDetails() {
         Submit
       </button>
     </form>
+    </div>
   );
 }
 
