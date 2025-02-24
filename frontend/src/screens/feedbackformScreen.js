@@ -90,7 +90,7 @@ function FeedbackFormScreen() {
     type="text"
     className="fd-form-control"
     maxLength="10" 
-    pattern="[0-9]{10}"
+    pattern="[0-9]{10}" 
     placeholder="Enter  contact number"
     required
     onChange={(e) => setContact(e.target.value)}

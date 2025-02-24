@@ -44,7 +44,10 @@ function AdminFeedback() {
   const filteredFeedback = feedback.filter((item) => {
     return (
       item.cusname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.email.toLowerCase().includes(searchTerm.toLowerCase())
+      item.email.toLowerCase().includes(searchTerm.toLowerCase()) 
+     
+
+
     );
   });
 
