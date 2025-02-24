@@ -1,0 +1,52 @@
+/* styles.css */
+
+/* Button styles */
+.pdf-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .pdf-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Table styles */
+  .table-container {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .table-header {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+  }
+  
+  .table-header > div {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .table-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table-row > div {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .table-row:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  

@@ -61,7 +61,7 @@
 
 
 .vddtable6{
-    width:150px;
+    width:140px;
     height:40px;
     text-align: center;
     background-color: moccasin;
@@ -73,7 +73,7 @@
     background-color: moccasin;
 }
 .vddtable8{
-    width:200px;
+    width:180px;
     height:40px;
     text-align: center;
     background-color: moccasin;
@@ -112,7 +112,7 @@
 
 
 .vddtable6d{
-    width:150px;
+    width:140px;
     height:40px;
     text-align: center;
 }
@@ -122,13 +122,13 @@
     text-align: center;
 }
 .vddtable8d{
-    width:200px;
+    width:180px;
     height:40px;
     text-align: center;
 }
 .vddtable9d{
     width:80px;
-    height:40px;
+    height:100px;
     text-align: center;
 }
 .vddtable10d{
@@ -247,4 +247,8 @@
 
 .aftersidebar{
     margin-left: 300px;
+}
+
+.alladmintable111{
+    margin-left:375px;
 }

@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Sidebar from '../components/Sidebar';
+import "../styles/AdminDashboard.css";
+import '../styles/newStyles.css';
+import { Link } from "react-router-dom";
+
+
 
 
 function AddSpectacles() {
@@ -91,16 +97,42 @@ function AddSpectacles() {
     }
   }
 
-
-
+  
+  
   return (
-    <div>
-      <form onSubmit={AddSpectacles} className='addsec'style={{marginLeft:'100px',border:'10px',borderColor:'black'}}>
+    <div className='container DashboardContainer'>
+      <Sidebar />
+      
+      
+      
+      <div>
+      <div style={{ textAlign: 'center' }}>
+  <h4 style={{ marginTop: '100px' , marginBottom:'0px'}}><strong>Spectacle Details</strong></h4>
+  <Link to="/viewspectaclesdetails" style={{ textDecoration: 'none', marginLeft: '20px', display: 'inline-block' }}>
+  <button style={{ 
+  backgroundColor: 'orange', 
+  color: 'white', 
+  padding: '10px 20px', 
+  borderRadius: '5px', 
+  border: 'none', 
+  cursor: 'pointer', 
+  position: 'absolute', 
+  top: '20px', 
+  right: '20px', 
+  zIndex: '1' /* Ensure the button is above other elements */
+}}>View Spectacle Details</button>
+
+          </Link>
+    </div>
+   
+
+    <form onSubmit={AddSpectacles} className='addspec' style={{ marginLeft: '10px', border: '10px', borderColor: 'black'}}>
+
       <div className="row">
       <div className="col-md-3">
           <div class="form mb-5 mt-5">
             <div style={{textAlign:'center'}}>
-            <h4 ><strong >Spectacle Details</strong></h4><br/> 
+
             </div>
 
             <div class="input-container">
@@ -295,12 +327,19 @@ function AddSpectacles() {
             </div>
 
 
-            <button type="submit" class="submit">Submit</button>
-            <button class="submit">Cancel</button>
           </div>
         </div>
       </div>
       </form>
+      
+      {/* Submit and Cancel buttons */}
+      <div style={{ position: 'absolute', bottom: '20px', right: '20px' }}>
+          <button onClick={AddSpectacles} style={{ backgroundColor: 'orange', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer', marginRight: '10px' }}>Submit</button>
+          <button style={{ backgroundColor: 'orange', color: 'white', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Cancel</button>
+        </div>
+      
+      
+      </div>
     </div>
   );
 }

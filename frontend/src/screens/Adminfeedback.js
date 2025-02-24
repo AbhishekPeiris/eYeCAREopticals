@@ -51,6 +51,7 @@ function AdminFeedback() {
     );
   });
 
+
   const downloadAsPDF = () => {
     const table = document.querySelector('.table617');
     html2canvas(table).then(canvas => {
@@ -78,6 +79,7 @@ function AdminFeedback() {
       })
       pdf.save('feedback-report.pdf');
     });
+
   };
 
   return (
@@ -92,7 +94,9 @@ function AdminFeedback() {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-bar617"
             />
+
             <button onClick={downloadAsPDF} className="download-button617">Download Report</button>
+
           </div>
           <table className="table617">
             <thead>

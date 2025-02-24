@@ -39,8 +39,10 @@ const RayBanModel = () => {
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
+    
 
     const [eyeglassID, seteyeglassID] = useState('');
+    const [eyeglasscartID, seteyeglasscartID] = useState('');
 
 
     useEffect(() => {
@@ -97,6 +99,23 @@ const RayBanModel = () => {
             }
     
             getCartItems();
+
+            async function getCartItem() {
+                try {
+                    setLoading(true);
+                    const response = await axios.post(`http://localhost:5000/api/cart/getallcartitems/${user.email}/${model}`);
+                    console.log(response.data.cart);
+                    const CartData = response.data.cart[0]; 
+                    seteyeglasscartID(CartData._id)
+                    console.log(CartData._id)
+                    setLoading(false);
+                } catch (error) {
+                    console.log(error);
+                    setLoading(false);
+                }
+            }
+    
+            getCartItem();
 
         }
         else{
@@ -165,6 +184,11 @@ const RayBanModel = () => {
 
     async function onToken(token) {
 
+        if(!eyeglasscartID){
+            Swal.fire('Oops!',"Add your item to cart first", "error");
+            return;
+        }
+
         console.log(token);
 
         const newEyeglassReservation = {
@@ -196,9 +220,17 @@ const RayBanModel = () => {
                 updateEyeglassStatus
             );
             console.log(updateResponse.data);
-            //await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})    
+            console.log(eyeglasscartID);
+
+            const updateResponsecart = await axios.put(
+                `http://localhost:5000/api/cart/updateyeglassstatuscart/${eyeglasscartID}`,
+                updateEyeglassStatus
+            );
+            console.log(updateResponsecart.data);
+
+            await axios.post('http://localhost:5000/api/sendemail/summery', {object : data, email : data.email})    
             Swal.fire('Thank you!', "Your Reservation is Successfully", "success").then(result => {
-              //window.location.href = '/bookings';
+              window.location.href = '/bookings';
             });
             setLoading(false);
             

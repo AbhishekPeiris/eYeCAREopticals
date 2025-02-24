@@ -131,20 +131,20 @@ function PatientDetailsForm() {
 
 
             <div style={{display:'flex'}}>
-            &nbsp;&nbsp; <label className="form-check-label" htmlFor="maleRadio"> Male</label>&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
             <input type="radio" id="maleRadio" name="gender" value="Male" required checked={gender === "Male"}
               onChange={(e) => {
                 setGender("Male");
               }}
-            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            />&nbsp;&nbsp;<label className="form-check-label" htmlFor="maleRadio"> Male</label>
            
 
-           <label className="form-check-label" htmlFor="femaleRadio">Female</label>&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;
             <input type="radio" id="femaleRadio" name="gender" value="Female" required checked={gender === "Female"}
               onChange={(e) => {
                 setGender("Female");
               }}
-            />&nbsp;&nbsp;
+            />&nbsp;&nbsp;<label className="form-check-label" htmlFor="femaleRadio">Female</label>
             </div>
            
 

@@ -81,9 +81,13 @@
 }
 .docappoibtn{
     background-color: #ff4500 !important;
+    border-radius: 5px !important;
     border: none !important;
     color: white !important;
-    height: 30px !important;
+    height: 40px !important;
+    width: 300px !important;
+    margin-left: 20px !important;
+    font-size: 18px !important;
 }
 
 .docappoibtn:hover{
@@ -95,6 +99,7 @@
     height: 140px !important;
     position: relative!important;
     margin-bottom: -300px !important;
+   
     
 }
 .doctable_2{

@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import "../styles/CustomerDetails.css";
+import Sidebar from "../components/Sidebar";
+import "../styles/AdminDashboard.css";
 
 function UpdateCustomerDetails() {
   const { userID } = useParams();
@@ -49,41 +52,6 @@ function UpdateCustomerDetails() {
   async function EditUser(e) {
     e.preventDefault();
 
-
-    const updateUser = {
-      _id: userID,
-      firstname,
-      lastname,
-      dob,
-      address,
-      gender,
-      contact,
-      email,
-      password,
-      role,
-    };
-
-    try {
-      const data = (
-        await axios.put(
-          `http://localhost:5000/api/manager/edituser/${userID}`,
-          updateUser
-        )
-      ).data;
-
-      Swal.fire(
-        "Updated",
-        "Your profile is updated successfully",
-        "success"
-      ).then((result) => {
-        window.location.href = "/viewcustomerdetails";
-      });
-    } catch (error) {
-      console.log(error);
-      Swal.fire("Error", "Error with updating user", "error");
-
-
-
       const updateUser = {
         _id: userID,
         firstname,
@@ -117,84 +85,91 @@ function UpdateCustomerDetails() {
 
       }
 
-    }
+    
   }
 
   return (
-    <div>
-      <form onChange={EditUser}>
-        <h4><strong>Customer Update Form</strong></h4><br />
-        <div className="input-container">
-          <label>First name</label><br />
-          <input type="text" placeholder="Enter first name " value={firstname} required
+     <div className="DashboardContainer bg-sidebar">
+      <Sidebar />
+      <form onSubmit={EditUser} className="cd-form-group">
+        <h2>Update Customer Details</h2><br />
+        <div className="mb-3">
+          <label className="cd-control-label">First Name</label><br />
+          <input type="text"  className="cd-form-control"
+          placeholder="Enter first name " value={firstname} required
             onChange={(e) => {
               setFirstname(e.target.value);
             }}
           />
         </div>
 
-        <div className="input-container">
-          <label>Last name </label><br />
-          <input type="text" placeholder="Enter last name" value={lastname} required
+        <div className="mb-3">
+          <label className="cd-control-label">Last Name </label><br />
+          <input type="text" className="cd-form-control" placeholder="Enter last name" value={lastname} required
             onChange={(e) => {
               setLastname(e.target.value);
             }}
           />
         </div>
 
-        <div className="input-container">
-          <label>Date of Birth</label><br />
-          <input type="date" placeholder="Enter Date of Birth" value={dob} required
+        <div className="mb-3">
+          <label className="cd-control-label">Date of Birth</label><br />
+          <input type="date" className="cd-form-control" placeholder="Enter Date of Birth" value={dob} required
             onChange={(e) => {
               setDob(e.target.value);
             }}
           />
         </div>
-        <div className="input-container">
-          <label>Address</label><br />
-          <input type="text" placeholder="Enter address" value={address} required
+        <div className="mb-3">
+          <label className="cd-control-label">Address</label><br />
+          <input type="text" className="cd-form-control" placeholder="Enter address" value={address} required
             onChange={(e) => {
               setAddress(e.target.value);
             }}
           />
         </div>
-        <div className="input-container">
-          <label>Gender</label><br />
-          <input type="text" placeholder="Enter gender" value={gender} required
-            onChange={(e) => {
-              setGender(e.target.value);
-            }}
-          />
-        </div>
-
-        <div className="input-container">
-          <label>Contact</label><br />
-          <input type="tel" placeholder="Enter contact" value={contact} required
+        <div className="mb-3">
+        <label className="cd-control-label">Gender</label>
+        <br />
+        <select 
+          className="cd-form-control"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <option value="">Select Your Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        
+      </div>
+        <div className="mb-3">
+          <label className="cd-control-label">Contact</label><br />
+          <input type="tel"  className="cd-form-control" placeholder="Enter contact" value={contact} required
             onChange={(e) => {
               setContact(e.target.value);
             }}
           />
         </div>
-        <div className="input-container">
-          <label>Email</label><br />
-          <input type="email" placeholder="Enter email" value={email} required
+        <div className="mb-3">
+          <label className="cd-control-label">Email</label><br />
+          <input type="email"  className="cd-form-control" placeholder="Enter email" value={email} required
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
         </div>
-        <div className="input-container">
-          <label>Password</label><br />
-          <input type="password" placeholder="Enter password" value={password} required
+        <div className="mb-3">
+          <label className="cd-control-label">Password</label><br />
+          <input type="password"  className="cd-form-control" placeholder="Enter password" value={password} required
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
         </div>
-        <div className="input-container">
-          <label>Role</label>
+        <div className="mb-3">
+          <label className="cd-control-label">Role</label>
           <br />
-          <select
+          <select  className="cd-form-control"
             value={role}
             required
             onChange={(e) => setRole(e.target.value)}
@@ -203,8 +178,8 @@ function UpdateCustomerDetails() {
             <option value="user">User</option>
           </select>
         </div>
-        <button type="submit" className="submit" style={{ width: "300px" }}>Submit</button>
-        <Link to='/viewcustomerdetails' ><button style={{ width: "300px" }} className="submit">Cancel</button></Link>
+        <button type="submit" className="submit">Submit</button>
+        <Link to='/viewcustomerdetails' ></Link>
       </form>
 
     </div>
